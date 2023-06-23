@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu May 18 16:10:30 2023
+-- Date        : Thu May 18 16:10:29 2023
 -- Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor/adquisidor.gen/sources_1/bd/system/ip/system_axi_bram_reader_1_0/system_axi_bram_reader_1_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axi_bram_reader_1_0 -prefix
+--               system_axi_bram_reader_1_0_ system_axi_bram_reader_1_0_sim_netlist.vhdl
 -- Design      : system_axi_bram_reader_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -32,8 +32,6 @@ entity system_axi_bram_reader_1_0_bram_reader_v1_0_S00_AXI is
     s00_axi_arvalid : in STD_LOGIC;
     s00_axi_rready : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_reader_1_0_bram_reader_v1_0_S00_AXI : entity is "bram_reader_v1_0_S00_AXI";
 end system_axi_bram_reader_1_0_bram_reader_v1_0_S00_AXI;
 
 architecture STRUCTURE of system_axi_bram_reader_1_0_bram_reader_v1_0_S00_AXI is
@@ -310,8 +308,6 @@ entity system_axi_bram_reader_1_0_axi_bram_reader_v1_0 is
     s00_axi_arvalid : in STD_LOGIC;
     s00_axi_rready : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_reader_1_0_axi_bram_reader_v1_0 : entity is "axi_bram_reader_v1_0";
 end system_axi_bram_reader_1_0_axi_bram_reader_v1_0;
 
 architecture STRUCTURE of system_axi_bram_reader_1_0_axi_bram_reader_v1_0 is

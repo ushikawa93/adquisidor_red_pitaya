@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_axis_red_pitaya_dac_0_0",
-    "cell_name": "axis_red_pitaya_dac_0",
+    "cell_name": "DAC/axis_red_pitaya_dac_0",
     "component_reference": "pavel-demin:user:axis_red_pitaya_dac:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_axis_red_pitaya_dac_0_0",
@@ -142,7 +142,7 @@ lve_type immediate dependency {} format string minimum {} maximum {}} value chan
             "FREQ_HZ": [ { "value": "250000000", "value_src": "ip_propagated", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_src": "ip_propagated", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "/clk_wiz_0_clk_out1", "value_src": "ip_propagated", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "/DAC/clk_wiz_0_clk_out1", "value_src": "ip_propagated", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_RESET": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],

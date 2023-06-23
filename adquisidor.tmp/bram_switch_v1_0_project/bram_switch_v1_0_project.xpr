@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="61" Path="c:/users/matioliva/documents/04-redpitaya/adquisidor/adquisidor/adquisidor.tmp/bram_switch_v1_0_project/bram_switch_v1_0_project.xpr">
+<Project Version="7" Minor="61" Path="c:/users/matioliva/documents/04-redpitaya/adquisidor/adquisidor_red_pitaya/adquisidor.tmp/bram_switch_v1_0_project/bram_switch_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="5c7e595707e6427eb936e1840768671b"/>
+    <Option Name="Id" Val="553fd5c8841f4a90ba2b2f5641e77e6e"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

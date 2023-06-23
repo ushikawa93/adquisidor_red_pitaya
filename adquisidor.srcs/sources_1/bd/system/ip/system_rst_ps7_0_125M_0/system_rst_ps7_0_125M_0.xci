@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_rst_ps7_0_125M_0",
-    "cell_name": "rst_ps7_0_125M",
+    "cell_name": "uP/rst_ps7_0_125M",
     "component_reference": "xilinx.com:ip:proc_sys_reset:5.0",
     "ip_revision": "13",
     "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0",

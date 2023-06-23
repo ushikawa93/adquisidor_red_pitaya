@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1684787618">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1686586881">
   <File Type="ROUTE-PWR" Name="system_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="BITSTR-MMI" Name="system_wrapper.mmi"/>
@@ -81,15 +81,6 @@
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/my_cores/signal_split.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/signal_split.v"/>
-        <Attr Name="ImportTime" Val="1682623500"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/my_cores/promedio_lineal.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/promedio_lineal.v"/>
@@ -99,10 +90,28 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/my_cores/bram_writer.v">
+    <File Path="$PSRCDIR/sources_1/imports/my_cores/signal_split.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/bram_writer.v"/>
-        <Attr Name="ImportTime" Val="1683564375"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/signal_split.v"/>
+        <Attr Name="ImportTime" Val="1682623500"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/my_cores/data_stream.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/data_stream.v"/>
+        <Attr Name="ImportTime" Val="1683564580"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/my_cores/coherent_average.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/coherent_average.v"/>
+        <Attr Name="ImportTime" Val="1685466187"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -126,11 +135,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/my_cores/data_stream.v">
+    <File Path="$PSRCDIR/sources_1/imports/my_cores/bram_writer.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/data_stream.v"/>
-        <Attr Name="ImportTime" Val="1683564580"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/bram_writer.v"/>
+        <Attr Name="ImportTime" Val="1683564375"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/buffer_circular.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -196,11 +213,9 @@
       <Option Id="BinFile">1</Option>
     </Step>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="system_util_ds_buf_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_reader_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_util_ds_buf_2_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_rst_ps7_0_125M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_blk_mem_gen_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_data_stream_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_coherent_average_0_0"/>
 </GenRun>
