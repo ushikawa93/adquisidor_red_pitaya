@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="61" Path="c:/users/matioliva/documents/04-redpitaya/adquisidor/adquisidor_red_pitaya/adquisidor.tmp/bram_switch_v1_0_project/bram_switch_v1_0_project.xpr">
+<Project Version="7" Minor="61" Path="c:/users/matioliva/documents/04-redpitaya/adquisidor_sin_trigger/adquisidor_red_pitaya/adquisidor.tmp/bram_switch_v1_0_project/bram_switch_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="553fd5c8841f4a90ba2b2f5641e77e6e"/>
+    <Option Name="Id" Val="868bdced63694319bfbc35154dfcd25c"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -48,6 +48,7 @@
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../../../../Users/MatiOliva/Documents/04-RedPitaya/utils/user_ip/cores"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../../../../Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/ip_repo"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
     <Option Name="IPCachePermission" Val="read"/>

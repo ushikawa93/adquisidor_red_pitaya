@@ -3,22 +3,19 @@ module coherent_average
 #(
   parameter integer DATA_WIDTH = 32,
   parameter integer ADDR_WIDTH = 16,
-  parameter integer MEMORY_SIZE = 65536,
-  parameter integer M = 125,
   parameter integer N_CA_WIDTH = 16,
   parameter integer M_WIDTH = 16
   )
 (
 	input wire						  clk,
-	input wire						  reset_n,
-	input wire                        enable,
-	
+	input wire						  reset_n,	
 	input wire                        user_reset,
+	
 	input wire	[DATA_WIDTH-1:0] 	  data,
 	input wire 						  data_valid,
 	output wire 					  finished,
 	
-	input wire [N_CA_WIDTH-1:0]        N_ca,
+	input wire [N_CA_WIDTH-1:0]        N_ca_in,
 	input wire [M_WIDTH-1:0]           M_in,
 	
 	// BRAM PORT A
@@ -67,6 +64,9 @@ parameter clean=0,calculate=1,finish=2;
 
 reg [M_WIDTH-1:0] M_reg;
     always @ (posedge clk)  M_reg <= M_in;
+    
+reg [N_CA_WIDTH-1:0] N_ca_reg;
+    always @ (posedge clk) N_ca_reg <= N_ca_in;
 
 // Asignaciones a las RAM
 assign bram_porta_clk = clk;
@@ -100,8 +100,8 @@ begin
 		wr_data <= 0;
 		wr_enable <= 0;
 		wr_enable_1 <= 0;
-		wr_enable_2 <= 1;
-		wr_enable_3 <= 1;
+		wr_enable_2 <= 0;
+		wr_enable_3 <= 0;
 		index <= 0;
 		index_1 <= 0;
 		index_2 <= 0;
@@ -136,12 +136,12 @@ begin
 	calculate:	
     begin
         if(data_valid)
-         begin
+        begin
             
             // FETCH
             data_reg <= data;
             data_vieja <= bram_portb_rddata;
-            index <= (index == M_reg-1) ? 0 : (index+1); //% M_reg;
+            index <= (index == M_reg-1) ? 0 : (index+1);
             wr_enable <= 1;
             averaged_cycles <= (index == M_reg-1) ? averaged_cycles+1: averaged_cycles;
                
@@ -163,10 +163,10 @@ begin
 			
 			// EXTRA 2
 			index_4 <= index_3;
-			state <= (averaged_cycles_2 == N_ca) ? finish : calculate;
-			
+			state <= (averaged_cycles_2 == N_ca_reg) ? finish : calculate;
+		
             
-         end
+        end
       end
       finish:
 	  begin		

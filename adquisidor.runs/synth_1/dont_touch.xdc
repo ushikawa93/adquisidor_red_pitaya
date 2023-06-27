@@ -80,16 +80,13 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_sign
 # IP: bd/system/ip/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_red_pitaya_adc_0_0 || ORIG_REF_NAME==system_axis_red_pitaya_adc_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_xlconstant_0_0/system_xlconstant_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlconstant_0_0 || ORIG_REF_NAME==system_xlconstant_0_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_data_stream_0_0/system_data_stream_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_data_stream_0_0 || ORIG_REF_NAME==system_data_stream_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_coherent_average_0_0 || ORIG_REF_NAME==system_coherent_average_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_2 || ORIG_REF_NAME==system_axi_gpio_0_2} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
 
-# XDC: c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/system_ooc.xdc
+# XDC: c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/system_ooc.xdc

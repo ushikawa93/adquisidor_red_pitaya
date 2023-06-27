@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Jun  7 19:20:24 2023
+// Date        : Mon Jun 26 18:22:06 2023
 // Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0_sim_netlist.v
+//               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0_sim_netlist.v
 // Design      : system_coherent_average_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -18,12 +18,11 @@
 module system_coherent_average_0_0
    (clk,
     reset_n,
-    enable,
     user_reset,
     data,
     data_valid,
     finished,
-    N_ca,
+    N_ca_in,
     M_in,
     bram_porta_clk,
     bram_porta_rst,
@@ -39,29 +38,28 @@ module system_coherent_average_0_0
     bram_portb_we);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset_n;
-  input enable;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 user_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME user_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input user_reset;
   input [31:0]data;
   input data_valid;
   output finished;
-  input [15:0]N_ca;
+  input [15:0]N_ca_in;
   input [15:0]M_in;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_porta_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_porta_clk, ASSOCIATED_RESET bram_porta_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_coherent_average_0_0_bram_porta_clk, INSERT_VIP 0" *) output bram_porta_clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_porta_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_porta_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output bram_porta_rst;
-  output [15:0]bram_porta_addr;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta CLK" *) output bram_porta_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta RST" *) output bram_porta_rst;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta ADDR" *) output [15:0]bram_porta_addr;
   output [31:0]bram_porta_wrdata;
   input [31:0]bram_porta_rddata;
-  output bram_porta_we;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_portb_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_portb_clk, ASSOCIATED_RESET bram_portb_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_coherent_average_0_0_bram_portb_clk, INSERT_VIP 0" *) output bram_portb_clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_portb_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_portb_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output bram_portb_rst;
-  output [15:0]bram_portb_addr;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta WE" *) output bram_porta_we;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb CLK" *) output bram_portb_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb RST" *) output bram_portb_rst;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb ADDR" *) output [15:0]bram_portb_addr;
   output [31:0]bram_portb_wrdata;
   input [31:0]bram_portb_rddata;
-  output bram_portb_we;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb WE" *) output bram_portb_we;
 
   wire \<const0> ;
   wire [15:0]M_in;
-  wire [15:0]N_ca;
+  wire [15:0]N_ca_in;
   wire [15:0]bram_porta_addr;
   wire bram_porta_we;
   wire [31:0]bram_porta_wrdata;
@@ -121,7 +119,7 @@ module system_coherent_average_0_0
   system_coherent_average_0_0_coherent_average inst
        (.D(bram_portb_addr[15:1]),
         .M_in(M_in),
-        .N_ca(N_ca),
+        .N_ca_in(N_ca_in),
         .bram_porta_addr(bram_porta_addr),
         .bram_porta_we(bram_porta_we),
         .bram_porta_wrdata(bram_porta_wrdata),
@@ -145,10 +143,10 @@ module system_coherent_average_0_0_coherent_average
     bram_porta_wrdata,
     clk,
     data_valid,
-    N_ca,
     user_reset,
     reset_n,
     M_in,
+    N_ca_in,
     bram_portb_rddata,
     data);
   output \index_reg[0]_0 ;
@@ -159,10 +157,10 @@ module system_coherent_average_0_0_coherent_average
   output [31:0]bram_porta_wrdata;
   input clk;
   input data_valid;
-  input [15:0]N_ca;
   input user_reset;
   input reset_n;
   input [15:0]M_in;
+  input [15:0]N_ca_in;
   input [31:0]bram_portb_rddata;
   input [31:0]data;
 
@@ -171,7 +169,8 @@ module system_coherent_average_0_0_coherent_average
   wire \FSM_sequential_state[1]_i_1_n_0 ;
   wire [15:0]M_in;
   wire [15:0]M_reg;
-  wire [15:0]N_ca;
+  wire [15:0]N_ca_in;
+  wire [15:0]N_ca_reg;
   wire averaged_cycles;
   wire \averaged_cycles[0]_i_2_n_0 ;
   wire [31:0]averaged_cycles_1;
@@ -703,6 +702,102 @@ module system_coherent_average_0_0_coherent_average
         .CE(1'b1),
         .D(M_in[9]),
         .Q(M_reg[9]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[0] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[0]),
+        .Q(N_ca_reg[0]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[10] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[10]),
+        .Q(N_ca_reg[10]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[11] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[11]),
+        .Q(N_ca_reg[11]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[12] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[12]),
+        .Q(N_ca_reg[12]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[13] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[13]),
+        .Q(N_ca_reg[13]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[14] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[14]),
+        .Q(N_ca_reg[14]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[15] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[15]),
+        .Q(N_ca_reg[15]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[1] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[1]),
+        .Q(N_ca_reg[1]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[2] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[2]),
+        .Q(N_ca_reg[2]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[3] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[3]),
+        .Q(N_ca_reg[3]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[4] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[4]),
+        .Q(N_ca_reg[4]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[5] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[5]),
+        .Q(N_ca_reg[5]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[6] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[6]),
+        .Q(N_ca_reg[6]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[7] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[7]),
+        .Q(N_ca_reg[7]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[8] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[8]),
+        .Q(N_ca_reg[8]),
+        .R(1'b0));
+  FDRE \N_ca_reg_reg[9] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(N_ca_in[9]),
+        .Q(N_ca_reg[9]),
         .R(1'b0));
   LUT1 #(
     .INIT(2'h1)) 
@@ -2920,7 +3015,7 @@ module system_coherent_average_0_0_coherent_average
     .INIT(16'h0009)) 
     state2_carry__0_i_3
        (.I0(averaged_cycles_2[15]),
-        .I1(N_ca[15]),
+        .I1(N_ca_reg[15]),
         .I2(averaged_cycles_2[17]),
         .I3(averaged_cycles_2[16]),
         .O(state2_carry__0_i_3_n_0));
@@ -2928,10 +3023,10 @@ module system_coherent_average_0_0_coherent_average
     .INIT(64'h9009000000009009)) 
     state2_carry__0_i_4
        (.I0(averaged_cycles_2[12]),
-        .I1(N_ca[12]),
-        .I2(N_ca[14]),
+        .I1(N_ca_reg[12]),
+        .I2(N_ca_reg[14]),
         .I3(averaged_cycles_2[14]),
-        .I4(N_ca[13]),
+        .I4(N_ca_reg[13]),
         .I5(averaged_cycles_2[13]),
         .O(state2_carry__0_i_4_n_0));
   CARRY4 state2_carry__1
@@ -2965,40 +3060,40 @@ module system_coherent_average_0_0_coherent_average
     .INIT(64'h9009000000009009)) 
     state2_carry_i_1
        (.I0(averaged_cycles_2[9]),
-        .I1(N_ca[9]),
-        .I2(N_ca[11]),
+        .I1(N_ca_reg[9]),
+        .I2(N_ca_reg[11]),
         .I3(averaged_cycles_2[11]),
-        .I4(N_ca[10]),
+        .I4(N_ca_reg[10]),
         .I5(averaged_cycles_2[10]),
         .O(state2_carry_i_1_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     state2_carry_i_2
        (.I0(averaged_cycles_2[6]),
-        .I1(N_ca[6]),
-        .I2(N_ca[8]),
+        .I1(N_ca_reg[6]),
+        .I2(N_ca_reg[8]),
         .I3(averaged_cycles_2[8]),
-        .I4(N_ca[7]),
+        .I4(N_ca_reg[7]),
         .I5(averaged_cycles_2[7]),
         .O(state2_carry_i_2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     state2_carry_i_3
        (.I0(averaged_cycles_2[3]),
-        .I1(N_ca[3]),
-        .I2(N_ca[5]),
+        .I1(N_ca_reg[3]),
+        .I2(N_ca_reg[5]),
         .I3(averaged_cycles_2[5]),
-        .I4(N_ca[4]),
+        .I4(N_ca_reg[4]),
         .I5(averaged_cycles_2[4]),
         .O(state2_carry_i_3_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     state2_carry_i_4
        (.I0(averaged_cycles_2[0]),
-        .I1(N_ca[0]),
-        .I2(N_ca[2]),
+        .I1(N_ca_reg[0]),
+        .I2(N_ca_reg[2]),
         .I3(averaged_cycles_2[2]),
-        .I4(N_ca[1]),
+        .I4(N_ca_reg[1]),
         .I5(averaged_cycles_2[1]),
         .O(state2_carry_i_4_n_0));
   LUT2 #(
@@ -3882,7 +3977,7 @@ module system_coherent_average_0_0_coherent_average
         .Q(wr_enable_1_reg_n_0),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFB2A282A2)) 
+    .INIT(64'h00000000B2A282A2)) 
     wr_enable_2_i_1
        (.I0(wr_enable_2_reg_n_0),
         .I1(state[1]),
@@ -4079,7 +4174,7 @@ module system_coherent_average_0_0_coherent_average
        (.I0(M_reg[1]),
         .O(wr_enable_32_carry_i_4_n_0));
   LUT2 #(
-    .INIT(4'hE)) 
+    .INIT(4'h2)) 
     wr_enable_3_i_1
        (.I0(wr_enable_3_i_2_n_0),
         .I1(\index_4[15]_i_1_n_0 ),

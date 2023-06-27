@@ -15,7 +15,7 @@ module promedio_lineal
 	output wire [DATA_OUT_WIDTH-1:0] 	  data_out,
 	output wire 					  data_out_valid,
 	
-	input wire [N_AVGD_SAMPLES_WIDTH-1:0]        N_averaged_samples                 
+	input wire [N_AVGD_SAMPLES_WIDTH-1:0]        N_averaged_samples
 
 );
 

@@ -52,18 +52,17 @@
 
 (* X_CORE_INFO = "coherent_average,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_coherent_average_0_0,coherent_average,{}" *)
-(* CORE_GENERATION_INFO = "system_coherent_average_0_0,coherent_average,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=coherent_average,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DATA_WIDTH=32,ADDR_WIDTH=16,MEMORY_SIZE=65536,M=125,N_CA_WIDTH=16,M_WIDTH=16}" *)
+(* CORE_GENERATION_INFO = "system_coherent_average_0_0,coherent_average,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=coherent_average,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DATA_WIDTH=32,ADDR_WIDTH=16,N_CA_WIDTH=16,M_WIDTH=16}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_coherent_average_0_0 (
   clk,
   reset_n,
-  enable,
   user_reset,
   data,
   data_valid,
   finished,
-  N_ca,
+  N_ca_in,
   M_in,
   bram_porta_clk,
   bram_porta_rst,
@@ -85,52 +84,48 @@ input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *)
 input wire reset_n;
-input wire enable;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME user_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 user_reset RST" *)
 input wire user_reset;
 input wire [31 : 0] data;
 input wire data_valid;
 output wire finished;
-input wire [15 : 0] N_ca;
+input wire [15 : 0] N_ca_in;
 input wire [15 : 0] M_in;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_porta_clk, ASSOCIATED_RESET bram_porta_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_coherent_average_0_0_bram_porta_clk, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_porta_clk CLK" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta CLK" *)
 output wire bram_porta_clk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_porta_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_porta_rst RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta RST" *)
 output wire bram_porta_rst;
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta ADDR" *)
 output wire [15 : 0] bram_porta_addr;
 output wire [31 : 0] bram_porta_wrdata;
 input wire [31 : 0] bram_porta_rddata;
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta WE" *)
 output wire bram_porta_we;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_portb_clk, ASSOCIATED_RESET bram_portb_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_coherent_average_0_0_bram_portb_clk, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_portb_clk CLK" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb CLK" *)
 output wire bram_portb_clk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_portb_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_portb_rst RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb RST" *)
 output wire bram_portb_rst;
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb ADDR" *)
 output wire [15 : 0] bram_portb_addr;
 output wire [31 : 0] bram_portb_wrdata;
 input wire [31 : 0] bram_portb_rddata;
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb WE" *)
 output wire bram_portb_we;
 
   coherent_average #(
     .DATA_WIDTH(32),
     .ADDR_WIDTH(16),
-    .MEMORY_SIZE(65536),
-    .M(125),
     .N_CA_WIDTH(16),
     .M_WIDTH(16)
   ) inst (
     .clk(clk),
     .reset_n(reset_n),
-    .enable(enable),
     .user_reset(user_reset),
     .data(data),
     .data_valid(data_valid),
     .finished(finished),
-    .N_ca(N_ca),
+    .N_ca_in(N_ca_in),
     .M_in(M_in),
     .bram_porta_clk(bram_porta_clk),
     .bram_porta_rst(bram_porta_rst),

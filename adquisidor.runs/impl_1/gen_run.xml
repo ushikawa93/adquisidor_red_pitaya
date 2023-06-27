@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1686586881">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1687816168">
   <File Type="ROUTE-PWR" Name="system_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="BITSTR-MMI" Name="system_wrapper.mmi"/>
@@ -99,15 +99,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/my_cores/data_stream.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/data_stream.v"/>
-        <Attr Name="ImportTime" Val="1683564580"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/my_cores/coherent_average.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/coherent_average.v"/>
@@ -130,6 +121,16 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../Led_blink_custom/tmp/Led_blink/Led_blink.gen/sources_1/bd/system/hdl/system_wrapper.v"/>
         <Attr Name="ImportTime" Val="1682371956"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/my_cores/data_stream.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../utils/user_ip/my_cores/data_stream.v"/>
+        <Attr Name="ImportTime" Val="1683564580"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -214,8 +215,7 @@
     </Step>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_blk_mem_gen_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_data_stream_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_promedio_lineal_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_coherent_average_0_0"/>
 </GenRun>
