@@ -114,7 +114,7 @@ int main(int argc, char **argv)
 	SetEnable(cfg);
 	inicio = clock();
 	
-		
+
 	// Espero a la señal de finzalizacion
 	while  ( getFinish(cfg) == 0 ) 
 	{

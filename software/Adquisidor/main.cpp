@@ -20,11 +20,11 @@ public:
     {
         factor_sobremuestreo = 1;
         frecuencia_clock =  125000000;
-        tam_buffer = 20000;
+        tam_buffer = 32768;
         frec_dac = 10;
         trigger_mode = 1;
-        trigger_level = 1000;
-        log2_divisor = 1;
+        trigger_level = 0;
+        log2_divisor = 0;
         ip = ip_;
     }
 
@@ -69,9 +69,9 @@ public:
 int main()
 {
     adquisidor_redp adquisidor("192.168.1.101");
-    int frec_obj = 50;
-    int ciclos_promediados = 100;
-    string nombre_archivo = "datos_nuevos3.dat";
+    int frec_obj = 23;
+    int ciclos_promediados = 256;
+    string nombre_archivo = "datos_con_driver_256.dat";
 
     adquisidor.adquirir(frec_obj,ciclos_promediados,nombre_archivo);
     return 0;
