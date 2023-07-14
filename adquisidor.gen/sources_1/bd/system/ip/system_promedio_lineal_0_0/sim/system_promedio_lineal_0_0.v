@@ -61,6 +61,7 @@ module system_promedio_lineal_0_0 (
   data_valid,
   data_out,
   data_out_valid,
+  log2_divisor,
   N_averaged_samples
 );
 
@@ -74,12 +75,13 @@ input wire [31 : 0] data;
 input wire data_valid;
 output wire [31 : 0] data_out;
 output wire data_out_valid;
-input wire [15 : 0] N_averaged_samples;
+input wire [31 : 0] log2_divisor;
+input wire [31 : 0] N_averaged_samples;
 
   promedio_lineal #(
     .DATA_IN_WIDTH(32),
     .DATA_OUT_WIDTH(32),
-    .N_AVGD_SAMPLES_WIDTH(16)
+    .N_AVGD_SAMPLES_WIDTH(32)
   ) inst (
     .clk(clk),
     .reset_n(reset_n),
@@ -87,6 +89,7 @@ input wire [15 : 0] N_averaged_samples;
     .data_valid(data_valid),
     .data_out(data_out),
     .data_out_valid(data_out_valid),
+    .log2_divisor(log2_divisor),
     .N_averaged_samples(N_averaged_samples)
   );
 endmodule

@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "promedio_lineal,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_promedio_lineal_0_0,promedio_lineal,{}" *)
-(* CORE_GENERATION_INFO = "system_promedio_lineal_0_0,promedio_lineal,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=promedio_lineal,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DATA_IN_WIDTH=32,DATA_OUT_WIDTH=32,N_AVGD_SAMPLES_WIDTH=16}" *)
+(* CORE_GENERATION_INFO = "system_promedio_lineal_0_0,promedio_lineal,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=promedio_lineal,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DATA_IN_WIDTH=32,DATA_OUT_WIDTH=32,N_AVGD_SAMPLES_WIDTH=32}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_promedio_lineal_0_0 (
@@ -62,6 +62,7 @@ module system_promedio_lineal_0_0 (
   data_valid,
   data_out,
   data_out_valid,
+  log2_divisor,
   N_averaged_samples
 );
 
@@ -75,12 +76,13 @@ input wire [31 : 0] data;
 input wire data_valid;
 output wire [31 : 0] data_out;
 output wire data_out_valid;
-input wire [15 : 0] N_averaged_samples;
+input wire [31 : 0] log2_divisor;
+input wire [31 : 0] N_averaged_samples;
 
   promedio_lineal #(
     .DATA_IN_WIDTH(32),
     .DATA_OUT_WIDTH(32),
-    .N_AVGD_SAMPLES_WIDTH(16)
+    .N_AVGD_SAMPLES_WIDTH(32)
   ) inst (
     .clk(clk),
     .reset_n(reset_n),
@@ -88,6 +90,7 @@ input wire [15 : 0] N_averaged_samples;
     .data_valid(data_valid),
     .data_out(data_out),
     .data_out_valid(data_out_valid),
+    .log2_divisor(log2_divisor),
     .N_averaged_samples(N_averaged_samples)
   );
 endmodule

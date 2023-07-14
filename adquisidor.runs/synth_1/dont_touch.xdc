@@ -14,9 +14,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util
 # IP: bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util_ds_buf_2_0 || ORIG_REF_NAME==system_util_ds_buf_2_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_promedio_lineal_0_0 || ORIG_REF_NAME==system_promedio_lineal_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_axis_red_pitaya_dac_0_0/system_axis_red_pitaya_dac_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis_red_pitaya_dac_0_0 || ORIG_REF_NAME==system_axis_red_pitaya_dac_0_0} -quiet] -quiet
 
@@ -41,9 +38,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlsl
 # IP: bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_0 || ORIG_REF_NAME==system_axi_gpio_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_1 || ORIG_REF_NAME==system_axi_gpio_0_1} -quiet] -quiet
-
 # IP: bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_1_0 || ORIG_REF_NAME==system_axi_gpio_1_0} -quiet] -quiet
 
@@ -52,6 +46,24 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlsl
 
 # IP: bd/system/ip/system_xlslice_0_1/system_xlslice_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlslice_0_1 || ORIG_REF_NAME==system_xlslice_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_2 || ORIG_REF_NAME==system_axi_gpio_0_2} -quiet] -quiet
+
+# IP: bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_1 || ORIG_REF_NAME==system_axi_gpio_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Control_and_Nca_0 || ORIG_REF_NAME==system_Control_and_Nca_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlslice_0_4/system_xlslice_0_4.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlslice_0_4 || ORIG_REF_NAME==system_xlslice_0_4} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlslice_0_5/system_xlslice_0_5.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlslice_0_5 || ORIG_REF_NAME==system_xlslice_0_5} -quiet] -quiet
+
+# IP: bd/system/ip/system_N_prom_lineal_0/system_N_prom_lineal_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_N_prom_lineal_0 || ORIG_REF_NAME==system_N_prom_lineal_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_processing_system7_0_0 || ORIG_REF_NAME==system_processing_system7_0_0} -quiet] -quiet
@@ -83,10 +95,34 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis
 # IP: bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_coherent_average_0_0 || ORIG_REF_NAME==system_coherent_average_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_2 || ORIG_REF_NAME==system_axi_gpio_0_2} -quiet] -quiet
+# IP: bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_trigger_simulator_0_0 || ORIG_REF_NAME==system_trigger_simulator_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_promedio_lineal_0_0 || ORIG_REF_NAME==system_promedio_lineal_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_coherent_average_0_1/system_coherent_average_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_coherent_average_0_1 || ORIG_REF_NAME==system_coherent_average_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_trigger_simulator_0_1/system_trigger_simulator_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_trigger_simulator_0_1 || ORIG_REF_NAME==system_trigger_simulator_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_promedio_lineal_0_1/system_promedio_lineal_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_promedio_lineal_0_1 || ORIG_REF_NAME==system_promedio_lineal_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_axi_bram_reader_1_1/system_axi_bram_reader_1_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_bram_reader_1_1 || ORIG_REF_NAME==system_axi_bram_reader_1_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_blk_mem_gen_1_1/system_blk_mem_gen_1_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_blk_mem_gen_1_1 || ORIG_REF_NAME==system_blk_mem_gen_1_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_bram_switch_0_1/system_bram_switch_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_bram_switch_0_1 || ORIG_REF_NAME==system_bram_switch_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_and_2_0_0/system_and_2_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_and_2_0_0 || ORIG_REF_NAME==system_and_2_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
 
-# XDC: c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/system_ooc.xdc
+# XDC: c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/system_ooc.xdc

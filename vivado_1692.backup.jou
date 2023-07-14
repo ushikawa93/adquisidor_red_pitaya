@@ -1,0 +1,137 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Jul 10 11:36:18 2023
+# Process ID: 1692
+# Current directory: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1652 C:\Users\MatiOliva\Documents\04-RedPitaya\adquisidor\adquisidor_red_pitaya\adquisidor.xpr
+# Log file: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/vivado.log
+# Journal file: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya\vivado.jou
+# Running On: DESKTOP-BRUHM76, OS: Windows, CPU Frequency: 3912 MHz, CPU Physical cores: 2, Host memory: 17041 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.xpr
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
+update_compile_order -fileset sources_1
+update_module_reference system_coherent_average_0_0
+connect_bd_net [get_bd_pins Procesamiento/M_in] [get_bd_pins Procesamiento/coherent_average_0/N_prom_lineal_in]
+undo
+connect_bd_net [get_bd_pins Procesamiento/N_averaged_samples] [get_bd_pins Procesamiento/coherent_average_0/N_prom_lineal_in]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_run impl_1
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
+update_module_reference system_coherent_average_0_0
+update_module_reference system_trigger_simulator_0_0
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property -dict [list \
+  CONFIG.CONST_VAL {500} \
+  CONFIG.CONST_WIDTH {32} \
+] [get_bd_cells xlconstant_0]
+update_module_reference system_trigger_simulator_0_0
+move_bd_cells [get_bd_cells Procesamiento] [get_bd_cells xlconstant_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property CONFIG.CONST_WIDTH {4} [get_bd_cells xlconstant_0]
+move_bd_cells [get_bd_cells Procesamiento] [get_bd_cells xlconstant_0]
+set_property name trigger_level [get_bd_cells Procesamiento/xlconstant_0]
+set_property name trigger_mode [get_bd_cells Procesamiento/xlconstant_1]
+connect_bd_net [get_bd_pins Procesamiento/trigger_level/dout] [get_bd_pins Procesamiento/trigger_simulator_0/trigger_level_in]
+connect_bd_net [get_bd_pins Procesamiento/trigger_mode/dout] [get_bd_pins Procesamiento/trigger_simulator_0/trigger_mode_in]
+update_module_reference system_trigger_simulator_0_0
+update_module_reference system_promedio_lineal_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+move_bd_cells [get_bd_cells /] [get_bd_cells Procesamiento/trigger_mode]
+move_bd_cells [get_bd_cells Procesamiento] [get_bd_cells trigger_mode]
+copy_bd_objs /  [get_bd_cells {uP_control/Control_and_Nca}]
+set_property name Trigger [get_bd_cells Control_and_Nca]
+move_bd_cells [get_bd_cells uP_control] [get_bd_cells Trigger]
+move_bd_cells [get_bd_cells /] [get_bd_cells uP_control/Trigger]
+move_bd_cells [get_bd_cells uP_control] [get_bd_cells Trigger]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0
+endgroup
+set_property location {2.5 1257 -1063} [get_bd_cells xlslice_0]
+set_property location {2.5 2735 -1084} [get_bd_cells xlslice_0]
+move_bd_cells [get_bd_cells uP_control] [get_bd_cells xlslice_0]
+move_bd_cells [get_bd_cells /] [get_bd_cells uP_control/xlslice_0]
+undo
+set_property -dict [list \
+  CONFIG.DIN_FROM {15} \
+  CONFIG.DIN_WIDTH {16} \
+] [get_bd_cells uP_control/xlslice_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0
+endgroup
+set_property -dict [list \
+  CONFIG.DIN_TO {15} \
+  CONFIG.DIN_WIDTH {32} \
+] [get_bd_cells xlslice_0]
+set_property CONFIG.DIN_FROM {31} [get_bd_cells xlslice_0]
+set_property CONFIG.DIN_TO {16} [get_bd_cells xlslice_0]
+set_property name trigger_mode [get_bd_cells uP_control/xlslice_0]
+set_property name trigger_level [get_bd_cells xlslice_0]
+move_bd_cells [get_bd_cells uP_control] [get_bd_cells trigger_level]
+connect_bd_net [get_bd_pins uP_control/Trigger/gpio_io_i] [get_bd_pins uP_control/trigger_mode/Din]
+connect_bd_net [get_bd_pins uP_control/trigger_level/Din] [get_bd_pins uP_control/Trigger/gpio_io_i]
+connect_bd_net [get_bd_pins uP_control/Trigger/gpio_io_o] [get_bd_pins uP_control/Trigger/gpio_io_i]
+delete_bd_objs [get_bd_nets Procesamiento/trigger_mode_dout] [get_bd_cells Procesamiento/trigger_mode]
+connect_bd_net [get_bd_pins Procesamiento/trigger_simulator_0/trigger_mode_in] [get_bd_pins uP_control/trigger_mode/Dout]
+delete_bd_objs [get_bd_nets Procesamiento/trigger_level_dout] [get_bd_cells Procesamiento/trigger_level]
+connect_bd_net [get_bd_pins Procesamiento/trigger_simulator_0/trigger_level_in] [get_bd_pins uP_control/trigger_level/Dout]
+delete_bd_objs [get_bd_nets uP_control/Net5]
+connect_bd_net [get_bd_pins uP_control/Trigger/gpio_io_i] [get_bd_pins uP_control/trigger_mode/Din]
+connect_bd_net [get_bd_pins uP_control/Trigger/gpio_io_o] [get_bd_pins uP_control/Trigger/gpio_io_i]
+connect_bd_net [get_bd_pins uP_control/trigger_level/Din] [get_bd_pins uP_control/Trigger/gpio_io_o]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto}}  [get_bd_intf_pins uP_control/K/GPIO2]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto}}  [get_bd_intf_pins uP_control/Trigger/GPIO2]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/uP/processing_system7_0/FCLK_CLK0 (125 MHz)} Clk_slave {Auto} Clk_xbar {/uP/processing_system7_0/FCLK_CLK0 (125 MHz)} Master {/uP/processing_system7_0/M_AXI_GP0} Slave {/uP_control/Trigger/S_AXI} ddr_seg {Auto} intc_ip {/uP/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins uP_control/Trigger/S_AXI]
+endgroup
+delete_bd_objs [get_bd_intf_nets uP_control_gpio_rtl_1]
+delete_bd_objs [get_bd_intf_nets uP_control/Conn2]
+delete_bd_objs [get_bd_intf_nets uP_control/Conn1]
+save_bd_design
+delete_bd_objs [get_bd_intf_pins uP_control/gpio_rtl_0]
+delete_bd_objs [get_bd_intf_pins uP_control/gpio_rtl_1]
+delete_bd_objs [get_bd_intf_nets uP_control_gpio_rtl_2]
+delete_bd_objs [get_bd_intf_pins uP_control/gpio_rtl_2]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+copy_bd_objs /  [get_bd_cells {uP_control/N_prom_lineal}]
+move_bd_cells [get_bd_cells uP_control] [get_bd_cells N_prom_lineal]
+move_bd_cells [get_bd_cells /] [get_bd_cells uP_control/N_prom_lineal_1]
+move_bd_cells [get_bd_cells uP_control] [get_bd_cells N_prom_lineal_1]
+set_property name divisor [get_bd_cells uP_control/N_prom_lineal_1]
+connect_bd_net [get_bd_pins uP_control/K/gpio2_io_i] [get_bd_pins uP_control/divisor/Din]
+connect_bd_net [get_bd_pins uP_control/K/gpio2_io_o] [get_bd_pins uP_control/K/gpio2_io_i]
+update_module_reference system_promedio_lineal_0_0
+set_property name log2_divisor [get_bd_cells uP_control/divisor]
+connect_bd_net [get_bd_pins Procesamiento/promedio_lineal_0/log2_divisor] [get_bd_pins uP_control/log2_divisor/Dout]
+save_bd_design
+set_property name K_and_log2div [get_bd_cells uP_control/K]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+update_module_reference system_trigger_simulator_0_0
+update_module_reference system_promedio_lineal_0_0
+connect_bd_net [get_bd_pins Procesamiento/log2_divisor] [get_bd_pins Procesamiento/trigger_simulator_0/log2_div_in]
+reset_run synth_1
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1

@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "system_processing_system7_0_0_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
@@ -87,7 +86,10 @@ set_property parent.project_path C:/Users/MatiOliva/Documents/04-RedPitaya/adqui
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths c:/Users/MatiOliva/Documents/04-RedPitaya/utils/user_ip/cores [current_project]
+set_property ip_repo_paths {
+  c:/Users/MatiOliva/Documents/04-RedPitaya/utils/user_ip/cores
+  c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/ip_repo
+} [current_project]
 update_ip_catalog
 set_property ip_output_repo c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1689365558 source:c:\users\matioliva\documents\04-redpitaya\utils\adquisidor\main.cpp
+	<iostream>
+	<sstream>
+
+1689365612 source:c:\users\matioliva\documents\04-redpitaya\adquisidor\adquisidor_red_pitaya\software\adquisidor\main.cpp
+	<iostream>
+	<sstream>
+

@@ -10,13 +10,13 @@
       "component_parameters": {
         "DATA_IN_WIDTH": [ { "value": "32", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "DATA_OUT_WIDTH": [ { "value": "32", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "N_AVGD_SAMPLES_WIDTH": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "N_AVGD_SAMPLES_WIDTH": [ { "value": "32", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "system_promedio_lineal_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "DATA_IN_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "DATA_OUT_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "N_AVGD_SAMPLES_WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+        "N_AVGD_SAMPLES_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],
@@ -52,7 +52,8 @@
         "data_valid": [ { "direction": "in" } ],
         "data_out": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
         "data_out_valid": [ { "direction": "out" } ],
-        "N_averaged_samples": [ { "direction": "in", "size_left": "15", "size_right": "0" } ]
+        "log2_divisor": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "N_averaged_samples": [ { "direction": "in", "size_left": "31", "size_right": "0" } ]
       },
       "interfaces": {
         "reset_n": {

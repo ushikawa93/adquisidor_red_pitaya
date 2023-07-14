@@ -52,18 +52,19 @@
 
 (* X_CORE_INFO = "coherent_average,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_coherent_average_0_0,coherent_average,{}" *)
-(* CORE_GENERATION_INFO = "system_coherent_average_0_0,coherent_average,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=coherent_average,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DATA_WIDTH=32,ADDR_WIDTH=16,N_CA_WIDTH=16,M_WIDTH=16}" *)
+(* CORE_GENERATION_INFO = "system_coherent_average_0_0,coherent_average,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=coherent_average,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DATA_WIDTH=32,ADDR_WIDTH=16,N_CA_WIDTH=32,RAM_SIZE=32768,M_WIDTH=16}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_coherent_average_0_0 (
   clk,
   reset_n,
   user_reset,
+  trigger,
   data,
   data_valid,
   finished,
   N_ca_in,
-  M_in,
+  N_prom_lineal_in,
   bram_porta_clk,
   bram_porta_rst,
   bram_porta_addr,
@@ -87,11 +88,12 @@ input wire reset_n;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME user_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 user_reset RST" *)
 input wire user_reset;
+input wire trigger;
 input wire [31 : 0] data;
 input wire data_valid;
 output wire finished;
-input wire [15 : 0] N_ca_in;
-input wire [15 : 0] M_in;
+input wire [31 : 0] N_ca_in;
+input wire [31 : 0] N_prom_lineal_in;
 (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta CLK" *)
 output wire bram_porta_clk;
 (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta RST" *)
@@ -116,17 +118,19 @@ output wire bram_portb_we;
   coherent_average #(
     .DATA_WIDTH(32),
     .ADDR_WIDTH(16),
-    .N_CA_WIDTH(16),
+    .N_CA_WIDTH(32),
+    .RAM_SIZE(32768),
     .M_WIDTH(16)
   ) inst (
     .clk(clk),
     .reset_n(reset_n),
     .user_reset(user_reset),
+    .trigger(trigger),
     .data(data),
     .data_valid(data_valid),
     .finished(finished),
     .N_ca_in(N_ca_in),
-    .M_in(M_in),
+    .N_prom_lineal_in(N_prom_lineal_in),
     .bram_porta_clk(bram_porta_clk),
     .bram_porta_rst(bram_porta_rst),
     .bram_porta_addr(bram_porta_addr),

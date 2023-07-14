@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Jun 26 17:19:23 2023
+-- Date        : Mon Jul 10 14:49:39 2023
 -- Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0_sim_netlist.vhdl
+--               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0_sim_netlist.vhdl
 -- Design      : system_promedio_lineal_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -18,22 +18,24 @@ entity system_promedio_lineal_0_0_promedio_lineal is
   port (
     data_out : out STD_LOGIC_VECTOR ( 31 downto 0 );
     data_out_valid : out STD_LOGIC;
-    N_averaged_samples : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    clk : in STD_LOGIC;
     data_valid : in STD_LOGIC;
-    data : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    reset_n : in STD_LOGIC
+    reset_n : in STD_LOGIC;
+    log2_divisor : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    N_averaged_samples : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    clk : in STD_LOGIC;
+    data : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_promedio_lineal_0_0_promedio_lineal : entity is "promedio_lineal";
 end system_promedio_lineal_0_0_promedio_lineal;
 
 architecture STRUCTURE of system_promedio_lineal_0_0_promedio_lineal is
-  signal N : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal N : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \counter[0]_i_2_n_0\ : STD_LOGIC;
   signal \counter[0]_i_3_n_0\ : STD_LOGIC;
   signal \counter[0]_i_4_n_0\ : STD_LOGIC;
   signal \counter[0]_i_5_n_0\ : STD_LOGIC;
+  signal \counter[0]_i_6_n_0\ : STD_LOGIC;
   signal \counter[12]_i_2_n_0\ : STD_LOGIC;
   signal \counter[12]_i_3_n_0\ : STD_LOGIC;
   signal \counter[12]_i_4_n_0\ : STD_LOGIC;
@@ -126,7 +128,106 @@ architecture STRUCTURE of system_promedio_lineal_0_0_promedio_lineal is
   signal \counter_reg[8]_i_1_n_5\ : STD_LOGIC;
   signal \counter_reg[8]_i_1_n_6\ : STD_LOGIC;
   signal \counter_reg[8]_i_1_n_7\ : STD_LOGIC;
-  signal \^data_out\ : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal data_out_reg : STD_LOGIC;
+  signal \data_out_reg[0]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[0]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[0]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[0]_i_4_n_0\ : STD_LOGIC;
+  signal \data_out_reg[10]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[10]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[10]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[11]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[11]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[11]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[12]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[12]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[12]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[13]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[13]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[13]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[14]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[14]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[14]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[15]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[15]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[15]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[16]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[16]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[16]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[16]_i_4_n_0\ : STD_LOGIC;
+  signal \data_out_reg[17]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[17]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[17]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[17]_i_4_n_0\ : STD_LOGIC;
+  signal \data_out_reg[18]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[18]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[18]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[18]_i_4_n_0\ : STD_LOGIC;
+  signal \data_out_reg[19]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[19]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[19]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[19]_i_4_n_0\ : STD_LOGIC;
+  signal \data_out_reg[1]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[1]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[1]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[20]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[20]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[21]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[21]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[22]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[22]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[23]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[23]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[24]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[24]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[24]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[25]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[25]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[25]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[26]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[26]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[27]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[27]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[28]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[28]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[29]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[29]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[2]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[2]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[2]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[30]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[30]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[30]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_10_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_4_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_5_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_6_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_7_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_8_n_0\ : STD_LOGIC;
+  signal \data_out_reg[31]_i_9_n_0\ : STD_LOGIC;
+  signal \data_out_reg[3]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[3]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[3]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[4]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[4]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[4]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[5]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[5]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[5]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[6]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[6]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[6]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[7]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[7]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[7]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[8]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[8]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[8]_i_3_n_0\ : STD_LOGIC;
+  signal \data_out_reg[9]_i_1_n_0\ : STD_LOGIC;
+  signal \data_out_reg[9]_i_2_n_0\ : STD_LOGIC;
+  signal \data_out_reg[9]_i_3_n_0\ : STD_LOGIC;
   signal \data_out_valid_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \data_out_valid_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \data_out_valid_carry__0_i_3_n_0\ : STD_LOGIC;
@@ -148,7 +249,6 @@ architecture STRUCTURE of system_promedio_lineal_0_0_promedio_lineal is
   signal data_out_valid_carry_n_1 : STD_LOGIC;
   signal data_out_valid_carry_n_2 : STD_LOGIC;
   signal data_out_valid_carry_n_3 : STD_LOGIC;
-  signal promedio1 : STD_LOGIC;
   signal \promedio1_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \promedio1_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \promedio1_carry__0_i_3_n_0\ : STD_LOGIC;
@@ -165,6 +265,10 @@ architecture STRUCTURE of system_promedio_lineal_0_0_promedio_lineal is
   signal \promedio1_carry__1_i_2_n_0\ : STD_LOGIC;
   signal \promedio1_carry__1_i_3_n_0\ : STD_LOGIC;
   signal \promedio1_carry__1_i_4_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__1_i_5_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__1_i_6_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__1_i_7_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__1_i_8_n_0\ : STD_LOGIC;
   signal \promedio1_carry__1_n_0\ : STD_LOGIC;
   signal \promedio1_carry__1_n_1\ : STD_LOGIC;
   signal \promedio1_carry__1_n_2\ : STD_LOGIC;
@@ -173,6 +277,11 @@ architecture STRUCTURE of system_promedio_lineal_0_0_promedio_lineal is
   signal \promedio1_carry__2_i_2_n_0\ : STD_LOGIC;
   signal \promedio1_carry__2_i_3_n_0\ : STD_LOGIC;
   signal \promedio1_carry__2_i_4_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__2_i_5_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__2_i_6_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__2_i_7_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__2_i_8_n_0\ : STD_LOGIC;
+  signal \promedio1_carry__2_n_0\ : STD_LOGIC;
   signal \promedio1_carry__2_n_1\ : STD_LOGIC;
   signal \promedio1_carry__2_n_2\ : STD_LOGIC;
   signal \promedio1_carry__2_n_3\ : STD_LOGIC;
@@ -188,102 +297,102 @@ architecture STRUCTURE of system_promedio_lineal_0_0_promedio_lineal is
   signal promedio1_carry_n_1 : STD_LOGIC;
   signal promedio1_carry_n_2 : STD_LOGIC;
   signal promedio1_carry_n_3 : STD_LOGIC;
-  signal \promedio[11]_i_2_n_0\ : STD_LOGIC;
-  signal \promedio[11]_i_3_n_0\ : STD_LOGIC;
-  signal \promedio[11]_i_4_n_0\ : STD_LOGIC;
-  signal \promedio[11]_i_5_n_0\ : STD_LOGIC;
-  signal \promedio[15]_i_2_n_0\ : STD_LOGIC;
-  signal \promedio[15]_i_3_n_0\ : STD_LOGIC;
-  signal \promedio[15]_i_4_n_0\ : STD_LOGIC;
-  signal \promedio[15]_i_5_n_0\ : STD_LOGIC;
-  signal \promedio[19]_i_2_n_0\ : STD_LOGIC;
-  signal \promedio[19]_i_3_n_0\ : STD_LOGIC;
-  signal \promedio[19]_i_4_n_0\ : STD_LOGIC;
-  signal \promedio[19]_i_5_n_0\ : STD_LOGIC;
-  signal \promedio[23]_i_2_n_0\ : STD_LOGIC;
-  signal \promedio[23]_i_3_n_0\ : STD_LOGIC;
-  signal \promedio[23]_i_4_n_0\ : STD_LOGIC;
-  signal \promedio[23]_i_5_n_0\ : STD_LOGIC;
-  signal \promedio[27]_i_2_n_0\ : STD_LOGIC;
-  signal \promedio[27]_i_3_n_0\ : STD_LOGIC;
-  signal \promedio[27]_i_4_n_0\ : STD_LOGIC;
-  signal \promedio[27]_i_5_n_0\ : STD_LOGIC;
-  signal \promedio[31]_i_2_n_0\ : STD_LOGIC;
-  signal \promedio[31]_i_3_n_0\ : STD_LOGIC;
-  signal \promedio[31]_i_4_n_0\ : STD_LOGIC;
-  signal \promedio[31]_i_5_n_0\ : STD_LOGIC;
-  signal \promedio[31]_i_6_n_0\ : STD_LOGIC;
-  signal \promedio[3]_i_2_n_0\ : STD_LOGIC;
-  signal \promedio[3]_i_3_n_0\ : STD_LOGIC;
-  signal \promedio[3]_i_4_n_0\ : STD_LOGIC;
-  signal \promedio[3]_i_5_n_0\ : STD_LOGIC;
-  signal \promedio[7]_i_2_n_0\ : STD_LOGIC;
-  signal \promedio[7]_i_3_n_0\ : STD_LOGIC;
-  signal \promedio[7]_i_4_n_0\ : STD_LOGIC;
-  signal \promedio[7]_i_5_n_0\ : STD_LOGIC;
-  signal \promedio_reg[11]_i_1_n_0\ : STD_LOGIC;
-  signal \promedio_reg[11]_i_1_n_1\ : STD_LOGIC;
-  signal \promedio_reg[11]_i_1_n_2\ : STD_LOGIC;
-  signal \promedio_reg[11]_i_1_n_3\ : STD_LOGIC;
-  signal \promedio_reg[11]_i_1_n_4\ : STD_LOGIC;
-  signal \promedio_reg[11]_i_1_n_5\ : STD_LOGIC;
-  signal \promedio_reg[11]_i_1_n_6\ : STD_LOGIC;
-  signal \promedio_reg[11]_i_1_n_7\ : STD_LOGIC;
-  signal \promedio_reg[15]_i_1_n_0\ : STD_LOGIC;
-  signal \promedio_reg[15]_i_1_n_1\ : STD_LOGIC;
-  signal \promedio_reg[15]_i_1_n_2\ : STD_LOGIC;
-  signal \promedio_reg[15]_i_1_n_3\ : STD_LOGIC;
-  signal \promedio_reg[15]_i_1_n_4\ : STD_LOGIC;
-  signal \promedio_reg[15]_i_1_n_5\ : STD_LOGIC;
-  signal \promedio_reg[15]_i_1_n_6\ : STD_LOGIC;
-  signal \promedio_reg[15]_i_1_n_7\ : STD_LOGIC;
-  signal \promedio_reg[19]_i_1_n_0\ : STD_LOGIC;
-  signal \promedio_reg[19]_i_1_n_1\ : STD_LOGIC;
-  signal \promedio_reg[19]_i_1_n_2\ : STD_LOGIC;
-  signal \promedio_reg[19]_i_1_n_3\ : STD_LOGIC;
-  signal \promedio_reg[19]_i_1_n_4\ : STD_LOGIC;
-  signal \promedio_reg[19]_i_1_n_5\ : STD_LOGIC;
-  signal \promedio_reg[19]_i_1_n_6\ : STD_LOGIC;
-  signal \promedio_reg[19]_i_1_n_7\ : STD_LOGIC;
-  signal \promedio_reg[23]_i_1_n_0\ : STD_LOGIC;
-  signal \promedio_reg[23]_i_1_n_1\ : STD_LOGIC;
-  signal \promedio_reg[23]_i_1_n_2\ : STD_LOGIC;
-  signal \promedio_reg[23]_i_1_n_3\ : STD_LOGIC;
-  signal \promedio_reg[23]_i_1_n_4\ : STD_LOGIC;
-  signal \promedio_reg[23]_i_1_n_5\ : STD_LOGIC;
-  signal \promedio_reg[23]_i_1_n_6\ : STD_LOGIC;
-  signal \promedio_reg[23]_i_1_n_7\ : STD_LOGIC;
-  signal \promedio_reg[27]_i_1_n_0\ : STD_LOGIC;
-  signal \promedio_reg[27]_i_1_n_1\ : STD_LOGIC;
-  signal \promedio_reg[27]_i_1_n_2\ : STD_LOGIC;
-  signal \promedio_reg[27]_i_1_n_3\ : STD_LOGIC;
-  signal \promedio_reg[27]_i_1_n_4\ : STD_LOGIC;
-  signal \promedio_reg[27]_i_1_n_5\ : STD_LOGIC;
-  signal \promedio_reg[27]_i_1_n_6\ : STD_LOGIC;
-  signal \promedio_reg[27]_i_1_n_7\ : STD_LOGIC;
-  signal \promedio_reg[31]_i_1_n_1\ : STD_LOGIC;
-  signal \promedio_reg[31]_i_1_n_2\ : STD_LOGIC;
-  signal \promedio_reg[31]_i_1_n_3\ : STD_LOGIC;
-  signal \promedio_reg[31]_i_1_n_4\ : STD_LOGIC;
-  signal \promedio_reg[31]_i_1_n_5\ : STD_LOGIC;
-  signal \promedio_reg[31]_i_1_n_6\ : STD_LOGIC;
-  signal \promedio_reg[31]_i_1_n_7\ : STD_LOGIC;
-  signal \promedio_reg[3]_i_1_n_0\ : STD_LOGIC;
-  signal \promedio_reg[3]_i_1_n_1\ : STD_LOGIC;
-  signal \promedio_reg[3]_i_1_n_2\ : STD_LOGIC;
-  signal \promedio_reg[3]_i_1_n_3\ : STD_LOGIC;
-  signal \promedio_reg[3]_i_1_n_4\ : STD_LOGIC;
-  signal \promedio_reg[3]_i_1_n_5\ : STD_LOGIC;
-  signal \promedio_reg[3]_i_1_n_6\ : STD_LOGIC;
-  signal \promedio_reg[3]_i_1_n_7\ : STD_LOGIC;
-  signal \promedio_reg[7]_i_1_n_0\ : STD_LOGIC;
-  signal \promedio_reg[7]_i_1_n_1\ : STD_LOGIC;
-  signal \promedio_reg[7]_i_1_n_2\ : STD_LOGIC;
-  signal \promedio_reg[7]_i_1_n_3\ : STD_LOGIC;
-  signal \promedio_reg[7]_i_1_n_4\ : STD_LOGIC;
-  signal \promedio_reg[7]_i_1_n_5\ : STD_LOGIC;
-  signal \promedio_reg[7]_i_1_n_6\ : STD_LOGIC;
-  signal \promedio_reg[7]_i_1_n_7\ : STD_LOGIC;
+  signal \promedio[0]_i_2_n_0\ : STD_LOGIC;
+  signal \promedio[0]_i_3_n_0\ : STD_LOGIC;
+  signal \promedio[0]_i_4_n_0\ : STD_LOGIC;
+  signal \promedio[0]_i_5_n_0\ : STD_LOGIC;
+  signal \promedio[12]_i_2_n_0\ : STD_LOGIC;
+  signal \promedio[12]_i_3_n_0\ : STD_LOGIC;
+  signal \promedio[12]_i_4_n_0\ : STD_LOGIC;
+  signal \promedio[12]_i_5_n_0\ : STD_LOGIC;
+  signal \promedio[16]_i_2_n_0\ : STD_LOGIC;
+  signal \promedio[16]_i_3_n_0\ : STD_LOGIC;
+  signal \promedio[16]_i_4_n_0\ : STD_LOGIC;
+  signal \promedio[16]_i_5_n_0\ : STD_LOGIC;
+  signal \promedio[20]_i_2_n_0\ : STD_LOGIC;
+  signal \promedio[20]_i_3_n_0\ : STD_LOGIC;
+  signal \promedio[20]_i_4_n_0\ : STD_LOGIC;
+  signal \promedio[20]_i_5_n_0\ : STD_LOGIC;
+  signal \promedio[24]_i_2_n_0\ : STD_LOGIC;
+  signal \promedio[24]_i_3_n_0\ : STD_LOGIC;
+  signal \promedio[24]_i_4_n_0\ : STD_LOGIC;
+  signal \promedio[24]_i_5_n_0\ : STD_LOGIC;
+  signal \promedio[28]_i_2_n_0\ : STD_LOGIC;
+  signal \promedio[28]_i_3_n_0\ : STD_LOGIC;
+  signal \promedio[28]_i_4_n_0\ : STD_LOGIC;
+  signal \promedio[28]_i_5_n_0\ : STD_LOGIC;
+  signal \promedio[4]_i_2_n_0\ : STD_LOGIC;
+  signal \promedio[4]_i_3_n_0\ : STD_LOGIC;
+  signal \promedio[4]_i_4_n_0\ : STD_LOGIC;
+  signal \promedio[4]_i_5_n_0\ : STD_LOGIC;
+  signal \promedio[8]_i_2_n_0\ : STD_LOGIC;
+  signal \promedio[8]_i_3_n_0\ : STD_LOGIC;
+  signal \promedio[8]_i_4_n_0\ : STD_LOGIC;
+  signal \promedio[8]_i_5_n_0\ : STD_LOGIC;
+  signal promedio_reg : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \promedio_reg[0]_i_1_n_0\ : STD_LOGIC;
+  signal \promedio_reg[0]_i_1_n_1\ : STD_LOGIC;
+  signal \promedio_reg[0]_i_1_n_2\ : STD_LOGIC;
+  signal \promedio_reg[0]_i_1_n_3\ : STD_LOGIC;
+  signal \promedio_reg[0]_i_1_n_4\ : STD_LOGIC;
+  signal \promedio_reg[0]_i_1_n_5\ : STD_LOGIC;
+  signal \promedio_reg[0]_i_1_n_6\ : STD_LOGIC;
+  signal \promedio_reg[0]_i_1_n_7\ : STD_LOGIC;
+  signal \promedio_reg[12]_i_1_n_0\ : STD_LOGIC;
+  signal \promedio_reg[12]_i_1_n_1\ : STD_LOGIC;
+  signal \promedio_reg[12]_i_1_n_2\ : STD_LOGIC;
+  signal \promedio_reg[12]_i_1_n_3\ : STD_LOGIC;
+  signal \promedio_reg[12]_i_1_n_4\ : STD_LOGIC;
+  signal \promedio_reg[12]_i_1_n_5\ : STD_LOGIC;
+  signal \promedio_reg[12]_i_1_n_6\ : STD_LOGIC;
+  signal \promedio_reg[12]_i_1_n_7\ : STD_LOGIC;
+  signal \promedio_reg[16]_i_1_n_0\ : STD_LOGIC;
+  signal \promedio_reg[16]_i_1_n_1\ : STD_LOGIC;
+  signal \promedio_reg[16]_i_1_n_2\ : STD_LOGIC;
+  signal \promedio_reg[16]_i_1_n_3\ : STD_LOGIC;
+  signal \promedio_reg[16]_i_1_n_4\ : STD_LOGIC;
+  signal \promedio_reg[16]_i_1_n_5\ : STD_LOGIC;
+  signal \promedio_reg[16]_i_1_n_6\ : STD_LOGIC;
+  signal \promedio_reg[16]_i_1_n_7\ : STD_LOGIC;
+  signal \promedio_reg[20]_i_1_n_0\ : STD_LOGIC;
+  signal \promedio_reg[20]_i_1_n_1\ : STD_LOGIC;
+  signal \promedio_reg[20]_i_1_n_2\ : STD_LOGIC;
+  signal \promedio_reg[20]_i_1_n_3\ : STD_LOGIC;
+  signal \promedio_reg[20]_i_1_n_4\ : STD_LOGIC;
+  signal \promedio_reg[20]_i_1_n_5\ : STD_LOGIC;
+  signal \promedio_reg[20]_i_1_n_6\ : STD_LOGIC;
+  signal \promedio_reg[20]_i_1_n_7\ : STD_LOGIC;
+  signal \promedio_reg[24]_i_1_n_0\ : STD_LOGIC;
+  signal \promedio_reg[24]_i_1_n_1\ : STD_LOGIC;
+  signal \promedio_reg[24]_i_1_n_2\ : STD_LOGIC;
+  signal \promedio_reg[24]_i_1_n_3\ : STD_LOGIC;
+  signal \promedio_reg[24]_i_1_n_4\ : STD_LOGIC;
+  signal \promedio_reg[24]_i_1_n_5\ : STD_LOGIC;
+  signal \promedio_reg[24]_i_1_n_6\ : STD_LOGIC;
+  signal \promedio_reg[24]_i_1_n_7\ : STD_LOGIC;
+  signal \promedio_reg[28]_i_1_n_1\ : STD_LOGIC;
+  signal \promedio_reg[28]_i_1_n_2\ : STD_LOGIC;
+  signal \promedio_reg[28]_i_1_n_3\ : STD_LOGIC;
+  signal \promedio_reg[28]_i_1_n_4\ : STD_LOGIC;
+  signal \promedio_reg[28]_i_1_n_5\ : STD_LOGIC;
+  signal \promedio_reg[28]_i_1_n_6\ : STD_LOGIC;
+  signal \promedio_reg[28]_i_1_n_7\ : STD_LOGIC;
+  signal \promedio_reg[4]_i_1_n_0\ : STD_LOGIC;
+  signal \promedio_reg[4]_i_1_n_1\ : STD_LOGIC;
+  signal \promedio_reg[4]_i_1_n_2\ : STD_LOGIC;
+  signal \promedio_reg[4]_i_1_n_3\ : STD_LOGIC;
+  signal \promedio_reg[4]_i_1_n_4\ : STD_LOGIC;
+  signal \promedio_reg[4]_i_1_n_5\ : STD_LOGIC;
+  signal \promedio_reg[4]_i_1_n_6\ : STD_LOGIC;
+  signal \promedio_reg[4]_i_1_n_7\ : STD_LOGIC;
+  signal \promedio_reg[8]_i_1_n_0\ : STD_LOGIC;
+  signal \promedio_reg[8]_i_1_n_1\ : STD_LOGIC;
+  signal \promedio_reg[8]_i_1_n_2\ : STD_LOGIC;
+  signal \promedio_reg[8]_i_1_n_3\ : STD_LOGIC;
+  signal \promedio_reg[8]_i_1_n_4\ : STD_LOGIC;
+  signal \promedio_reg[8]_i_1_n_5\ : STD_LOGIC;
+  signal \promedio_reg[8]_i_1_n_6\ : STD_LOGIC;
+  signal \promedio_reg[8]_i_1_n_7\ : STD_LOGIC;
   signal \NLW_counter_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal NLW_data_out_valid_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_data_out_valid_carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -293,7 +402,7 @@ architecture STRUCTURE of system_promedio_lineal_0_0_promedio_lineal is
   signal \NLW_promedio1_carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_promedio1_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_promedio1_carry__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \NLW_promedio_reg[31]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_promedio_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \counter_reg[0]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \counter_reg[12]_i_1\ : label is 11;
@@ -303,21 +412,61 @@ architecture STRUCTURE of system_promedio_lineal_0_0_promedio_lineal is
   attribute ADDER_THRESHOLD of \counter_reg[28]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \counter_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \counter_reg[8]_i_1\ : label is 11;
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \data_out_reg[0]_i_2\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \data_out_reg[0]_i_3\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \data_out_reg[10]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \data_out_reg[10]_i_3\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \data_out_reg[11]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \data_out_reg[11]_i_3\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \data_out_reg[12]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \data_out_reg[12]_i_3\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \data_out_reg[13]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \data_out_reg[13]_i_3\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \data_out_reg[14]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \data_out_reg[14]_i_3\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \data_out_reg[15]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \data_out_reg[15]_i_3\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \data_out_reg[16]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \data_out_reg[16]_i_3\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \data_out_reg[16]_i_4\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \data_out_reg[17]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \data_out_reg[17]_i_3\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \data_out_reg[17]_i_4\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \data_out_reg[18]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \data_out_reg[18]_i_3\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \data_out_reg[18]_i_4\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \data_out_reg[19]_i_3\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \data_out_reg[19]_i_4\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \data_out_reg[1]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \data_out_reg[26]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \data_out_reg[27]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \data_out_reg[28]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \data_out_reg[29]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \data_out_reg[2]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \data_out_reg[3]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \data_out_reg[4]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \data_out_reg[5]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \data_out_reg[6]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \data_out_reg[7]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \data_out_reg[8]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \data_out_reg[8]_i_3\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \data_out_reg[9]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \data_out_reg[9]_i_3\ : label is "soft_lutpair1";
   attribute COMPARATOR_THRESHOLD : integer;
   attribute COMPARATOR_THRESHOLD of promedio1_carry : label is 11;
   attribute COMPARATOR_THRESHOLD of \promedio1_carry__0\ : label is 11;
   attribute COMPARATOR_THRESHOLD of \promedio1_carry__1\ : label is 11;
   attribute COMPARATOR_THRESHOLD of \promedio1_carry__2\ : label is 11;
-  attribute ADDER_THRESHOLD of \promedio_reg[11]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \promedio_reg[15]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \promedio_reg[19]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \promedio_reg[23]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \promedio_reg[27]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \promedio_reg[31]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \promedio_reg[3]_i_1\ : label is 11;
-  attribute ADDER_THRESHOLD of \promedio_reg[7]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \promedio_reg[0]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \promedio_reg[12]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \promedio_reg[16]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \promedio_reg[20]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \promedio_reg[24]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \promedio_reg[28]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \promedio_reg[4]_i_1\ : label is 11;
+  attribute ADDER_THRESHOLD of \promedio_reg[8]_i_1\ : label is 11;
 begin
-  data_out(31 downto 0) <= \^data_out\(31 downto 0);
 \N_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
@@ -374,6 +523,38 @@ begin
       Q => N(15),
       R => '0'
     );
+\N_reg[16]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(16),
+      Q => N(16),
+      R => '0'
+    );
+\N_reg[17]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(17),
+      Q => N(17),
+      R => '0'
+    );
+\N_reg[18]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(18),
+      Q => N(18),
+      R => '0'
+    );
+\N_reg[19]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(19),
+      Q => N(19),
+      R => '0'
+    );
 \N_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
@@ -382,12 +563,108 @@ begin
       Q => N(1),
       R => '0'
     );
+\N_reg[20]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(20),
+      Q => N(20),
+      R => '0'
+    );
+\N_reg[21]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(21),
+      Q => N(21),
+      R => '0'
+    );
+\N_reg[22]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(22),
+      Q => N(22),
+      R => '0'
+    );
+\N_reg[23]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(23),
+      Q => N(23),
+      R => '0'
+    );
+\N_reg[24]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(24),
+      Q => N(24),
+      R => '0'
+    );
+\N_reg[25]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(25),
+      Q => N(25),
+      R => '0'
+    );
+\N_reg[26]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(26),
+      Q => N(26),
+      R => '0'
+    );
+\N_reg[27]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(27),
+      Q => N(27),
+      R => '0'
+    );
+\N_reg[28]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(28),
+      Q => N(28),
+      R => '0'
+    );
+\N_reg[29]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(29),
+      Q => N(29),
+      R => '0'
+    );
 \N_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
       D => N_averaged_samples(2),
       Q => N(2),
+      R => '0'
+    );
+\N_reg[30]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(30),
+      Q => N(30),
+      R => '0'
+    );
+\N_reg[31]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => N_averaged_samples(31),
+      Q => N(31),
       R => '0'
     );
 \N_reg[3]\: unisim.vcomponents.FDRE
@@ -446,13 +723,12 @@ begin
       Q => N(9),
       R => '0'
     );
-\counter[0]_i_2\: unisim.vcomponents.LUT2
+\counter[0]_i_2\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"8"
+      INIT => X"1"
     )
         port map (
-      I0 => promedio1,
-      I1 => counter_reg(3),
+      I0 => reset_n,
       O => \counter[0]_i_2_n_0\
     );
 \counter[0]_i_3\: unisim.vcomponents.LUT2
@@ -460,8 +736,8 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
-      I1 => counter_reg(2),
+      I0 => \promedio1_carry__2_n_0\,
+      I1 => counter_reg(3),
       O => \counter[0]_i_3_n_0\
     );
 \counter[0]_i_4\: unisim.vcomponents.LUT2
@@ -469,25 +745,34 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
-      I1 => counter_reg(1),
+      I0 => \promedio1_carry__2_n_0\,
+      I1 => counter_reg(2),
       O => \counter[0]_i_4_n_0\
     );
 \counter[0]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \promedio1_carry__2_n_0\,
+      I1 => counter_reg(1),
+      O => \counter[0]_i_5_n_0\
+    );
+\counter[0]_i_6\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"7"
     )
         port map (
       I0 => counter_reg(0),
-      I1 => promedio1,
-      O => \counter[0]_i_5_n_0\
+      I1 => \promedio1_carry__2_n_0\,
+      O => \counter[0]_i_6_n_0\
     );
 \counter[12]_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(15),
       O => \counter[12]_i_2_n_0\
     );
@@ -496,7 +781,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(14),
       O => \counter[12]_i_3_n_0\
     );
@@ -505,7 +790,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(13),
       O => \counter[12]_i_4_n_0\
     );
@@ -514,7 +799,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(12),
       O => \counter[12]_i_5_n_0\
     );
@@ -523,7 +808,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(19),
       O => \counter[16]_i_2_n_0\
     );
@@ -532,7 +817,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(18),
       O => \counter[16]_i_3_n_0\
     );
@@ -541,7 +826,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(17),
       O => \counter[16]_i_4_n_0\
     );
@@ -550,7 +835,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(16),
       O => \counter[16]_i_5_n_0\
     );
@@ -559,7 +844,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(23),
       O => \counter[20]_i_2_n_0\
     );
@@ -568,7 +853,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(22),
       O => \counter[20]_i_3_n_0\
     );
@@ -577,7 +862,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(21),
       O => \counter[20]_i_4_n_0\
     );
@@ -586,7 +871,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(20),
       O => \counter[20]_i_5_n_0\
     );
@@ -595,7 +880,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(27),
       O => \counter[24]_i_2_n_0\
     );
@@ -604,7 +889,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(26),
       O => \counter[24]_i_3_n_0\
     );
@@ -613,7 +898,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(25),
       O => \counter[24]_i_4_n_0\
     );
@@ -622,7 +907,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(24),
       O => \counter[24]_i_5_n_0\
     );
@@ -631,7 +916,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(31),
       O => \counter[28]_i_2_n_0\
     );
@@ -640,7 +925,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(30),
       O => \counter[28]_i_3_n_0\
     );
@@ -649,7 +934,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(29),
       O => \counter[28]_i_4_n_0\
     );
@@ -658,7 +943,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(28),
       O => \counter[28]_i_5_n_0\
     );
@@ -667,7 +952,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(7),
       O => \counter[4]_i_2_n_0\
     );
@@ -676,7 +961,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(6),
       O => \counter[4]_i_3_n_0\
     );
@@ -685,7 +970,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(5),
       O => \counter[4]_i_4_n_0\
     );
@@ -694,7 +979,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(4),
       O => \counter[4]_i_5_n_0\
     );
@@ -703,7 +988,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(11),
       O => \counter[8]_i_2_n_0\
     );
@@ -712,7 +997,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(10),
       O => \counter[8]_i_3_n_0\
     );
@@ -721,7 +1006,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(9),
       O => \counter[8]_i_4_n_0\
     );
@@ -730,7 +1015,7 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => promedio1,
+      I0 => \promedio1_carry__2_n_0\,
       I1 => counter_reg(8),
       O => \counter[8]_i_5_n_0\
     );
@@ -738,7 +1023,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[0]_i_1_n_7\,
       Q => counter_reg(0)
     );
@@ -751,21 +1036,21 @@ begin
       CO(0) => \counter_reg[0]_i_1_n_3\,
       CYINIT => '0',
       DI(3 downto 1) => B"000",
-      DI(0) => promedio1,
+      DI(0) => \promedio1_carry__2_n_0\,
       O(3) => \counter_reg[0]_i_1_n_4\,
       O(2) => \counter_reg[0]_i_1_n_5\,
       O(1) => \counter_reg[0]_i_1_n_6\,
       O(0) => \counter_reg[0]_i_1_n_7\,
-      S(3) => \counter[0]_i_2_n_0\,
-      S(2) => \counter[0]_i_3_n_0\,
-      S(1) => \counter[0]_i_4_n_0\,
-      S(0) => \counter[0]_i_5_n_0\
+      S(3) => \counter[0]_i_3_n_0\,
+      S(2) => \counter[0]_i_4_n_0\,
+      S(1) => \counter[0]_i_5_n_0\,
+      S(0) => \counter[0]_i_6_n_0\
     );
 \counter_reg[10]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[8]_i_1_n_5\,
       Q => counter_reg(10)
     );
@@ -773,7 +1058,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[8]_i_1_n_4\,
       Q => counter_reg(11)
     );
@@ -781,7 +1066,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[12]_i_1_n_7\,
       Q => counter_reg(12)
     );
@@ -807,7 +1092,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[12]_i_1_n_6\,
       Q => counter_reg(13)
     );
@@ -815,7 +1100,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[12]_i_1_n_5\,
       Q => counter_reg(14)
     );
@@ -823,7 +1108,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[12]_i_1_n_4\,
       Q => counter_reg(15)
     );
@@ -831,7 +1116,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[16]_i_1_n_7\,
       Q => counter_reg(16)
     );
@@ -857,7 +1142,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[16]_i_1_n_6\,
       Q => counter_reg(17)
     );
@@ -865,7 +1150,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[16]_i_1_n_5\,
       Q => counter_reg(18)
     );
@@ -873,7 +1158,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[16]_i_1_n_4\,
       Q => counter_reg(19)
     );
@@ -881,7 +1166,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[0]_i_1_n_6\,
       Q => counter_reg(1)
     );
@@ -889,7 +1174,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[20]_i_1_n_7\,
       Q => counter_reg(20)
     );
@@ -915,7 +1200,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[20]_i_1_n_6\,
       Q => counter_reg(21)
     );
@@ -923,7 +1208,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[20]_i_1_n_5\,
       Q => counter_reg(22)
     );
@@ -931,7 +1216,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[20]_i_1_n_4\,
       Q => counter_reg(23)
     );
@@ -939,7 +1224,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[24]_i_1_n_7\,
       Q => counter_reg(24)
     );
@@ -965,7 +1250,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[24]_i_1_n_6\,
       Q => counter_reg(25)
     );
@@ -973,7 +1258,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[24]_i_1_n_5\,
       Q => counter_reg(26)
     );
@@ -981,7 +1266,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[24]_i_1_n_4\,
       Q => counter_reg(27)
     );
@@ -989,7 +1274,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[28]_i_1_n_7\,
       Q => counter_reg(28)
     );
@@ -1015,7 +1300,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[28]_i_1_n_6\,
       Q => counter_reg(29)
     );
@@ -1023,7 +1308,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[0]_i_1_n_5\,
       Q => counter_reg(2)
     );
@@ -1031,7 +1316,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[28]_i_1_n_5\,
       Q => counter_reg(30)
     );
@@ -1039,7 +1324,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[28]_i_1_n_4\,
       Q => counter_reg(31)
     );
@@ -1047,7 +1332,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[0]_i_1_n_4\,
       Q => counter_reg(3)
     );
@@ -1055,7 +1340,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[4]_i_1_n_7\,
       Q => counter_reg(4)
     );
@@ -1081,7 +1366,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[4]_i_1_n_6\,
       Q => counter_reg(5)
     );
@@ -1089,7 +1374,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[4]_i_1_n_5\,
       Q => counter_reg(6)
     );
@@ -1097,7 +1382,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[4]_i_1_n_4\,
       Q => counter_reg(7)
     );
@@ -1105,7 +1390,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[8]_i_1_n_7\,
       Q => counter_reg(8)
     );
@@ -1131,9 +1416,1441 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
+      CLR => \counter[0]_i_2_n_0\,
       D => \counter_reg[8]_i_1_n_6\,
       Q => counter_reg(9)
+    );
+\data_out_reg[0]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \data_out_reg[1]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[0]_i_2_n_0\,
+      I3 => log2_divisor(1),
+      I4 => \data_out_reg[0]_i_3_n_0\,
+      O => \data_out_reg[0]_i_1_n_0\
+    );
+\data_out_reg[0]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[6]_i_3_n_0\,
+      I1 => log2_divisor(2),
+      I2 => \data_out_reg[2]_i_3_n_0\,
+      O => \data_out_reg[0]_i_2_n_0\
+    );
+\data_out_reg[0]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[4]_i_3_n_0\,
+      I1 => log2_divisor(2),
+      I2 => \data_out_reg[0]_i_4_n_0\,
+      O => \data_out_reg[0]_i_3_n_0\
+    );
+\data_out_reg[0]_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => promedio_reg(24),
+      I1 => promedio_reg(8),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(16),
+      I4 => log2_divisor(4),
+      I5 => promedio_reg(0),
+      O => \data_out_reg[0]_i_4_n_0\
+    );
+\data_out_reg[10]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[11]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[10]_i_2_n_0\,
+      O => \data_out_reg[10]_i_1_n_0\
+    );
+\data_out_reg[10]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[16]_i_4_n_0\,
+      I1 => \data_out_reg[12]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[14]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[10]_i_3_n_0\,
+      O => \data_out_reg[10]_i_2_n_0\
+    );
+\data_out_reg[10]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"30BB3088"
+    )
+        port map (
+      I0 => promedio_reg(18),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(26),
+      I3 => log2_divisor(4),
+      I4 => promedio_reg(10),
+      O => \data_out_reg[10]_i_3_n_0\
+    );
+\data_out_reg[11]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[12]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[11]_i_2_n_0\,
+      O => \data_out_reg[11]_i_1_n_0\
+    );
+\data_out_reg[11]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[17]_i_4_n_0\,
+      I1 => \data_out_reg[13]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[15]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[11]_i_3_n_0\,
+      O => \data_out_reg[11]_i_2_n_0\
+    );
+\data_out_reg[11]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"30BB3088"
+    )
+        port map (
+      I0 => promedio_reg(19),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(27),
+      I3 => log2_divisor(4),
+      I4 => promedio_reg(11),
+      O => \data_out_reg[11]_i_3_n_0\
+    );
+\data_out_reg[12]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[13]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[12]_i_2_n_0\,
+      O => \data_out_reg[12]_i_1_n_0\
+    );
+\data_out_reg[12]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[18]_i_4_n_0\,
+      I1 => \data_out_reg[14]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[16]_i_4_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[12]_i_3_n_0\,
+      O => \data_out_reg[12]_i_2_n_0\
+    );
+\data_out_reg[12]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"30BB3088"
+    )
+        port map (
+      I0 => promedio_reg(20),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(28),
+      I3 => log2_divisor(4),
+      I4 => promedio_reg(12),
+      O => \data_out_reg[12]_i_3_n_0\
+    );
+\data_out_reg[13]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[14]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[13]_i_2_n_0\,
+      O => \data_out_reg[13]_i_1_n_0\
+    );
+\data_out_reg[13]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[19]_i_4_n_0\,
+      I1 => \data_out_reg[15]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[17]_i_4_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[13]_i_3_n_0\,
+      O => \data_out_reg[13]_i_2_n_0\
+    );
+\data_out_reg[13]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"30BB3088"
+    )
+        port map (
+      I0 => promedio_reg(21),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(29),
+      I3 => log2_divisor(4),
+      I4 => promedio_reg(13),
+      O => \data_out_reg[13]_i_3_n_0\
+    );
+\data_out_reg[14]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[15]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[14]_i_2_n_0\,
+      O => \data_out_reg[14]_i_1_n_0\
+    );
+\data_out_reg[14]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[16]_i_3_n_0\,
+      I1 => \data_out_reg[16]_i_4_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[18]_i_4_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[14]_i_3_n_0\,
+      O => \data_out_reg[14]_i_2_n_0\
+    );
+\data_out_reg[14]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"30BB3088"
+    )
+        port map (
+      I0 => promedio_reg(22),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(30),
+      I3 => log2_divisor(4),
+      I4 => promedio_reg(14),
+      O => \data_out_reg[14]_i_3_n_0\
+    );
+\data_out_reg[15]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[16]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[15]_i_2_n_0\,
+      O => \data_out_reg[15]_i_1_n_0\
+    );
+\data_out_reg[15]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[17]_i_3_n_0\,
+      I1 => \data_out_reg[17]_i_4_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[19]_i_4_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[15]_i_3_n_0\,
+      O => \data_out_reg[15]_i_2_n_0\
+    );
+\data_out_reg[15]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"30BB3088"
+    )
+        port map (
+      I0 => promedio_reg(23),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(31),
+      I3 => log2_divisor(4),
+      I4 => promedio_reg(15),
+      O => \data_out_reg[15]_i_3_n_0\
+    );
+\data_out_reg[16]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[17]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[16]_i_2_n_0\,
+      O => \data_out_reg[16]_i_1_n_0\
+    );
+\data_out_reg[16]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[18]_i_3_n_0\,
+      I1 => \data_out_reg[18]_i_4_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[16]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[16]_i_4_n_0\,
+      O => \data_out_reg[16]_i_2_n_0\
+    );
+\data_out_reg[16]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00B8"
+    )
+        port map (
+      I0 => promedio_reg(28),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(20),
+      I3 => log2_divisor(4),
+      O => \data_out_reg[16]_i_3_n_0\
+    );
+\data_out_reg[16]_i_4\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00B8"
+    )
+        port map (
+      I0 => promedio_reg(24),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(16),
+      I3 => log2_divisor(4),
+      O => \data_out_reg[16]_i_4_n_0\
+    );
+\data_out_reg[17]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[18]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[17]_i_2_n_0\,
+      O => \data_out_reg[17]_i_1_n_0\
+    );
+\data_out_reg[17]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[19]_i_3_n_0\,
+      I1 => \data_out_reg[19]_i_4_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[17]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[17]_i_4_n_0\,
+      O => \data_out_reg[17]_i_2_n_0\
+    );
+\data_out_reg[17]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00B8"
+    )
+        port map (
+      I0 => promedio_reg(29),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(21),
+      I3 => log2_divisor(4),
+      O => \data_out_reg[17]_i_3_n_0\
+    );
+\data_out_reg[17]_i_4\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00B8"
+    )
+        port map (
+      I0 => promedio_reg(25),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(17),
+      I3 => log2_divisor(4),
+      O => \data_out_reg[17]_i_4_n_0\
+    );
+\data_out_reg[18]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[19]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[18]_i_2_n_0\,
+      O => \data_out_reg[18]_i_1_n_0\
+    );
+\data_out_reg[18]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \data_out_reg[20]_i_2_n_0\,
+      I1 => log2_divisor(1),
+      I2 => \data_out_reg[18]_i_3_n_0\,
+      I3 => log2_divisor(2),
+      I4 => \data_out_reg[18]_i_4_n_0\,
+      O => \data_out_reg[18]_i_2_n_0\
+    );
+\data_out_reg[18]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00B8"
+    )
+        port map (
+      I0 => promedio_reg(30),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(22),
+      I3 => log2_divisor(4),
+      O => \data_out_reg[18]_i_3_n_0\
+    );
+\data_out_reg[18]_i_4\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00B8"
+    )
+        port map (
+      I0 => promedio_reg(26),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(18),
+      I3 => log2_divisor(4),
+      O => \data_out_reg[18]_i_4_n_0\
+    );
+\data_out_reg[19]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8FFB800"
+    )
+        port map (
+      I0 => \data_out_reg[22]_i_2_n_0\,
+      I1 => log2_divisor(1),
+      I2 => \data_out_reg[20]_i_2_n_0\,
+      I3 => log2_divisor(0),
+      I4 => \data_out_reg[19]_i_2_n_0\,
+      O => \data_out_reg[19]_i_1_n_0\
+    );
+\data_out_reg[19]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \data_out_reg[21]_i_2_n_0\,
+      I1 => log2_divisor(1),
+      I2 => \data_out_reg[19]_i_3_n_0\,
+      I3 => log2_divisor(2),
+      I4 => \data_out_reg[19]_i_4_n_0\,
+      O => \data_out_reg[19]_i_2_n_0\
+    );
+\data_out_reg[19]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00B8"
+    )
+        port map (
+      I0 => promedio_reg(31),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(23),
+      I3 => log2_divisor(4),
+      O => \data_out_reg[19]_i_3_n_0\
+    );
+\data_out_reg[19]_i_4\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00B8"
+    )
+        port map (
+      I0 => promedio_reg(27),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(19),
+      I3 => log2_divisor(4),
+      O => \data_out_reg[19]_i_4_n_0\
+    );
+\data_out_reg[1]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[2]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[1]_i_2_n_0\,
+      O => \data_out_reg[1]_i_1_n_0\
+    );
+\data_out_reg[1]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[7]_i_3_n_0\,
+      I1 => \data_out_reg[3]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[5]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[1]_i_3_n_0\,
+      O => \data_out_reg[1]_i_2_n_0\
+    );
+\data_out_reg[1]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => promedio_reg(25),
+      I1 => promedio_reg(9),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(17),
+      I4 => log2_divisor(4),
+      I5 => promedio_reg(1),
+      O => \data_out_reg[1]_i_3_n_0\
+    );
+\data_out_reg[20]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[23]_i_2_n_0\,
+      I1 => \data_out_reg[21]_i_2_n_0\,
+      I2 => log2_divisor(0),
+      I3 => \data_out_reg[22]_i_2_n_0\,
+      I4 => log2_divisor(1),
+      I5 => \data_out_reg[20]_i_2_n_0\,
+      O => \data_out_reg[20]_i_1_n_0\
+    );
+\data_out_reg[20]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000030BB3088"
+    )
+        port map (
+      I0 => promedio_reg(24),
+      I1 => log2_divisor(2),
+      I2 => promedio_reg(28),
+      I3 => log2_divisor(3),
+      I4 => promedio_reg(20),
+      I5 => log2_divisor(4),
+      O => \data_out_reg[20]_i_2_n_0\
+    );
+\data_out_reg[21]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[24]_i_3_n_0\,
+      I1 => \data_out_reg[22]_i_2_n_0\,
+      I2 => log2_divisor(0),
+      I3 => \data_out_reg[23]_i_2_n_0\,
+      I4 => log2_divisor(1),
+      I5 => \data_out_reg[21]_i_2_n_0\,
+      O => \data_out_reg[21]_i_1_n_0\
+    );
+\data_out_reg[21]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000030BB3088"
+    )
+        port map (
+      I0 => promedio_reg(25),
+      I1 => log2_divisor(2),
+      I2 => promedio_reg(29),
+      I3 => log2_divisor(3),
+      I4 => promedio_reg(21),
+      I5 => log2_divisor(4),
+      O => \data_out_reg[21]_i_2_n_0\
+    );
+\data_out_reg[22]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[25]_i_3_n_0\,
+      I1 => \data_out_reg[23]_i_2_n_0\,
+      I2 => log2_divisor(0),
+      I3 => \data_out_reg[24]_i_3_n_0\,
+      I4 => log2_divisor(1),
+      I5 => \data_out_reg[22]_i_2_n_0\,
+      O => \data_out_reg[22]_i_1_n_0\
+    );
+\data_out_reg[22]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000030BB3088"
+    )
+        port map (
+      I0 => promedio_reg(26),
+      I1 => log2_divisor(2),
+      I2 => promedio_reg(30),
+      I3 => log2_divisor(3),
+      I4 => promedio_reg(22),
+      I5 => log2_divisor(4),
+      O => \data_out_reg[22]_i_2_n_0\
+    );
+\data_out_reg[23]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[24]_i_2_n_0\,
+      I1 => \data_out_reg[24]_i_3_n_0\,
+      I2 => log2_divisor(0),
+      I3 => \data_out_reg[25]_i_3_n_0\,
+      I4 => log2_divisor(1),
+      I5 => \data_out_reg[23]_i_2_n_0\,
+      O => \data_out_reg[23]_i_1_n_0\
+    );
+\data_out_reg[23]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000030BB3088"
+    )
+        port map (
+      I0 => promedio_reg(27),
+      I1 => log2_divisor(2),
+      I2 => promedio_reg(31),
+      I3 => log2_divisor(3),
+      I4 => promedio_reg(23),
+      I5 => log2_divisor(4),
+      O => \data_out_reg[23]_i_2_n_0\
+    );
+\data_out_reg[24]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[25]_i_2_n_0\,
+      I1 => \data_out_reg[25]_i_3_n_0\,
+      I2 => log2_divisor(0),
+      I3 => \data_out_reg[24]_i_2_n_0\,
+      I4 => log2_divisor(1),
+      I5 => \data_out_reg[24]_i_3_n_0\,
+      O => \data_out_reg[24]_i_1_n_0\
+    );
+\data_out_reg[24]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000B08"
+    )
+        port map (
+      I0 => promedio_reg(30),
+      I1 => log2_divisor(2),
+      I2 => log2_divisor(4),
+      I3 => promedio_reg(26),
+      I4 => log2_divisor(3),
+      O => \data_out_reg[24]_i_2_n_0\
+    );
+\data_out_reg[24]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000B08"
+    )
+        port map (
+      I0 => promedio_reg(28),
+      I1 => log2_divisor(2),
+      I2 => log2_divisor(4),
+      I3 => promedio_reg(24),
+      I4 => log2_divisor(3),
+      O => \data_out_reg[24]_i_3_n_0\
+    );
+\data_out_reg[25]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FF00B8B8"
+    )
+        port map (
+      I0 => \data_out_reg[25]_i_2_n_0\,
+      I1 => log2_divisor(1),
+      I2 => \data_out_reg[25]_i_3_n_0\,
+      I3 => \data_out_reg[26]_i_2_n_0\,
+      I4 => log2_divisor(0),
+      O => \data_out_reg[25]_i_1_n_0\
+    );
+\data_out_reg[25]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000B08"
+    )
+        port map (
+      I0 => promedio_reg(31),
+      I1 => log2_divisor(2),
+      I2 => log2_divisor(4),
+      I3 => promedio_reg(27),
+      I4 => log2_divisor(3),
+      O => \data_out_reg[25]_i_2_n_0\
+    );
+\data_out_reg[25]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000B08"
+    )
+        port map (
+      I0 => promedio_reg(29),
+      I1 => log2_divisor(2),
+      I2 => log2_divisor(4),
+      I3 => promedio_reg(25),
+      I4 => log2_divisor(3),
+      O => \data_out_reg[25]_i_3_n_0\
+    );
+\data_out_reg[26]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[27]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[26]_i_2_n_0\,
+      O => \data_out_reg[26]_i_1_n_0\
+    );
+\data_out_reg[26]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0004FFFF00040000"
+    )
+        port map (
+      I0 => log2_divisor(3),
+      I1 => promedio_reg(28),
+      I2 => log2_divisor(4),
+      I3 => log2_divisor(2),
+      I4 => log2_divisor(1),
+      I5 => \data_out_reg[24]_i_2_n_0\,
+      O => \data_out_reg[26]_i_2_n_0\
+    );
+\data_out_reg[27]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[28]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[27]_i_2_n_0\,
+      O => \data_out_reg[27]_i_1_n_0\
+    );
+\data_out_reg[27]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0004FFFF00040000"
+    )
+        port map (
+      I0 => log2_divisor(3),
+      I1 => promedio_reg(29),
+      I2 => log2_divisor(4),
+      I3 => log2_divisor(2),
+      I4 => log2_divisor(1),
+      I5 => \data_out_reg[25]_i_2_n_0\,
+      O => \data_out_reg[27]_i_2_n_0\
+    );
+\data_out_reg[28]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[29]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[28]_i_2_n_0\,
+      O => \data_out_reg[28]_i_1_n_0\
+    );
+\data_out_reg[28]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000000000B08"
+    )
+        port map (
+      I0 => promedio_reg(30),
+      I1 => log2_divisor(1),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(28),
+      I4 => log2_divisor(4),
+      I5 => log2_divisor(2),
+      O => \data_out_reg[28]_i_2_n_0\
+    );
+\data_out_reg[29]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[30]_i_3_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[29]_i_2_n_0\,
+      O => \data_out_reg[29]_i_1_n_0\
+    );
+\data_out_reg[29]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000000000B08"
+    )
+        port map (
+      I0 => promedio_reg(31),
+      I1 => log2_divisor(1),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(29),
+      I4 => log2_divisor(4),
+      I5 => log2_divisor(2),
+      O => \data_out_reg[29]_i_2_n_0\
+    );
+\data_out_reg[2]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[3]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[2]_i_2_n_0\,
+      O => \data_out_reg[2]_i_1_n_0\
+    );
+\data_out_reg[2]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[8]_i_3_n_0\,
+      I1 => \data_out_reg[4]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[6]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[2]_i_3_n_0\,
+      O => \data_out_reg[2]_i_2_n_0\
+    );
+\data_out_reg[2]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => promedio_reg(26),
+      I1 => promedio_reg(10),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(18),
+      I4 => log2_divisor(4),
+      I5 => promedio_reg(2),
+      O => \data_out_reg[2]_i_3_n_0\
+    );
+\data_out_reg[30]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[30]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[30]_i_3_n_0\,
+      O => \data_out_reg[30]_i_1_n_0\
+    );
+\data_out_reg[30]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000010"
+    )
+        port map (
+      I0 => log2_divisor(2),
+      I1 => log2_divisor(4),
+      I2 => promedio_reg(31),
+      I3 => log2_divisor(3),
+      I4 => log2_divisor(1),
+      O => \data_out_reg[30]_i_2_n_0\
+    );
+\data_out_reg[30]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000010"
+    )
+        port map (
+      I0 => log2_divisor(2),
+      I1 => log2_divisor(4),
+      I2 => promedio_reg(30),
+      I3 => log2_divisor(3),
+      I4 => log2_divisor(1),
+      O => \data_out_reg[30]_i_3_n_0\
+    );
+\data_out_reg[31]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"2020202020202000"
+    )
+        port map (
+      I0 => data_valid,
+      I1 => \promedio1_carry__2_n_0\,
+      I2 => reset_n,
+      I3 => \data_out_reg[31]_i_4_n_0\,
+      I4 => \data_out_reg[31]_i_5_n_0\,
+      I5 => \data_out_reg[31]_i_6_n_0\,
+      O => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg[31]_i_10\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => log2_divisor(27),
+      I1 => log2_divisor(28),
+      I2 => log2_divisor(25),
+      I3 => log2_divisor(26),
+      O => \data_out_reg[31]_i_10_n_0\
+    );
+\data_out_reg[31]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"20"
+    )
+        port map (
+      I0 => reset_n,
+      I1 => \promedio1_carry__2_n_0\,
+      I2 => data_valid,
+      O => data_out_reg
+    );
+\data_out_reg[31]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000000000010"
+    )
+        port map (
+      I0 => log2_divisor(1),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(31),
+      I3 => log2_divisor(4),
+      I4 => log2_divisor(2),
+      I5 => log2_divisor(0),
+      O => \data_out_reg[31]_i_3_n_0\
+    );
+\data_out_reg[31]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFFE"
+    )
+        port map (
+      I0 => log2_divisor(18),
+      I1 => log2_divisor(17),
+      I2 => log2_divisor(20),
+      I3 => log2_divisor(19),
+      I4 => \data_out_reg[31]_i_7_n_0\,
+      O => \data_out_reg[31]_i_4_n_0\
+    );
+\data_out_reg[31]_i_5\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFFE"
+    )
+        port map (
+      I0 => log2_divisor(10),
+      I1 => log2_divisor(9),
+      I2 => log2_divisor(12),
+      I3 => log2_divisor(11),
+      I4 => \data_out_reg[31]_i_8_n_0\,
+      O => \data_out_reg[31]_i_5_n_0\
+    );
+\data_out_reg[31]_i_6\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFFE"
+    )
+        port map (
+      I0 => log2_divisor(30),
+      I1 => log2_divisor(29),
+      I2 => log2_divisor(31),
+      I3 => \data_out_reg[31]_i_9_n_0\,
+      I4 => \data_out_reg[31]_i_10_n_0\,
+      O => \data_out_reg[31]_i_6_n_0\
+    );
+\data_out_reg[31]_i_7\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => log2_divisor(15),
+      I1 => log2_divisor(16),
+      I2 => log2_divisor(13),
+      I3 => log2_divisor(14),
+      O => \data_out_reg[31]_i_7_n_0\
+    );
+\data_out_reg[31]_i_8\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => log2_divisor(7),
+      I1 => log2_divisor(8),
+      I2 => log2_divisor(5),
+      I3 => log2_divisor(6),
+      O => \data_out_reg[31]_i_8_n_0\
+    );
+\data_out_reg[31]_i_9\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => log2_divisor(23),
+      I1 => log2_divisor(24),
+      I2 => log2_divisor(21),
+      I3 => log2_divisor(22),
+      O => \data_out_reg[31]_i_9_n_0\
+    );
+\data_out_reg[3]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[4]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[3]_i_2_n_0\,
+      O => \data_out_reg[3]_i_1_n_0\
+    );
+\data_out_reg[3]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[9]_i_3_n_0\,
+      I1 => \data_out_reg[5]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[7]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[3]_i_3_n_0\,
+      O => \data_out_reg[3]_i_2_n_0\
+    );
+\data_out_reg[3]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => promedio_reg(27),
+      I1 => promedio_reg(11),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(19),
+      I4 => log2_divisor(4),
+      I5 => promedio_reg(3),
+      O => \data_out_reg[3]_i_3_n_0\
+    );
+\data_out_reg[4]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[5]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[4]_i_2_n_0\,
+      O => \data_out_reg[4]_i_1_n_0\
+    );
+\data_out_reg[4]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[10]_i_3_n_0\,
+      I1 => \data_out_reg[6]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[8]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[4]_i_3_n_0\,
+      O => \data_out_reg[4]_i_2_n_0\
+    );
+\data_out_reg[4]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => promedio_reg(28),
+      I1 => promedio_reg(12),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(20),
+      I4 => log2_divisor(4),
+      I5 => promedio_reg(4),
+      O => \data_out_reg[4]_i_3_n_0\
+    );
+\data_out_reg[5]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[6]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[5]_i_2_n_0\,
+      O => \data_out_reg[5]_i_1_n_0\
+    );
+\data_out_reg[5]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[11]_i_3_n_0\,
+      I1 => \data_out_reg[7]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[9]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[5]_i_3_n_0\,
+      O => \data_out_reg[5]_i_2_n_0\
+    );
+\data_out_reg[5]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => promedio_reg(29),
+      I1 => promedio_reg(13),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(21),
+      I4 => log2_divisor(4),
+      I5 => promedio_reg(5),
+      O => \data_out_reg[5]_i_3_n_0\
+    );
+\data_out_reg[6]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[7]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[6]_i_2_n_0\,
+      O => \data_out_reg[6]_i_1_n_0\
+    );
+\data_out_reg[6]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[12]_i_3_n_0\,
+      I1 => \data_out_reg[8]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[10]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[6]_i_3_n_0\,
+      O => \data_out_reg[6]_i_2_n_0\
+    );
+\data_out_reg[6]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => promedio_reg(30),
+      I1 => promedio_reg(14),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(22),
+      I4 => log2_divisor(4),
+      I5 => promedio_reg(6),
+      O => \data_out_reg[6]_i_3_n_0\
+    );
+\data_out_reg[7]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[8]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[7]_i_2_n_0\,
+      O => \data_out_reg[7]_i_1_n_0\
+    );
+\data_out_reg[7]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[13]_i_3_n_0\,
+      I1 => \data_out_reg[9]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[11]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[7]_i_3_n_0\,
+      O => \data_out_reg[7]_i_2_n_0\
+    );
+\data_out_reg[7]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => promedio_reg(31),
+      I1 => promedio_reg(15),
+      I2 => log2_divisor(3),
+      I3 => promedio_reg(23),
+      I4 => log2_divisor(4),
+      I5 => promedio_reg(7),
+      O => \data_out_reg[7]_i_3_n_0\
+    );
+\data_out_reg[8]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[9]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[8]_i_2_n_0\,
+      O => \data_out_reg[8]_i_1_n_0\
+    );
+\data_out_reg[8]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[14]_i_3_n_0\,
+      I1 => \data_out_reg[10]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[12]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[8]_i_3_n_0\,
+      O => \data_out_reg[8]_i_2_n_0\
+    );
+\data_out_reg[8]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"30BB3088"
+    )
+        port map (
+      I0 => promedio_reg(16),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(24),
+      I3 => log2_divisor(4),
+      I4 => promedio_reg(8),
+      O => \data_out_reg[8]_i_3_n_0\
+    );
+\data_out_reg[9]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => \data_out_reg[10]_i_2_n_0\,
+      I1 => log2_divisor(0),
+      I2 => \data_out_reg[9]_i_2_n_0\,
+      O => \data_out_reg[9]_i_1_n_0\
+    );
+\data_out_reg[9]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \data_out_reg[15]_i_3_n_0\,
+      I1 => \data_out_reg[11]_i_3_n_0\,
+      I2 => log2_divisor(1),
+      I3 => \data_out_reg[13]_i_3_n_0\,
+      I4 => log2_divisor(2),
+      I5 => \data_out_reg[9]_i_3_n_0\,
+      O => \data_out_reg[9]_i_2_n_0\
+    );
+\data_out_reg[9]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"30BB3088"
+    )
+        port map (
+      I0 => promedio_reg(17),
+      I1 => log2_divisor(3),
+      I2 => promedio_reg(25),
+      I3 => log2_divisor(4),
+      I4 => promedio_reg(9),
+      O => \data_out_reg[9]_i_3_n_0\
+    );
+\data_out_reg_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[0]_i_1_n_0\,
+      Q => data_out(0),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[10]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[10]_i_1_n_0\,
+      Q => data_out(10),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[11]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[11]_i_1_n_0\,
+      Q => data_out(11),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[12]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[12]_i_1_n_0\,
+      Q => data_out(12),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[13]_i_1_n_0\,
+      Q => data_out(13),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[14]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[14]_i_1_n_0\,
+      Q => data_out(14),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[15]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[15]_i_1_n_0\,
+      Q => data_out(15),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[16]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[16]_i_1_n_0\,
+      Q => data_out(16),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[17]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[17]_i_1_n_0\,
+      Q => data_out(17),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[18]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[18]_i_1_n_0\,
+      Q => data_out(18),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[19]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[19]_i_1_n_0\,
+      Q => data_out(19),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[1]_i_1_n_0\,
+      Q => data_out(1),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[20]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[20]_i_1_n_0\,
+      Q => data_out(20),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[21]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[21]_i_1_n_0\,
+      Q => data_out(21),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[22]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[22]_i_1_n_0\,
+      Q => data_out(22),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[23]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[23]_i_1_n_0\,
+      Q => data_out(23),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[24]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[24]_i_1_n_0\,
+      Q => data_out(24),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[25]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[25]_i_1_n_0\,
+      Q => data_out(25),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[26]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[26]_i_1_n_0\,
+      Q => data_out(26),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[27]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[27]_i_1_n_0\,
+      Q => data_out(27),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[28]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[28]_i_1_n_0\,
+      Q => data_out(28),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[29]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[29]_i_1_n_0\,
+      Q => data_out(29),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[2]_i_1_n_0\,
+      Q => data_out(2),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[30]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[30]_i_1_n_0\,
+      Q => data_out(30),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[31]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[31]_i_3_n_0\,
+      Q => data_out(31),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[3]_i_1_n_0\,
+      Q => data_out(3),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[4]_i_1_n_0\,
+      Q => data_out(4),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[5]_i_1_n_0\,
+      Q => data_out(5),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[6]_i_1_n_0\,
+      Q => data_out(6),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[7]_i_1_n_0\,
+      Q => data_out(7),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[8]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[8]_i_1_n_0\,
+      Q => data_out(8),
+      R => \data_out_reg[31]_i_1_n_0\
+    );
+\data_out_reg_reg[9]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => data_out_reg,
+      D => \data_out_reg[9]_i_1_n_0\,
+      Q => data_out(9),
+      R => \data_out_reg[31]_i_1_n_0\
     );
 data_out_valid_carry: unisim.vcomponents.CARRY4
      port map (
@@ -1165,35 +2882,43 @@ data_out_valid_carry: unisim.vcomponents.CARRY4
       S(1) => \data_out_valid_carry__0_i_3_n_0\,
       S(0) => \data_out_valid_carry__0_i_4_n_0\
     );
-\data_out_valid_carry__0_i_1\: unisim.vcomponents.LUT3
+\data_out_valid_carry__0_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"01"
+      INIT => X"9009000000009009"
     )
         port map (
-      I0 => counter_reg(23),
-      I1 => counter_reg(22),
-      I2 => counter_reg(21),
+      I0 => counter_reg(21),
+      I1 => N(21),
+      I2 => N(23),
+      I3 => counter_reg(23),
+      I4 => N(22),
+      I5 => counter_reg(22),
       O => \data_out_valid_carry__0_i_1_n_0\
     );
-\data_out_valid_carry__0_i_2\: unisim.vcomponents.LUT3
+\data_out_valid_carry__0_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"01"
+      INIT => X"9009000000009009"
     )
         port map (
-      I0 => counter_reg(20),
-      I1 => counter_reg(19),
-      I2 => counter_reg(18),
+      I0 => counter_reg(18),
+      I1 => N(18),
+      I2 => N(20),
+      I3 => counter_reg(20),
+      I4 => N(19),
+      I5 => counter_reg(19),
       O => \data_out_valid_carry__0_i_2_n_0\
     );
-\data_out_valid_carry__0_i_3\: unisim.vcomponents.LUT4
+\data_out_valid_carry__0_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0009"
+      INIT => X"9009000000009009"
     )
         port map (
       I0 => counter_reg(15),
       I1 => N(15),
-      I2 => counter_reg(17),
-      I3 => counter_reg(16),
+      I2 => N(17),
+      I3 => counter_reg(17),
+      I4 => N(16),
+      I5 => counter_reg(16),
       O => \data_out_valid_carry__0_i_3_n_0\
     );
 \data_out_valid_carry__0_i_4\: unisim.vcomponents.LUT6
@@ -1224,33 +2949,41 @@ data_out_valid_carry: unisim.vcomponents.CARRY4
       S(1) => \data_out_valid_carry__1_i_2_n_0\,
       S(0) => \data_out_valid_carry__1_i_3_n_0\
     );
-\data_out_valid_carry__1_i_1\: unisim.vcomponents.LUT2
+\data_out_valid_carry__1_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"9009"
     )
         port map (
       I0 => counter_reg(30),
-      I1 => counter_reg(31),
+      I1 => N(30),
+      I2 => counter_reg(31),
+      I3 => N(31),
       O => \data_out_valid_carry__1_i_1_n_0\
     );
-\data_out_valid_carry__1_i_2\: unisim.vcomponents.LUT3
+\data_out_valid_carry__1_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"01"
+      INIT => X"9009000000009009"
     )
         port map (
-      I0 => counter_reg(29),
-      I1 => counter_reg(28),
-      I2 => counter_reg(27),
+      I0 => counter_reg(27),
+      I1 => N(27),
+      I2 => N(29),
+      I3 => counter_reg(29),
+      I4 => N(28),
+      I5 => counter_reg(28),
       O => \data_out_valid_carry__1_i_2_n_0\
     );
-\data_out_valid_carry__1_i_3\: unisim.vcomponents.LUT3
+\data_out_valid_carry__1_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"01"
+      INIT => X"9009000000009009"
     )
         port map (
-      I0 => counter_reg(26),
-      I1 => counter_reg(25),
-      I2 => counter_reg(24),
+      I0 => counter_reg(24),
+      I1 => N(24),
+      I2 => N(26),
+      I3 => counter_reg(26),
+      I4 => N(25),
+      I5 => counter_reg(25),
       O => \data_out_valid_carry__1_i_3_n_0\
     );
 data_out_valid_carry_i_1: unisim.vcomponents.LUT6
@@ -1437,99 +3170,209 @@ promedio1_carry: unisim.vcomponents.CARRY4
       CO(1) => \promedio1_carry__1_n_2\,
       CO(0) => \promedio1_carry__1_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => B"0000",
+      DI(3) => \promedio1_carry__1_i_1_n_0\,
+      DI(2) => \promedio1_carry__1_i_2_n_0\,
+      DI(1) => \promedio1_carry__1_i_3_n_0\,
+      DI(0) => \promedio1_carry__1_i_4_n_0\,
       O(3 downto 0) => \NLW_promedio1_carry__1_O_UNCONNECTED\(3 downto 0),
-      S(3) => \promedio1_carry__1_i_1_n_0\,
-      S(2) => \promedio1_carry__1_i_2_n_0\,
-      S(1) => \promedio1_carry__1_i_3_n_0\,
-      S(0) => \promedio1_carry__1_i_4_n_0\
+      S(3) => \promedio1_carry__1_i_5_n_0\,
+      S(2) => \promedio1_carry__1_i_6_n_0\,
+      S(1) => \promedio1_carry__1_i_7_n_0\,
+      S(0) => \promedio1_carry__1_i_8_n_0\
     );
-\promedio1_carry__1_i_1\: unisim.vcomponents.LUT2
+\promedio1_carry__1_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"2F02"
     )
         port map (
-      I0 => counter_reg(22),
-      I1 => counter_reg(23),
+      I0 => N(22),
+      I1 => counter_reg(22),
+      I2 => counter_reg(23),
+      I3 => N(23),
       O => \promedio1_carry__1_i_1_n_0\
     );
-\promedio1_carry__1_i_2\: unisim.vcomponents.LUT2
+\promedio1_carry__1_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"2F02"
     )
         port map (
-      I0 => counter_reg(20),
-      I1 => counter_reg(21),
+      I0 => N(20),
+      I1 => counter_reg(20),
+      I2 => counter_reg(21),
+      I3 => N(21),
       O => \promedio1_carry__1_i_2_n_0\
     );
-\promedio1_carry__1_i_3\: unisim.vcomponents.LUT2
+\promedio1_carry__1_i_3\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"2F02"
     )
         port map (
-      I0 => counter_reg(18),
-      I1 => counter_reg(19),
+      I0 => N(18),
+      I1 => counter_reg(18),
+      I2 => counter_reg(19),
+      I3 => N(19),
       O => \promedio1_carry__1_i_3_n_0\
     );
-\promedio1_carry__1_i_4\: unisim.vcomponents.LUT2
+\promedio1_carry__1_i_4\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"2F02"
     )
         port map (
-      I0 => counter_reg(16),
-      I1 => counter_reg(17),
+      I0 => N(16),
+      I1 => counter_reg(16),
+      I2 => counter_reg(17),
+      I3 => N(17),
       O => \promedio1_carry__1_i_4_n_0\
+    );
+\promedio1_carry__1_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => N(22),
+      I1 => counter_reg(22),
+      I2 => N(23),
+      I3 => counter_reg(23),
+      O => \promedio1_carry__1_i_5_n_0\
+    );
+\promedio1_carry__1_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => N(20),
+      I1 => counter_reg(20),
+      I2 => N(21),
+      I3 => counter_reg(21),
+      O => \promedio1_carry__1_i_6_n_0\
+    );
+\promedio1_carry__1_i_7\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => N(18),
+      I1 => counter_reg(18),
+      I2 => N(19),
+      I3 => counter_reg(19),
+      O => \promedio1_carry__1_i_7_n_0\
+    );
+\promedio1_carry__1_i_8\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => N(16),
+      I1 => counter_reg(16),
+      I2 => N(17),
+      I3 => counter_reg(17),
+      O => \promedio1_carry__1_i_8_n_0\
     );
 \promedio1_carry__2\: unisim.vcomponents.CARRY4
      port map (
       CI => \promedio1_carry__1_n_0\,
-      CO(3) => promedio1,
+      CO(3) => \promedio1_carry__2_n_0\,
       CO(2) => \promedio1_carry__2_n_1\,
       CO(1) => \promedio1_carry__2_n_2\,
       CO(0) => \promedio1_carry__2_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => B"0000",
+      DI(3) => \promedio1_carry__2_i_1_n_0\,
+      DI(2) => \promedio1_carry__2_i_2_n_0\,
+      DI(1) => \promedio1_carry__2_i_3_n_0\,
+      DI(0) => \promedio1_carry__2_i_4_n_0\,
       O(3 downto 0) => \NLW_promedio1_carry__2_O_UNCONNECTED\(3 downto 0),
-      S(3) => \promedio1_carry__2_i_1_n_0\,
-      S(2) => \promedio1_carry__2_i_2_n_0\,
-      S(1) => \promedio1_carry__2_i_3_n_0\,
-      S(0) => \promedio1_carry__2_i_4_n_0\
+      S(3) => \promedio1_carry__2_i_5_n_0\,
+      S(2) => \promedio1_carry__2_i_6_n_0\,
+      S(1) => \promedio1_carry__2_i_7_n_0\,
+      S(0) => \promedio1_carry__2_i_8_n_0\
     );
-\promedio1_carry__2_i_1\: unisim.vcomponents.LUT2
+\promedio1_carry__2_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"2F02"
     )
         port map (
-      I0 => counter_reg(30),
-      I1 => counter_reg(31),
+      I0 => N(30),
+      I1 => counter_reg(30),
+      I2 => counter_reg(31),
+      I3 => N(31),
       O => \promedio1_carry__2_i_1_n_0\
     );
-\promedio1_carry__2_i_2\: unisim.vcomponents.LUT2
+\promedio1_carry__2_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"2F02"
     )
         port map (
-      I0 => counter_reg(28),
-      I1 => counter_reg(29),
+      I0 => N(28),
+      I1 => counter_reg(28),
+      I2 => counter_reg(29),
+      I3 => N(29),
       O => \promedio1_carry__2_i_2_n_0\
     );
-\promedio1_carry__2_i_3\: unisim.vcomponents.LUT2
+\promedio1_carry__2_i_3\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"2F02"
     )
         port map (
-      I0 => counter_reg(26),
-      I1 => counter_reg(27),
+      I0 => N(26),
+      I1 => counter_reg(26),
+      I2 => counter_reg(27),
+      I3 => N(27),
       O => \promedio1_carry__2_i_3_n_0\
     );
-\promedio1_carry__2_i_4\: unisim.vcomponents.LUT2
+\promedio1_carry__2_i_4\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"1"
+      INIT => X"2F02"
     )
         port map (
-      I0 => counter_reg(24),
-      I1 => counter_reg(25),
+      I0 => N(24),
+      I1 => counter_reg(24),
+      I2 => counter_reg(25),
+      I3 => N(25),
       O => \promedio1_carry__2_i_4_n_0\
+    );
+\promedio1_carry__2_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => N(30),
+      I1 => counter_reg(30),
+      I2 => N(31),
+      I3 => counter_reg(31),
+      O => \promedio1_carry__2_i_5_n_0\
+    );
+\promedio1_carry__2_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => N(28),
+      I1 => counter_reg(28),
+      I2 => N(29),
+      I3 => counter_reg(29),
+      O => \promedio1_carry__2_i_6_n_0\
+    );
+\promedio1_carry__2_i_7\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => N(26),
+      I1 => counter_reg(26),
+      I2 => N(27),
+      I3 => counter_reg(27),
+      O => \promedio1_carry__2_i_7_n_0\
+    );
+\promedio1_carry__2_i_8\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => N(24),
+      I1 => counter_reg(24),
+      I2 => N(25),
+      I3 => counter_reg(25),
+      O => \promedio1_carry__2_i_8_n_0\
     );
 promedio1_carry_i_1: unisim.vcomponents.LUT4
     generic map(
@@ -1619,734 +3462,726 @@ promedio1_carry_i_8: unisim.vcomponents.LUT4
       I3 => counter_reg(1),
       O => promedio1_carry_i_8_n_0
     );
-\promedio[11]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(11),
-      I1 => \^data_out\(11),
-      I2 => promedio1,
-      O => \promedio[11]_i_2_n_0\
-    );
-\promedio[11]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(10),
-      I1 => \^data_out\(10),
-      I2 => promedio1,
-      O => \promedio[11]_i_3_n_0\
-    );
-\promedio[11]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(9),
-      I1 => \^data_out\(9),
-      I2 => promedio1,
-      O => \promedio[11]_i_4_n_0\
-    );
-\promedio[11]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(8),
-      I1 => \^data_out\(8),
-      I2 => promedio1,
-      O => \promedio[11]_i_5_n_0\
-    );
-\promedio[15]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(15),
-      I1 => \^data_out\(15),
-      I2 => promedio1,
-      O => \promedio[15]_i_2_n_0\
-    );
-\promedio[15]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(14),
-      I1 => \^data_out\(14),
-      I2 => promedio1,
-      O => \promedio[15]_i_3_n_0\
-    );
-\promedio[15]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(13),
-      I1 => \^data_out\(13),
-      I2 => promedio1,
-      O => \promedio[15]_i_4_n_0\
-    );
-\promedio[15]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(12),
-      I1 => \^data_out\(12),
-      I2 => promedio1,
-      O => \promedio[15]_i_5_n_0\
-    );
-\promedio[19]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(19),
-      I1 => \^data_out\(19),
-      I2 => promedio1,
-      O => \promedio[19]_i_2_n_0\
-    );
-\promedio[19]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(18),
-      I1 => \^data_out\(18),
-      I2 => promedio1,
-      O => \promedio[19]_i_3_n_0\
-    );
-\promedio[19]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(17),
-      I1 => \^data_out\(17),
-      I2 => promedio1,
-      O => \promedio[19]_i_4_n_0\
-    );
-\promedio[19]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(16),
-      I1 => \^data_out\(16),
-      I2 => promedio1,
-      O => \promedio[19]_i_5_n_0\
-    );
-\promedio[23]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(23),
-      I1 => \^data_out\(23),
-      I2 => promedio1,
-      O => \promedio[23]_i_2_n_0\
-    );
-\promedio[23]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(22),
-      I1 => \^data_out\(22),
-      I2 => promedio1,
-      O => \promedio[23]_i_3_n_0\
-    );
-\promedio[23]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(21),
-      I1 => \^data_out\(21),
-      I2 => promedio1,
-      O => \promedio[23]_i_4_n_0\
-    );
-\promedio[23]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(20),
-      I1 => \^data_out\(20),
-      I2 => promedio1,
-      O => \promedio[23]_i_5_n_0\
-    );
-\promedio[27]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(27),
-      I1 => \^data_out\(27),
-      I2 => promedio1,
-      O => \promedio[27]_i_2_n_0\
-    );
-\promedio[27]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(26),
-      I1 => \^data_out\(26),
-      I2 => promedio1,
-      O => \promedio[27]_i_3_n_0\
-    );
-\promedio[27]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(25),
-      I1 => \^data_out\(25),
-      I2 => promedio1,
-      O => \promedio[27]_i_4_n_0\
-    );
-\promedio[27]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(24),
-      I1 => \^data_out\(24),
-      I2 => promedio1,
-      O => \promedio[27]_i_5_n_0\
-    );
-\promedio[31]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => reset_n,
-      O => \promedio[31]_i_2_n_0\
-    );
-\promedio[31]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(31),
-      I1 => \^data_out\(31),
-      I2 => promedio1,
-      O => \promedio[31]_i_3_n_0\
-    );
-\promedio[31]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(30),
-      I1 => \^data_out\(30),
-      I2 => promedio1,
-      O => \promedio[31]_i_4_n_0\
-    );
-\promedio[31]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(29),
-      I1 => \^data_out\(29),
-      I2 => promedio1,
-      O => \promedio[31]_i_5_n_0\
-    );
-\promedio[31]_i_6\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"6A"
-    )
-        port map (
-      I0 => data(28),
-      I1 => \^data_out\(28),
-      I2 => promedio1,
-      O => \promedio[31]_i_6_n_0\
-    );
-\promedio[3]_i_2\: unisim.vcomponents.LUT3
+\promedio[0]_i_2\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"6A"
     )
         port map (
       I0 => data(3),
-      I1 => \^data_out\(3),
-      I2 => promedio1,
-      O => \promedio[3]_i_2_n_0\
+      I1 => promedio_reg(3),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[0]_i_2_n_0\
     );
-\promedio[3]_i_3\: unisim.vcomponents.LUT3
+\promedio[0]_i_3\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"6A"
     )
         port map (
       I0 => data(2),
-      I1 => \^data_out\(2),
-      I2 => promedio1,
-      O => \promedio[3]_i_3_n_0\
+      I1 => promedio_reg(2),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[0]_i_3_n_0\
     );
-\promedio[3]_i_4\: unisim.vcomponents.LUT3
+\promedio[0]_i_4\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"6A"
     )
         port map (
       I0 => data(1),
-      I1 => \^data_out\(1),
-      I2 => promedio1,
-      O => \promedio[3]_i_4_n_0\
+      I1 => promedio_reg(1),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[0]_i_4_n_0\
     );
-\promedio[3]_i_5\: unisim.vcomponents.LUT3
+\promedio[0]_i_5\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"6A"
     )
         port map (
       I0 => data(0),
-      I1 => \^data_out\(0),
-      I2 => promedio1,
-      O => \promedio[3]_i_5_n_0\
+      I1 => promedio_reg(0),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[0]_i_5_n_0\
     );
-\promedio[7]_i_2\: unisim.vcomponents.LUT3
+\promedio[12]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(15),
+      I1 => promedio_reg(15),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[12]_i_2_n_0\
+    );
+\promedio[12]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(14),
+      I1 => promedio_reg(14),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[12]_i_3_n_0\
+    );
+\promedio[12]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(13),
+      I1 => promedio_reg(13),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[12]_i_4_n_0\
+    );
+\promedio[12]_i_5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(12),
+      I1 => promedio_reg(12),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[12]_i_5_n_0\
+    );
+\promedio[16]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(19),
+      I1 => promedio_reg(19),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[16]_i_2_n_0\
+    );
+\promedio[16]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(18),
+      I1 => promedio_reg(18),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[16]_i_3_n_0\
+    );
+\promedio[16]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(17),
+      I1 => promedio_reg(17),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[16]_i_4_n_0\
+    );
+\promedio[16]_i_5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(16),
+      I1 => promedio_reg(16),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[16]_i_5_n_0\
+    );
+\promedio[20]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(23),
+      I1 => promedio_reg(23),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[20]_i_2_n_0\
+    );
+\promedio[20]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(22),
+      I1 => promedio_reg(22),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[20]_i_3_n_0\
+    );
+\promedio[20]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(21),
+      I1 => promedio_reg(21),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[20]_i_4_n_0\
+    );
+\promedio[20]_i_5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(20),
+      I1 => promedio_reg(20),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[20]_i_5_n_0\
+    );
+\promedio[24]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(27),
+      I1 => promedio_reg(27),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[24]_i_2_n_0\
+    );
+\promedio[24]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(26),
+      I1 => promedio_reg(26),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[24]_i_3_n_0\
+    );
+\promedio[24]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(25),
+      I1 => promedio_reg(25),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[24]_i_4_n_0\
+    );
+\promedio[24]_i_5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(24),
+      I1 => promedio_reg(24),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[24]_i_5_n_0\
+    );
+\promedio[28]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(31),
+      I1 => promedio_reg(31),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[28]_i_2_n_0\
+    );
+\promedio[28]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(30),
+      I1 => promedio_reg(30),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[28]_i_3_n_0\
+    );
+\promedio[28]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(29),
+      I1 => promedio_reg(29),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[28]_i_4_n_0\
+    );
+\promedio[28]_i_5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(28),
+      I1 => promedio_reg(28),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[28]_i_5_n_0\
+    );
+\promedio[4]_i_2\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"6A"
     )
         port map (
       I0 => data(7),
-      I1 => \^data_out\(7),
-      I2 => promedio1,
-      O => \promedio[7]_i_2_n_0\
+      I1 => promedio_reg(7),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[4]_i_2_n_0\
     );
-\promedio[7]_i_3\: unisim.vcomponents.LUT3
+\promedio[4]_i_3\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"6A"
     )
         port map (
       I0 => data(6),
-      I1 => \^data_out\(6),
-      I2 => promedio1,
-      O => \promedio[7]_i_3_n_0\
+      I1 => promedio_reg(6),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[4]_i_3_n_0\
     );
-\promedio[7]_i_4\: unisim.vcomponents.LUT3
+\promedio[4]_i_4\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"6A"
     )
         port map (
       I0 => data(5),
-      I1 => \^data_out\(5),
-      I2 => promedio1,
-      O => \promedio[7]_i_4_n_0\
+      I1 => promedio_reg(5),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[4]_i_4_n_0\
     );
-\promedio[7]_i_5\: unisim.vcomponents.LUT3
+\promedio[4]_i_5\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"6A"
     )
         port map (
       I0 => data(4),
-      I1 => \^data_out\(4),
-      I2 => promedio1,
-      O => \promedio[7]_i_5_n_0\
+      I1 => promedio_reg(4),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[4]_i_5_n_0\
+    );
+\promedio[8]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(11),
+      I1 => promedio_reg(11),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[8]_i_2_n_0\
+    );
+\promedio[8]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(10),
+      I1 => promedio_reg(10),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[8]_i_3_n_0\
+    );
+\promedio[8]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(9),
+      I1 => promedio_reg(9),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[8]_i_4_n_0\
+    );
+\promedio[8]_i_5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => data(8),
+      I1 => promedio_reg(8),
+      I2 => \promedio1_carry__2_n_0\,
+      O => \promedio[8]_i_5_n_0\
     );
 \promedio_reg[0]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[3]_i_1_n_7\,
-      Q => \^data_out\(0)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[0]_i_1_n_7\,
+      Q => promedio_reg(0)
+    );
+\promedio_reg[0]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \promedio_reg[0]_i_1_n_0\,
+      CO(2) => \promedio_reg[0]_i_1_n_1\,
+      CO(1) => \promedio_reg[0]_i_1_n_2\,
+      CO(0) => \promedio_reg[0]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => data(3 downto 0),
+      O(3) => \promedio_reg[0]_i_1_n_4\,
+      O(2) => \promedio_reg[0]_i_1_n_5\,
+      O(1) => \promedio_reg[0]_i_1_n_6\,
+      O(0) => \promedio_reg[0]_i_1_n_7\,
+      S(3) => \promedio[0]_i_2_n_0\,
+      S(2) => \promedio[0]_i_3_n_0\,
+      S(1) => \promedio[0]_i_4_n_0\,
+      S(0) => \promedio[0]_i_5_n_0\
     );
 \promedio_reg[10]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[11]_i_1_n_5\,
-      Q => \^data_out\(10)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[8]_i_1_n_5\,
+      Q => promedio_reg(10)
     );
 \promedio_reg[11]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[11]_i_1_n_4\,
-      Q => \^data_out\(11)
-    );
-\promedio_reg[11]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \promedio_reg[7]_i_1_n_0\,
-      CO(3) => \promedio_reg[11]_i_1_n_0\,
-      CO(2) => \promedio_reg[11]_i_1_n_1\,
-      CO(1) => \promedio_reg[11]_i_1_n_2\,
-      CO(0) => \promedio_reg[11]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => data(11 downto 8),
-      O(3) => \promedio_reg[11]_i_1_n_4\,
-      O(2) => \promedio_reg[11]_i_1_n_5\,
-      O(1) => \promedio_reg[11]_i_1_n_6\,
-      O(0) => \promedio_reg[11]_i_1_n_7\,
-      S(3) => \promedio[11]_i_2_n_0\,
-      S(2) => \promedio[11]_i_3_n_0\,
-      S(1) => \promedio[11]_i_4_n_0\,
-      S(0) => \promedio[11]_i_5_n_0\
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[8]_i_1_n_4\,
+      Q => promedio_reg(11)
     );
 \promedio_reg[12]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[15]_i_1_n_7\,
-      Q => \^data_out\(12)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[12]_i_1_n_7\,
+      Q => promedio_reg(12)
+    );
+\promedio_reg[12]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \promedio_reg[8]_i_1_n_0\,
+      CO(3) => \promedio_reg[12]_i_1_n_0\,
+      CO(2) => \promedio_reg[12]_i_1_n_1\,
+      CO(1) => \promedio_reg[12]_i_1_n_2\,
+      CO(0) => \promedio_reg[12]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => data(15 downto 12),
+      O(3) => \promedio_reg[12]_i_1_n_4\,
+      O(2) => \promedio_reg[12]_i_1_n_5\,
+      O(1) => \promedio_reg[12]_i_1_n_6\,
+      O(0) => \promedio_reg[12]_i_1_n_7\,
+      S(3) => \promedio[12]_i_2_n_0\,
+      S(2) => \promedio[12]_i_3_n_0\,
+      S(1) => \promedio[12]_i_4_n_0\,
+      S(0) => \promedio[12]_i_5_n_0\
     );
 \promedio_reg[13]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[15]_i_1_n_6\,
-      Q => \^data_out\(13)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[12]_i_1_n_6\,
+      Q => promedio_reg(13)
     );
 \promedio_reg[14]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[15]_i_1_n_5\,
-      Q => \^data_out\(14)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[12]_i_1_n_5\,
+      Q => promedio_reg(14)
     );
 \promedio_reg[15]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[15]_i_1_n_4\,
-      Q => \^data_out\(15)
-    );
-\promedio_reg[15]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \promedio_reg[11]_i_1_n_0\,
-      CO(3) => \promedio_reg[15]_i_1_n_0\,
-      CO(2) => \promedio_reg[15]_i_1_n_1\,
-      CO(1) => \promedio_reg[15]_i_1_n_2\,
-      CO(0) => \promedio_reg[15]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => data(15 downto 12),
-      O(3) => \promedio_reg[15]_i_1_n_4\,
-      O(2) => \promedio_reg[15]_i_1_n_5\,
-      O(1) => \promedio_reg[15]_i_1_n_6\,
-      O(0) => \promedio_reg[15]_i_1_n_7\,
-      S(3) => \promedio[15]_i_2_n_0\,
-      S(2) => \promedio[15]_i_3_n_0\,
-      S(1) => \promedio[15]_i_4_n_0\,
-      S(0) => \promedio[15]_i_5_n_0\
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[12]_i_1_n_4\,
+      Q => promedio_reg(15)
     );
 \promedio_reg[16]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[19]_i_1_n_7\,
-      Q => \^data_out\(16)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[16]_i_1_n_7\,
+      Q => promedio_reg(16)
+    );
+\promedio_reg[16]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \promedio_reg[12]_i_1_n_0\,
+      CO(3) => \promedio_reg[16]_i_1_n_0\,
+      CO(2) => \promedio_reg[16]_i_1_n_1\,
+      CO(1) => \promedio_reg[16]_i_1_n_2\,
+      CO(0) => \promedio_reg[16]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => data(19 downto 16),
+      O(3) => \promedio_reg[16]_i_1_n_4\,
+      O(2) => \promedio_reg[16]_i_1_n_5\,
+      O(1) => \promedio_reg[16]_i_1_n_6\,
+      O(0) => \promedio_reg[16]_i_1_n_7\,
+      S(3) => \promedio[16]_i_2_n_0\,
+      S(2) => \promedio[16]_i_3_n_0\,
+      S(1) => \promedio[16]_i_4_n_0\,
+      S(0) => \promedio[16]_i_5_n_0\
     );
 \promedio_reg[17]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[19]_i_1_n_6\,
-      Q => \^data_out\(17)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[16]_i_1_n_6\,
+      Q => promedio_reg(17)
     );
 \promedio_reg[18]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[19]_i_1_n_5\,
-      Q => \^data_out\(18)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[16]_i_1_n_5\,
+      Q => promedio_reg(18)
     );
 \promedio_reg[19]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[19]_i_1_n_4\,
-      Q => \^data_out\(19)
-    );
-\promedio_reg[19]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \promedio_reg[15]_i_1_n_0\,
-      CO(3) => \promedio_reg[19]_i_1_n_0\,
-      CO(2) => \promedio_reg[19]_i_1_n_1\,
-      CO(1) => \promedio_reg[19]_i_1_n_2\,
-      CO(0) => \promedio_reg[19]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => data(19 downto 16),
-      O(3) => \promedio_reg[19]_i_1_n_4\,
-      O(2) => \promedio_reg[19]_i_1_n_5\,
-      O(1) => \promedio_reg[19]_i_1_n_6\,
-      O(0) => \promedio_reg[19]_i_1_n_7\,
-      S(3) => \promedio[19]_i_2_n_0\,
-      S(2) => \promedio[19]_i_3_n_0\,
-      S(1) => \promedio[19]_i_4_n_0\,
-      S(0) => \promedio[19]_i_5_n_0\
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[16]_i_1_n_4\,
+      Q => promedio_reg(19)
     );
 \promedio_reg[1]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[3]_i_1_n_6\,
-      Q => \^data_out\(1)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[0]_i_1_n_6\,
+      Q => promedio_reg(1)
     );
 \promedio_reg[20]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[23]_i_1_n_7\,
-      Q => \^data_out\(20)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[20]_i_1_n_7\,
+      Q => promedio_reg(20)
+    );
+\promedio_reg[20]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \promedio_reg[16]_i_1_n_0\,
+      CO(3) => \promedio_reg[20]_i_1_n_0\,
+      CO(2) => \promedio_reg[20]_i_1_n_1\,
+      CO(1) => \promedio_reg[20]_i_1_n_2\,
+      CO(0) => \promedio_reg[20]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => data(23 downto 20),
+      O(3) => \promedio_reg[20]_i_1_n_4\,
+      O(2) => \promedio_reg[20]_i_1_n_5\,
+      O(1) => \promedio_reg[20]_i_1_n_6\,
+      O(0) => \promedio_reg[20]_i_1_n_7\,
+      S(3) => \promedio[20]_i_2_n_0\,
+      S(2) => \promedio[20]_i_3_n_0\,
+      S(1) => \promedio[20]_i_4_n_0\,
+      S(0) => \promedio[20]_i_5_n_0\
     );
 \promedio_reg[21]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[23]_i_1_n_6\,
-      Q => \^data_out\(21)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[20]_i_1_n_6\,
+      Q => promedio_reg(21)
     );
 \promedio_reg[22]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[23]_i_1_n_5\,
-      Q => \^data_out\(22)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[20]_i_1_n_5\,
+      Q => promedio_reg(22)
     );
 \promedio_reg[23]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[23]_i_1_n_4\,
-      Q => \^data_out\(23)
-    );
-\promedio_reg[23]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \promedio_reg[19]_i_1_n_0\,
-      CO(3) => \promedio_reg[23]_i_1_n_0\,
-      CO(2) => \promedio_reg[23]_i_1_n_1\,
-      CO(1) => \promedio_reg[23]_i_1_n_2\,
-      CO(0) => \promedio_reg[23]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => data(23 downto 20),
-      O(3) => \promedio_reg[23]_i_1_n_4\,
-      O(2) => \promedio_reg[23]_i_1_n_5\,
-      O(1) => \promedio_reg[23]_i_1_n_6\,
-      O(0) => \promedio_reg[23]_i_1_n_7\,
-      S(3) => \promedio[23]_i_2_n_0\,
-      S(2) => \promedio[23]_i_3_n_0\,
-      S(1) => \promedio[23]_i_4_n_0\,
-      S(0) => \promedio[23]_i_5_n_0\
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[20]_i_1_n_4\,
+      Q => promedio_reg(23)
     );
 \promedio_reg[24]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[27]_i_1_n_7\,
-      Q => \^data_out\(24)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[24]_i_1_n_7\,
+      Q => promedio_reg(24)
+    );
+\promedio_reg[24]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \promedio_reg[20]_i_1_n_0\,
+      CO(3) => \promedio_reg[24]_i_1_n_0\,
+      CO(2) => \promedio_reg[24]_i_1_n_1\,
+      CO(1) => \promedio_reg[24]_i_1_n_2\,
+      CO(0) => \promedio_reg[24]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => data(27 downto 24),
+      O(3) => \promedio_reg[24]_i_1_n_4\,
+      O(2) => \promedio_reg[24]_i_1_n_5\,
+      O(1) => \promedio_reg[24]_i_1_n_6\,
+      O(0) => \promedio_reg[24]_i_1_n_7\,
+      S(3) => \promedio[24]_i_2_n_0\,
+      S(2) => \promedio[24]_i_3_n_0\,
+      S(1) => \promedio[24]_i_4_n_0\,
+      S(0) => \promedio[24]_i_5_n_0\
     );
 \promedio_reg[25]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[27]_i_1_n_6\,
-      Q => \^data_out\(25)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[24]_i_1_n_6\,
+      Q => promedio_reg(25)
     );
 \promedio_reg[26]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[27]_i_1_n_5\,
-      Q => \^data_out\(26)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[24]_i_1_n_5\,
+      Q => promedio_reg(26)
     );
 \promedio_reg[27]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[27]_i_1_n_4\,
-      Q => \^data_out\(27)
-    );
-\promedio_reg[27]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \promedio_reg[23]_i_1_n_0\,
-      CO(3) => \promedio_reg[27]_i_1_n_0\,
-      CO(2) => \promedio_reg[27]_i_1_n_1\,
-      CO(1) => \promedio_reg[27]_i_1_n_2\,
-      CO(0) => \promedio_reg[27]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => data(27 downto 24),
-      O(3) => \promedio_reg[27]_i_1_n_4\,
-      O(2) => \promedio_reg[27]_i_1_n_5\,
-      O(1) => \promedio_reg[27]_i_1_n_6\,
-      O(0) => \promedio_reg[27]_i_1_n_7\,
-      S(3) => \promedio[27]_i_2_n_0\,
-      S(2) => \promedio[27]_i_3_n_0\,
-      S(1) => \promedio[27]_i_4_n_0\,
-      S(0) => \promedio[27]_i_5_n_0\
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[24]_i_1_n_4\,
+      Q => promedio_reg(27)
     );
 \promedio_reg[28]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[31]_i_1_n_7\,
-      Q => \^data_out\(28)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[28]_i_1_n_7\,
+      Q => promedio_reg(28)
+    );
+\promedio_reg[28]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \promedio_reg[24]_i_1_n_0\,
+      CO(3) => \NLW_promedio_reg[28]_i_1_CO_UNCONNECTED\(3),
+      CO(2) => \promedio_reg[28]_i_1_n_1\,
+      CO(1) => \promedio_reg[28]_i_1_n_2\,
+      CO(0) => \promedio_reg[28]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => data(30 downto 28),
+      O(3) => \promedio_reg[28]_i_1_n_4\,
+      O(2) => \promedio_reg[28]_i_1_n_5\,
+      O(1) => \promedio_reg[28]_i_1_n_6\,
+      O(0) => \promedio_reg[28]_i_1_n_7\,
+      S(3) => \promedio[28]_i_2_n_0\,
+      S(2) => \promedio[28]_i_3_n_0\,
+      S(1) => \promedio[28]_i_4_n_0\,
+      S(0) => \promedio[28]_i_5_n_0\
     );
 \promedio_reg[29]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[31]_i_1_n_6\,
-      Q => \^data_out\(29)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[28]_i_1_n_6\,
+      Q => promedio_reg(29)
     );
 \promedio_reg[2]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[3]_i_1_n_5\,
-      Q => \^data_out\(2)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[0]_i_1_n_5\,
+      Q => promedio_reg(2)
     );
 \promedio_reg[30]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[31]_i_1_n_5\,
-      Q => \^data_out\(30)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[28]_i_1_n_5\,
+      Q => promedio_reg(30)
     );
 \promedio_reg[31]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[31]_i_1_n_4\,
-      Q => \^data_out\(31)
-    );
-\promedio_reg[31]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \promedio_reg[27]_i_1_n_0\,
-      CO(3) => \NLW_promedio_reg[31]_i_1_CO_UNCONNECTED\(3),
-      CO(2) => \promedio_reg[31]_i_1_n_1\,
-      CO(1) => \promedio_reg[31]_i_1_n_2\,
-      CO(0) => \promedio_reg[31]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3) => '0',
-      DI(2 downto 0) => data(30 downto 28),
-      O(3) => \promedio_reg[31]_i_1_n_4\,
-      O(2) => \promedio_reg[31]_i_1_n_5\,
-      O(1) => \promedio_reg[31]_i_1_n_6\,
-      O(0) => \promedio_reg[31]_i_1_n_7\,
-      S(3) => \promedio[31]_i_3_n_0\,
-      S(2) => \promedio[31]_i_4_n_0\,
-      S(1) => \promedio[31]_i_5_n_0\,
-      S(0) => \promedio[31]_i_6_n_0\
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[28]_i_1_n_4\,
+      Q => promedio_reg(31)
     );
 \promedio_reg[3]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[3]_i_1_n_4\,
-      Q => \^data_out\(3)
-    );
-\promedio_reg[3]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => \promedio_reg[3]_i_1_n_0\,
-      CO(2) => \promedio_reg[3]_i_1_n_1\,
-      CO(1) => \promedio_reg[3]_i_1_n_2\,
-      CO(0) => \promedio_reg[3]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => data(3 downto 0),
-      O(3) => \promedio_reg[3]_i_1_n_4\,
-      O(2) => \promedio_reg[3]_i_1_n_5\,
-      O(1) => \promedio_reg[3]_i_1_n_6\,
-      O(0) => \promedio_reg[3]_i_1_n_7\,
-      S(3) => \promedio[3]_i_2_n_0\,
-      S(2) => \promedio[3]_i_3_n_0\,
-      S(1) => \promedio[3]_i_4_n_0\,
-      S(0) => \promedio[3]_i_5_n_0\
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[0]_i_1_n_4\,
+      Q => promedio_reg(3)
     );
 \promedio_reg[4]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[7]_i_1_n_7\,
-      Q => \^data_out\(4)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[4]_i_1_n_7\,
+      Q => promedio_reg(4)
+    );
+\promedio_reg[4]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \promedio_reg[0]_i_1_n_0\,
+      CO(3) => \promedio_reg[4]_i_1_n_0\,
+      CO(2) => \promedio_reg[4]_i_1_n_1\,
+      CO(1) => \promedio_reg[4]_i_1_n_2\,
+      CO(0) => \promedio_reg[4]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => data(7 downto 4),
+      O(3) => \promedio_reg[4]_i_1_n_4\,
+      O(2) => \promedio_reg[4]_i_1_n_5\,
+      O(1) => \promedio_reg[4]_i_1_n_6\,
+      O(0) => \promedio_reg[4]_i_1_n_7\,
+      S(3) => \promedio[4]_i_2_n_0\,
+      S(2) => \promedio[4]_i_3_n_0\,
+      S(1) => \promedio[4]_i_4_n_0\,
+      S(0) => \promedio[4]_i_5_n_0\
     );
 \promedio_reg[5]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[7]_i_1_n_6\,
-      Q => \^data_out\(5)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[4]_i_1_n_6\,
+      Q => promedio_reg(5)
     );
 \promedio_reg[6]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[7]_i_1_n_5\,
-      Q => \^data_out\(6)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[4]_i_1_n_5\,
+      Q => promedio_reg(6)
     );
 \promedio_reg[7]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[7]_i_1_n_4\,
-      Q => \^data_out\(7)
-    );
-\promedio_reg[7]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \promedio_reg[3]_i_1_n_0\,
-      CO(3) => \promedio_reg[7]_i_1_n_0\,
-      CO(2) => \promedio_reg[7]_i_1_n_1\,
-      CO(1) => \promedio_reg[7]_i_1_n_2\,
-      CO(0) => \promedio_reg[7]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => data(7 downto 4),
-      O(3) => \promedio_reg[7]_i_1_n_4\,
-      O(2) => \promedio_reg[7]_i_1_n_5\,
-      O(1) => \promedio_reg[7]_i_1_n_6\,
-      O(0) => \promedio_reg[7]_i_1_n_7\,
-      S(3) => \promedio[7]_i_2_n_0\,
-      S(2) => \promedio[7]_i_3_n_0\,
-      S(1) => \promedio[7]_i_4_n_0\,
-      S(0) => \promedio[7]_i_5_n_0\
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[4]_i_1_n_4\,
+      Q => promedio_reg(7)
     );
 \promedio_reg[8]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[11]_i_1_n_7\,
-      Q => \^data_out\(8)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[8]_i_1_n_7\,
+      Q => promedio_reg(8)
+    );
+\promedio_reg[8]_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \promedio_reg[4]_i_1_n_0\,
+      CO(3) => \promedio_reg[8]_i_1_n_0\,
+      CO(2) => \promedio_reg[8]_i_1_n_1\,
+      CO(1) => \promedio_reg[8]_i_1_n_2\,
+      CO(0) => \promedio_reg[8]_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => data(11 downto 8),
+      O(3) => \promedio_reg[8]_i_1_n_4\,
+      O(2) => \promedio_reg[8]_i_1_n_5\,
+      O(1) => \promedio_reg[8]_i_1_n_6\,
+      O(0) => \promedio_reg[8]_i_1_n_7\,
+      S(3) => \promedio[8]_i_2_n_0\,
+      S(2) => \promedio[8]_i_3_n_0\,
+      S(1) => \promedio[8]_i_4_n_0\,
+      S(0) => \promedio[8]_i_5_n_0\
     );
 \promedio_reg[9]\: unisim.vcomponents.FDCE
      port map (
       C => clk,
       CE => data_valid,
-      CLR => \promedio[31]_i_2_n_0\,
-      D => \promedio_reg[11]_i_1_n_6\,
-      Q => \^data_out\(9)
+      CLR => \counter[0]_i_2_n_0\,
+      D => \promedio_reg[8]_i_1_n_6\,
+      Q => promedio_reg(9)
     );
 end STRUCTURE;
 library IEEE;
@@ -2361,7 +4196,8 @@ entity system_promedio_lineal_0_0 is
     data_valid : in STD_LOGIC;
     data_out : out STD_LOGIC_VECTOR ( 31 downto 0 );
     data_out_valid : out STD_LOGIC;
-    N_averaged_samples : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    log2_divisor : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    N_averaged_samples : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of system_promedio_lineal_0_0 : entity is true;
@@ -2385,12 +4221,13 @@ architecture STRUCTURE of system_promedio_lineal_0_0 is
 begin
 inst: entity work.system_promedio_lineal_0_0_promedio_lineal
      port map (
-      N_averaged_samples(15 downto 0) => N_averaged_samples(15 downto 0),
+      N_averaged_samples(31 downto 0) => N_averaged_samples(31 downto 0),
       clk => clk,
       data(31 downto 0) => data(31 downto 0),
       data_out(31 downto 0) => data_out(31 downto 0),
       data_out_valid => data_out_valid,
       data_valid => data_valid,
+      log2_divisor(31 downto 0) => log2_divisor(31 downto 0),
       reset_n => reset_n
     );
 end STRUCTURE;
