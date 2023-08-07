@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Jul 10 12:45:43 2023
+// Date        : Wed Aug  2 16:08:37 2023
 // Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top system_coherent_average_0_1 -prefix
 //               system_coherent_average_0_1_ system_coherent_average_0_0_stub.v

@@ -1,0 +1,52 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Aug  1 14:13:12 2023
+# Process ID: 7300
+# Current directory: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8944 C:\Users\MatiOliva\Documents\04-RedPitaya\adquisidor\adquisidor_red_pitaya\adquisidor.xpr
+# Log file: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/vivado.log
+# Journal file: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya\vivado.jou
+# Running On: DESKTOP-BRUHM76, OS: Windows, CPU Frequency: 3912 MHz, CPU Physical cores: 2, Host memory: 17041 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
+create_bd_port -dir I Start_trigger
+connect_bd_net [get_bd_pins  Start_trigger] [get_bd_pins exp_p_tri_io]
+delete_bd_objs [get_bd_nets Start_trigger_1]
+delete_bd_objs [get_bd_ports Start_trigger]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property -dict [list \
+  CONFIG.CONST_VAL {3} \
+  CONFIG.CONST_WIDTH {2} \
+] [get_bd_cells xlconstant_0]
+copy_bd_objs /  [get_bd_cells {xlconstant_0}]
+set_property location {6 8362 -385} [get_bd_cells xlconstant_1]
+set_property CONFIG.CONST_VAL {0} [get_bd_cells xlconstant_1]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0
+endgroup
+set_property -dict [list CONFIG.IN0_WIDTH.VALUE_SRC USER CONFIG.IN1_WIDTH.VALUE_SRC USER] [get_bd_cells xlconcat_0]
+set_property -dict [list \
+  CONFIG.IN0_WIDTH {2} \
+  CONFIG.IN1_WIDTH {2} \
+] [get_bd_cells xlconcat_0]
+set_property location {7.5 8634 -427} [get_bd_cells xlconcat_0]
+connect_bd_net [get_bd_pins xlconstant_0/dout] [get_bd_pins xlconcat_0/In0]
+connect_bd_net [get_bd_pins xlconstant_1/dout] [get_bd_pins xlconcat_0/In1]
+connect_bd_net [get_bd_pins xlconstant_1/dout] [get_bd_pins exp_p_tri_io]
+delete_bd_objs [get_bd_nets xlconstant_1_dout]
+connect_bd_net [get_bd_pins xlconstant_1/dout] [get_bd_pins xlconcat_0/In1]
+connect_bd_net [get_bd_pins xlconcat_0/dout] [get_bd_pins xlconcat_0/In1]
+connect_bd_net [get_bd_pins xlconcat_0/dout] [get_bd_pins exp_p_tri_io]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_run impl_1
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}

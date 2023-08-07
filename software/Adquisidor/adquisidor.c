@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include "string.h"
 #include <time.h>
+#include <math.h>
 
 #define START_ADDRESS 0x40000000
 #define DATA_CH_A_ADDRESS 0x40000000
@@ -43,9 +44,10 @@ void SetN_ca(void *cfg,int N_ca);
 void SetTriggerMode(void *cfg, int trigger_mode);
 void SetTriggerLevel(void *cfg, int trigger_level);
 void SetDivisor(void *cfg, int log2_divisor);
+double custom_pow(double base, int exponent);
 
 int getFinish(void *cfg);
-void escribirArchivo(int buffer_a[],int buffer_b[], int n, const char* nombreArchivo, int f_muestreo);
+void escribirArchivo(int buffer_a[],int buffer_b[], int n, const char* nombreArchivo, int f_muestreo, int N, int K,int div);
 
 int main(int argc, char **argv)
 {
@@ -116,6 +118,7 @@ int main(int argc, char **argv)
 	
 
 	// Espero a la señal de finzalizacion
+	
 	while  ( getFinish(cfg) == 0 ) 
 	{
 		 fin = clock(); // Guardar el tiempo de finalización
@@ -153,14 +156,14 @@ int main(int argc, char **argv)
 		reads_chB[i] = *((uint32_t *)(cfg + DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
 	}	
 	
-	escribirArchivo(reads_chA,reads_chB,M,nombreArchivo,(float)125000000/K_sobremuestreo);
+	escribirArchivo(reads_chA,reads_chB,M,nombreArchivo,(float)125000000/K_sobremuestreo,N_promC,K_sobremuestreo,custom_pow(2,log2_divisor));
     
     munmap(cfg, sysconf(_SC_PAGESIZE));
 
     return 0;
 }
 
-void escribirArchivo(int buffer_a[],int buffer_b[], int n, const char* nombreArchivo, int f_muestreo) {
+void escribirArchivo(int buffer_a[],int buffer_b[], int n, const char* nombreArchivo, int f_muestreo, int N, int K, int div) {
     // Abrir el archivo en modo escritura
     FILE* archivo = fopen(nombreArchivo, "w");
 
@@ -168,7 +171,7 @@ void escribirArchivo(int buffer_a[],int buffer_b[], int n, const char* nombreArc
         printf("No se pudo abrir el archivo.\n");
         return;
     }
-	fprintf(archivo, "Frecuencia de muestreo: %d \n",f_muestreo);
+	fprintf(archivo, "Frecuencia_de_muestreo: %d Factor_de_sobremuestreo: %d Ciclos_de_promediacion: %d Divisor: %d \n\n",f_muestreo,K,N,div);
 
     // Escribir los contenidos del buffer en el archivo
     for (int i = 0; i < n; i++) {
@@ -262,6 +265,24 @@ void SetDivisor(void *cfg, int log2_divisor)
 int getFinish(void *cfg)
 {
 	return (*(uint32_t *)(cfg+ FINISHED_ADDRESS - START_ADDRESS) );
+}
+
+double custom_pow(double base, int exponent) {
+    if (exponent == 0) {
+        return 1.0;
+    } else if (exponent > 0) {
+        double result = base;
+        for (int i = 1; i < exponent; i++) {
+            result *= base;
+        }
+        return result;
+    } else {
+        double result = 1.0 / base;
+        for (int i = 1; i < -exponent; i++) {
+            result /= base;
+        }
+        return result;
+    }
 }
 
 

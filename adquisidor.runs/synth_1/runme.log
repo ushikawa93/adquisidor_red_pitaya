@@ -10,14 +10,14 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source system_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 393.980 ; gain = 61.188
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 394.898 ; gain = 72.828
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/MatiOliva/Documents/04-RedPitaya/utils/user_ip/cores'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/ip_repo'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
 WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
 Current IP cache path is c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.cache/ip 
-add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 433.023 ; gain = 14.191
+add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:15 . Memory (MB): peak = 434.445 ; gain = 14.703
 Command: read_checkpoint -auto_incremental -incremental C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/utils_1/imports/synth_1/system_wrapper.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/utils_1/imports/synth_1/system_wrapper.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -30,160 +30,156 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 18168
+INFO: [Synth 8-7075] Helper process launched with PID 26448
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1247.555 ; gain = 411.875
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1244.023 ; gain = 408.457
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_wrapper' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/system_wrapper.v:12]
-INFO: [Synth 8-6157] synthesizing module 'system' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2099]
+INFO: [Synth 8-6157] synthesizing module 'system' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2095]
 INFO: [Synth 8-6157] synthesizing module 'ADC_imp_EKYMYC' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:12]
-INFO: [Synth 8-6157] synthesizing module 'system_axis_red_pitaya_adc_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axis_red_pitaya_adc_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_red_pitaya_adc_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axis_red_pitaya_adc_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_signal_split_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_signal_split_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_signal_split_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_signal_split_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axis_red_pitaya_adc_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axis_red_pitaya_adc_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_red_pitaya_adc_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axis_red_pitaya_adc_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_signal_split_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_signal_split_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_signal_split_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_signal_split_0_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'ADC_imp_EKYMYC' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:12]
 INFO: [Synth 8-6157] synthesizing module 'BRAM_imp_47SZ6' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:282]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_reader_1_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_bram_reader_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_reader_1_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_bram_reader_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_reader_1_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_bram_reader_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_reader_1_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_bram_reader_1_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'bram_porta_en' of module 'system_axi_bram_reader_1_0' is unconnected for instance 'axi_bram_reader_1' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:428]
 WARNING: [Synth 8-7023] instance 'axi_bram_reader_1' of module 'system_axi_bram_reader_1_0' has 28 connections declared, but only 27 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:428]
-INFO: [Synth 8-6157] synthesizing module 'system_blk_mem_gen_1_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_blk_mem_gen_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_blk_mem_gen_1_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_blk_mem_gen_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_bram_switch_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_bram_switch_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_bram_switch_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_bram_switch_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_blk_mem_gen_1_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_blk_mem_gen_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_blk_mem_gen_1_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_blk_mem_gen_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_bram_switch_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_bram_switch_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_bram_switch_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_bram_switch_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'bram_portc_rst' of module 'system_bram_switch_0_0' is unconnected for instance 'bram_switch_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:468]
 WARNING: [Synth 8-7023] instance 'bram_switch_0' of module 'system_bram_switch_0_0' has 19 connections declared, but only 18 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:468]
 INFO: [Synth 8-6155] done synthesizing module 'BRAM_imp_47SZ6' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:282]
 INFO: [Synth 8-6157] synthesizing module 'BRAM1_imp_D57AIZ' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:75]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_reader_1_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_bram_reader_1_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_reader_1_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_bram_reader_1_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_reader_1_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_bram_reader_1_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_reader_1_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_bram_reader_1_1_stub.v:5]
 WARNING: [Synth 8-7071] port 'bram_porta_en' of module 'system_axi_bram_reader_1_1' is unconnected for instance 'axi_bram_reader_1' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:221]
 WARNING: [Synth 8-7023] instance 'axi_bram_reader_1' of module 'system_axi_bram_reader_1_1' has 28 connections declared, but only 27 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:221]
-INFO: [Synth 8-6157] synthesizing module 'system_blk_mem_gen_1_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_blk_mem_gen_1_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_blk_mem_gen_1_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_blk_mem_gen_1_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_bram_switch_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_bram_switch_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_bram_switch_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_bram_switch_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_blk_mem_gen_1_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_blk_mem_gen_1_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_blk_mem_gen_1_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_blk_mem_gen_1_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_bram_switch_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_bram_switch_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_bram_switch_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_bram_switch_0_1_stub.v:5]
 WARNING: [Synth 8-7071] port 'bram_portc_rst' of module 'system_bram_switch_0_1' is unconnected for instance 'bram_switch_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:261]
 WARNING: [Synth 8-7023] instance 'bram_switch_0' of module 'system_bram_switch_0_1' has 19 connections declared, but only 18 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:261]
 INFO: [Synth 8-6155] done synthesizing module 'BRAM1_imp_D57AIZ' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:75]
 INFO: [Synth 8-6157] synthesizing module 'DAC_imp_F94JA7' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:489]
-INFO: [Synth 8-6157] synthesizing module 'system_axis_constant_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axis_constant_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_constant_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axis_constant_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_axis_red_pitaya_dac_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axis_red_pitaya_dac_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axis_red_pitaya_dac_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axis_red_pitaya_dac_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axis_constant_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axis_constant_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_constant_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axis_constant_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axis_red_pitaya_dac_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axis_red_pitaya_dac_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axis_red_pitaya_dac_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axis_red_pitaya_dac_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 's_axis_tready' of module 'system_axis_red_pitaya_dac_0_0' is unconnected for instance 'axis_red_pitaya_dac_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:531]
 WARNING: [Synth 8-7023] instance 'axis_red_pitaya_dac_0' of module 'system_axis_red_pitaya_dac_0_0' has 11 connections declared, but only 10 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:531]
-INFO: [Synth 8-6157] synthesizing module 'system_clk_wiz_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_clk_wiz_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_dds_compiler_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_dds_compiler_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_dds_compiler_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_dds_compiler_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_clk_wiz_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_clk_wiz_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_dds_compiler_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_dds_compiler_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_dds_compiler_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_dds_compiler_0_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'DAC_imp_F94JA7' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:489]
-INFO: [Synth 8-6157] synthesizing module 'Procesamiento_imp_XLRG7U' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:698]
-INFO: [Synth 8-6157] synthesizing module 'system_coherent_average_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_coherent_average_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_coherent_average_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_coherent_average_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'bram_porta_rst' of module 'system_coherent_average_0_0' is unconnected for instance 'coherent_average_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:798]
-WARNING: [Synth 8-7023] instance 'coherent_average_0' of module 'system_coherent_average_0_0' has 21 connections declared, but only 20 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:798]
-INFO: [Synth 8-6157] synthesizing module 'system_promedio_lineal_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_promedio_lineal_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_promedio_lineal_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_promedio_lineal_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_trigger_simulator_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_trigger_simulator_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_trigger_simulator_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_trigger_simulator_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'Procesamiento_imp_XLRG7U' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:698]
+INFO: [Synth 8-6157] synthesizing module 'Procesamiento_imp_XLRG7U' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:683]
+INFO: [Synth 8-6157] synthesizing module 'system_coherent_average_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_coherent_average_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_coherent_average_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_coherent_average_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'bram_porta_rst' of module 'system_coherent_average_0_0' is unconnected for instance 'coherent_average_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:793]
+WARNING: [Synth 8-7023] instance 'coherent_average_0' of module 'system_coherent_average_0_0' has 21 connections declared, but only 20 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:793]
+INFO: [Synth 8-6157] synthesizing module 'system_promedio_lineal_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_promedio_lineal_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_promedio_lineal_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_promedio_lineal_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_trigger_simulator_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_trigger_simulator_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_trigger_simulator_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_trigger_simulator_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Procesamiento_imp_XLRG7U' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:683]
 INFO: [Synth 8-6157] synthesizing module 'Procesamiento1_imp_1WKXFKW' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:554]
-INFO: [Synth 8-6157] synthesizing module 'system_coherent_average_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_coherent_average_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_coherent_average_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_coherent_average_0_1_stub.v:5]
-WARNING: [Synth 8-7071] port 'bram_porta_rst' of module 'system_coherent_average_0_1' is unconnected for instance 'coherent_average_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:654]
-WARNING: [Synth 8-7023] instance 'coherent_average_0' of module 'system_coherent_average_0_1' has 21 connections declared, but only 20 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:654]
-INFO: [Synth 8-6157] synthesizing module 'system_promedio_lineal_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_promedio_lineal_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_promedio_lineal_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_promedio_lineal_0_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_trigger_simulator_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_trigger_simulator_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_trigger_simulator_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_trigger_simulator_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_coherent_average_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_coherent_average_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_coherent_average_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_coherent_average_0_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'bram_porta_rst' of module 'system_coherent_average_0_1' is unconnected for instance 'coherent_average_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:651]
+WARNING: [Synth 8-7023] instance 'coherent_average_0' of module 'system_coherent_average_0_1' has 21 connections declared, but only 20 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:651]
+INFO: [Synth 8-6157] synthesizing module 'system_promedio_lineal_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_promedio_lineal_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_promedio_lineal_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_promedio_lineal_0_1_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'Procesamiento1_imp_1WKXFKW' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:554]
-INFO: [Synth 8-6157] synthesizing module 'system_and_2_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_and_2_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_and_2_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_and_2_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'uP_imp_1ANG6V' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4552]
-INFO: [Synth 8-6157] synthesizing module 'system_processing_system7_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_processing_system7_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_processing_system7_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_processing_system7_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_MDC' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_SCLK_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_SCLK_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_MOSI_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_MOSI_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_MISO_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_MISO_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_SS_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_SS1_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_SS2_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'SPI0_SS_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE0_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE1_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE2_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_ARREADY' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_AWREADY' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BVALID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RLAST' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RVALID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WREADY' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BRESP' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RRESP' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RDATA' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'system_processing_system7_0_0' has 131 connections declared, but only 98 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5157]
-INFO: [Synth 8-6157] synthesizing module 'system_ps7_0_axi_periph_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2796]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_I10L1P' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:842]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_I10L1P' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:842]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_1U6Z1UK' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:988]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_1U6Z1UK' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:988]
-INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_1JB97U6' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1120]
-INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_1JB97U6' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1120]
-INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_T6QETB' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1252]
-INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_T6QETB' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1252]
-INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_15A62A2' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1384]
-INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_15A62A2' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1384]
-INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_G9LML7' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1516]
-INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_G9LML7' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1516]
-INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_5DVQSP' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1648]
-INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_5DVQSP' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1648]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_X5C1SS' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1794]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_X5C1SS' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1794]
-INFO: [Synth 8-6157] synthesizing module 'system_xbar_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_xbar_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_xbar_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_xbar_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_ps7_0_axi_periph_0' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2796]
-INFO: [Synth 8-6157] synthesizing module 'system_rst_ps7_0_125M_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_rst_ps7_0_125M_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_rst_ps7_0_125M_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_rst_ps7_0_125M_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'system_rst_ps7_0_125M_0' is unconnected for instance 'rst_ps7_0_125M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5436]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'system_rst_ps7_0_125M_0' is unconnected for instance 'rst_ps7_0_125M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5436]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'system_rst_ps7_0_125M_0' is unconnected for instance 'rst_ps7_0_125M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5436]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'system_rst_ps7_0_125M_0' is unconnected for instance 'rst_ps7_0_125M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5436]
-WARNING: [Synth 8-7023] instance 'rst_ps7_0_125M' of module 'system_rst_ps7_0_125M_0' has 10 connections declared, but only 6 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5436]
-INFO: [Synth 8-6155] done synthesizing module 'uP_imp_1ANG6V' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4552]
-INFO: [Synth 8-6157] synthesizing module 'uP_control_imp_12V0CNG' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4013]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'system_axi_gpio_0_0' is unconnected for instance 'Control_and_Nca' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4410]
-WARNING: [Synth 8-7071] port 'gpio2_io_t' of module 'system_axi_gpio_0_0' is unconnected for instance 'Control_and_Nca' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4410]
-WARNING: [Synth 8-7023] instance 'Control_and_Nca' of module 'system_axi_gpio_0_0' has 25 connections declared, but only 23 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4410]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_1_stub.v:5]
-WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'system_axi_gpio_0_1' is unconnected for instance 'DAC_and_M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4434]
-WARNING: [Synth 8-7071] port 'gpio2_io_t' of module 'system_axi_gpio_0_1' is unconnected for instance 'DAC_and_M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4434]
-WARNING: [Synth 8-7023] instance 'DAC_and_M' of module 'system_axi_gpio_0_1' has 25 connections declared, but only 23 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4434]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_2' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_2_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_2' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_2_stub.v:5]
-WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'system_axi_gpio_0_2' is unconnected for instance 'K_and_log2div' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4458]
-WARNING: [Synth 8-7071] port 'gpio2_io_t' of module 'system_axi_gpio_0_2' is unconnected for instance 'K_and_log2div' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4458]
-WARNING: [Synth 8-7023] instance 'K_and_log2div' of module 'system_axi_gpio_0_2' has 25 connections declared, but only 23 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4458]
+INFO: [Synth 8-6157] synthesizing module 'uP_imp_1ANG6V' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4550]
+INFO: [Synth 8-6157] synthesizing module 'system_processing_system7_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_processing_system7_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_processing_system7_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_processing_system7_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_MDC' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_SCLK_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_SCLK_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_MOSI_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_MOSI_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_MISO_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_MISO_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_SS_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_SS1_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_SS2_O' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'SPI0_SS_T' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE0_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE1_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE2_OUT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_ARREADY' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_AWREADY' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BVALID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RLAST' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RVALID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WREADY' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BRESP' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RRESP' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RDATA' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'system_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'system_processing_system7_0_0' has 131 connections declared, but only 98 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5155]
+INFO: [Synth 8-6157] synthesizing module 'system_ps7_0_axi_periph_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2794]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_I10L1P' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:838]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_I10L1P' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:838]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_1U6Z1UK' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:984]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_1U6Z1UK' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:984]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_1JB97U6' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1116]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_1JB97U6' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1116]
+INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_T6QETB' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1248]
+INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_T6QETB' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1248]
+INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_15A62A2' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1380]
+INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_15A62A2' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1380]
+INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_G9LML7' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1512]
+INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_G9LML7' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1512]
+INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_5DVQSP' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1644]
+INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_5DVQSP' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1644]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_X5C1SS' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1790]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_X5C1SS' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:1790]
+INFO: [Synth 8-6157] synthesizing module 'system_xbar_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_xbar_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_xbar_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_xbar_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_ps7_0_axi_periph_0' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2794]
+INFO: [Synth 8-6157] synthesizing module 'system_rst_ps7_0_125M_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_rst_ps7_0_125M_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_rst_ps7_0_125M_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_rst_ps7_0_125M_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'system_rst_ps7_0_125M_0' is unconnected for instance 'rst_ps7_0_125M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5434]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'system_rst_ps7_0_125M_0' is unconnected for instance 'rst_ps7_0_125M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5434]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'system_rst_ps7_0_125M_0' is unconnected for instance 'rst_ps7_0_125M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5434]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'system_rst_ps7_0_125M_0' is unconnected for instance 'rst_ps7_0_125M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5434]
+WARNING: [Synth 8-7023] instance 'rst_ps7_0_125M' of module 'system_rst_ps7_0_125M_0' has 10 connections declared, but only 6 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:5434]
+INFO: [Synth 8-6155] done synthesizing module 'uP_imp_1ANG6V' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4550]
+INFO: [Synth 8-6157] synthesizing module 'uP_control_imp_12V0CNG' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4011]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'system_axi_gpio_0_0' is unconnected for instance 'Control_and_Nca' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4408]
+WARNING: [Synth 8-7071] port 'gpio2_io_t' of module 'system_axi_gpio_0_0' is unconnected for instance 'Control_and_Nca' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4408]
+WARNING: [Synth 8-7023] instance 'Control_and_Nca' of module 'system_axi_gpio_0_0' has 25 connections declared, but only 23 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4408]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_1' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_1' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'system_axi_gpio_0_1' is unconnected for instance 'DAC_and_M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4432]
+WARNING: [Synth 8-7071] port 'gpio2_io_t' of module 'system_axi_gpio_0_1' is unconnected for instance 'DAC_and_M' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4432]
+WARNING: [Synth 8-7023] instance 'DAC_and_M' of module 'system_axi_gpio_0_1' has 25 connections declared, but only 23 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4432]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_0_2' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_0_2' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_gpio_0_2_stub.v:5]
+WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'system_axi_gpio_0_2' is unconnected for instance 'K_and_log2div' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4456]
+WARNING: [Synth 8-7071] port 'gpio2_io_t' of module 'system_axi_gpio_0_2' is unconnected for instance 'K_and_log2div' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4456]
+WARNING: [Synth 8-7023] instance 'K_and_log2div' of module 'system_axi_gpio_0_2' has 25 connections declared, but only 23 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4456]
 INFO: [Synth 8-6157] synthesizing module 'system_xlslice_0_3' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_xlslice_0_3/synth/system_xlslice_0_3.v:53]
 INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
@@ -194,18 +190,18 @@ INFO: [Synth 8-6157] synthesizing module 'system_xlslice_0_1' [c:/Users/MatiOliv
 INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized0' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'system_xlslice_0_1' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_xlslice_0_1/synth/system_xlslice_0_1.v:53]
-INFO: [Synth 8-6157] synthesizing module 'system_Control_and_Nca_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_Control_and_Nca_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_Control_and_Nca_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_Control_and_Nca_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'system_Control_and_Nca_0' is unconnected for instance 'Trigger' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4491]
-WARNING: [Synth 8-7071] port 'gpio2_io_o' of module 'system_Control_and_Nca_0' is unconnected for instance 'Trigger' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4491]
-WARNING: [Synth 8-7071] port 'gpio2_io_t' of module 'system_Control_and_Nca_0' is unconnected for instance 'Trigger' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4491]
-WARNING: [Synth 8-7023] instance 'Trigger' of module 'system_Control_and_Nca_0' has 25 connections declared, but only 22 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4491]
+INFO: [Synth 8-6157] synthesizing module 'system_Control_and_Nca_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_Control_and_Nca_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_Control_and_Nca_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_Control_and_Nca_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'gpio_io_t' of module 'system_Control_and_Nca_0' is unconnected for instance 'Trigger' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4489]
+WARNING: [Synth 8-7071] port 'gpio2_io_o' of module 'system_Control_and_Nca_0' is unconnected for instance 'Trigger' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4489]
+WARNING: [Synth 8-7071] port 'gpio2_io_t' of module 'system_Control_and_Nca_0' is unconnected for instance 'Trigger' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4489]
+WARNING: [Synth 8-7023] instance 'Trigger' of module 'system_Control_and_Nca_0' has 25 connections declared, but only 22 given [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4489]
 INFO: [Synth 8-6157] synthesizing module 'system_xlslice_0_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_xlslice_0_0/synth/system_xlslice_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized1' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized1' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'system_xlslice_0_0' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_xlslice_0_0/synth/system_xlslice_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_1_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_gpio_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_1_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_gpio_1_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_gpio_1_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_axi_gpio_1_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'system_N_prom_lineal_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_N_prom_lineal_0/synth/system_N_prom_lineal_0.v:53]
 INFO: [Synth 8-6155] done synthesizing module 'system_N_prom_lineal_0' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_N_prom_lineal_0/synth/system_N_prom_lineal_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'system_xlslice_1_0' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_xlslice_1_0/synth/system_xlslice_1_0.v:53]
@@ -220,23 +216,28 @@ INFO: [Synth 8-6157] synthesizing module 'system_xlslice_0_4' [c:/Users/MatiOliv
 INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized4' [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized4' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'system_xlslice_0_4' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_xlslice_0_4/synth/system_xlslice_0_4.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'uP_control_imp_12V0CNG' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4013]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ds_buf_1_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_util_ds_buf_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ds_buf_1_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_util_ds_buf_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ds_buf_2_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_util_ds_buf_2_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ds_buf_2_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-19016-DESKTOP-BRUHM76/realtime/system_util_ds_buf_2_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'system' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2099]
+INFO: [Synth 8-6155] done synthesizing module 'uP_control_imp_12V0CNG' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:4011]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ds_buf_1_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_util_ds_buf_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ds_buf_1_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_util_ds_buf_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ds_buf_2_0' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_util_ds_buf_2_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ds_buf_2_0' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/.Xil/Vivado-25700-DESKTOP-BRUHM76/realtime/system_util_ds_buf_2_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'system' (0#1) [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2095]
+WARNING: [Synth 8-689] width (8) of port connection 'exp_p_tri_io' does not match port width (4) of module 'system' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/system_wrapper.v:178]
 WARNING: [Synth 8-689] width (8) of port connection 'led_o' does not match port width (2) of module 'system' [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/system_wrapper.v:179]
 INFO: [Synth 8-6155] done synthesizing module 'system_wrapper' (0#1) [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/system_wrapper.v:12]
-WARNING: [Synth 8-3848] Net adc_enc_n_o in module/entity system does not have driver. [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2168]
-WARNING: [Synth 8-3848] Net adc_enc_p_o in module/entity system does not have driver. [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2169]
-WARNING: [Synth 8-3848] Net dac_pwm_o in module/entity system does not have driver. [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2172]
+WARNING: [Synth 8-3848] Net adc_enc_n_o in module/entity system does not have driver. [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2164]
+WARNING: [Synth 8-3848] Net adc_enc_p_o in module/entity system does not have driver. [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2165]
+WARNING: [Synth 8-3848] Net dac_pwm_o in module/entity system does not have driver. [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/synth/system.v:2168]
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[7] driven by constant 0
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[6] driven by constant 0
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[5] driven by constant 0
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[4] driven by constant 0
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[3] driven by constant 0
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[2] driven by constant 0
+WARNING: [Synth 8-3917] design system_wrapper has port exp_p_tri_io[7] driven by constant 0
+WARNING: [Synth 8-3917] design system_wrapper has port exp_p_tri_io[6] driven by constant 0
+WARNING: [Synth 8-3917] design system_wrapper has port exp_p_tri_io[5] driven by constant 0
+WARNING: [Synth 8-3917] design system_wrapper has port exp_p_tri_io[4] driven by constant 0
 WARNING: [Synth 8-7129] Port Din[15] in module xlslice_v1_0_2_xlslice__parameterized3 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Din[14] in module xlslice_v1_0_2_xlslice__parameterized3 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Din[13] in module xlslice_v1_0_2_xlslice__parameterized3 is either unconnected or has no load
@@ -339,18 +340,19 @@ WARNING: [Synth 8-7129] Port S_AXI1_araddr[27] in module uP_control_imp_12V0CNG 
 WARNING: [Synth 8-7129] Port S_AXI1_araddr[26] in module uP_control_imp_12V0CNG is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1349.715 ; gain = 514.035
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1348.090 ; gain = 512.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1349.715 ; gain = 514.035
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1348.090 ; gain = 512.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1349.715 ; gain = 514.035
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1348.090 ; gain = 512.523
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.115 . Memory (MB): peak = 1349.715 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.095 . Memory (MB): peak = 1348.090 ; gain = 0.000
+WARNING: [Netlist 29-1115] Found multi-term driver net: <const0>.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -395,28 +397,28 @@ Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisido
 Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_signal_split_0_0/system_signal_split_0_0/system_signal_split_0_0_in_context.xdc] for cell 'system_i/ADC/signal_split_0'
 Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0_in_context.xdc] for cell 'system_i/ADC/axis_red_pitaya_adc_0'
 Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0/system_axis_red_pitaya_adc_0_0_in_context.xdc] for cell 'system_i/ADC/axis_red_pitaya_adc_0'
+Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0/system_promedio_lineal_0_0_in_context.xdc] for cell 'system_i/Procesamiento/promedio_lineal_0'
+Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0/system_promedio_lineal_0_0_in_context.xdc] for cell 'system_i/Procesamiento/promedio_lineal_0'
 Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0/system_coherent_average_0_0_in_context.xdc] for cell 'system_i/Procesamiento/coherent_average_0'
 Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0/system_coherent_average_0_0_in_context.xdc] for cell 'system_i/Procesamiento/coherent_average_0'
 Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0/system_trigger_simulator_0_0_in_context.xdc] for cell 'system_i/Procesamiento/trigger_simulator_0'
 Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0/system_trigger_simulator_0_0_in_context.xdc] for cell 'system_i/Procesamiento/trigger_simulator_0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0/system_promedio_lineal_0_0_in_context.xdc] for cell 'system_i/Procesamiento/promedio_lineal_0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0/system_promedio_lineal_0_0_in_context.xdc] for cell 'system_i/Procesamiento/promedio_lineal_0'
+Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_1/system_promedio_lineal_0_1/system_promedio_lineal_0_1_in_context.xdc] for cell 'system_i/Procesamiento1/promedio_lineal_0'
+Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_1/system_promedio_lineal_0_1/system_promedio_lineal_0_1_in_context.xdc] for cell 'system_i/Procesamiento1/promedio_lineal_0'
 Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_1/system_coherent_average_0_1/system_coherent_average_0_0_in_context.xdc] for cell 'system_i/Procesamiento1/coherent_average_0'
 Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_1/system_coherent_average_0_1/system_coherent_average_0_0_in_context.xdc] for cell 'system_i/Procesamiento1/coherent_average_0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_1/system_trigger_simulator_0_1/system_trigger_simulator_0_0_in_context.xdc] for cell 'system_i/Procesamiento1/trigger_simulator_0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_1/system_trigger_simulator_0_1/system_trigger_simulator_0_0_in_context.xdc] for cell 'system_i/Procesamiento1/trigger_simulator_0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_1/system_promedio_lineal_0_1/system_promedio_lineal_0_0_in_context.xdc] for cell 'system_i/Procesamiento1/promedio_lineal_0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_1/system_promedio_lineal_0_1/system_promedio_lineal_0_0_in_context.xdc] for cell 'system_i/Procesamiento1/promedio_lineal_0'
 Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_bram_reader_1_1/system_axi_bram_reader_1_1/system_axi_bram_reader_1_0_in_context.xdc] for cell 'system_i/BRAM1/axi_bram_reader_1'
 Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_bram_reader_1_1/system_axi_bram_reader_1_1/system_axi_bram_reader_1_0_in_context.xdc] for cell 'system_i/BRAM1/axi_bram_reader_1'
 Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_blk_mem_gen_1_1/system_blk_mem_gen_1_1/system_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/BRAM1/blk_mem_gen_1'
 Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_blk_mem_gen_1_1/system_blk_mem_gen_1_1/system_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/BRAM1/blk_mem_gen_1'
 Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_bram_switch_0_1/system_bram_switch_0_1/system_bram_switch_0_0_in_context.xdc] for cell 'system_i/BRAM1/bram_switch_0'
 Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_bram_switch_0_1/system_bram_switch_0_1/system_bram_switch_0_0_in_context.xdc] for cell 'system_i/BRAM1/bram_switch_0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_and_2_0_0/system_and_2_0_0/system_and_2_0_0_in_context.xdc] for cell 'system_i/and_2_0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_and_2_0_0/system_and_2_0_0/system_and_2_0_0_in_context.xdc] for cell 'system_i/and_2_0'
 Parsing XDC File [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/clocks.xdc]
 WARNING: [Vivado 12-507] No nets matched 'system_i/uP/processing_system7_0/inst/FCLK_CLK0'. [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/clocks.xdc:10]
+WARNING: [Vivado 12-627] No clocks matched 'clk_fpga_0'. [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/clocks.xdc:12]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/clocks.xdc:12]
+WARNING: [Vivado 12-627] No clocks matched 'clk_fpga_0'. [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/clocks.xdc:13]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/clocks.xdc:13]
 Finished Parsing XDC File [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/clocks.xdc]
 WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/clocks.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/system_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 Parsing XDC File [C:/Users/MatiOliva/Documents/04-RedPitaya/Led_blink_custom/cfg/ports.xdc]
@@ -459,11 +461,11 @@ Parsing XDC File [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisido
 Finished Parsing XDC File [C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1366.438 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1370.066 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1366.438 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1370.066 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'system_i/util_ds_buf_1' at clock pin 'IBUF_DS_P[1]' is different from the actual clock period '4.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'system_i/uP_control/Control_and_Nca' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'system_i/uP_control/DAC_and_M' at clock pin 's_axi_aclk' is different from the actual clock period '8.000', this can lead to different synthesis results.
@@ -474,14 +476,14 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 1366.438 ; gain = 530.758
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 1366.438 ; gain = 530.758
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -796,21 +798,19 @@ Applied set_property KEEP_HIERARCHY = SOFT for system_i/BRAM/blk_mem_gen_1. (con
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/BRAM/bram_switch_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/ADC/signal_split_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/ADC/axis_red_pitaya_adc_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/Procesamiento/promedio_lineal_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/Procesamiento/coherent_average_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/Procesamiento/trigger_simulator_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/Procesamiento/promedio_lineal_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/Procesamiento1/coherent_average_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/Procesamiento1/trigger_simulator_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/Procesamiento1/promedio_lineal_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/Procesamiento1/coherent_average_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/BRAM1/axi_bram_reader_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/BRAM1/blk_mem_gen_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/BRAM1/bram_switch_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/and_2_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1366.438 ; gain = 530.758
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1366.438 ; gain = 530.758
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -838,26 +838,30 @@ WARNING: [Synth 8-3917] design system_wrapper has port led_o[5] driven by consta
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[4] driven by constant 0
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[3] driven by constant 0
 WARNING: [Synth 8-3917] design system_wrapper has port led_o[2] driven by constant 0
+WARNING: [Synth 8-3917] design system_wrapper has port exp_p_tri_io[7] driven by constant 0
+WARNING: [Synth 8-3917] design system_wrapper has port exp_p_tri_io[6] driven by constant 0
+WARNING: [Synth 8-3917] design system_wrapper has port exp_p_tri_io[5] driven by constant 0
+WARNING: [Synth 8-3917] design system_wrapper has port exp_p_tri_io[4] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1366.438 ; gain = 530.758
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 1366.438 ; gain = 530.758
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 1366.438 ; gain = 530.758
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 1368.289 ; gain = 532.609
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -875,37 +879,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1373.035 ; gain = 537.355
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1373.035 ; gain = 537.355
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1373.035 ; gain = 537.355
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1373.035 ; gain = 537.355
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1373.035 ; gain = 537.355
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1373.035 ; gain = 537.355
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -915,36 +919,34 @@ Report BlackBoxes:
 +------+-------------------------------+----------+
 |      |BlackBox name                  |Instances |
 +------+-------------------------------+----------+
-|1     |system_and_2_0_0               |         1|
-|2     |system_util_ds_buf_1_0         |         1|
-|3     |system_util_ds_buf_2_0         |         1|
-|4     |system_axis_red_pitaya_adc_0_0 |         1|
-|5     |system_signal_split_0_0        |         1|
-|6     |system_axi_bram_reader_1_0     |         1|
-|7     |system_blk_mem_gen_1_0         |         1|
-|8     |system_bram_switch_0_0         |         1|
-|9     |system_axi_bram_reader_1_1     |         1|
-|10    |system_blk_mem_gen_1_1         |         1|
-|11    |system_bram_switch_0_1         |         1|
-|12    |system_axis_constant_0_0       |         1|
-|13    |system_axis_red_pitaya_dac_0_0 |         1|
-|14    |system_clk_wiz_0_0             |         1|
-|15    |system_dds_compiler_0_0        |         1|
-|16    |system_coherent_average_0_0    |         1|
-|17    |system_promedio_lineal_0_0     |         1|
-|18    |system_trigger_simulator_0_0   |         1|
-|19    |system_coherent_average_0_1    |         1|
-|20    |system_promedio_lineal_0_1     |         1|
-|21    |system_trigger_simulator_0_1   |         1|
-|22    |system_xbar_0                  |         1|
-|23    |system_auto_pc_0               |         1|
-|24    |system_processing_system7_0_0  |         1|
-|25    |system_rst_ps7_0_125M_0        |         1|
-|26    |system_axi_gpio_0_0            |         1|
-|27    |system_axi_gpio_0_1            |         1|
-|28    |system_axi_gpio_0_2            |         1|
-|29    |system_Control_and_Nca_0       |         1|
-|30    |system_axi_gpio_1_0            |         1|
+|1     |system_util_ds_buf_1_0         |         1|
+|2     |system_util_ds_buf_2_0         |         1|
+|3     |system_axis_red_pitaya_adc_0_0 |         1|
+|4     |system_signal_split_0_0        |         1|
+|5     |system_axi_bram_reader_1_0     |         1|
+|6     |system_blk_mem_gen_1_0         |         1|
+|7     |system_bram_switch_0_0         |         1|
+|8     |system_axi_bram_reader_1_1     |         1|
+|9     |system_blk_mem_gen_1_1         |         1|
+|10    |system_bram_switch_0_1         |         1|
+|11    |system_axis_constant_0_0       |         1|
+|12    |system_axis_red_pitaya_dac_0_0 |         1|
+|13    |system_clk_wiz_0_0             |         1|
+|14    |system_dds_compiler_0_0        |         1|
+|15    |system_coherent_average_0_0    |         1|
+|16    |system_promedio_lineal_0_0     |         1|
+|17    |system_trigger_simulator_0_0   |         1|
+|18    |system_coherent_average_0_1    |         1|
+|19    |system_promedio_lineal_0_1     |         1|
+|20    |system_xbar_0                  |         1|
+|21    |system_auto_pc_0               |         1|
+|22    |system_processing_system7_0_0  |         1|
+|23    |system_rst_ps7_0_125M_0        |         1|
+|24    |system_axi_gpio_0_0            |         1|
+|25    |system_axi_gpio_0_1            |         1|
+|26    |system_axi_gpio_0_2            |         1|
+|27    |system_Control_and_Nca_0       |         1|
+|28    |system_axi_gpio_1_0            |         1|
 +------+-------------------------------+----------+
 
 Report Cell Usage: 
@@ -952,50 +954,49 @@ Report Cell Usage:
 |      |Cell                         |Count |
 +------+-----------------------------+------+
 |1     |system_Control_and_Nca       |     1|
-|2     |system_and_2_0               |     1|
-|3     |system_auto_pc               |     1|
-|4     |system_axi_bram_reader_1     |     2|
-|6     |system_axi_gpio_0            |     3|
-|9     |system_axi_gpio_1            |     1|
-|10    |system_axis_constant_0       |     1|
-|11    |system_axis_red_pitaya_adc_0 |     1|
-|12    |system_axis_red_pitaya_dac_0 |     1|
-|13    |system_blk_mem_gen_1         |     2|
-|15    |system_bram_switch_0         |     2|
-|17    |system_clk_wiz_0             |     1|
-|18    |system_coherent_average_0    |     2|
-|20    |system_dds_compiler_0        |     1|
-|21    |system_processing_system7_0  |     1|
-|22    |system_promedio_lineal_0     |     2|
-|24    |system_rst_ps7_0_125M        |     1|
-|25    |system_signal_split_0        |     1|
-|26    |system_trigger_simulator_0   |     2|
-|28    |system_util_ds_buf_1         |     1|
-|29    |system_util_ds_buf_2         |     1|
-|30    |system_xbar                  |     1|
-|31    |IBUF                         |    44|
-|32    |OBUF                         |    26|
-|33    |OBUFT                        |     7|
+|2     |system_auto_pc               |     1|
+|3     |system_axi_bram_reader_1     |     2|
+|5     |system_axi_gpio_0            |     3|
+|8     |system_axi_gpio_1            |     1|
+|9     |system_axis_constant_0       |     1|
+|10    |system_axis_red_pitaya_adc_0 |     1|
+|11    |system_axis_red_pitaya_dac_0 |     1|
+|12    |system_blk_mem_gen_1         |     2|
+|14    |system_bram_switch_0         |     2|
+|16    |system_clk_wiz_0             |     1|
+|17    |system_coherent_average_0    |     2|
+|19    |system_dds_compiler_0        |     1|
+|20    |system_processing_system7_0  |     1|
+|21    |system_promedio_lineal_0     |     2|
+|23    |system_rst_ps7_0_125M        |     1|
+|24    |system_signal_split_0        |     1|
+|25    |system_trigger_simulator_0   |     1|
+|26    |system_util_ds_buf_1         |     1|
+|27    |system_util_ds_buf_2         |     1|
+|28    |system_xbar                  |     1|
+|29    |IBUF                         |    40|
+|30    |OBUF                         |    30|
+|31    |OBUFT                        |     7|
 +------+-----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1373.035 ; gain = 537.355
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1370.129 ; gain = 534.562
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 156 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:45 . Memory (MB): peak = 1373.035 ; gain = 520.633
-Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1373.035 ; gain = 537.355
+Synthesis finished with 0 errors, 0 critical warnings and 155 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 1370.129 ; gain = 512.523
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1370.129 ; gain = 534.562
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 1385.137 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.077 . Memory (MB): peak = 1378.852 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1391.719 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1383.496 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 3cbf3f35
+Synth Design complete, checksum: f5541dd4
 INFO: [Common 17-83] Releasing license: Synthesis
-152 Infos, 224 Warnings, 0 Critical Warnings and 0 Errors encountered.
+150 Infos, 236 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:53 ; elapsed = 00:00:58 . Memory (MB): peak = 1391.719 ; gain = 941.750
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1383.496 ; gain = 933.105
 INFO: [Common 17-1381] The checkpoint 'C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/system_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Jul 14 16:24:49 2023...
+INFO: [Common 17-206] Exiting Vivado at Fri Aug  4 12:57:56 2023...

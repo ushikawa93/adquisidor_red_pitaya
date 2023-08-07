@@ -105,6 +105,8 @@ assign bram_portb_wrdata =  0;
 assign bram_portb_addr = address_read ;
 assign bram_portb_we = 0 ;
 
+reg finished_reg;
+
 
 always @ (posedge clk)
 begin
@@ -128,6 +130,7 @@ begin
 		index_4 <= 0;
 		
 		averaged_cycles <= 0; 
+		finished_reg <= 0;
 
 		state <= clean;
 	end
@@ -143,6 +146,7 @@ begin
            wr_data <= 0;
            wr_enable_2 <= 1;
            wr_enable_3 <= 1;
+           finished_reg <= 0;
            
            if(address_write == RAM_SIZE-1)
            begin
@@ -172,6 +176,7 @@ begin
           wr_enable <= 0;
           wr_enable_1 <= 0;
           wr_enable_2 <= 0;
+          finished_reg <= 0;
           
            if(flanco_trigger)
            begin
@@ -216,6 +221,7 @@ begin
                 wr_enable_1 <= 0;
                 wr_enable_2 <= 0;
                 wr_enable_3 <= 0;
+                finished_reg <= 1;
           end		  
         endcase
 	end
@@ -224,8 +230,26 @@ end
 assign address_read = index;
 assign data_to_write = wr_data;
 
-assign write_enable = (N_prom_lineal_reg == 1)? ( (wr_enable_3) && (data_valid_reg) ) : ( (wr_enable_2) && (data_valid_reg) );
-assign address_write = (N_prom_lineal_reg == 1)? index_4 :  index_3;
-assign finished = (state == finish)? 1:0;
+// Si esto esta andando a maxima velocidad N_prom_lineal = 1 la cosa anda un toque distinto que si tengo algun ciclo en el medio para "pensar" por eso este cacho de codigo
+reg max_velocidad;
+
+always @ (posedge clk)
+begin
+
+    if(!reset_n)
+    begin
+        max_velocidad <= 0;
+    end
+    else
+    begin
+        max_velocidad <= (N_prom_lineal_reg == 1)? 1:0;
+    end
+    
+end
+
+
+assign write_enable = (max_velocidad)? ( (wr_enable_3) && (data_valid_reg) ) : ( (wr_enable_2) && (data_valid_reg) );
+assign address_write = (max_velocidad)? index_4 :  index_3;
+assign finished = finished_reg;
 
 endmodule

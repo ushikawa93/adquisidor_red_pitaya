@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Jul 14 16:56:25 2023
+| Date         : Fri Aug  4 13:22:26 2023
 | Host         : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 | Command      : report_drc -file system_wrapper_drc_routed.rpt -pb system_wrapper_drc_routed.pb -rpx system_wrapper_drc_routed.rpx
 | Design       : system_wrapper
@@ -24,75 +24,36 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 13
-+--------+----------+------------------------+------------+
-| Rule   | Severity | Description            | Violations |
-+--------+----------+------------------------+------------+
-| DPOP-1 | Warning  | PREG Output pipelining | 6          |
-| DPOP-2 | Warning  | MREG Output pipelining | 6          |
-| PLCK-1 | Warning  | Clock Placer Checks    | 1          |
-+--------+----------+------------------------+------------+
+             Violations found: 10
++--------+----------+---------------------------------+------------+
+| Rule   | Severity | Description                     | Violations |
++--------+----------+---------------------------------+------------+
+| DPOP-1 | Warning  | PREG Output pipelining          | 1          |
+| DPOP-2 | Warning  | MREG Output pipelining          | 3          |
+| PLCK-1 | Warning  | Clock Placer Checks             | 1          |
+| RPBF-3 | Warning  | IO port buffering is incomplete | 5          |
++--------+----------+---------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 DPOP-1#1 Warning
 PREG Output pipelining  
-DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1 output system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#2 Warning
-PREG Output pipelining  
-DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1__0 output system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#3 Warning
-PREG Output pipelining  
-DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1__1 output system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#4 Warning
-PREG Output pipelining  
-DSP system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1 output system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#5 Warning
-PREG Output pipelining  
-DSP system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1__0 output system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-Related violations: <none>
-
-DPOP-1#6 Warning
-PREG Output pipelining  
-DSP system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1__1 output system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k_mult0__0 output system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k_mult0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-2#1 Warning
 MREG Output pipelining  
-DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1 multiplier stage system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k_mult0 multiplier stage system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k_mult0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#2 Warning
 MREG Output pipelining  
-DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1__0 multiplier stage system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k_mult0__0 multiplier stage system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k_mult0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#3 Warning
 MREG Output pipelining  
-DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1__1 multiplier stage system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k1__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#4 Warning
-MREG Output pipelining  
-DSP system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1 multiplier stage system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#5 Warning
-MREG Output pipelining  
-DSP system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1__0 multiplier stage system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-DPOP-2#6 Warning
-MREG Output pipelining  
-DSP system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1__1 multiplier stage system_i/Procesamiento1/trigger_simulator_0/inst/trigger_level_k1__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k_mult_reg multiplier stage system_i/Procesamiento/trigger_simulator_0/inst/trigger_level_k_mult_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 PLCK-1#1 Warning
@@ -102,9 +63,34 @@ Resolution: A dedicated routing path between the two BUFGs can be used if they a
  This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
 
 	system_i/uP/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG (BUFG.O) is provisionally placed by clockplacer on BUFGCTRL_X0Y12
-	system_i/BRAM/bram_switch_0/inst/BUFGMUX_inst (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y1
 	system_i/BRAM1/bram_switch_0/inst/BUFGMUX_inst (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y15
+	system_i/BRAM/bram_switch_0/inst/BUFGMUX_inst (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y1
 
+Related violations: <none>
+
+RPBF-3#1 Warning
+IO port buffering is incomplete  
+Device port exp_n_tri_io[0] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#2 Warning
+IO port buffering is incomplete  
+Device port exp_p_tri_io[4] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#3 Warning
+IO port buffering is incomplete  
+Device port exp_p_tri_io[5] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#4 Warning
+IO port buffering is incomplete  
+Device port exp_p_tri_io[6] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#5 Warning
+IO port buffering is incomplete  
+Device port exp_p_tri_io[7] expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 

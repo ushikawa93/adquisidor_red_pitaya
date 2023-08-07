@@ -9,23 +9,37 @@ module promedio_lineal
 	input clk,
 	input reset_n,
 	
-	input wire	[DATA_IN_WIDTH-1:0] 	  data,
-	input wire 						  data_valid,
+	input wire signed	[DATA_IN_WIDTH-1:0] 	  data,
+	input wire 						              data_valid,
 
-	output wire [DATA_OUT_WIDTH-1:0] 	  data_out,
-	output wire 					  data_out_valid,
+	output wire signed [DATA_OUT_WIDTH-1:0] 	  data_out,
+	output wire 					              data_out_valid,
 	
-	input wire [N_AVGD_SAMPLES_WIDTH-1:0]          log2_divisor,
-	input wire [N_AVGD_SAMPLES_WIDTH-1:0]        N_averaged_samples
+	input wire [N_AVGD_SAMPLES_WIDTH-1:0]         log2_divisor,
+	input wire [N_AVGD_SAMPLES_WIDTH-1:0]         N_averaged_samples
 
 );
 
-reg [DATA_OUT_WIDTH-1:0] promedio;
-reg [DATA_OUT_WIDTH-1:0] data_out_reg;
+reg signed [DATA_OUT_WIDTH-1:0] promedio;
+reg signed [DATA_OUT_WIDTH-1:0] data_out_reg;
 reg [31:0] counter;
 reg [N_AVGD_SAMPLES_WIDTH-1:0] N;
+reg [31:0] log2_div_reg;
 
-always @ (posedge clk) N <= N_averaged_samples;
+always @ (posedge clk)
+begin
+    
+    if(!reset_n)
+    begin
+        N <= 0;
+        log2_div_reg <= 0;
+    end
+    else
+    begin
+       N <= N_averaged_samples;
+       log2_div_reg <= log2_divisor;
+    end
+end
 
 
 always @ (posedge clk or negedge reset_n)
@@ -46,7 +60,7 @@ begin
 		end 
 		else
 		begin
-		    data_out_reg <= promedio >>> log2_divisor;  
+		    data_out_reg <= promedio >>> log2_div_reg;  
 			promedio <= data;
 			counter <= 1;
 		end

@@ -65,6 +65,7 @@ module system_trigger_simulator_0_0 (
   log2_div_in,
   trigger_mode_in,
   trigger_level_in,
+  trig_externo,
   trig
 );
 
@@ -84,6 +85,7 @@ input wire [31 : 0] K_sobremuestreo_in;
 input wire [31 : 0] log2_div_in;
 input wire [3 : 0] trigger_mode_in;
 input wire [13 : 0] trigger_level_in;
+input wire trig_externo;
 output wire trig;
 
   trigger_simulator inst (
@@ -97,6 +99,7 @@ output wire trig;
     .log2_div_in(log2_div_in),
     .trigger_mode_in(trigger_mode_in),
     .trigger_level_in(trigger_level_in),
+    .trig_externo(trig_externo),
     .trig(trig)
   );
 endmodule

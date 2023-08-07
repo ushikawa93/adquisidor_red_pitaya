@@ -95,17 +95,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axis
 # IP: bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_coherent_average_0_0 || ORIG_REF_NAME==system_coherent_average_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_trigger_simulator_0_0 || ORIG_REF_NAME==system_trigger_simulator_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_promedio_lineal_0_0/system_promedio_lineal_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_promedio_lineal_0_0 || ORIG_REF_NAME==system_promedio_lineal_0_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_trigger_simulator_0_0 || ORIG_REF_NAME==system_trigger_simulator_0_0} -quiet] -quiet
+
 # IP: bd/system/ip/system_coherent_average_0_1/system_coherent_average_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_coherent_average_0_1 || ORIG_REF_NAME==system_coherent_average_0_1} -quiet] -quiet
-
-# IP: bd/system/ip/system_trigger_simulator_0_1/system_trigger_simulator_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_trigger_simulator_0_1 || ORIG_REF_NAME==system_trigger_simulator_0_1} -quiet] -quiet
 
 # IP: bd/system/ip/system_promedio_lineal_0_1/system_promedio_lineal_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_promedio_lineal_0_1 || ORIG_REF_NAME==system_promedio_lineal_0_1} -quiet] -quiet
@@ -118,9 +115,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_blk_
 
 # IP: bd/system/ip/system_bram_switch_0_1/system_bram_switch_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_bram_switch_0_1 || ORIG_REF_NAME==system_bram_switch_0_1} -quiet] -quiet
-
-# IP: bd/system/ip/system_and_2_0_0/system_and_2_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_and_2_0_0 || ORIG_REF_NAME==system_and_2_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet

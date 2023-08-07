@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Jul 14 16:22:50 2023
+//Date        : Fri Aug  4 12:55:04 2023
 //Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -573,6 +573,7 @@ module Procesamiento1_imp_1WKXFKW
     led_o,
     log2_divisor,
     reset_n,
+    trigger,
     trigger_level_in,
     trigger_mode_in,
     user_reset);
@@ -597,6 +598,7 @@ module Procesamiento1_imp_1WKXFKW
   output led_o;
   input [31:0]log2_divisor;
   input reset_n;
+  input trigger;
   input [15:0]trigger_level_in;
   input [15:0]trigger_mode_in;
   input user_reset;
@@ -623,10 +625,7 @@ module Procesamiento1_imp_1WKXFKW
   wire promedio_lineal_0_data_out_valid;
   wire rst_Dout;
   wire rst_ps7_0_125M_peripheral_aresetn;
-  wire [15:0]trigger_level_in_1;
-  wire [15:0]trigger_mode_in_1;
-  wire trigger_simulator_0_trig;
-  wire [15:0]uP_control_Dout4;
+  wire trigger_1;
 
   assign N_averaged_samples_1 = N_averaged_samples[31:0];
   assign N_ca_in_1 = N_ca_in[15:0];
@@ -648,9 +647,7 @@ module Procesamiento1_imp_1WKXFKW
   assign log2_divisor_1 = log2_divisor[31:0];
   assign rst_Dout = user_reset;
   assign rst_ps7_0_125M_peripheral_aresetn = reset_n;
-  assign trigger_level_in_1 = trigger_level_in[15:0];
-  assign trigger_mode_in_1 = trigger_mode_in[15:0];
-  assign uP_control_Dout4 = M_in[15:0];
+  assign trigger_1 = trigger;
   system_coherent_average_0_1 coherent_average_0
        (.N_ca_in({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,N_ca_in_1}),
         .N_prom_lineal_in(N_averaged_samples_1),
@@ -670,7 +667,7 @@ module Procesamiento1_imp_1WKXFKW
         .data_valid(promedio_lineal_0_data_out_valid),
         .finished(coherent_average_0_finished),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
-        .trigger(trigger_simulator_0_trig),
+        .trigger(trigger_1),
         .user_reset(rst_Dout));
   system_promedio_lineal_0_1 promedio_lineal_0
        (.N_averaged_samples(N_averaged_samples_1),
@@ -681,18 +678,6 @@ module Procesamiento1_imp_1WKXFKW
         .data_valid(data_valid_1),
         .log2_divisor(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn));
-  system_trigger_simulator_0_1 trigger_simulator_0
-       (.K_sobremuestreo_in(N_averaged_samples_1),
-        .M_in({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,uP_control_Dout4}),
-        .clk(axis_red_pitaya_adc_0_adc_clk),
-        .data_in(promedio_lineal_0_data_out),
-        .data_valid(promedio_lineal_0_data_out_valid),
-        .log2_div_in(log2_divisor_1),
-        .reset_n(rst_ps7_0_125M_peripheral_aresetn),
-        .trig(trigger_simulator_0_trig),
-        .trigger_level_in(trigger_level_in_1[13:0]),
-        .trigger_mode_in(trigger_mode_in_1[3:0]),
-        .user_reset(rst_Dout));
 endmodule
 
 module Procesamiento_imp_XLRG7U
@@ -715,8 +700,11 @@ module Procesamiento_imp_XLRG7U
     data_valid,
     enable,
     led_o,
+    led_o1,
     log2_divisor,
     reset_n,
+    trig,
+    trig_externo,
     trigger_level_in,
     trigger_mode_in,
     user_reset);
@@ -739,8 +727,11 @@ module Procesamiento_imp_XLRG7U
   input data_valid;
   input enable;
   output led_o;
+  output led_o1;
   input [31:0]log2_divisor;
   input reset_n;
+  output trig;
+  input trig_externo;
   input [15:0]trigger_level_in;
   input [15:0]trigger_mode_in;
   input user_reset;
@@ -767,6 +758,7 @@ module Procesamiento_imp_XLRG7U
   wire promedio_lineal_0_data_out_valid;
   wire rst_Dout;
   wire rst_ps7_0_125M_peripheral_aresetn;
+  wire trig_externo_1;
   wire [15:0]trigger_level_in_1;
   wire [15:0]trigger_mode_in_1;
   wire trigger_simulator_0_trig;
@@ -789,9 +781,12 @@ module Procesamiento_imp_XLRG7U
   assign data_1 = data[31:0];
   assign data_valid_1 = data_valid;
   assign led_o = coherent_average_0_finished;
+  assign led_o1 = trigger_simulator_0_trig;
   assign log2_divisor_1 = log2_divisor[31:0];
   assign rst_Dout = user_reset;
   assign rst_ps7_0_125M_peripheral_aresetn = reset_n;
+  assign trig = trigger_simulator_0_trig;
+  assign trig_externo_1 = trig_externo;
   assign trigger_level_in_1 = trigger_level_in[15:0];
   assign trigger_mode_in_1 = trigger_mode_in[15:0];
   assign uP_control_Dout4 = M_in[15:0];
@@ -834,6 +829,7 @@ module Procesamiento_imp_XLRG7U
         .log2_div_in(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
         .trig(trigger_simulator_0_trig),
+        .trig_externo(trig_externo_1),
         .trigger_level_in(trigger_level_in_1[13:0]),
         .trigger_mode_in(trigger_mode_in_1[3:0]),
         .user_reset(rst_Dout));
@@ -2096,7 +2092,7 @@ module s00_couplers_imp_X5C1SS
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=55,numReposBlks=38,numNonXlnxBlks=7,numHierBlks=17,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=53,numReposBlks=36,numNonXlnxBlks=7,numHierBlks=17,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2178,7 +2174,7 @@ module system
   input [1:0]daisy_p_i;
   output [1:0]daisy_p_o;
   inout [7:0]exp_n_tri_io;
-  inout [7:0]exp_p_tri_io;
+  inout [3:0]exp_p_tri_io;
   output [1:0]led_o;
 
   wire [31:0]ADC_M_AXIS_PORT1_tdata;
@@ -2195,6 +2191,7 @@ module system
   wire Procesamiento1_bram_portb_we;
   wire [31:0]Procesamiento1_bram_portb_wrdata;
   wire Procesamiento_led_o;
+  wire Procesamiento_led_o1;
   wire [31:0]S_AXI_1_ARADDR;
   wire [2:0]S_AXI_1_ARPROT;
   wire S_AXI_1_ARREADY;
@@ -2220,7 +2217,6 @@ module system
   wire [13:0]adc_dat_b_i_1;
   wire [15:0]addra_1;
   wire [15:0]addra_2;
-  wire and_2_0_c;
   wire axis_red_pitaya_adc_0_adc_clk;
   wire axis_red_pitaya_adc_0_adc_csn;
   wire axis_red_pitaya_dac_0_dac_clk;
@@ -2337,6 +2333,8 @@ module system
   wire [0:0]ps7_0_axi_periph_M03_AXI_WVALID;
   wire [0:0]rst_Dout;
   wire [0:0]rst_ps7_0_125M_peripheral_aresetn;
+  wire [7:0]trig_externo_1;
+  wire trigger_1;
   wire [15:0]trigger_level_in_1;
   wire [15:0]trigger_mode_in_1;
   wire [31:0]uP_M04_AXI_ARADDR;
@@ -2396,7 +2394,7 @@ module system
   assign daisy_n_o[1:0] = util_ds_buf_2_OBUF_DS_N;
   assign daisy_p_i_1 = daisy_p_i[1:0];
   assign daisy_p_o[1:0] = util_ds_buf_2_OBUF_DS_P;
-  assign led_o[0] = and_2_0_c;
+  assign led_o[0] = Procesamiento_led_o1;
   ADC_imp_EKYMYC ADC
        (.M_AXIS_PORT1_tdata(ADC_M_AXIS_PORT1_tdata),
         .M_AXIS_PORT1_tvalid(ADC_M_AXIS_PORT1_tvalid),
@@ -2504,8 +2502,11 @@ module system
         .data_valid(ADC_M_AXIS_PORT1_tvalid),
         .enable(uP_control_Dout2),
         .led_o(Procesamiento_led_o),
+        .led_o1(Procesamiento_led_o1),
         .log2_divisor(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
+        .trig(trigger_1),
+        .trig_externo(exp_n_tri_io[0]),
         .trigger_level_in(trigger_level_in_1),
         .trigger_mode_in(trigger_mode_in_1),
         .user_reset(rst_Dout));
@@ -2531,13 +2532,10 @@ module system
         .led_o(led_o_1),
         .log2_divisor(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
+        .trigger(trigger_1),
         .trigger_level_in(trigger_level_in_1),
         .trigger_mode_in(trigger_mode_in_1),
         .user_reset(rst_Dout));
-  system_and_2_0_0 and_2_0
-       (.a(Procesamiento_led_o),
-        .b(led_o_1),
-        .c(and_2_0_c));
   uP_imp_1ANG6V uP
        (.DDR_addr(DDR_addr[14:0]),
         .DDR_ba(DDR_ba[2:0]),
@@ -2780,7 +2778,7 @@ module system
         .S_AXI_wstrb(ps7_0_axi_periph_M01_AXI_WSTRB),
         .S_AXI_wvalid(ps7_0_axi_periph_M01_AXI_WVALID),
         .gpio_io_o(Net1),
-        .led_o(and_2_0_c),
+        .led_o(Procesamiento_led_o),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_aresetn(rst_ps7_0_125M_peripheral_aresetn));
   system_util_ds_buf_1_0 util_ds_buf_1

@@ -19,7 +19,7 @@ trigger_level=${7:-1000}
 log2_divisor=${8:-0}
 ip=${9:-192.168.1.100}
 
-./set_bitstream.sh adquisidor_ca.bit $ip
+#./set_bitstream.sh adquisidor_ca.bit $ip
 
 scp adquisidor.c root@$ip:/root/c_programs 
 
@@ -33,4 +33,4 @@ EOF
 cd ../datos_adquiridos
 scp root@$ip:/root/c_programs/$file_name .
 
-read -p "Presione cualquier tecla para salir..."
+#read -p "Presione cualquier tecla para salir..."
