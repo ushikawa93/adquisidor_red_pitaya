@@ -198,6 +198,7 @@ public:
             adc_threshold = value;
             std::stringstream command;
             command << "set_adc_threshold.sh " << adc_threshold << " " << ip ;
+            cout << "Comando enviado a FPGA: " << command.str() << endl;
             system(command.str().c_str());
             return true;
         }
@@ -223,7 +224,7 @@ public:
     {
         std::stringstream command;
 
-        command << "adquirir.sh " << factor_sobremuestreo << " " << ciclos_promediacion << " " << getArchivoDestino() << " " << tam_buffer << " " << frec_dac << " " << trigger_mode << " " << trigger_level << " " << log2_divisor << " " << ip << " " << adc_threshold;
+        command << "adquirir.sh " << factor_sobremuestreo << " " << ciclos_promediacion << " " << getArchivoDestino() << " " << tam_buffer << " " << frec_dac << " " << trigger_mode << " " << trigger_level << " " << log2_divisor << " " << ip;
         cout << "Comando enviado a FPGA: " << command.str() << endl;
         system(command.str().c_str());
         incArchivo();
@@ -304,12 +305,17 @@ int main()
             adquisidor.set_bitstream_in_fpga();
             break;}
         case 2:{
+            cout << "Temporalmente deshabilitado..." << endl; /*
             int value;
             cout << "Ingrese el valor deseado en cuentas [-8192 a 8192]" << endl;
             cin >> value;
             if(!(adquisidor.setThreshold(value))){
                 cout << "El valor ingresado no es valido" << endl;
             }
+            fflush(stdin);getchar();*/
+
+            fflush(stdin);
+            getchar();
             break;
         }
         case 3:{

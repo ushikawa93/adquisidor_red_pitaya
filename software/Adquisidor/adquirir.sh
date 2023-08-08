@@ -18,7 +18,6 @@ trigger_mode=${6:-1}
 trigger_level=${7:-1000}
 log2_divisor=${8:-0}
 ip=${9:-192.168.1.100}
-adc_threshold_level=${10,-0}
 
 #./set_bitstream.sh adquisidor_ca.bit $ip
 
@@ -28,7 +27,7 @@ ssh root@$ip <<EOF
 
 	cd /root/c_programs 
 	gcc adquisidor.c -o adquisidor
-	./adquisidor $N_prom_lineal $N_promC $file_name $M_buffer $frec_dac $trigger_mode $trigger_level $log2_divisor $adc_threshold_level
+	./adquisidor $N_prom_lineal $N_promC $file_name $M_buffer $frec_dac $trigger_mode $trigger_level $log2_divisor
 EOF
 
 cd ../datos_adquiridos

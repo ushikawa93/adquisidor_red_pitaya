@@ -81,7 +81,7 @@ int main(int argc, char **argv)
 	{
 		adc_threshold_level = atoi(argv[1]);		
 	}	
-	else if(argc == 10)
+	else if(argc == 9)
 	{
 		K_sobremuestreo = atoi(argv[1]);
 		N_promC = atoi(argv[2]);
@@ -91,7 +91,6 @@ int main(int argc, char **argv)
 		trigger_mode = atoi(argv[6]);
 		trigger_level = atoi(argv[7]);
 		log2_divisor = atoi(argv[8]);
-		adc_threshold_level = atoi(argv[9]);
 	}
 	else
 	{
@@ -130,7 +129,6 @@ int main(int argc, char **argv)
 	SetTriggerMode(cfg,trigger_mode);
 	SetTriggerLevel(cfg,trigger_level);
 	SetDivisor(cfg,log2_divisor);
-	SetLevelToDetect(cfg,adc_threshold_level);	// Por ahora lo hardcodeo a este valor para no cambiar tanto la cosa
 
 	SetEnable(cfg);
 	inicio = clock();
