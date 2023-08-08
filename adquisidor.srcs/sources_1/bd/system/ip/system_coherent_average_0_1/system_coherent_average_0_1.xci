@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_coherent_average_0_1",
-    "cell_name": "coherent_average_0",
+    "cell_name": "Procesamiento1/coherent_average_0",
     "component_reference": "xilinx.com:module_ref:coherent_average:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_1",

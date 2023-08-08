@@ -33,7 +33,7 @@ module trigger_simulator
     input [31:0] K_sobremuestreo_in,
     input [31:0] log2_div_in,    
     input [3:0] trigger_mode_in,
-    input signed [13:0] trigger_level_in,
+    input signed [31:0] trigger_level_in,
     
     input trig_externo,
     

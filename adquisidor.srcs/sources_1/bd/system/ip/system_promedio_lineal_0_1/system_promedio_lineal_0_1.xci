@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_promedio_lineal_0_1",
-    "cell_name": "promedio_lineal_0",
+    "cell_name": "Procesamiento1/promedio_lineal_0",
     "component_reference": "xilinx.com:module_ref:promedio_lineal:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_promedio_lineal_0_1",

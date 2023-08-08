@@ -23,6 +23,7 @@ private:
     int log2_divisor;
     string archivo_destino_base;
     int num_archivo;
+    int adc_threshold;  // La FPGA prende un LED y sube un GPIO cuando la señal pasa este nivel
 
     int checkLimits()
     {
@@ -90,6 +91,7 @@ public:
         ip = ip_;
         num_archivo = 0;
         archivo_destino_base = "test";
+        adc_threshold = 10000;  // Lo inicializo en un valor alto
     }
 
     void set_bitstream_in_fpga()
@@ -101,17 +103,20 @@ public:
 
     }
 
-    void setTriggerMode(int mode)
+    bool setTriggerMode(int mode)
     {
-        if((mode==2) || (mode == 1) || (mode == 0)){trigger_mode = mode;}
+        if((mode==2) || (mode == 1) || (mode == 0)){trigger_mode = mode;return true;}
+        else return false;
     }
 
-    void setTriggerLevel(int level)
+    bool setTriggerLevel(int level)
     {
         if(level>-8192 && level<8192)
         {
             trigger_level = level;
+            return true;
         }
+        else return false;
     }
 
     bool setIP(string ip_)
@@ -124,37 +129,44 @@ public:
         return check;
     }
 
-    void setSobremuestreo(int K)
+    bool setSobremuestreo(int K)
     {
         if(K>0)
         {
            factor_sobremuestreo = K;
+            // Cada vez que cambio K o Nca me fijo si supero los limites y de ser asi aumento el divisor este
+            setDivisor();
+            return true;
         }
-        // Cada vez que cambio K o Nca me fijo si supero los limites y de ser asi aumento el divisor este
-        setDivisor();
+        else return false;
+
 
     }
 
-    void setPromCoherente(int Nca)
+    bool setPromCoherente(int Nca)
     {
         if(Nca>0)
         {
             ciclos_promediacion = Nca;
+            // Cada vez que cambio K o Nca me fijo si supero los limites y de ser asi aumento el divisor este
+            setDivisor();
+            return true;
         }
-        // Cada vez que cambio K o Nca me fijo si supero los limites y de ser asi aumento el divisor este
-        setDivisor();
+        else return false;
     }
 
 
 
-    void setFrecObjetivo(int frec_objetivo)
+    bool setFrecObjetivo(int frec_objetivo)
     {
         if(frec_objetivo > 0)
         {
             frec_obj = frec_objetivo;
             setSobremuestreo ((double)frecuencia_clock/ (tam_buffer * frec_obj)) ;
             setDACfrec(frec_obj);
+            return true;
         }
+        else return false;
     }
 
     double getFrecMuestreo()
@@ -180,6 +192,19 @@ public:
         num_archivo++;
     }
 
+    bool setThreshold(int value)
+    {
+        if(value > -8192 && value <8192){
+            adc_threshold = value;
+            std::stringstream command;
+            command << "set_adc_threshold.sh " << adc_threshold << " " << ip ;
+            system(command.str().c_str());
+            return true;
+        }
+
+        else return false;
+    }
+
 
     string getModoDisparo()
     {
@@ -198,7 +223,7 @@ public:
     {
         std::stringstream command;
 
-        command << "adquirir.sh " << factor_sobremuestreo << " " << ciclos_promediacion << " " << getArchivoDestino() << " " << tam_buffer << " " << frec_dac << " " << trigger_mode << " " << trigger_level << " " << log2_divisor << " " << ip;
+        command << "adquirir.sh " << factor_sobremuestreo << " " << ciclos_promediacion << " " << getArchivoDestino() << " " << tam_buffer << " " << frec_dac << " " << trigger_mode << " " << trigger_level << " " << log2_divisor << " " << ip << " " << adc_threshold;
         cout << "Comando enviado a FPGA: " << command.str() << endl;
         system(command.str().c_str());
         incArchivo();
@@ -208,11 +233,13 @@ public:
     {
           std::stringstream state;
           state << "Adquisidor Red Pitaya en IP: "<< ip << endl;
+          state << "Threshold del ADC: " << adc_threshold << " (Aproximadamente " << (float)adc_threshold/8192 << " mV)" <<endl;
           state << "Archivo de destino: " << getArchivoDestino() << endl;
           state << "Frecuencia de muestreo: " << getFrecMuestreo() << " (CLK:125 MHz / Sobremuesreo: " << factor_sobremuestreo << ")\n";
           state << "Configurado para señales de: " << frec_obj << " Hz" << endl;
           state << "Modo de disparo: " << getModoDisparo() << endl;
           state << "Ciclos de promediacion coherente (Nca): " << ciclos_promediacion << endl;
+
 
           return state.str();
     }
@@ -228,14 +255,17 @@ public:
         std::stringstream menu;
         menu << " ------------------------------------------ " << endl;
         menu << "1) Cargar bistream en FPGA (Recordar hacerlo la 1ra vez)" << endl;
-        menu << "2) Cambiar direccion IP del dispositivo" << endl;
-        menu << "3) Cambiar archivo de destino" << endl;
-        menu << "4) Cambiar Modo de disparo " << endl;
+        menu << "2) Cambiar valor de Threshold del ADC (Si la señal está arriba de este valor se prende un LED y se activa un GPIO)" << endl;
 
-        menu << "5) Cambiar ciclos de promediacion coherente " << endl;
-        menu << "6) Cambiar Frecuencia objetivo " << endl;
+        menu << "3) Cambiar direccion IP del dispositivo" << endl;
+        menu << "4) Cambiar archivo de destino" << endl;
+        menu << "5) Cambiar Modo de disparo " << endl;
 
-        menu << "7) Adquirir" << endl;
+        menu << "6) Cambiar ciclos de promediacion coherente " << endl;
+        menu << "7) Cambiar Frecuencia objetivo " << endl;
+
+
+        menu << "8) Adquirir" << endl;
         menu << "0) Finalizar" << endl;
         menu << " ------------------------------------------ " << endl;
         return menu.str();
@@ -274,6 +304,15 @@ int main()
             adquisidor.set_bitstream_in_fpga();
             break;}
         case 2:{
+            int value;
+            cout << "Ingrese el valor deseado en cuentas [-8192 a 8192]" << endl;
+            cin >> value;
+            if(!(adquisidor.setThreshold(value))){
+                cout << "El valor ingresado no es valido" << endl;
+            }
+            break;
+        }
+        case 3:{
             string ip;
             cout << "Ingrese la IP deseada(xxx.xxx.xxx.xxx)" <<endl;
             cin >> ip;
@@ -283,36 +322,38 @@ int main()
                 getchar();
             }
             break;}
-        case 3:{
+        case 4:{
             string nombre_archivo;
             cout << "Ingrese el nombre del archivo" << endl;
             cin >> nombre_archivo;
             adquisidor.setNombreArchivoBase(nombre_archivo);
             break;}
-        case 4:{
+        case 5:{
             int value;
             cout << "Modos: 0 disparo continuo | 1 disparo por nivel | 2 disparo externo " << endl;
             cin >> value;
             adquisidor.setTriggerMode(value);
             if(value == 1){
-                cout << "Ingrese nivel de disparo [0 a 8192] "<< endl;
+                cout << "Ingrese nivel de disparo [-8192 a 8192] "<< endl;
                 cin >> value;
                 adquisidor.setTriggerLevel(value);
             }
             break;}
-        case 5:{
+        case 6:{
             int value;
             cout << "Ingrese el valor de Promediacion coherente: " << endl;
             cin >> value;
             adquisidor.setPromCoherente(value);
             break;}
-        case 6:{
+        case 7:{
             int value;
             cout << "Ingrese la frecuencia objetivo: " << endl;
             cin >> value;
             adquisidor.setFrecObjetivo(value);
             break;}
-        case 7:{
+
+
+        case 8:{
             adquisidor.adquirir();
             fflush(stdin);
             getchar();

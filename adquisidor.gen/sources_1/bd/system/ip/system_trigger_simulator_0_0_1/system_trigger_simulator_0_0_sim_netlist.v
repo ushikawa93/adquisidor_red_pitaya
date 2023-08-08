@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri Aug  4 12:56:45 2023
+// Date        : Tue Aug  8 14:08:10 2023
 // Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0_sim_netlist.v
@@ -37,7 +37,7 @@ module system_trigger_simulator_0_0
   input [31:0]K_sobremuestreo_in;
   input [31:0]log2_div_in;
   input [3:0]trigger_mode_in;
-  input [13:0]trigger_level_in;
+  input [31:0]trigger_level_in;
   input trig_externo;
   output trig;
 
@@ -50,7 +50,7 @@ module system_trigger_simulator_0_0
   wire reset_n;
   wire trig;
   wire trig_externo;
-  wire [13:0]trigger_level_in;
+  wire [31:0]trigger_level_in;
   wire [3:0]trigger_mode_in;
   wire user_reset;
 
@@ -91,7 +91,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   input data_valid;
   input [31:0]M_in;
   input [31:0]log2_div_in;
-  input [13:0]trigger_level_in;
+  input [31:0]trigger_level_in;
   input [31:0]K_sobremuestreo_in;
   input [31:0]data_in;
   input trig_externo;
@@ -557,7 +557,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire trigger_continuo_carry_n_3;
   wire trigger_ext_reg_i_1_n_0;
   wire trigger_ext_reg_reg_n_0;
-  wire [13:0]trigger_level_in;
+  wire [31:0]trigger_level_in;
   wire trigger_level_k_mult0__0_n_100;
   wire trigger_level_k_mult0__0_n_101;
   wire trigger_level_k_mult0__0_n_102;
@@ -612,6 +612,36 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire trigger_level_k_mult0__0_n_151;
   wire trigger_level_k_mult0__0_n_152;
   wire trigger_level_k_mult0__0_n_153;
+  wire trigger_level_k_mult0__0_n_24;
+  wire trigger_level_k_mult0__0_n_25;
+  wire trigger_level_k_mult0__0_n_26;
+  wire trigger_level_k_mult0__0_n_27;
+  wire trigger_level_k_mult0__0_n_28;
+  wire trigger_level_k_mult0__0_n_29;
+  wire trigger_level_k_mult0__0_n_30;
+  wire trigger_level_k_mult0__0_n_31;
+  wire trigger_level_k_mult0__0_n_32;
+  wire trigger_level_k_mult0__0_n_33;
+  wire trigger_level_k_mult0__0_n_34;
+  wire trigger_level_k_mult0__0_n_35;
+  wire trigger_level_k_mult0__0_n_36;
+  wire trigger_level_k_mult0__0_n_37;
+  wire trigger_level_k_mult0__0_n_38;
+  wire trigger_level_k_mult0__0_n_39;
+  wire trigger_level_k_mult0__0_n_40;
+  wire trigger_level_k_mult0__0_n_41;
+  wire trigger_level_k_mult0__0_n_42;
+  wire trigger_level_k_mult0__0_n_43;
+  wire trigger_level_k_mult0__0_n_44;
+  wire trigger_level_k_mult0__0_n_45;
+  wire trigger_level_k_mult0__0_n_46;
+  wire trigger_level_k_mult0__0_n_47;
+  wire trigger_level_k_mult0__0_n_48;
+  wire trigger_level_k_mult0__0_n_49;
+  wire trigger_level_k_mult0__0_n_50;
+  wire trigger_level_k_mult0__0_n_51;
+  wire trigger_level_k_mult0__0_n_52;
+  wire trigger_level_k_mult0__0_n_53;
   wire trigger_level_k_mult0__0_n_58;
   wire trigger_level_k_mult0__0_n_59;
   wire trigger_level_k_mult0__0_n_60;
@@ -994,7 +1024,6 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire NLW_trigger_level_k_mult0__0_PATTERNBDETECT_UNCONNECTED;
   wire NLW_trigger_level_k_mult0__0_PATTERNDETECT_UNCONNECTED;
   wire NLW_trigger_level_k_mult0__0_UNDERFLOW_UNCONNECTED;
-  wire [29:0]NLW_trigger_level_k_mult0__0_ACOUT_UNCONNECTED;
   wire [17:0]NLW_trigger_level_k_mult0__0_BCOUT_UNCONNECTED;
   wire [3:0]NLW_trigger_level_k_mult0__0_CARRYOUT_UNCONNECTED;
   wire [3:3]NLW_trigger_level_k_mult0_carry__2_CO_UNCONNECTED;
@@ -4406,7 +4435,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .ACOUT(NLW_trigger_level_k_mult0_ACOUT_UNCONNECTED[29:0]),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
-        .B({1'b0,1'b0,1'b0,trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in[13]}),
+        .B({1'b0,1'b0,1'b0,trigger_level_in[31:17]}),
         .BCIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .BCOUT(NLW_trigger_level_k_mult0_BCOUT_UNCONNECTED[17:0]),
         .C({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
@@ -4479,9 +4508,9 @@ module system_trigger_simulator_0_0_trigger_simulator
     .USE_PATTERN_DETECT("NO_PATDET"),
     .USE_SIMD("ONE48")) 
     trigger_level_k_mult0__0
-       (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in}),
+       (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,trigger_level_in[16:0]}),
         .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .ACOUT(NLW_trigger_level_k_mult0__0_ACOUT_UNCONNECTED[29:0]),
+        .ACOUT({trigger_level_k_mult0__0_n_24,trigger_level_k_mult0__0_n_25,trigger_level_k_mult0__0_n_26,trigger_level_k_mult0__0_n_27,trigger_level_k_mult0__0_n_28,trigger_level_k_mult0__0_n_29,trigger_level_k_mult0__0_n_30,trigger_level_k_mult0__0_n_31,trigger_level_k_mult0__0_n_32,trigger_level_k_mult0__0_n_33,trigger_level_k_mult0__0_n_34,trigger_level_k_mult0__0_n_35,trigger_level_k_mult0__0_n_36,trigger_level_k_mult0__0_n_37,trigger_level_k_mult0__0_n_38,trigger_level_k_mult0__0_n_39,trigger_level_k_mult0__0_n_40,trigger_level_k_mult0__0_n_41,trigger_level_k_mult0__0_n_42,trigger_level_k_mult0__0_n_43,trigger_level_k_mult0__0_n_44,trigger_level_k_mult0__0_n_45,trigger_level_k_mult0__0_n_46,trigger_level_k_mult0__0_n_47,trigger_level_k_mult0__0_n_48,trigger_level_k_mult0__0_n_49,trigger_level_k_mult0__0_n_50,trigger_level_k_mult0__0_n_51,trigger_level_k_mult0__0_n_52,trigger_level_k_mult0__0_n_53}),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
         .B({1'b0,K_sobremuestreo_in[16:0]}),
         .BCIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
@@ -5746,12 +5775,12 @@ module system_trigger_simulator_0_0_trigger_simulator
         .R(\trigger_level_k_mult_div[31]_i_1_n_0 ));
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-10 {cell *THIS*} {string 18x16 4}}" *) 
   DSP48E1 #(
-    .ACASCREG(1),
+    .ACASCREG(0),
     .ADREG(1),
     .ALUMODEREG(0),
-    .AREG(1),
+    .AREG(0),
     .AUTORESET_PATDET("NO_RESET"),
-    .A_INPUT("DIRECT"),
+    .A_INPUT("CASCADE"),
     .BCASCREG(1),
     .BREG(1),
     .B_INPUT("DIRECT"),
@@ -5772,8 +5801,8 @@ module system_trigger_simulator_0_0_trigger_simulator
     .USE_PATTERN_DETECT("NO_PATDET"),
     .USE_SIMD("ONE48")) 
     trigger_level_k_mult_reg
-       (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,trigger_level_in[13],trigger_level_in[13],trigger_level_in[13],trigger_level_in}),
-        .ACIN({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+       (.A({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .ACIN({trigger_level_k_mult0__0_n_24,trigger_level_k_mult0__0_n_25,trigger_level_k_mult0__0_n_26,trigger_level_k_mult0__0_n_27,trigger_level_k_mult0__0_n_28,trigger_level_k_mult0__0_n_29,trigger_level_k_mult0__0_n_30,trigger_level_k_mult0__0_n_31,trigger_level_k_mult0__0_n_32,trigger_level_k_mult0__0_n_33,trigger_level_k_mult0__0_n_34,trigger_level_k_mult0__0_n_35,trigger_level_k_mult0__0_n_36,trigger_level_k_mult0__0_n_37,trigger_level_k_mult0__0_n_38,trigger_level_k_mult0__0_n_39,trigger_level_k_mult0__0_n_40,trigger_level_k_mult0__0_n_41,trigger_level_k_mult0__0_n_42,trigger_level_k_mult0__0_n_43,trigger_level_k_mult0__0_n_44,trigger_level_k_mult0__0_n_45,trigger_level_k_mult0__0_n_46,trigger_level_k_mult0__0_n_47,trigger_level_k_mult0__0_n_48,trigger_level_k_mult0__0_n_49,trigger_level_k_mult0__0_n_50,trigger_level_k_mult0__0_n_51,trigger_level_k_mult0__0_n_52,trigger_level_k_mult0__0_n_53}),
         .ACOUT(NLW_trigger_level_k_mult_reg_ACOUT_UNCONNECTED[29:0]),
         .ALUMODE({1'b0,1'b0,1'b0,1'b0}),
         .B({1'b0,1'b0,1'b0,K_sobremuestreo_in[31:17]}),
@@ -5786,7 +5815,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CARRYINSEL({1'b0,1'b0,1'b0}),
         .CARRYOUT(NLW_trigger_level_k_mult_reg_CARRYOUT_UNCONNECTED[3:0]),
         .CEA1(1'b0),
-        .CEA2(1'b1),
+        .CEA2(1'b0),
         .CEAD(1'b0),
         .CEALUMODE(1'b0),
         .CEB1(1'b0),
@@ -5810,7 +5839,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .PATTERNDETECT(NLW_trigger_level_k_mult_reg_PATTERNDETECT_UNCONNECTED),
         .PCIN({trigger_level_k_mult0__0_n_106,trigger_level_k_mult0__0_n_107,trigger_level_k_mult0__0_n_108,trigger_level_k_mult0__0_n_109,trigger_level_k_mult0__0_n_110,trigger_level_k_mult0__0_n_111,trigger_level_k_mult0__0_n_112,trigger_level_k_mult0__0_n_113,trigger_level_k_mult0__0_n_114,trigger_level_k_mult0__0_n_115,trigger_level_k_mult0__0_n_116,trigger_level_k_mult0__0_n_117,trigger_level_k_mult0__0_n_118,trigger_level_k_mult0__0_n_119,trigger_level_k_mult0__0_n_120,trigger_level_k_mult0__0_n_121,trigger_level_k_mult0__0_n_122,trigger_level_k_mult0__0_n_123,trigger_level_k_mult0__0_n_124,trigger_level_k_mult0__0_n_125,trigger_level_k_mult0__0_n_126,trigger_level_k_mult0__0_n_127,trigger_level_k_mult0__0_n_128,trigger_level_k_mult0__0_n_129,trigger_level_k_mult0__0_n_130,trigger_level_k_mult0__0_n_131,trigger_level_k_mult0__0_n_132,trigger_level_k_mult0__0_n_133,trigger_level_k_mult0__0_n_134,trigger_level_k_mult0__0_n_135,trigger_level_k_mult0__0_n_136,trigger_level_k_mult0__0_n_137,trigger_level_k_mult0__0_n_138,trigger_level_k_mult0__0_n_139,trigger_level_k_mult0__0_n_140,trigger_level_k_mult0__0_n_141,trigger_level_k_mult0__0_n_142,trigger_level_k_mult0__0_n_143,trigger_level_k_mult0__0_n_144,trigger_level_k_mult0__0_n_145,trigger_level_k_mult0__0_n_146,trigger_level_k_mult0__0_n_147,trigger_level_k_mult0__0_n_148,trigger_level_k_mult0__0_n_149,trigger_level_k_mult0__0_n_150,trigger_level_k_mult0__0_n_151,trigger_level_k_mult0__0_n_152,trigger_level_k_mult0__0_n_153}),
         .PCOUT(NLW_trigger_level_k_mult_reg_PCOUT_UNCONNECTED[47:0]),
-        .RSTA(counter_cont2),
+        .RSTA(1'b0),
         .RSTALLCARRYIN(1'b0),
         .RSTALUMODE(1'b0),
         .RSTB(counter_cont2),

@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Fri Aug  4 12:56:45 2023
+-- Date        : Tue Aug  8 14:08:10 2023
 -- Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0_sim_netlist.vhdl
@@ -24,7 +24,7 @@ entity system_trigger_simulator_0_0_trigger_simulator is
     data_valid : in STD_LOGIC;
     M_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     log2_div_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    trigger_level_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    trigger_level_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     K_sobremuestreo_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     data_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     trig_externo : in STD_LOGIC
@@ -540,6 +540,36 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal \trigger_level_k_mult0__0_n_151\ : STD_LOGIC;
   signal \trigger_level_k_mult0__0_n_152\ : STD_LOGIC;
   signal \trigger_level_k_mult0__0_n_153\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_24\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_25\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_26\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_27\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_28\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_29\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_30\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_31\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_32\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_33\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_34\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_35\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_36\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_37\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_38\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_39\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_40\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_41\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_42\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_43\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_44\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_45\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_46\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_47\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_48\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_49\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_50\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_51\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_52\ : STD_LOGIC;
+  signal \trigger_level_k_mult0__0_n_53\ : STD_LOGIC;
   signal \trigger_level_k_mult0__0_n_58\ : STD_LOGIC;
   signal \trigger_level_k_mult0__0_n_59\ : STD_LOGIC;
   signal \trigger_level_k_mult0__0_n_60\ : STD_LOGIC;
@@ -920,7 +950,6 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal \NLW_trigger_level_k_mult0__0_PATTERNBDETECT_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_trigger_level_k_mult0__0_PATTERNDETECT_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_trigger_level_k_mult0__0_UNDERFLOW_UNCONNECTED\ : STD_LOGIC;
-  signal \NLW_trigger_level_k_mult0__0_ACOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 29 downto 0 );
   signal \NLW_trigger_level_k_mult0__0_BCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 17 downto 0 );
   signal \NLW_trigger_level_k_mult0__0_CARRYOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_trigger_level_k_mult0_carry__2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
@@ -5915,21 +5944,7 @@ trigger_level_k_mult0: unisim.vcomponents.DSP48E1
       ACOUT(29 downto 0) => NLW_trigger_level_k_mult0_ACOUT_UNCONNECTED(29 downto 0),
       ALUMODE(3 downto 0) => B"0000",
       B(17 downto 15) => B"000",
-      B(14) => trigger_level_in(13),
-      B(13) => trigger_level_in(13),
-      B(12) => trigger_level_in(13),
-      B(11) => trigger_level_in(13),
-      B(10) => trigger_level_in(13),
-      B(9) => trigger_level_in(13),
-      B(8) => trigger_level_in(13),
-      B(7) => trigger_level_in(13),
-      B(6) => trigger_level_in(13),
-      B(5) => trigger_level_in(13),
-      B(4) => trigger_level_in(13),
-      B(3) => trigger_level_in(13),
-      B(2) => trigger_level_in(13),
-      B(1) => trigger_level_in(13),
-      B(0) => trigger_level_in(13),
+      B(14 downto 0) => trigger_level_in(31 downto 17),
       BCIN(17 downto 0) => B"000000000000000000",
       BCOUT(17 downto 0) => NLW_trigger_level_k_mult0_BCOUT_UNCONNECTED(17 downto 0),
       C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
@@ -6099,12 +6114,38 @@ trigger_level_k_mult0: unisim.vcomponents.DSP48E1
     )
         port map (
       A(29 downto 17) => B"0000000000000",
-      A(16) => trigger_level_in(13),
-      A(15) => trigger_level_in(13),
-      A(14) => trigger_level_in(13),
-      A(13 downto 0) => trigger_level_in(13 downto 0),
+      A(16 downto 0) => trigger_level_in(16 downto 0),
       ACIN(29 downto 0) => B"000000000000000000000000000000",
-      ACOUT(29 downto 0) => \NLW_trigger_level_k_mult0__0_ACOUT_UNCONNECTED\(29 downto 0),
+      ACOUT(29) => \trigger_level_k_mult0__0_n_24\,
+      ACOUT(28) => \trigger_level_k_mult0__0_n_25\,
+      ACOUT(27) => \trigger_level_k_mult0__0_n_26\,
+      ACOUT(26) => \trigger_level_k_mult0__0_n_27\,
+      ACOUT(25) => \trigger_level_k_mult0__0_n_28\,
+      ACOUT(24) => \trigger_level_k_mult0__0_n_29\,
+      ACOUT(23) => \trigger_level_k_mult0__0_n_30\,
+      ACOUT(22) => \trigger_level_k_mult0__0_n_31\,
+      ACOUT(21) => \trigger_level_k_mult0__0_n_32\,
+      ACOUT(20) => \trigger_level_k_mult0__0_n_33\,
+      ACOUT(19) => \trigger_level_k_mult0__0_n_34\,
+      ACOUT(18) => \trigger_level_k_mult0__0_n_35\,
+      ACOUT(17) => \trigger_level_k_mult0__0_n_36\,
+      ACOUT(16) => \trigger_level_k_mult0__0_n_37\,
+      ACOUT(15) => \trigger_level_k_mult0__0_n_38\,
+      ACOUT(14) => \trigger_level_k_mult0__0_n_39\,
+      ACOUT(13) => \trigger_level_k_mult0__0_n_40\,
+      ACOUT(12) => \trigger_level_k_mult0__0_n_41\,
+      ACOUT(11) => \trigger_level_k_mult0__0_n_42\,
+      ACOUT(10) => \trigger_level_k_mult0__0_n_43\,
+      ACOUT(9) => \trigger_level_k_mult0__0_n_44\,
+      ACOUT(8) => \trigger_level_k_mult0__0_n_45\,
+      ACOUT(7) => \trigger_level_k_mult0__0_n_46\,
+      ACOUT(6) => \trigger_level_k_mult0__0_n_47\,
+      ACOUT(5) => \trigger_level_k_mult0__0_n_48\,
+      ACOUT(4) => \trigger_level_k_mult0__0_n_49\,
+      ACOUT(3) => \trigger_level_k_mult0__0_n_50\,
+      ACOUT(2) => \trigger_level_k_mult0__0_n_51\,
+      ACOUT(1) => \trigger_level_k_mult0__0_n_52\,
+      ACOUT(0) => \trigger_level_k_mult0__0_n_53\,
       ALUMODE(3 downto 0) => B"0000",
       B(17) => '0',
       B(16 downto 0) => K_sobremuestreo_in(16 downto 0),
@@ -7868,12 +7909,12 @@ trigger_level_k_mult0_carry_i_3: unisim.vcomponents.LUT2
     );
 trigger_level_k_mult_reg: unisim.vcomponents.DSP48E1
     generic map(
-      ACASCREG => 1,
+      ACASCREG => 0,
       ADREG => 1,
       ALUMODEREG => 0,
-      AREG => 1,
+      AREG => 0,
       AUTORESET_PATDET => "NO_RESET",
-      A_INPUT => "DIRECT",
+      A_INPUT => "CASCADE",
       BCASCREG => 1,
       BREG => 1,
       B_INPUT => "DIRECT",
@@ -7895,12 +7936,37 @@ trigger_level_k_mult_reg: unisim.vcomponents.DSP48E1
       USE_SIMD => "ONE48"
     )
         port map (
-      A(29 downto 17) => B"0000000000000",
-      A(16) => trigger_level_in(13),
-      A(15) => trigger_level_in(13),
-      A(14) => trigger_level_in(13),
-      A(13 downto 0) => trigger_level_in(13 downto 0),
-      ACIN(29 downto 0) => B"000000000000000000000000000000",
+      A(29 downto 0) => B"000000000000000000000000000000",
+      ACIN(29) => \trigger_level_k_mult0__0_n_24\,
+      ACIN(28) => \trigger_level_k_mult0__0_n_25\,
+      ACIN(27) => \trigger_level_k_mult0__0_n_26\,
+      ACIN(26) => \trigger_level_k_mult0__0_n_27\,
+      ACIN(25) => \trigger_level_k_mult0__0_n_28\,
+      ACIN(24) => \trigger_level_k_mult0__0_n_29\,
+      ACIN(23) => \trigger_level_k_mult0__0_n_30\,
+      ACIN(22) => \trigger_level_k_mult0__0_n_31\,
+      ACIN(21) => \trigger_level_k_mult0__0_n_32\,
+      ACIN(20) => \trigger_level_k_mult0__0_n_33\,
+      ACIN(19) => \trigger_level_k_mult0__0_n_34\,
+      ACIN(18) => \trigger_level_k_mult0__0_n_35\,
+      ACIN(17) => \trigger_level_k_mult0__0_n_36\,
+      ACIN(16) => \trigger_level_k_mult0__0_n_37\,
+      ACIN(15) => \trigger_level_k_mult0__0_n_38\,
+      ACIN(14) => \trigger_level_k_mult0__0_n_39\,
+      ACIN(13) => \trigger_level_k_mult0__0_n_40\,
+      ACIN(12) => \trigger_level_k_mult0__0_n_41\,
+      ACIN(11) => \trigger_level_k_mult0__0_n_42\,
+      ACIN(10) => \trigger_level_k_mult0__0_n_43\,
+      ACIN(9) => \trigger_level_k_mult0__0_n_44\,
+      ACIN(8) => \trigger_level_k_mult0__0_n_45\,
+      ACIN(7) => \trigger_level_k_mult0__0_n_46\,
+      ACIN(6) => \trigger_level_k_mult0__0_n_47\,
+      ACIN(5) => \trigger_level_k_mult0__0_n_48\,
+      ACIN(4) => \trigger_level_k_mult0__0_n_49\,
+      ACIN(3) => \trigger_level_k_mult0__0_n_50\,
+      ACIN(2) => \trigger_level_k_mult0__0_n_51\,
+      ACIN(1) => \trigger_level_k_mult0__0_n_52\,
+      ACIN(0) => \trigger_level_k_mult0__0_n_53\,
       ACOUT(29 downto 0) => NLW_trigger_level_k_mult_reg_ACOUT_UNCONNECTED(29 downto 0),
       ALUMODE(3 downto 0) => B"0000",
       B(17 downto 15) => B"000",
@@ -7914,7 +7980,7 @@ trigger_level_k_mult_reg: unisim.vcomponents.DSP48E1
       CARRYINSEL(2 downto 0) => B"000",
       CARRYOUT(3 downto 0) => NLW_trigger_level_k_mult_reg_CARRYOUT_UNCONNECTED(3 downto 0),
       CEA1 => '0',
-      CEA2 => '1',
+      CEA2 => '0',
       CEAD => '0',
       CEALUMODE => '0',
       CEB1 => '0',
@@ -8032,7 +8098,7 @@ trigger_level_k_mult_reg: unisim.vcomponents.DSP48E1
       PCIN(1) => \trigger_level_k_mult0__0_n_152\,
       PCIN(0) => \trigger_level_k_mult0__0_n_153\,
       PCOUT(47 downto 0) => NLW_trigger_level_k_mult_reg_PCOUT_UNCONNECTED(47 downto 0),
-      RSTA => counter_cont2,
+      RSTA => '0',
       RSTALLCARRYIN => '0',
       RSTALUMODE => '0',
       RSTB => counter_cont2,
@@ -8254,7 +8320,7 @@ entity system_trigger_simulator_0_0 is
     K_sobremuestreo_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     log2_div_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     trigger_mode_in : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    trigger_level_in : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    trigger_level_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     trig_externo : in STD_LOGIC;
     trig : out STD_LOGIC
   );
@@ -8291,7 +8357,7 @@ inst: entity work.system_trigger_simulator_0_0_trigger_simulator
       reset_n => reset_n,
       trig => trig,
       trig_externo => trig_externo,
-      trigger_level_in(13 downto 0) => trigger_level_in(13 downto 0),
+      trigger_level_in(31 downto 0) => trigger_level_in(31 downto 0),
       trigger_mode_in(3 downto 0) => trigger_mode_in(3 downto 0),
       user_reset => user_reset
     );

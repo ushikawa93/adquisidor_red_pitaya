@@ -85,7 +85,7 @@ input wire [31 : 0] M_in;
 input wire [31 : 0] K_sobremuestreo_in;
 input wire [31 : 0] log2_div_in;
 input wire [3 : 0] trigger_mode_in;
-input wire [13 : 0] trigger_level_in;
+input wire [31 : 0] trigger_level_in;
 input wire trig_externo;
 output wire trig;
 
