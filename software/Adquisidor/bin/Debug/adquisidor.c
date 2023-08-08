@@ -6,7 +6,7 @@
 ///// ===================================================================== /////
 /*
 	Debe ejecutarse en el micro de la FPGA, con la sintaxis:
-		-> adquisidor FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC
+		-> adquisidor FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC | ADC_THRESHOLD
 	
 	La frecuencia de muestreo va a quedar 125MHz / K_sobremuestreo
 */
@@ -32,22 +32,25 @@
 #define K_OVERSAMPLING_ADDRESS 0x41230000
 #define LOG2_DIVISOR_ADDRESS 0x41230008
 #define FINISHED_ADDRESS 0x41210000
-#define TRIGGER_ADDRESS 0x41240000
+#define TRIGGER_MODE_ADDRESS 0x41240000
+#define TRIGGER_LEVEL_ADDRESS 0x41240008
+#define LEVEL_TO_DETECT 0x41250000
 
 
 void ResetFPGA(void *cfg);
 void SetEnable(void *cfg);
-void SetDacFrequency(void *cfg , int freq_dac );
-void SetM(void *cfg, int M);
-void SetSobremuestreo(void *cfg, int K_sobremuestreo);
-void SetN_ca(void *cfg,int N_ca);
-void SetTriggerMode(void *cfg, int trigger_mode);
-void SetTriggerLevel(void *cfg, int trigger_level);
-void SetDivisor(void *cfg, int log2_divisor);
+void SetDacFrequency(void *cfg , uint32_t freq_dac );
+void SetM(void *cfg, uint32_t M);
+void SetSobremuestreo(void *cfg, uint32_t K_sobremuestreo);
+void SetN_ca(void *cfg,uint32_t N_ca);
+void SetTriggerMode(void *cfg, uint32_t trigger_mode);
+void SetTriggerLevel(void *cfg, int32_t trigger_level);
+void SetDivisor(void *cfg, uint32_t log2_divisor);
+void SetLevelToDetect(void *cfg, int32_t level);
 double custom_pow(double base, int exponent);
 
-int getFinish(void *cfg);
-void escribirArchivo(int buffer_a[],int buffer_b[], int n, const char* nombreArchivo, int f_muestreo, int N, int K,int div);
+uint32_t getFinish(void *cfg);
+void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, const char* nombreArchivo, uint32_t f_muestreo, uint32_t N, uint32_t K,uint32_t div);
 
 int main(int argc, char **argv)
 {
@@ -57,19 +60,26 @@ int main(int argc, char **argv)
 	clock_t inicio, fin;
 	
 	// Parametros desde linea de comandos:
-	int K_sobremuestreo;
-	int N_promC;
-	int M;	//Maximo del buffer	
+	uint32_t K_sobremuestreo;
+	uint32_t N_promC;
+	uint32_t M;	//Maximo del buffer	
 	char nombreArchivo[50];
 	double freq_dac;	// Frecuencia que quiero setear en el DAC. La seteo para que entre justo en la ventana M a la frecuencia de trabajo actual
-	int trigger_mode;
-	int trigger_level;
-	int log2_divisor;
+	uint32_t trigger_mode;
+	int32_t trigger_level;
+	uint32_t log2_divisor;
+	
+	// Prende un led y un GPIO cuando el ADC pasa de este nivel (es lo que queria el griego)
+	int32_t adc_threshold_level;
 	
 	if(argc==2 && argv[1] == "h")
 	{
 		printf("Uso -> adquisidor FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC | TRIGGER_MODE | TRIGGER_LEVEL | LOG2_DIVISOR\n");
 		return 0;
+	}
+	else if(argc==2)
+	{
+		adc_threshold_level = atoi(argv[1]);		
 	}	
 	else if(argc == 9)
 	{
@@ -84,7 +94,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		printf("Error en los argumentos ingresados (Ingreso %d y se esperaban 5)\n",argc-1);
+		printf("Error en los argumentos ingresados (Ingreso %d y se esperaban 9)\n",argc-1);
 		printf("Uso -> adquisidor FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC | TRIGGER_MODE | TRIGGER_LEVEL | LOG2_DIVISOR\n");
 		return 0;
 	}		
@@ -101,6 +111,13 @@ int main(int argc, char **argv)
     }
 
     cfg = mmap(NULL, 0x2000000, PROT_READ|PROT_WRITE, MAP_SHARED, fd, START_ADDRESS);
+	
+	if(argc ==2)
+	{
+		SetLevelToDetect(cfg,adc_threshold_level);	// Por ahora lo hardcodeo a este valor para no cambiar tanto la cosa
+		return 0;
+	}
+	
 				
 	// Seteo los parametros de la operacion a traves de funciones por prolijidad
 	ResetFPGA(cfg);
@@ -141,19 +158,19 @@ int main(int argc, char **argv)
 	// por algun motivo sino se leen mal...
 	uint32_t discard;
 	int i; 		
-	int reads_chA [M];	
-	int reads_chB [M];
+	int32_t reads_chA [M];	
+	int32_t reads_chB [M];
 	
 	for(i=0;i<M;i++)
 	{
-		discard = *((uint32_t *)(cfg+ DATA_CH_A_ADDRESS - START_ADDRESS + 4*i ));
-		reads_chA[i] = *((uint32_t *)(cfg + DATA_CH_A_ADDRESS - START_ADDRESS + 4*i ));
+		discard = *((int32_t *)(cfg+ DATA_CH_A_ADDRESS - START_ADDRESS + 4*i ));
+		reads_chA[i] = *((int32_t *)(cfg + DATA_CH_A_ADDRESS - START_ADDRESS + 4*i ));
 	}	
 	
 	for(i=0;i<M;i++)
 	{
-		discard = *((uint32_t *)(cfg+ DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
-		reads_chB[i] = *((uint32_t *)(cfg + DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
+		discard = *((int32_t *)(cfg+ DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
+		reads_chB[i] = *((int32_t *)(cfg + DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
 	}	
 	
 	escribirArchivo(reads_chA,reads_chB,M,nombreArchivo,(float)125000000/K_sobremuestreo,N_promC,K_sobremuestreo,custom_pow(2,log2_divisor));
@@ -163,7 +180,7 @@ int main(int argc, char **argv)
     return 0;
 }
 
-void escribirArchivo(int buffer_a[],int buffer_b[], int n, const char* nombreArchivo, int f_muestreo, int N, int K, int div) {
+void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, const char* nombreArchivo, uint32_t f_muestreo, uint32_t N, uint32_t K, uint32_t div) {
     // Abrir el archivo en modo escritura
     FILE* archivo = fopen(nombreArchivo, "w");
 
@@ -216,7 +233,7 @@ void SetEnable(void *cfg)
 	
 }
 
-void SetDacFrequency(void *cfg , int freq_dac )
+void SetDacFrequency(void *cfg , uint32_t freq_dac )
 {
 	uint32_t phase_inc = (uint32_t)(2.147482*freq_dac);	// Parametro para el DDS compiler del lado de la FPGA
 
@@ -225,44 +242,49 @@ void SetDacFrequency(void *cfg , int freq_dac )
 	
 }
 
-void SetM(void *cfg, int M)
+void SetM(void *cfg, uint32_t M)
 {
 	// Seteo la cantidad de muestras por ciclo de señal 
 	*(uint32_t *)(cfg+ M_ADDRESS - START_ADDRESS) = M ;
 
 }
 
-void SetSobremuestreo(void *cfg, int K_sobremuestreo)
+void SetSobremuestreo(void *cfg, uint32_t K_sobremuestreo)
 {
 	// Seteo la cantidad de muestras que quiero promediar linealmente (baja la frecuencia de muestreo)
 	*(uint32_t *)(cfg+ K_OVERSAMPLING_ADDRESS - START_ADDRESS) = K_sobremuestreo ;
 
 }
 
-void SetN_ca(void *cfg,int N_ca)
+void SetN_ca(void *cfg,uint32_t N_ca)
 {
 	// Seteo la cantidad de muestras que quiero promediar coherentemente 
 	*(uint32_t *)(cfg+ N_CA_ADDRESS - START_ADDRESS) = N_ca ;
 }
 
-void SetTriggerMode(void *cfg, int trigger_mode)
+void SetTriggerMode(void *cfg, uint32_t trigger_mode)
 {
 	// 0 para disparo continuo / 1 para disparo por nivel
-	*(uint32_t *)(cfg+ TRIGGER_ADDRESS - START_ADDRESS) = *(uint32_t *)(cfg+ TRIGGER_ADDRESS - START_ADDRESS) | trigger_mode ;	
+	*(uint32_t *)(cfg+ TRIGGER_MODE_ADDRESS - START_ADDRESS) = trigger_mode ;	
 }
 
-void SetTriggerLevel(void *cfg, int trigger_level)
+void SetTriggerLevel(void *cfg, int32_t trigger_level)
 {
 	// 0 para disparo continuo / 1 para disparo por nivel
-	*(uint32_t *)(cfg+ TRIGGER_ADDRESS - START_ADDRESS) = *(uint32_t *)(cfg+ TRIGGER_ADDRESS - START_ADDRESS) | (trigger_level << 16) ;	
+	*(int32_t *)(cfg+ TRIGGER_LEVEL_ADDRESS - START_ADDRESS) = trigger_level;	
 }
 
-void SetDivisor(void *cfg, int log2_divisor)
+void SetLevelToDetect(void *cfg, int32_t level)
+{
+	*(int32_t *)(cfg+ LEVEL_TO_DETECT - START_ADDRESS) = level;	
+}
+
+void SetDivisor(void *cfg, uint32_t log2_divisor)
 {
 	*(uint32_t *)(cfg+ LOG2_DIVISOR_ADDRESS - START_ADDRESS) = log2_divisor;	
 }
 
-int getFinish(void *cfg)
+uint32_t getFinish(void *cfg)
 {
 	return (*(uint32_t *)(cfg+ FINISHED_ADDRESS - START_ADDRESS) );
 }

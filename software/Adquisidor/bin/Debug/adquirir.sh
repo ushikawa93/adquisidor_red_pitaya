@@ -5,9 +5,9 @@
 #///// ========================================================================= /////
 #
 # Script para adquirir datos del ADC de la FPGA, guardarla en un archivo y enviarla de nuevo a la PC 
-# Uso -> adquirir.sh FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC | TRIGGER_MODE | TRIGGER_LEVEL | LOG2_DIVISOR | IP
+# Uso -> adquirir.sh FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC | TRIGGER_MODE | TRIGGER_LEVEL | LOG2_DIVISOR | IP | ADC_THRESHOLD
 
-# Uso del programa adquisidor -> adquisidor FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC | TRIGGER_MODE | TRIGGER_LEVEL | LOG2_DIVISOR
+# Uso del programa adquisidor -> adquisidor FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC | TRIGGER_MODE | TRIGGER_LEVEL | LOG2_DIVISOR | ADC_THRESHOLD
 
 N_prom_lineal=${1:-1}
 N_promC=${2:-1}
@@ -30,7 +30,7 @@ ssh root@$ip <<EOF
 	./adquisidor $N_prom_lineal $N_promC $file_name $M_buffer $frec_dac $trigger_mode $trigger_level $log2_divisor
 EOF
 
-cd ../../../datos_adquiridos
+cd ../datos_adquiridos
 scp root@$ip:/root/c_programs/$file_name .
 
 #read -p "Presione cualquier tecla para salir..."
