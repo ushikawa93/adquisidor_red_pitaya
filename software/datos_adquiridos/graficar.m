@@ -1,7 +1,7 @@
 % Abre el archivo de texto para lectura
-fid = fopen('datos_sinc_64.dat', 'r');
+fid = fopen('test_7.dat', 'r');
 
-% Ignora la primera línea
+% Ignora la primera lï¿½nea
 metadata= textscan(fgetl(fid), "Frecuencia_de_muestreo: %f Factor_de_sobremuestreo: %f Ciclos_de_promediacion: %f Divisor: %f");
 
 K = metadata{2}; % Factor de sobremuestreo
@@ -10,16 +10,16 @@ DIV = metadata{4};
 
 fgetl(fid);
 
-% Lee la segunda línea y separa los alores por comas
+% Lee la segunda lï¿½nea y separa los alores por comas
 data = textscan(fgetl(fid), '%f', 'Delimiter', ',');
 
 % Obtiene los valores de datos
 values_chA = data{1}/(K*N/DIV);
 
-% Ignora la primera línea
+% Ignora la primera lï¿½nea
 fgetl(fid);
 
-% Lee la segunda línea y separa los valores por comas
+% Lee la segunda lï¿½nea y separa los valores por comas
 data = textscan(fgetl(fid), '%f', 'Delimiter', ',');
 
 % Obtiene los valores de datos
