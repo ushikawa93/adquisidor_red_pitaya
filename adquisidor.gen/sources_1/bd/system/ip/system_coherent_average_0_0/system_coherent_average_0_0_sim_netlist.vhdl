@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Aug  2 16:08:38 2023
+-- Date        : Wed Aug  2 16:08:37 2023
 -- Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_coherent_average_0_0 -prefix
+--               system_coherent_average_0_0_ system_coherent_average_0_0_sim_netlist.vhdl
 -- Design      : system_coherent_average_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,8 +31,6 @@ entity system_coherent_average_0_0_coherent_average is
     N_prom_lineal_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     N_ca_in : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_coherent_average_0_0_coherent_average : entity is "coherent_average";
 end system_coherent_average_0_0_coherent_average;
 
 architecture STRUCTURE of system_coherent_average_0_0_coherent_average is

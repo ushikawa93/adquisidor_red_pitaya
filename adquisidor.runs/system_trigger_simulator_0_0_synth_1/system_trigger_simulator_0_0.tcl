@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "system_trigger_simulator_0_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 1
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
@@ -86,8 +87,8 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths {
-  c:/Users/MatiOliva/Documents/04-RedPitaya/utils/user_ip/cores
   c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/ip_repo
+  c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/user_ip
 } [current_project]
 update_ip_catalog
 set_property ip_output_repo c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.cache/ip [current_project]
@@ -95,8 +96,8 @@ set_property ip_cache_permissions {read write} [current_project]
 set_property verilog_define TOOL_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/new/trigger_simulator.v
-read_ip -quiet C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0.xci
+read_verilog -library xil_defaultlib C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/trigger_simulator.v
+read_ip -quiet c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

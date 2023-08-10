@@ -33,4 +33,4 @@ EOF
 cd ../datos_adquiridos
 scp root@$ip:/root/c_programs/$file_name .
 
-#read -p "Presione cualquier tecla para salir..."
+read -p "Presione cualquier tecla para salir..."

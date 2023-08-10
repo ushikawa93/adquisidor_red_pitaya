@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Aug  8 14:08:10 2023
+// Date        : Thu Aug 10 17:36:58 2023
 // Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0_sim_netlist.v
@@ -38,7 +38,7 @@ module system_trigger_simulator_0_0
   input [31:0]log2_div_in;
   input [3:0]trigger_mode_in;
   input [31:0]trigger_level_in;
-  input trig_externo;
+  inout trig_externo;
   output trig;
 
   wire [31:0]K_sobremuestreo_in;
@@ -76,8 +76,8 @@ module system_trigger_simulator_0_0_trigger_simulator
     user_reset,
     trigger_mode_in,
     clk,
-    data_valid,
     M_in,
+    data_valid,
     log2_div_in,
     trigger_level_in,
     K_sobremuestreo_in,
@@ -88,8 +88,8 @@ module system_trigger_simulator_0_0_trigger_simulator
   input user_reset;
   input [3:0]trigger_mode_in;
   input clk;
-  input data_valid;
   input [31:0]M_in;
+  input data_valid;
   input [31:0]log2_div_in;
   input [31:0]trigger_level_in;
   input [31:0]K_sobremuestreo_in;
@@ -170,6 +170,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire [31:0]counter_ext;
   wire [31:1]counter_ext0;
   wire \counter_ext[0]_i_1_n_0 ;
+  wire \counter_ext[31]_i_1_n_0 ;
   wire \counter_ext_reg[12]_i_2_n_0 ;
   wire \counter_ext_reg[12]_i_2_n_1 ;
   wire \counter_ext_reg[12]_i_2_n_2 ;
@@ -190,8 +191,8 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire \counter_ext_reg[28]_i_2_n_1 ;
   wire \counter_ext_reg[28]_i_2_n_2 ;
   wire \counter_ext_reg[28]_i_2_n_3 ;
-  wire \counter_ext_reg[31]_i_2_n_2 ;
-  wire \counter_ext_reg[31]_i_2_n_3 ;
+  wire \counter_ext_reg[31]_i_3_n_2 ;
+  wire \counter_ext_reg[31]_i_3_n_3 ;
   wire \counter_ext_reg[4]_i_2_n_0 ;
   wire \counter_ext_reg[4]_i_2_n_1 ;
   wire \counter_ext_reg[4]_i_2_n_2 ;
@@ -203,37 +204,6 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire [31:0]counter_level;
   wire [31:1]counter_level0;
   wire \counter_level[0]_i_1_n_0 ;
-  wire \counter_level[10]_i_1_n_0 ;
-  wire \counter_level[11]_i_1_n_0 ;
-  wire \counter_level[12]_i_1_n_0 ;
-  wire \counter_level[13]_i_1_n_0 ;
-  wire \counter_level[14]_i_1_n_0 ;
-  wire \counter_level[15]_i_1_n_0 ;
-  wire \counter_level[16]_i_1_n_0 ;
-  wire \counter_level[17]_i_1_n_0 ;
-  wire \counter_level[18]_i_1_n_0 ;
-  wire \counter_level[19]_i_1_n_0 ;
-  wire \counter_level[1]_i_1_n_0 ;
-  wire \counter_level[20]_i_1_n_0 ;
-  wire \counter_level[21]_i_1_n_0 ;
-  wire \counter_level[22]_i_1_n_0 ;
-  wire \counter_level[23]_i_1_n_0 ;
-  wire \counter_level[24]_i_1_n_0 ;
-  wire \counter_level[25]_i_1_n_0 ;
-  wire \counter_level[26]_i_1_n_0 ;
-  wire \counter_level[27]_i_1_n_0 ;
-  wire \counter_level[28]_i_1_n_0 ;
-  wire \counter_level[29]_i_1_n_0 ;
-  wire \counter_level[2]_i_1_n_0 ;
-  wire \counter_level[30]_i_1_n_0 ;
-  wire \counter_level[31]_i_1_n_0 ;
-  wire \counter_level[3]_i_1_n_0 ;
-  wire \counter_level[4]_i_1_n_0 ;
-  wire \counter_level[5]_i_1_n_0 ;
-  wire \counter_level[6]_i_1_n_0 ;
-  wire \counter_level[7]_i_1_n_0 ;
-  wire \counter_level[8]_i_1_n_0 ;
-  wire \counter_level[9]_i_1_n_0 ;
   wire \counter_level_reg[12]_i_2_n_0 ;
   wire \counter_level_reg[12]_i_2_n_1 ;
   wire \counter_level_reg[12]_i_2_n_2 ;
@@ -302,6 +272,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire [31:0]log2_div_in;
   wire [31:0]log2_div_reg;
   wire [31:1]p_0_in;
+  wire [31:1]p_1_in;
   wire reset_n;
   wire state0;
   wire state2_carry__0_i_1_n_0;
@@ -417,6 +388,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire \state3_inferred__0/i__carry_n_2 ;
   wire \state3_inferred__0/i__carry_n_3 ;
   wire \state[0]_i_2_n_0 ;
+  wire [0:0]state_ext;
   wire state_ext2_carry__0_i_1_n_0;
   wire state_ext2_carry__0_i_2_n_0;
   wire state_ext2_carry__0_i_3_n_0;
@@ -466,7 +438,6 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire state_ext2_carry_n_2;
   wire state_ext2_carry_n_3;
   wire \state_ext[0]_i_1_n_0 ;
-  wire \state_ext_reg_n_0_[0] ;
   wire \state_reg_n_0_[0] ;
   wire trig;
   wire trig_INST_0_i_1_n_0;
@@ -555,8 +526,8 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire trigger_continuo_carry_n_1;
   wire trigger_continuo_carry_n_2;
   wire trigger_continuo_carry_n_3;
+  wire trigger_ext_reg;
   wire trigger_ext_reg_i_1_n_0;
-  wire trigger_ext_reg_reg_n_0;
   wire [31:0]trigger_level_in;
   wire trigger_level_k_mult0__0_n_100;
   wire trigger_level_k_mult0__0_n_101;
@@ -983,8 +954,8 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire trigger_nivel_reg_i_1_n_0;
   wire user_reset;
   wire [3:3]\NLW_counter_cont_reg[28]_i_1_CO_UNCONNECTED ;
-  wire [3:2]\NLW_counter_ext_reg[31]_i_2_CO_UNCONNECTED ;
-  wire [3:3]\NLW_counter_ext_reg[31]_i_2_O_UNCONNECTED ;
+  wire [3:2]\NLW_counter_ext_reg[31]_i_3_CO_UNCONNECTED ;
+  wire [3:3]\NLW_counter_ext_reg[31]_i_3_O_UNCONNECTED ;
   wire [3:2]\NLW_counter_level_reg[31]_i_2_CO_UNCONNECTED ;
   wire [3:3]\NLW_counter_level_reg[31]_i_2_O_UNCONNECTED ;
   wire [3:0]NLW_state2_carry_O_UNCONNECTED;
@@ -1499,252 +1470,257 @@ module system_trigger_simulator_0_0_trigger_simulator
         .D(\counter_cont_reg[8]_i_1_n_6 ),
         .Q(counter_cont_reg[9]),
         .R(\counter_cont[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \counter_ext[0]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext[0]),
         .O(\counter_ext[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[10]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[10]),
-        .O(p_0_in[10]));
+        .O(p_1_in[10]));
   (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[11]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[11]),
-        .O(p_0_in[11]));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+        .O(p_1_in[11]));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[12]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[12]),
-        .O(p_0_in[12]));
+        .O(p_1_in[12]));
   (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[13]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[13]),
-        .O(p_0_in[13]));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+        .O(p_1_in[13]));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[14]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[14]),
-        .O(p_0_in[14]));
+        .O(p_1_in[14]));
   (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[15]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[15]),
-        .O(p_0_in[15]));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+        .O(p_1_in[15]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[16]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[16]),
-        .O(p_0_in[16]));
+        .O(p_1_in[16]));
   (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[17]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[17]),
-        .O(p_0_in[17]));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+        .O(p_1_in[17]));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[18]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[18]),
-        .O(p_0_in[18]));
+        .O(p_1_in[18]));
   (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[19]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[19]),
-        .O(p_0_in[19]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+        .O(p_1_in[19]));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[1]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[1]),
-        .O(p_0_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+        .O(p_1_in[1]));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[20]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[20]),
-        .O(p_0_in[20]));
+        .O(p_1_in[20]));
   (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[21]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[21]),
-        .O(p_0_in[21]));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+        .O(p_1_in[21]));
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[22]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[22]),
-        .O(p_0_in[22]));
+        .O(p_1_in[22]));
   (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[23]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[23]),
-        .O(p_0_in[23]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+        .O(p_1_in[23]));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[24]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[24]),
-        .O(p_0_in[24]));
+        .O(p_1_in[24]));
   (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[25]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[25]),
-        .O(p_0_in[25]));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+        .O(p_1_in[25]));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[26]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[26]),
-        .O(p_0_in[26]));
+        .O(p_1_in[26]));
   (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[27]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[27]),
-        .O(p_0_in[27]));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+        .O(p_1_in[27]));
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[28]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[28]),
-        .O(p_0_in[28]));
+        .O(p_1_in[28]));
   (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[29]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[29]),
-        .O(p_0_in[29]));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+        .O(p_1_in[29]));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[2]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[2]),
-        .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+        .O(p_1_in[2]));
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[30]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[30]),
-        .O(p_0_in[30]));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+        .O(p_1_in[30]));
+  LUT2 #(
+    .INIT(4'hB)) 
+    \counter_ext[31]_i_1 
+       (.I0(data_valid),
+        .I1(state_ext),
+        .O(\counter_ext[31]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h8)) 
-    \counter_ext[31]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+    \counter_ext[31]_i_2 
+       (.I0(state_ext),
         .I1(counter_ext0[31]),
-        .O(p_0_in[31]));
+        .O(p_1_in[31]));
   (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[3]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[3]),
-        .O(p_0_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+        .O(p_1_in[3]));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[4]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[4]),
-        .O(p_0_in[4]));
+        .O(p_1_in[4]));
   (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[5]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[5]),
-        .O(p_0_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+        .O(p_1_in[5]));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[6]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[6]),
-        .O(p_0_in[6]));
+        .O(p_1_in[6]));
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[7]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[7]),
-        .O(p_0_in[7]));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+        .O(p_1_in[7]));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[8]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[8]),
-        .O(p_0_in[8]));
+        .O(p_1_in[8]));
   (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_ext[9]_i_1 
-       (.I0(\state_ext_reg_n_0_[0] ),
+       (.I0(state_ext),
         .I1(counter_ext0[9]),
-        .O(p_0_in[9]));
+        .O(p_1_in[9]));
   FDRE \counter_ext_reg[0] 
        (.C(clk),
-        .CE(data_valid),
+        .CE(\counter_ext[31]_i_1_n_0 ),
         .D(\counter_ext[0]_i_1_n_0 ),
         .Q(counter_ext[0]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[10] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[10]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[10]),
         .Q(counter_ext[10]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[11] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[11]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[11]),
         .Q(counter_ext[11]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[12] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[12]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[12]),
         .Q(counter_ext[12]),
         .R(counter_cont2));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1757,26 +1733,26 @@ module system_trigger_simulator_0_0_trigger_simulator
         .S(counter_ext[12:9]));
   FDRE \counter_ext_reg[13] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[13]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[13]),
         .Q(counter_ext[13]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[14] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[14]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[14]),
         .Q(counter_ext[14]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[15] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[15]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[15]),
         .Q(counter_ext[15]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[16] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[16]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[16]),
         .Q(counter_ext[16]),
         .R(counter_cont2));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1789,32 +1765,32 @@ module system_trigger_simulator_0_0_trigger_simulator
         .S(counter_ext[16:13]));
   FDRE \counter_ext_reg[17] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[17]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[17]),
         .Q(counter_ext[17]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[18] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[18]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[18]),
         .Q(counter_ext[18]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[19] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[19]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[19]),
         .Q(counter_ext[19]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[1] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[1]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[1]),
         .Q(counter_ext[1]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[20] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[20]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[20]),
         .Q(counter_ext[20]),
         .R(counter_cont2));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1827,26 +1803,26 @@ module system_trigger_simulator_0_0_trigger_simulator
         .S(counter_ext[20:17]));
   FDRE \counter_ext_reg[21] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[21]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[21]),
         .Q(counter_ext[21]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[22] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[22]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[22]),
         .Q(counter_ext[22]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[23] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[23]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[23]),
         .Q(counter_ext[23]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[24] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[24]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[24]),
         .Q(counter_ext[24]),
         .R(counter_cont2));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1859,26 +1835,26 @@ module system_trigger_simulator_0_0_trigger_simulator
         .S(counter_ext[24:21]));
   FDRE \counter_ext_reg[25] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[25]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[25]),
         .Q(counter_ext[25]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[26] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[26]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[26]),
         .Q(counter_ext[26]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[27] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[27]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[27]),
         .Q(counter_ext[27]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[28] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[28]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[28]),
         .Q(counter_ext[28]),
         .R(counter_cont2));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1891,46 +1867,46 @@ module system_trigger_simulator_0_0_trigger_simulator
         .S(counter_ext[28:25]));
   FDRE \counter_ext_reg[29] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[29]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[29]),
         .Q(counter_ext[29]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[2] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[2]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[2]),
         .Q(counter_ext[2]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[30] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[30]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[30]),
         .Q(counter_ext[30]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[31] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[31]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[31]),
         .Q(counter_ext[31]),
         .R(counter_cont2));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \counter_ext_reg[31]_i_2 
+  CARRY4 \counter_ext_reg[31]_i_3 
        (.CI(\counter_ext_reg[28]_i_2_n_0 ),
-        .CO({\NLW_counter_ext_reg[31]_i_2_CO_UNCONNECTED [3:2],\counter_ext_reg[31]_i_2_n_2 ,\counter_ext_reg[31]_i_2_n_3 }),
+        .CO({\NLW_counter_ext_reg[31]_i_3_CO_UNCONNECTED [3:2],\counter_ext_reg[31]_i_3_n_2 ,\counter_ext_reg[31]_i_3_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_counter_ext_reg[31]_i_2_O_UNCONNECTED [3],counter_ext0[31:29]}),
+        .O({\NLW_counter_ext_reg[31]_i_3_O_UNCONNECTED [3],counter_ext0[31:29]}),
         .S({1'b0,counter_ext[31:29]}));
   FDRE \counter_ext_reg[3] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[3]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[3]),
         .Q(counter_ext[3]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[4] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[4]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[4]),
         .Q(counter_ext[4]),
         .R(counter_cont2));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1943,26 +1919,26 @@ module system_trigger_simulator_0_0_trigger_simulator
         .S(counter_ext[4:1]));
   FDRE \counter_ext_reg[5] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[5]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[5]),
         .Q(counter_ext[5]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[6] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[6]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[6]),
         .Q(counter_ext[6]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[7] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[7]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[7]),
         .Q(counter_ext[7]),
         .R(counter_cont2));
   FDRE \counter_ext_reg[8] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[8]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[8]),
         .Q(counter_ext[8]),
         .R(counter_cont2));
   (* ADDER_THRESHOLD = "35" *) 
@@ -1975,234 +1951,234 @@ module system_trigger_simulator_0_0_trigger_simulator
         .S(counter_ext[8:5]));
   FDRE \counter_ext_reg[9] 
        (.C(clk),
-        .CE(data_valid),
-        .D(p_0_in[9]),
+        .CE(\counter_ext[31]_i_1_n_0 ),
+        .D(p_1_in[9]),
         .Q(counter_ext[9]),
         .R(counter_cont2));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \counter_level[0]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level[0]),
         .O(\counter_level[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[10]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[10]),
-        .O(\counter_level[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+        .O(p_0_in[10]));
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[11]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[11]),
-        .O(\counter_level[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+        .O(p_0_in[11]));
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[12]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[12]),
-        .O(\counter_level[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+        .O(p_0_in[12]));
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[13]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[13]),
-        .O(\counter_level[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+        .O(p_0_in[13]));
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[14]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[14]),
-        .O(\counter_level[14]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+        .O(p_0_in[14]));
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[15]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[15]),
-        .O(\counter_level[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+        .O(p_0_in[15]));
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[16]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[16]),
-        .O(\counter_level[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+        .O(p_0_in[16]));
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[17]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[17]),
-        .O(\counter_level[17]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+        .O(p_0_in[17]));
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[18]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[18]),
-        .O(\counter_level[18]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+        .O(p_0_in[18]));
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[19]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[19]),
-        .O(\counter_level[19]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+        .O(p_0_in[19]));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[1]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[1]),
-        .O(\counter_level[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+        .O(p_0_in[1]));
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[20]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[20]),
-        .O(\counter_level[20]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+        .O(p_0_in[20]));
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[21]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[21]),
-        .O(\counter_level[21]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+        .O(p_0_in[21]));
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[22]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[22]),
-        .O(\counter_level[22]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+        .O(p_0_in[22]));
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[23]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[23]),
-        .O(\counter_level[23]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+        .O(p_0_in[23]));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[24]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[24]),
-        .O(\counter_level[24]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+        .O(p_0_in[24]));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[25]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[25]),
-        .O(\counter_level[25]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+        .O(p_0_in[25]));
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[26]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[26]),
-        .O(\counter_level[26]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+        .O(p_0_in[26]));
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[27]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[27]),
-        .O(\counter_level[27]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+        .O(p_0_in[27]));
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[28]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[28]),
-        .O(\counter_level[28]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+        .O(p_0_in[28]));
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[29]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[29]),
-        .O(\counter_level[29]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+        .O(p_0_in[29]));
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[2]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[2]),
-        .O(\counter_level[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+        .O(p_0_in[2]));
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[30]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[30]),
-        .O(\counter_level[30]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+        .O(p_0_in[30]));
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[31]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[31]),
-        .O(\counter_level[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+        .O(p_0_in[31]));
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[3]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[3]),
-        .O(\counter_level[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+        .O(p_0_in[3]));
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[4]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[4]),
-        .O(\counter_level[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+        .O(p_0_in[4]));
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[5]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[5]),
-        .O(\counter_level[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+        .O(p_0_in[5]));
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[6]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[6]),
-        .O(\counter_level[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+        .O(p_0_in[6]));
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[7]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[7]),
-        .O(\counter_level[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+        .O(p_0_in[7]));
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[8]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[8]),
-        .O(\counter_level[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+        .O(p_0_in[8]));
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \counter_level[9]_i_1 
        (.I0(\state_reg_n_0_[0] ),
         .I1(counter_level0[9]),
-        .O(\counter_level[9]_i_1_n_0 ));
+        .O(p_0_in[9]));
   FDRE \counter_level_reg[0] 
        (.C(clk),
         .CE(data_valid),
@@ -2212,19 +2188,19 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[10] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[10]_i_1_n_0 ),
+        .D(p_0_in[10]),
         .Q(counter_level[10]),
         .R(state0));
   FDRE \counter_level_reg[11] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[11]_i_1_n_0 ),
+        .D(p_0_in[11]),
         .Q(counter_level[11]),
         .R(state0));
   FDRE \counter_level_reg[12] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[12]_i_1_n_0 ),
+        .D(p_0_in[12]),
         .Q(counter_level[12]),
         .R(state0));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2238,25 +2214,25 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[13] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[13]_i_1_n_0 ),
+        .D(p_0_in[13]),
         .Q(counter_level[13]),
         .R(state0));
   FDRE \counter_level_reg[14] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[14]_i_1_n_0 ),
+        .D(p_0_in[14]),
         .Q(counter_level[14]),
         .R(state0));
   FDRE \counter_level_reg[15] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[15]_i_1_n_0 ),
+        .D(p_0_in[15]),
         .Q(counter_level[15]),
         .R(state0));
   FDRE \counter_level_reg[16] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[16]_i_1_n_0 ),
+        .D(p_0_in[16]),
         .Q(counter_level[16]),
         .R(state0));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2270,31 +2246,31 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[17] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[17]_i_1_n_0 ),
+        .D(p_0_in[17]),
         .Q(counter_level[17]),
         .R(state0));
   FDRE \counter_level_reg[18] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[18]_i_1_n_0 ),
+        .D(p_0_in[18]),
         .Q(counter_level[18]),
         .R(state0));
   FDRE \counter_level_reg[19] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[19]_i_1_n_0 ),
+        .D(p_0_in[19]),
         .Q(counter_level[19]),
         .R(state0));
   FDRE \counter_level_reg[1] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[1]_i_1_n_0 ),
+        .D(p_0_in[1]),
         .Q(counter_level[1]),
         .R(state0));
   FDRE \counter_level_reg[20] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[20]_i_1_n_0 ),
+        .D(p_0_in[20]),
         .Q(counter_level[20]),
         .R(state0));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2308,25 +2284,25 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[21] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[21]_i_1_n_0 ),
+        .D(p_0_in[21]),
         .Q(counter_level[21]),
         .R(state0));
   FDRE \counter_level_reg[22] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[22]_i_1_n_0 ),
+        .D(p_0_in[22]),
         .Q(counter_level[22]),
         .R(state0));
   FDRE \counter_level_reg[23] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[23]_i_1_n_0 ),
+        .D(p_0_in[23]),
         .Q(counter_level[23]),
         .R(state0));
   FDRE \counter_level_reg[24] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[24]_i_1_n_0 ),
+        .D(p_0_in[24]),
         .Q(counter_level[24]),
         .R(state0));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2340,25 +2316,25 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[25] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[25]_i_1_n_0 ),
+        .D(p_0_in[25]),
         .Q(counter_level[25]),
         .R(state0));
   FDRE \counter_level_reg[26] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[26]_i_1_n_0 ),
+        .D(p_0_in[26]),
         .Q(counter_level[26]),
         .R(state0));
   FDRE \counter_level_reg[27] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[27]_i_1_n_0 ),
+        .D(p_0_in[27]),
         .Q(counter_level[27]),
         .R(state0));
   FDRE \counter_level_reg[28] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[28]_i_1_n_0 ),
+        .D(p_0_in[28]),
         .Q(counter_level[28]),
         .R(state0));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2372,25 +2348,25 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[29] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[29]_i_1_n_0 ),
+        .D(p_0_in[29]),
         .Q(counter_level[29]),
         .R(state0));
   FDRE \counter_level_reg[2] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[2]_i_1_n_0 ),
+        .D(p_0_in[2]),
         .Q(counter_level[2]),
         .R(state0));
   FDRE \counter_level_reg[30] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[30]_i_1_n_0 ),
+        .D(p_0_in[30]),
         .Q(counter_level[30]),
         .R(state0));
   FDRE \counter_level_reg[31] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[31]_i_1_n_0 ),
+        .D(p_0_in[31]),
         .Q(counter_level[31]),
         .R(state0));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2404,13 +2380,13 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[3] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[3]_i_1_n_0 ),
+        .D(p_0_in[3]),
         .Q(counter_level[3]),
         .R(state0));
   FDRE \counter_level_reg[4] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[4]_i_1_n_0 ),
+        .D(p_0_in[4]),
         .Q(counter_level[4]),
         .R(state0));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2424,25 +2400,25 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[5] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[5]_i_1_n_0 ),
+        .D(p_0_in[5]),
         .Q(counter_level[5]),
         .R(state0));
   FDRE \counter_level_reg[6] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[6]_i_1_n_0 ),
+        .D(p_0_in[6]),
         .Q(counter_level[6]),
         .R(state0));
   FDRE \counter_level_reg[7] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[7]_i_1_n_0 ),
+        .D(p_0_in[7]),
         .Q(counter_level[7]),
         .R(state0));
   FDRE \counter_level_reg[8] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[8]_i_1_n_0 ),
+        .D(p_0_in[8]),
         .Q(counter_level[8]),
         .R(state0));
   (* ADDER_THRESHOLD = "35" *) 
@@ -2456,7 +2432,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   FDRE \counter_level_reg[9] 
        (.C(clk),
         .CE(data_valid),
-        .D(\counter_level[9]_i_1_n_0 ),
+        .D(p_0_in[9]),
         .Q(counter_level[9]),
         .R(state0));
   FDRE \data_in_reg_reg[0] 
@@ -4006,19 +3982,18 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(M_reg[2]),
         .I3(counter_ext[1]),
         .O(state_ext2_carry_i_8_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \state_ext[0]_i_1 
        (.I0(state_ext2_carry__2_n_0),
-        .I1(\state_ext_reg_n_0_[0] ),
-        .I2(trig_externo),
+        .I1(state_ext),
+        .I2(trigger_ext_reg),
         .O(\state_ext[0]_i_1_n_0 ));
   FDRE \state_ext_reg[0] 
        (.C(clk),
-        .CE(data_valid),
+        .CE(1'b1),
         .D(\state_ext[0]_i_1_n_0 ),
-        .Q(\state_ext_reg_n_0_[0] ),
+        .Q(state_ext),
         .R(counter_cont2));
   FDRE \state_reg[0] 
        (.C(clk),
@@ -4031,7 +4006,7 @@ module system_trigger_simulator_0_0_trigger_simulator
     trig_INST_0
        (.I0(trigger_continuo),
         .I1(trigger_mode_reg[1]),
-        .I2(trigger_ext_reg_reg_n_0),
+        .I2(trigger_ext_reg),
         .I3(trigger_mode_reg[0]),
         .I4(trigger_nivel),
         .I5(trig_INST_0_i_1_n_0),
@@ -4390,18 +4365,18 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(trigger_continuo0[1]),
         .I5(counter_cont_reg[1]),
         .O(trigger_continuo_carry_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h2)) 
     trigger_ext_reg_i_1
        (.I0(trig_externo),
-        .I1(\state_ext_reg_n_0_[0] ),
+        .I1(state_ext),
         .O(trigger_ext_reg_i_1_n_0));
   FDRE trigger_ext_reg_reg
        (.C(clk),
-        .CE(data_valid),
+        .CE(\counter_ext[31]_i_1_n_0 ),
         .D(trigger_ext_reg_i_1_n_0),
-        .Q(trigger_ext_reg_reg_n_0),
+        .Q(trigger_ext_reg),
         .R(counter_cont2));
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-10 {cell *THIS*} {string 16x18 4}}" *) 
   DSP48E1 #(
@@ -4688,7 +4663,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(log2_div_reg[1]),
         .I4(\trigger_level_k_mult_div[0]_i_3_n_0 ),
         .O(\trigger_level_k_mult_div[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[0]_i_2 
@@ -4696,7 +4671,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I1(log2_div_reg[2]),
         .I2(\trigger_level_k_mult_div[2]_i_3_n_0 ),
         .O(\trigger_level_k_mult_div[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[0]_i_3 
@@ -4714,7 +4689,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[4]),
         .I5(\trigger_level_k_mult_reg[0]__0_n_0 ),
         .O(\trigger_level_k_mult_div[0]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[10]_i_1 
@@ -4742,7 +4717,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(log2_div_reg[4]),
         .I4(\trigger_level_k_mult_reg[10]__0_n_0 ),
         .O(\trigger_level_k_mult_div[10]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[11]_i_1 
@@ -4770,7 +4745,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(log2_div_reg[4]),
         .I4(\trigger_level_k_mult_reg[11]__0_n_0 ),
         .O(\trigger_level_k_mult_div[11]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[12]_i_1 
@@ -4798,7 +4773,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(log2_div_reg[4]),
         .I4(\trigger_level_k_mult_reg[12]__0_n_0 ),
         .O(\trigger_level_k_mult_div[12]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[13]_i_1 
@@ -4826,7 +4801,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(log2_div_reg[4]),
         .I4(\trigger_level_k_mult_reg[13]__0_n_0 ),
         .O(\trigger_level_k_mult_div[13]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[14]_i_1 
@@ -4854,7 +4829,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(log2_div_reg[4]),
         .I4(\trigger_level_k_mult_reg[14]__0_n_0 ),
         .O(\trigger_level_k_mult_div[14]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[15]_i_1 
@@ -4882,7 +4857,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(log2_div_reg[4]),
         .I4(\trigger_level_k_mult_reg[15]__0_n_0 ),
         .O(\trigger_level_k_mult_div[15]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[16]_i_1 
@@ -4918,7 +4893,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_reg__0[16]),
         .I3(log2_div_reg[4]),
         .O(\trigger_level_k_mult_div[16]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[17]_i_1 
@@ -4954,7 +4929,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_reg__0[17]),
         .I3(log2_div_reg[4]),
         .O(\trigger_level_k_mult_div[17]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[18]_i_1 
@@ -5025,7 +5000,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_reg__0[19]),
         .I3(log2_div_reg[4]),
         .O(\trigger_level_k_mult_div[19]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[1]_i_1 
@@ -5188,7 +5163,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(trigger_level_k_mult_reg__0[25]),
         .I4(log2_div_reg[3]),
         .O(\trigger_level_k_mult_div[25]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[26]_i_1 
@@ -5206,7 +5181,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[1]),
         .I5(\trigger_level_k_mult_div[24]_i_2_n_0 ),
         .O(\trigger_level_k_mult_div[26]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[27]_i_1 
@@ -5224,7 +5199,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[1]),
         .I5(\trigger_level_k_mult_div[25]_i_2_n_0 ),
         .O(\trigger_level_k_mult_div[27]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[28]_i_1 
@@ -5242,7 +5217,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[4]),
         .I5(log2_div_reg[2]),
         .O(\trigger_level_k_mult_div[28]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[29]_i_1 
@@ -5260,7 +5235,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[4]),
         .I5(log2_div_reg[2]),
         .O(\trigger_level_k_mult_div[29]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[2]_i_1 
@@ -5385,7 +5360,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(log2_div_reg[5]),
         .I3(log2_div_reg[6]),
         .O(\trigger_level_k_mult_div[31]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[3]_i_1 
@@ -5413,7 +5388,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[4]),
         .I5(\trigger_level_k_mult_reg[3]__0_n_0 ),
         .O(\trigger_level_k_mult_div[3]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[4]_i_1 
@@ -5441,7 +5416,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[4]),
         .I5(\trigger_level_k_mult_reg[4]__0_n_0 ),
         .O(\trigger_level_k_mult_div[4]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[5]_i_1 
@@ -5469,7 +5444,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[4]),
         .I5(\trigger_level_k_mult_reg[5]__0_n_0 ),
         .O(\trigger_level_k_mult_div[5]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[6]_i_1 
@@ -5497,7 +5472,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[4]),
         .I5(\trigger_level_k_mult_reg[6]__0_n_0 ),
         .O(\trigger_level_k_mult_div[6]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[7]_i_1 
@@ -5525,7 +5500,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I4(log2_div_reg[4]),
         .I5(\trigger_level_k_mult_reg[7]__0_n_0 ),
         .O(\trigger_level_k_mult_div[7]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[8]_i_1 
@@ -5553,7 +5528,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I3(log2_div_reg[4]),
         .I4(\trigger_level_k_mult_reg[8]__0_n_0 ),
         .O(\trigger_level_k_mult_div[8]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \trigger_level_k_mult_div[9]_i_1 

@@ -1,5 +1,5 @@
 % Abre el archivo de texto para lectura
-fid = fopen('test_1.dat', 'r');
+fid = fopen('test_9.dat', 'r');
 
 % Ignora la primera l�nea
 metadata= textscan(fgetl(fid), "Frecuencia_de_muestreo: %f Factor_de_sobremuestreo: %f Ciclos_de_promediacion: %f Divisor: %f");
@@ -26,7 +26,7 @@ data = textscan(fgetl(fid), '%f', 'Delimiter', ',');
 values_chB = data{1}/(K*N/DIV);
 
 % Los escalo para verlos a los dos en la misma escala...
-values_chB = max(abs(values_chA))/max(abs(values_chB)) * values_chB;
+%values_chB = max(abs(values_chA))/max(abs(values_chB)) * values_chB;
 
 
 % Cierra el archivo

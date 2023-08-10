@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Tue Aug  8 14:09:10 2023
+// Date        : Thu Aug 10 13:59:33 2023
 // Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_level_detector_0_0/system_level_detector_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_level_detector_0_0 -prefix
+//               system_level_detector_0_0_ system_level_detector_0_0_sim_netlist.v
 // Design      : system_level_detector_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,40 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_level_detector_0_0,level_detector,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "level_detector,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module system_level_detector_0_0
-   (clk,
-    reset_n,
-    level_to_detect,
-    data_in,
-    data_in_valid,
-    level_detected);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset_n;
-  input [31:0]level_to_detect;
-  input [13:0]data_in;
-  input data_in_valid;
-  output level_detected;
-
-  wire clk;
-  wire [13:0]data_in;
-  wire data_in_valid;
-  wire level_detected;
-  wire [31:0]level_to_detect;
-  wire reset_n;
-
-  system_level_detector_0_0_level_detector inst
-       (.clk(clk),
-        .data_in(data_in),
-        .data_in_valid(data_in_valid),
-        .level_detected(level_detected),
-        .level_to_detect(level_to_detect),
-        .reset_n(reset_n));
-endmodule
-
-(* ORIG_REF_NAME = "level_detector" *) 
 module system_level_detector_0_0_level_detector
    (level_detected,
     level_to_detect,
@@ -679,6 +645,39 @@ module system_level_detector_0_0_level_detector
         .D(level_to_detect[9]),
         .Q(level[9]),
         .R(p_0_in));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_level_detector_0_0,level_detector,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "level_detector,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module system_level_detector_0_0
+   (clk,
+    reset_n,
+    level_to_detect,
+    data_in,
+    data_in_valid,
+    level_detected);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset_n;
+  input [31:0]level_to_detect;
+  input [13:0]data_in;
+  input data_in_valid;
+  output level_detected;
+
+  wire clk;
+  wire [13:0]data_in;
+  wire data_in_valid;
+  wire level_detected;
+  wire [31:0]level_to_detect;
+  wire reset_n;
+
+  system_level_detector_0_0_level_detector inst
+       (.clk(clk),
+        .data_in(data_in),
+        .data_in_valid(data_in_valid),
+        .level_detected(level_detected),
+        .level_to_detect(level_to_detect),
+        .reset_n(reset_n));
 endmodule
 `ifndef GLBL
 `define GLBL

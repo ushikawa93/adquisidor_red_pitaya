@@ -1,302 +1,345 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.357813",
-   "Default View_TopLeft":"-319,-528",
+   "Default View_ScaleFactor":"0.103864",
+   "Default View_TopLeft":"-3447,-1098",
    "ExpandedHierarchyInLayout":"",
    "PinnedPorts":"",
    "commentid":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port Vp_Vn -pg 1 -lvl 0 -x -120 -y 1020 -defaultsOSRD
-preplace port Vaux0 -pg 1 -lvl 0 -x -120 -y 810 -defaultsOSRD
-preplace port Vaux1 -pg 1 -lvl 0 -x -120 -y 40 -defaultsOSRD
-preplace port Vaux9 -pg 1 -lvl 0 -x -120 -y 520 -defaultsOSRD
-preplace port Vaux8 -pg 1 -lvl 0 -x -120 -y 60 -defaultsOSRD
-preplace port DDR -pg 1 -lvl 7 -x 6700 -y -760 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 7 -x 6700 -y -730 -defaultsOSRD
-preplace port gpio_rtl_0 -pg 1 -lvl 7 -x 6700 -y 400 -defaultsOSRD
-preplace port gpio_rtl_1 -pg 1 -lvl 7 -x 6700 -y 540 -defaultsOSRD
-preplace port port-id_adc_clk_p_i -pg 1 -lvl 0 -x -120 -y -130 -defaultsOSRD
-preplace port port-id_adc_clk_n_i -pg 1 -lvl 0 -x -120 -y -90 -defaultsOSRD
-preplace port port-id_adc_enc_p_o -pg 1 -lvl 7 -x 6700 -y -280 -defaultsOSRD
-preplace port port-id_adc_enc_n_o -pg 1 -lvl 7 -x 6700 -y -330 -defaultsOSRD
-preplace port port-id_adc_csn_o -pg 1 -lvl 7 -x 6700 -y -530 -defaultsOSRD
-preplace port port-id_dac_clk_o -pg 1 -lvl 7 -x 6700 -y -150 -defaultsOSRD
-preplace port port-id_dac_rst_o -pg 1 -lvl 7 -x 6700 -y -120 -defaultsOSRD
-preplace port port-id_dac_sel_o -pg 1 -lvl 7 -x 6700 -y -60 -defaultsOSRD
-preplace port port-id_dac_wrt_o -pg 1 -lvl 7 -x 6700 -y -40 -defaultsOSRD
-preplace portBus adc_dat_a_i -pg 1 -lvl 0 -x -120 -y 120 -defaultsOSRD
-preplace portBus adc_dat_b_i -pg 1 -lvl 0 -x -120 -y 140 -defaultsOSRD
-preplace portBus dac_dat_o -pg 1 -lvl 7 -x 6700 -y -80 -defaultsOSRD
-preplace portBus dac_pwm_o -pg 1 -lvl 7 -x 6700 -y -360 -defaultsOSRD
-preplace portBus exp_p_tri_io -pg 1 -lvl 7 -x 6700 -y -430 -defaultsOSRD
-preplace portBus exp_n_tri_io -pg 1 -lvl 7 -x 6700 -y -460 -defaultsOSRD
-preplace portBus daisy_p_o -pg 1 -lvl 7 -x 6700 -y 1090 -defaultsOSRD
-preplace portBus daisy_n_o -pg 1 -lvl 7 -x 6700 -y 1110 -defaultsOSRD
-preplace portBus daisy_p_i -pg 1 -lvl 0 -x -120 -y 250 -defaultsOSRD
-preplace portBus daisy_n_i -pg 1 -lvl 0 -x -120 -y 280 -defaultsOSRD
-preplace portBus led_o -pg 1 -lvl 7 -x 6700 -y 1400 -defaultsOSRD
-preplace inst util_ds_buf_1 -pg 1 -lvl 5 -x 6210 -y 1060 -defaultsOSRD
-preplace inst util_ds_buf_2 -pg 1 -lvl 6 -x 6520 -y 1090 -defaultsOSRD
-preplace inst DAC -pg 1 -lvl 5 -x 6210 -y -100 -defaultsOSRD
-preplace inst uP_control -pg 1 -lvl 2 -x 2590 -y -840 -defaultsOSRD
-preplace inst uP -pg 1 -lvl 1 -x 110 -y -350 -defaultsOSRD
-preplace inst BRAM -pg 1 -lvl 4 -x 5850 -y -340 -defaultsOSRD
-preplace inst ADC -pg 1 -lvl 1 -x 110 -y -880 -defaultsOSRD
-preplace inst Procesamiento -pg 1 -lvl 3 -x 3990 -y -432 -defaultsOSRD
-preplace inst Procesamiento1 -pg 1 -lvl 3 -x 3990 -y 830 -defaultsOSRD
-preplace inst BRAM1 -pg 1 -lvl 4 -x 5850 -y 390 -defaultsOSRD
-preplace inst level_detector_0 -pg 1 -lvl 3 -x 3990 -y 1430 -defaultsOSRD
-preplace inst uP_control|N_promC -pg 1 -lvl 2 -x 3000 -y -890 -defaultsOSRD
-preplace inst uP_control|rst -pg 1 -lvl 2 -x 3000 -y -790 -defaultsOSRD
-preplace inst uP_control|enable -pg 1 -lvl 2 -x 3000 -y -690 -defaultsOSRD
-preplace inst uP_control|Control_and_Nca -pg 1 -lvl 1 -x 2650 -y -680 -defaultsOSRD
-preplace inst uP_control|finish -pg 1 -lvl 2 -x 3000 -y -50 -defaultsOSRD
-preplace inst uP_control|M -pg 1 -lvl 2 -x 3000 -y -590 -defaultsOSRD
-preplace inst uP_control|N_prom_lineal -pg 1 -lvl 2 -x 3000 -y -490 -defaultsOSRD
-preplace inst uP_control|K_and_log2div -pg 1 -lvl 1 -x 2650 -y -180 -defaultsOSRD
-preplace inst uP_control|DAC_and_M -pg 1 -lvl 1 -x 2650 -y -380 -defaultsOSRD
-preplace inst uP_control|Trigger -pg 1 -lvl 1 -x 2650 -y 60 -defaultsOSRD
-preplace inst uP_control|trigger_mode -pg 1 -lvl 2 -x 3000 -y -370 -defaultsOSRD
-preplace inst uP_control|trigger_level -pg 1 -lvl 2 -x 3000 -y -270 -defaultsOSRD
-preplace inst uP_control|log2_divisor -pg 1 -lvl 2 -x 3000 -y -170 -defaultsOSRD
-preplace inst uP_control|Level_detect -pg 1 -lvl 1 -x 2650 -y 270 -defaultsOSRD
-preplace inst Procesamiento|promedio_lineal_0 -pg 1 -lvl 1 -x 4080 -y -432 -defaultsOSRD
-preplace inst Procesamiento|coherent_average_0 -pg 1 -lvl 3 -x 4920 -y -42 -defaultsOSRD
-preplace inst Procesamiento|trigger_simulator_0 -pg 1 -lvl 2 -x 4500 -y -292 -defaultsOSRD
-preplace inst Procesamiento1|promedio_lineal_0 -pg 1 -lvl 1 -x 4090 -y 770 -defaultsOSRD
-preplace inst Procesamiento1|coherent_average_0 -pg 1 -lvl 2 -x 4520 -y 970 -defaultsOSRD
-preplace inst uP|processing_system7_0 -pg 1 -lvl 1 -x 300 -y -330 -defaultsOSRD
-preplace inst uP|rst_ps7_0_125M -pg 1 -lvl 1 -x 300 -y -60 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph -pg 1 -lvl 2 -x 800 -y -120 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|xbar -pg 1 -lvl 2 -x 1240 -y 230 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|s00_couplers -pg 1 -lvl 1 -x 930 -y -80 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|m00_couplers -pg 1 -lvl 3 -x 1680 -y -252 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|m01_couplers -pg 1 -lvl 3 -x 1680 -y -82 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|m02_couplers -pg 1 -lvl 3 -x 1680 -y 88 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|m03_couplers -pg 1 -lvl 3 -x 1680 -y 258 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|m04_couplers -pg 1 -lvl 3 -x 1680 -y 428 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|m05_couplers -pg 1 -lvl 3 -x 1680 -y 608 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|m06_couplers -pg 1 -lvl 3 -x 1680 -y 788 -defaultsOSRD
-preplace inst uP|ps7_0_axi_periph|m07_couplers -pg 1 -lvl 3 -x 1680 -y 968 -defaultsOSRD
-preplace netloc ADC_M_AXIS_PORT1_tdata 1 1 2 2170J -990 3320
-preplace netloc ADC_M_AXIS_PORT1_tvalid 1 1 2 2160J -1010 3330
-preplace netloc BRAM1_bram_portb_rddata 1 2 3 3490 210 5530 180 6040
-preplace netloc BRAM_bram_portb_rddata 1 2 3 3470 148 N 148 6030
-preplace netloc BRAM_douta 1 2 3 3480 158 N 158 6060
-preplace netloc N_averaged_samples_1 1 2 1 3460 -492n
-preplace netloc Net1 1 2 3 3280 168 5480 -90 N
-preplace netloc Procesamiento1_bram_porta_clk 1 3 1 5520 330n
-preplace netloc Procesamiento1_bram_portb_addr 1 3 1 5570 470n
-preplace netloc Procesamiento1_bram_portb_clk 1 3 1 5550 430n
-preplace netloc Procesamiento1_bram_portb_rst 1 3 1 5560 450n
-preplace netloc Procesamiento1_bram_portb_we 1 3 1 5590 510n
-preplace netloc Procesamiento1_bram_portb_wrdata 1 3 1 5580 490n
-preplace netloc Procesamiento_led_o 1 1 3 2330 440 N 440 5500
-preplace netloc adc_clk_n_i_1 1 0 1 -90 -890n
-preplace netloc adc_clk_p_i_1 1 0 1 -100 -910n
-preplace netloc adc_dat_a_i_1 1 0 1 -80 -870n
-preplace netloc adc_dat_b_i_1 1 0 1 -70 -850n
-preplace netloc addra_1 1 3 1 5400 -360n
-preplace netloc addra_2 1 3 1 5530 370n
-preplace netloc axis_red_pitaya_adc_0_adc_clk 1 1 4 2140 -1040 3390 188 5490 -110 N
-preplace netloc axis_red_pitaya_dac_0_dac_clk 1 5 2 6360 -150 N
-preplace netloc axis_red_pitaya_dac_0_dac_dat 1 5 2 6370 -80 N
-preplace netloc axis_red_pitaya_dac_0_dac_rst 1 5 2 N -120 N
-preplace netloc axis_red_pitaya_dac_0_dac_sel 1 5 2 N -100 6680
-preplace netloc axis_red_pitaya_dac_0_dac_wrt 1 5 2 6360 -70 6670
-preplace netloc bram_porta_rddata_1 1 2 3 3470 200 N 200 6030
-preplace netloc bram_portb_addr_1 1 3 1 5440 -260n
-preplace netloc bram_portb_clk_1 1 3 1 5420 -300n
-preplace netloc bram_portb_rst_1 1 3 1 5430 -280n
-preplace netloc bram_portb_we_1 1 3 1 5360 -232n
-preplace netloc bram_portb_wrdata_1 1 3 1 5450 -240n
-preplace netloc clka_1 1 3 1 5390 -400n
-preplace netloc daisy_n_i_1 1 0 5 -100 1630 2320 420 3350 220 5540 190 6060
-preplace netloc daisy_p_i_1 1 0 5 -80 1600 2310 410 3360 230 5600 210 6050
-preplace netloc data_1 1 1 2 2190 -1020 3440
-preplace netloc data_valid_1 1 1 2 2180 -1030 3450
-preplace netloc dina_1 1 3 1 5410 -340n
-preplace netloc dina_2 1 3 1 5540 390n
-preplace netloc led_o_1 1 3 1 5600 410n
-preplace netloc log2_divisor_1 1 2 1 3290 -170n
-preplace netloc processing_system7_0_FCLK_CLK0 1 1 3 2280 430 3420 380 5470
-preplace netloc rst_Dout 1 2 1 3430 -790n
-preplace netloc rst_ps7_0_125M_peripheral_aresetn 1 1 3 2300 450 3400 240 5550
-preplace netloc trig_externo_1 1 2 5 3490 178 5370J -520 NJ -520 NJ -520 6680J
-preplace netloc trigger_1 1 2 2 3480 390 5360
-preplace netloc trigger_level_in_1 1 2 1 3300 -270n
-preplace netloc trigger_mode_in_1 1 2 1 3310 -370n
-preplace netloc uP_control_Dout 1 2 1 3380 -890n
-preplace netloc uP_control_Dout2 1 2 1 3410 -690n
-preplace netloc uP_control_Dout4 1 2 1 3340 -590n
-preplace netloc util_ds_buf_1_IBUF_OUT 1 5 1 6370 1060n
-preplace netloc util_ds_buf_2_OBUF_DS_N 1 6 1 N 1110
-preplace netloc util_ds_buf_2_OBUF_DS_P 1 6 1 N 1090
-preplace netloc wea_1 1 3 1 5380 -380n
-preplace netloc wea_2 1 3 1 5510 350n
-preplace netloc uP_control_gpio_io_o1 1 2 1 3280 270n
-preplace netloc level_detector_0_level_detected 1 3 4 NJ 1430 NJ 1430 NJ 1430 6680
-preplace netloc ADC_adc_csn_o 1 1 6 2130J -1050 NJ -1050 NJ -1050 NJ -1050 NJ -1050 6670
-preplace netloc S_AXI_1 1 1 3 2290 390 3370 270 N
-preplace netloc processing_system7_0_DDR 1 1 6 2150 -1060 N -1060 N -1060 N -1060 N -1060 6680
-preplace netloc processing_system7_0_FIXED_IO 1 1 6 2200 -1000 3490 -730 N -730 N -730 N -730 N
-preplace netloc ps7_0_axi_periph_M00_AXI 1 1 3 2220 400 N 400 5460
-preplace netloc ps7_0_axi_periph_M01_AXI 1 1 1 2210 -700n
-preplace netloc ps7_0_axi_periph_M02_AXI 1 1 1 2230 -70n
-preplace netloc ps7_0_axi_periph_M03_AXI 1 1 1 2250 -30n
-preplace netloc uP_M04_AXI 1 1 1 2240 -50n
-preplace netloc uP_M05_AXI 1 1 1 2260 40n
-preplace netloc uP_M07_AXI 1 1 1 2270 250n
-preplace netloc uP_control|M_Dout 1 2 1 NJ -590
-preplace netloc uP_control|N_prom_lineal_Dout 1 2 1 NJ -490
-preplace netloc uP_control|Net 1 1 1 2810 -790n
-preplace netloc uP_control|Net1 1 1 2 2810 -430 NJ
-preplace netloc uP_control|Net2 1 1 1 2790 -890n
-preplace netloc uP_control|Net3 1 1 1 2790 -590n
-preplace netloc uP_control|Net4 1 1 1 2820 -490n
-preplace netloc uP_control|Net6 1 1 1 2850 -170n
-preplace netloc uP_control|coherent_average_0_finished 1 0 3 2470J -950 NJ -950 3130
-preplace netloc uP_control|log2_divisor_Dout 1 2 1 NJ -170
-preplace netloc uP_control|processing_system7_0_FCLK_CLK0 1 0 2 2480 -500 2830
-preplace netloc uP_control|rst_Dout 1 2 1 NJ -790
-preplace netloc uP_control|rst_ps7_0_125M_peripheral_aresetn 1 0 2 2510 -490 2800
-preplace netloc uP_control|trig_Dout 1 2 1 NJ -690
-preplace netloc uP_control|trigger_level_Dout 1 2 1 NJ -270
-preplace netloc uP_control|trigger_mode_Dout 1 2 1 NJ -370
-preplace netloc uP_control|xlslice_0_Dout 1 2 1 NJ -890
-preplace netloc uP_control|Trigger_gpio_io_o 1 1 1 2840 -370n
-preplace netloc uP_control|Net5 1 1 1 2860 -270n
-preplace netloc uP_control|Level_detect_gpio_io_o 1 1 2 2830 270 NJ
-preplace netloc uP_control|S_AXI3_1 1 0 1 2500 -200n
-preplace netloc uP_control|S_AXI4_1 1 0 1 N 40
-preplace netloc uP_control|ps7_0_axi_periph_M01_AXI 1 0 1 N -700
-preplace netloc uP_control|ps7_0_axi_periph_M02_AXI 1 0 2 NJ -70 N
-preplace netloc uP_control|ps7_0_axi_periph_M03_AXI 1 0 1 2490 -400n
-preplace netloc uP_control|S_AXI5_1 1 0 1 N 250
-preplace netloc Procesamiento|N_averaged_samples_1 1 0 3 3870 -552 4260 -502 4690J
-preplace netloc Procesamiento|N_ca_in_1 1 0 3 NJ -12 NJ -12 N
-preplace netloc Procesamiento|axis_red_pitaya_adc_0_adc_clk 1 0 3 3850 -572 4310 -492 4720J
-preplace netloc Procesamiento|bram_porta_rddata_1 1 0 3 NJ -32 NJ -32 4650
-preplace netloc Procesamiento|bram_portb_rddata_1 1 0 3 NJ -52 NJ -52 4660
-preplace netloc Procesamiento|coherent_average_0_bram_porta_addr 1 3 1 5150 -112n
-preplace netloc Procesamiento|coherent_average_0_bram_porta_clk 1 3 1 5140 -92n
-preplace netloc Procesamiento|coherent_average_0_bram_porta_we 1 3 1 N -132
-preplace netloc Procesamiento|coherent_average_0_bram_porta_wrdata 1 3 1 5160 -112n
-preplace netloc Procesamiento|coherent_average_0_bram_portb_addr 1 3 1 5130 -192n
-preplace netloc Procesamiento|coherent_average_0_bram_portb_clk 1 3 1 5200 -152n
-preplace netloc Procesamiento|coherent_average_0_bram_portb_rst 1 3 1 5190 -172n
-preplace netloc Procesamiento|coherent_average_0_bram_portb_we 1 3 1 5120 -232n
-preplace netloc Procesamiento|coherent_average_0_bram_portb_wrdata 1 3 1 5180 -212n
-preplace netloc Procesamiento|coherent_average_0_finished 1 3 1 N 28
-preplace netloc Procesamiento|data_1 1 0 1 3850 -442n
-preplace netloc Procesamiento|data_valid_1 1 0 1 N -422
-preplace netloc Procesamiento|log2_divisor_1 1 0 2 3880 -252 N
-preplace netloc Procesamiento|promedio_lineal_0_data_out 1 1 2 4300 -452 4670J
-preplace netloc Procesamiento|promedio_lineal_0_data_out_valid 1 1 2 4280 -462 4680J
-preplace netloc Procesamiento|rst_Dout 1 0 3 NJ -542 4270 -482 4710J
-preplace netloc Procesamiento|rst_ps7_0_125M_peripheral_aresetn 1 0 3 3860 -562 4290 -472 4700J
-preplace netloc Procesamiento|trig_externo_1 1 0 2 3900J -192 N
-preplace netloc Procesamiento|trigger_level_in_1 1 0 2 3890J -212 N
-preplace netloc Procesamiento|trigger_mode_in_1 1 0 2 3860J -232 N
-preplace netloc Procesamiento|trigger_simulator_0_trig 1 2 2 4660 -212 5170J
-preplace netloc Procesamiento|uP_control_Dout4 1 0 2 NJ -292 N
-preplace netloc Procesamiento1|N_averaged_samples_1 1 0 2 3870 890 4290
-preplace netloc Procesamiento1|N_ca_in_1 1 0 2 NJ 1000 N
-preplace netloc Procesamiento1|axis_red_pitaya_adc_0_adc_clk 1 0 2 3910 880 N
-preplace netloc Procesamiento1|bram_porta_rddata_1 1 0 2 NJ 980 4270
-preplace netloc Procesamiento1|bram_portb_rddata_1 1 0 2 NJ 960 4280
-preplace netloc Procesamiento1|coherent_average_0_bram_porta_addr 1 2 1 4760 900n
-preplace netloc Procesamiento1|coherent_average_0_bram_porta_clk 1 2 1 4740 920n
-preplace netloc Procesamiento1|coherent_average_0_bram_porta_we 1 2 1 4780 880n
-preplace netloc Procesamiento1|coherent_average_0_bram_porta_wrdata 1 2 1 N 1060
-preplace netloc Procesamiento1|coherent_average_0_bram_portb_addr 1 2 1 N 980
-preplace netloc Procesamiento1|coherent_average_0_bram_portb_clk 1 2 1 4750 1000n
-preplace netloc Procesamiento1|coherent_average_0_bram_portb_rst 1 2 1 4770 1000n
-preplace netloc Procesamiento1|coherent_average_0_bram_portb_we 1 2 1 4720 940n
-preplace netloc Procesamiento1|coherent_average_0_bram_portb_wrdata 1 2 1 4730 960n
-preplace netloc Procesamiento1|coherent_average_0_finished 1 2 1 4720 1040n
-preplace netloc Procesamiento1|data_1 1 0 1 3880 760n
-preplace netloc Procesamiento1|data_valid_1 1 0 1 N 780
-preplace netloc Procesamiento1|log2_divisor_1 1 0 1 3900 800n
-preplace netloc Procesamiento1|promedio_lineal_0_data_out 1 1 1 4310 760n
-preplace netloc Procesamiento1|promedio_lineal_0_data_out_valid 1 1 1 4300 780n
-preplace netloc Procesamiento1|rst_Dout 1 0 2 3860J 920 N
-preplace netloc Procesamiento1|rst_ps7_0_125M_peripheral_aresetn 1 0 2 3890 900 N
-preplace netloc Procesamiento1|trigger_1 1 0 2 3910J 940 N
-preplace netloc uP|processing_system7_0_FCLK_CLK0 1 0 3 50 -170 550 1090 1950J
-preplace netloc uP|processing_system7_0_FCLK_RESET0_N 1 0 2 60 -160 540
-preplace netloc uP|rst_ps7_0_125M_peripheral_aresetn 1 1 2 540 1110 1960J
-preplace netloc uP|Conn1 1 2 1 1950 780n
-preplace netloc uP|processing_system7_0_DDR 1 1 2 N -410 NJ
-preplace netloc uP|processing_system7_0_FIXED_IO 1 1 2 N -390 NJ
-preplace netloc uP|processing_system7_0_M_AXI_GP0 1 1 1 560 -330n
-preplace netloc uP|ps7_0_axi_periph_M00_AXI 1 2 1 1950 -260n
-preplace netloc uP|ps7_0_axi_periph_M01_AXI 1 2 1 1950 -90n
-preplace netloc uP|ps7_0_axi_periph_M02_AXI 1 2 1 1950 80n
-preplace netloc uP|ps7_0_axi_periph_M03_AXI 1 2 1 1950 250n
-preplace netloc uP|ps7_0_axi_periph_M04_AXI 1 2 1 1950 420n
-preplace netloc uP|ps7_0_axi_periph_M05_AXI 1 2 1 1950 560n
-preplace netloc uP|ps7_0_axi_periph_M07_AXI 1 2 1 1950 950n
-preplace netloc uP|ps7_0_axi_periph|ps7_0_axi_periph_ACLK_net 1 0 3 730 10 1090 360 1450
-preplace netloc uP|ps7_0_axi_periph|ps7_0_axi_periph_ARESETN_net 1 0 3 710 20 1080 420 1460
-preplace netloc uP|ps7_0_axi_periph|S00_ACLK_1 1 0 1 N -60
-preplace netloc uP|ps7_0_axi_periph|S00_ARESETN_1 1 0 1 N -40
-preplace netloc uP|ps7_0_axi_periph|M00_ACLK_1 1 0 3 720J -270 NJ -270 1380
-preplace netloc uP|ps7_0_axi_periph|M00_ARESETN_1 1 0 3 740J -250 NJ -250 1380
-preplace netloc uP|ps7_0_axi_periph|M01_ACLK_1 1 0 3 NJ 30 NJ 30 1400
-preplace netloc uP|ps7_0_axi_periph|M01_ARESETN_1 1 0 3 NJ 50 NJ 50 1410
-preplace netloc uP|ps7_0_axi_periph|M02_ACLK_1 1 0 3 NJ 70 NJ 70 1430
-preplace netloc uP|ps7_0_axi_periph|M02_ARESETN_1 1 0 3 NJ 90 NJ 90 1430
-preplace netloc uP|ps7_0_axi_periph|M03_ACLK_1 1 0 3 NJ 370 NJ 370 1490
-preplace netloc uP|ps7_0_axi_periph|M03_ARESETN_1 1 0 3 NJ 390 NJ 390 1470
-preplace netloc uP|ps7_0_axi_periph|M04_ACLK_1 1 0 3 NJ 410 NJ 410 1490
-preplace netloc uP|ps7_0_axi_periph|M04_ARESETN_1 1 0 3 NJ 430 NJ 430 1490
-preplace netloc uP|ps7_0_axi_periph|M05_ACLK_1 1 0 3 NJ 590 NJ 590 1490
-preplace netloc uP|ps7_0_axi_periph|M05_ARESETN_1 1 0 3 NJ 610 NJ 610 1490
-preplace netloc uP|ps7_0_axi_periph|M06_ACLK_1 1 0 3 NJ 770 NJ 770 1490
-preplace netloc uP|ps7_0_axi_periph|M06_ARESETN_1 1 0 3 NJ 790 NJ 790 1490
-preplace netloc uP|ps7_0_axi_periph|M07_ACLK_1 1 0 3 NJ 940 NJ 940 1390
-preplace netloc uP|ps7_0_axi_periph|M07_ARESETN_1 1 0 3 NJ 960 NJ 960 1390
-preplace netloc uP|ps7_0_axi_periph|ps7_0_axi_periph_to_s00_couplers 1 0 1 N -120
-preplace netloc uP|ps7_0_axi_periph|s00_couplers_to_xbar 1 1 1 1100 -120n
-preplace netloc uP|ps7_0_axi_periph|m00_couplers_to_ps7_0_axi_periph 1 3 1 1830 -252n
-preplace netloc uP|ps7_0_axi_periph|xbar_to_m00_couplers 1 2 1 1390 -292n
-preplace netloc uP|ps7_0_axi_periph|m01_couplers_to_ps7_0_axi_periph 1 3 1 1830 -82n
-preplace netloc uP|ps7_0_axi_periph|xbar_to_m01_couplers 1 2 1 1420 -122n
-preplace netloc uP|ps7_0_axi_periph|m02_couplers_to_ps7_0_axi_periph 1 3 1 1830 88n
-preplace netloc uP|ps7_0_axi_periph|xbar_to_m02_couplers 1 2 1 1440 48n
-preplace netloc uP|ps7_0_axi_periph|m03_couplers_to_ps7_0_axi_periph 1 3 1 1830 258n
-preplace netloc uP|ps7_0_axi_periph|xbar_to_m03_couplers 1 2 1 1410 218n
-preplace netloc uP|ps7_0_axi_periph|m04_couplers_to_ps7_0_axi_periph 1 3 1 1830 428n
-preplace netloc uP|ps7_0_axi_periph|xbar_to_m04_couplers 1 2 1 1480 240n
-preplace netloc uP|ps7_0_axi_periph|m05_couplers_to_ps7_0_axi_periph 1 3 1 1830 568n
-preplace netloc uP|ps7_0_axi_periph|xbar_to_m05_couplers 1 2 1 1440 260n
-preplace netloc uP|ps7_0_axi_periph|m06_couplers_to_ps7_0_axi_periph 1 3 1 1830 788n
-preplace netloc uP|ps7_0_axi_periph|xbar_to_m06_couplers 1 2 1 1420 280n
-preplace netloc uP|ps7_0_axi_periph|m07_couplers_to_ps7_0_axi_periph 1 3 1 1830 928n
-preplace netloc uP|ps7_0_axi_periph|xbar_to_m07_couplers 1 2 1 1390 300n
-preplace netloc uP|ps7_0_axi_periph|s00_couplers|s00_couplers_to_s00_couplers 1 0 1 N -120
-preplace netloc uP|ps7_0_axi_periph|m05_couplers|m05_couplers_to_m05_couplers 1 0 1 N 568
-preplace netloc uP|ps7_0_axi_periph|m07_couplers|m07_couplers_to_m07_couplers 1 0 1 N 928
-levelinfo -pg 1 -120 110 2590 3990 5850 6210 6520 6700
-levelinfo -hier uP_control * 2650 3000 *
-levelinfo -hier uP * 300 800 *
-levelinfo -hier Procesamiento * 4080 4500 4920 *
-levelinfo -hier Procesamiento1 * 4090 4520 *
-levelinfo -hier uP|ps7_0_axi_periph * 930 1240 1680 *
-levelinfo -hier uP|ps7_0_axi_periph|s00_couplers * *
-levelinfo -hier uP|ps7_0_axi_periph|m05_couplers * *
+preplace port Vp_Vn -pg 1 -lvl 0 -x -10 -y 100 -defaultsOSRD
+preplace port Vaux0 -pg 1 -lvl 0 -x -10 -y 20 -defaultsOSRD
+preplace port Vaux1 -pg 1 -lvl 0 -x -10 -y 40 -defaultsOSRD
+preplace port Vaux9 -pg 1 -lvl 0 -x -10 -y 80 -defaultsOSRD
+preplace port Vaux8 -pg 1 -lvl 0 -x -10 -y 60 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 6 -x 5690 -y 890 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 6 -x 5690 -y 1180 -defaultsOSRD
+preplace port gpio_rtl_0 -pg 1 -lvl 6 -x 5690 -y 60 -defaultsOSRD
+preplace port gpio_rtl_1 -pg 1 -lvl 6 -x 5690 -y 80 -defaultsOSRD
+preplace port port-id_adc_clk_p_i -pg 1 -lvl 0 -x -10 -y 580 -defaultsOSRD
+preplace port port-id_adc_clk_n_i -pg 1 -lvl 0 -x -10 -y 600 -defaultsOSRD
+preplace port port-id_adc_enc_p_o -pg 1 -lvl 6 -x 5690 -y 120 -defaultsOSRD
+preplace port port-id_adc_enc_n_o -pg 1 -lvl 6 -x 5690 -y 100 -defaultsOSRD
+preplace port port-id_adc_csn_o -pg 1 -lvl 6 -x 5690 -y 670 -defaultsOSRD
+preplace port port-id_dac_clk_o -pg 1 -lvl 6 -x 5690 -y 1240 -defaultsOSRD
+preplace port port-id_dac_rst_o -pg 1 -lvl 6 -x 5690 -y 1260 -defaultsOSRD
+preplace port port-id_dac_sel_o -pg 1 -lvl 6 -x 5690 -y 1280 -defaultsOSRD
+preplace port port-id_dac_wrt_o -pg 1 -lvl 6 -x 5690 -y 1300 -defaultsOSRD
+preplace portBus adc_dat_a_i -pg 1 -lvl 0 -x -10 -y 620 -defaultsOSRD
+preplace portBus adc_dat_b_i -pg 1 -lvl 0 -x -10 -y 640 -defaultsOSRD
+preplace portBus dac_dat_o -pg 1 -lvl 6 -x 5690 -y 1320 -defaultsOSRD
+preplace portBus dac_pwm_o -pg 1 -lvl 6 -x 5690 -y 20 -defaultsOSRD
+preplace portBus exp_p_tri_io -pg 1 -lvl 6 -x 5690 -y 40 -defaultsOSRD
+preplace portBus exp_n_tri_io -pg 1 -lvl 6 -x 5690 -y 690 -defaultsOSRD
+preplace portBus daisy_p_o -pg 1 -lvl 6 -x 5690 -y 1430 -defaultsOSRD
+preplace portBus daisy_n_o -pg 1 -lvl 6 -x 5690 -y 1450 -defaultsOSRD
+preplace portBus daisy_p_i -pg 1 -lvl 0 -x -10 -y 1430 -defaultsOSRD
+preplace portBus daisy_n_i -pg 1 -lvl 0 -x -10 -y 1450 -defaultsOSRD
+preplace portBus led_o -pg 1 -lvl 6 -x 5690 -y 790 -defaultsOSRD
+preplace inst util_ds_buf_1 -pg 1 -lvl 4 -x 4090 -y 3222 -defaultsOSRD
+preplace inst util_ds_buf_2 -pg 1 -lvl 5 -x 5500 -y 1430 -defaultsOSRD
+preplace inst DAC -pg 1 -lvl 5 -x 5500 -y 1280 -defaultsOSRD
+preplace inst uP_control -pg 1 -lvl 4 -x 4090 -y 1890 -defaultsOSRD
+preplace inst uP -pg 1 -lvl 3 -x 1340 -y 1478 -defaultsOSRD
+preplace inst ADC -pg 1 -lvl 1 -x 200 -y 610 -defaultsOSRD
+preplace inst Procesamiento -pg 1 -lvl 3 -x 1340 -y 738 -defaultsOSRD
+preplace inst Procesamiento1 -pg 1 -lvl 3 -x 1340 -y 186 -defaultsOSRD
+preplace inst BRAM1 -pg 1 -lvl 4 -x 4090 -y 192 -defaultsOSRD
+preplace inst level_detector_0 -pg 1 -lvl 5 -x 5500 -y 790 -defaultsOSRD
+preplace inst BRAM2 -pg 1 -lvl 4 -x 4090 -y 986 -defaultsOSRD
+preplace inst trigger_simulator_0 -pg 1 -lvl 2 -x 660 -y 880 -defaultsOSRD
+preplace inst uP_control|N_promC -pg 1 -lvl 2 -x 4510 -y 1830 -defaultsOSRD
+preplace inst uP_control|rst -pg 1 -lvl 2 -x 4510 -y 1930 -defaultsOSRD
+preplace inst uP_control|enable -pg 1 -lvl 2 -x 4510 -y 2030 -defaultsOSRD
+preplace inst uP_control|Control_and_Nca -pg 1 -lvl 1 -x 4190 -y 1880 -defaultsOSRD
+preplace inst uP_control|finish -pg 1 -lvl 2 -x 4510 -y 2650 -defaultsOSRD
+preplace inst uP_control|M -pg 1 -lvl 2 -x 4510 -y 2130 -defaultsOSRD
+preplace inst uP_control|N_prom_lineal -pg 1 -lvl 2 -x 4510 -y 2230 -defaultsOSRD
+preplace inst uP_control|K_and_log2div -pg 1 -lvl 1 -x 4190 -y 2280 -defaultsOSRD
+preplace inst uP_control|DAC_and_M -pg 1 -lvl 1 -x 4190 -y 2080 -defaultsOSRD
+preplace inst uP_control|Trigger -pg 1 -lvl 1 -x 4190 -y 2500 -defaultsOSRD
+preplace inst uP_control|trigger_mode -pg 1 -lvl 2 -x 4510 -y 2530 -defaultsOSRD
+preplace inst uP_control|trigger_level -pg 1 -lvl 2 -x 4510 -y 2770 -defaultsOSRD
+preplace inst uP_control|log2_divisor -pg 1 -lvl 2 -x 4510 -y 2890 -defaultsOSRD
+preplace inst uP_control|Level_detect -pg 1 -lvl 2 -x 4510 -y 2400 -defaultsOSRD
+preplace inst uP|processing_system7_0 -pg 1 -lvl 1 -x 1530 -y 1498 -defaultsOSRD
+preplace inst uP|rst_ps7_0_125M -pg 1 -lvl 1 -x 1530 -y 1768 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph -pg 1 -lvl 2 -x 2030 -y 1698 -defaultsOSRD
+preplace inst Procesamiento|promedio_lineal_0 -pg 1 -lvl 1 -x 1440 -y 698 -defaultsOSRD
+preplace inst Procesamiento|coherent_average_0 -pg 1 -lvl 2 -x 1870 -y 898 -defaultsOSRD
+preplace inst Procesamiento1|promedio_lineal_0 -pg 1 -lvl 1 -x 1430 -y 166 -defaultsOSRD
+preplace inst Procesamiento1|coherent_average_0 -pg 1 -lvl 2 -x 1860 -y 336 -defaultsOSRD
+preplace inst BRAM1|axi_bram_reader_1 -pg 1 -lvl 1 -x 4140 -y 162 -defaultsOSRD
+preplace inst BRAM1|blk_mem_gen_1 -pg 1 -lvl 3 -x 4900 -y 422 -defaultsOSRD
+preplace inst BRAM1|bram_switch_0 -pg 1 -lvl 2 -x 4560 -y 552 -defaultsOSRD
+preplace inst BRAM2|axi_bram_reader_1 -pg 1 -lvl 1 -x 4140 -y 956 -defaultsOSRD
+preplace inst BRAM2|blk_mem_gen_1 -pg 1 -lvl 3 -x 4900 -y 1216 -defaultsOSRD
+preplace inst BRAM2|bram_switch_0 -pg 1 -lvl 2 -x 4560 -y 1346 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|xbar -pg 1 -lvl 2 -x 2650 -y 2048 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|s00_couplers -pg 1 -lvl 1 -x 2140 -y 2018 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|m00_couplers -pg 1 -lvl 3 -x 3040 -y 1568 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|m01_couplers -pg 1 -lvl 3 -x 3040 -y 1738 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|m02_couplers -pg 1 -lvl 3 -x 3040 -y 1908 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|m03_couplers -pg 1 -lvl 3 -x 3040 -y 2078 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|m04_couplers -pg 1 -lvl 3 -x 3040 -y 2248 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|m05_couplers -pg 1 -lvl 3 -x 3040 -y 2418 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|m06_couplers -pg 1 -lvl 3 -x 3040 -y 2588 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|m07_couplers -pg 1 -lvl 3 -x 3040 -y 2768 -defaultsOSRD
+preplace inst uP|ps7_0_axi_periph|s00_couplers|auto_pc -pg 1 -lvl 1 -x 2250 -y 2028 -defaultsOSRD
+preplace netloc ADC_M_AXIS_PORT1_tvalid 1 1 4 NJ 580 910 526 3490J 12 5240J
+preplace netloc ADC_adc_csn_o 1 1 5 380J -58 NJ -58 NJ -58 NJ -58 5670J
+preplace netloc BRAM1_bram_portb_rddata 1 2 3 920 -48 NJ -48 5210
+preplace netloc N_averaged_samples_1 1 1 4 440 1030 870 1138 3640J 796 5210
+preplace netloc Net1 1 4 1 5280 1290n
+preplace netloc Procesamiento1_bram_porta_clk 1 3 1 3560 282n
+preplace netloc Procesamiento1_bram_portb_addr 1 3 1 3720 346n
+preplace netloc Procesamiento1_bram_portb_clk 1 3 1 3710 386n
+preplace netloc Procesamiento1_bram_portb_rst 1 3 1 3510 366n
+preplace netloc Procesamiento1_bram_portb_we 1 3 1 3530 306n
+preplace netloc Procesamiento1_bram_portb_wrdata 1 3 1 3500 326n
+preplace netloc Procesamiento_led_o 1 3 1 3540 1048n
+preplace netloc adc_clk_n_i_1 1 0 1 NJ 600
+preplace netloc adc_clk_p_i_1 1 0 1 NJ 580
+preplace netloc adc_dat_a_i_1 1 0 1 NJ 620
+preplace netloc adc_dat_b_i_1 1 0 1 NJ 640
+preplace netloc addra_1 1 3 1 3650 1008n
+preplace netloc addra_2 1 3 1 3580 322n
+preplace netloc axis_red_pitaya_adc_0_adc_clk 1 1 4 390 600 890 -28 NJ -28 5250
+preplace netloc axis_red_pitaya_dac_0_dac_clk 1 5 1 NJ 1240
+preplace netloc axis_red_pitaya_dac_0_dac_dat 1 5 1 NJ 1320
+preplace netloc axis_red_pitaya_dac_0_dac_rst 1 5 1 NJ 1260
+preplace netloc axis_red_pitaya_dac_0_dac_sel 1 5 1 NJ 1280
+preplace netloc axis_red_pitaya_dac_0_dac_wrt 1 5 1 NJ 1300
+preplace netloc bram_porta_rddata_1 1 2 3 930 -14 3530J -8 5190
+preplace netloc bram_portb_addr_1 1 3 1 3700 908n
+preplace netloc bram_portb_clk_1 1 3 1 3620 948n
+preplace netloc bram_portb_rst_1 1 3 1 3500 928n
+preplace netloc bram_portb_we_1 1 3 1 3720 868n
+preplace netloc bram_portb_wrdata_1 1 3 1 3710 888n
+preplace netloc clka_1 1 3 1 3690 1028n
+preplace netloc daisy_n_i_1 1 0 4 10J 1278 NJ 1278 NJ 1278 3520J
+preplace netloc daisy_p_i_1 1 0 4 20J 1288 NJ 1288 NJ 1288 3510J
+preplace netloc data_1 1 1 2 440J 560 860
+preplace netloc data_valid_1 1 1 2 430J 550 840
+preplace netloc dina_1 1 3 1 3660 988n
+preplace netloc dina_2 1 3 1 3590 362n
+preplace netloc led_o_1 1 3 1 3680 486n
+preplace netloc log2_divisor_1 1 1 4 450 1040 880 1258 3580J 1596 5200
+preplace netloc processing_system7_0_FCLK_CLK0 1 3 1 3670 162n
+preplace netloc rst_Dout 1 1 4 390 1050 850 1268 3560J 1606 5160
+preplace netloc rst_ps7_0_125M_peripheral_aresetn 1 1 4 450 628 830 -38 3600 -38 5260J
+preplace netloc uP_control_Dout 1 2 3 920 2980 NJ 2980 5190
+preplace netloc uP_control_Dout2 1 2 3 940 -4 3500J 2 5220
+preplace netloc util_ds_buf_1_IBUF_OUT 1 4 1 5290 1430n
+preplace netloc util_ds_buf_2_OBUF_DS_N 1 5 1 NJ 1450
+preplace netloc util_ds_buf_2_OBUF_DS_P 1 5 1 NJ 1430
+preplace netloc wea_1 1 3 1 3510 968n
+preplace netloc wea_2 1 3 1 3540 302n
+preplace netloc trigger_simulator_1_trig 1 2 1 900 406n
+preplace netloc uP_control_gpio_io_o1 1 4 1 5260 790n
+preplace netloc ADC_M_AXIS_PORT1_tdata 1 1 4 390J 570 840 1168 3680J 786 5230J
+preplace netloc level_detector_0_level_detected 1 5 1 NJ 790
+preplace netloc uP_control_Dout4 1 1 4 400 2970 NJ 2970 NJ 2970 5160
+preplace netloc Procesamiento_data_out 1 1 3 380 1188 NJ 1188 3480
+preplace netloc Procesamiento_data_out_valid 1 1 3 410 1178 NJ 1178 3490
+preplace netloc uP_control_Dout5 1 1 4 420 2990 NJ 2990 NJ 2990 5180
+preplace netloc uP_control_Dout6 1 1 4 430 3000 NJ 3000 NJ 3000 5170
+preplace netloc bram_portb_rddata_1 1 2 3 930 1248 3590J 1586 5190
+preplace netloc bram_porta_rddata_2 1 2 3 940 1158 3610J 806 5190
+preplace netloc Net 1 2 4 830 1148 3550J -18 NJ -18 5660J
+preplace netloc S_AXI_1 1 3 1 3630 142n
+preplace netloc processing_system7_0_DDR 1 3 3 3570J 1566 5240J 890 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 3 3 3550J 1576 5270J 1180 NJ
+preplace netloc ps7_0_axi_periph_M01_AXI 1 3 1 3530 1738n
+preplace netloc ps7_0_axi_periph_M02_AXI 1 3 1 3500 1908n
+preplace netloc ps7_0_axi_periph_M03_AXI 1 3 1 3490 2078n
+preplace netloc uP_M04_AXI 1 3 1 3480 2248n
+preplace netloc uP_M05_AXI 1 3 1 3650 2370n
+preplace netloc uP_M07_AXI 1 3 1 3720 2390n
+preplace netloc uP_M00_AXI 1 3 1 3530 936n
+preplace netloc uP_control|Level_detect_gpio_io_o 1 2 1 4660 2390n
+preplace netloc uP_control|M_Dout 1 2 1 NJ 2130
+preplace netloc uP_control|N_prom_lineal_Dout 1 2 1 NJ 2230
+preplace netloc uP_control|Net 1 1 1 4370 1850n
+preplace netloc uP_control|Net1 1 1 2 4370 2290 NJ
+preplace netloc uP_control|Net2 1 1 1 4340 1830n
+preplace netloc uP_control|Net3 1 1 1 4340 2110n
+preplace netloc uP_control|Net4 1 1 1 4340 2230n
+preplace netloc uP_control|Net5 1 1 1 4330 2530n
+preplace netloc uP_control|Net6 1 1 1 4340 2310n
+preplace netloc uP_control|Trigger_gpio_io_o 1 1 1 4350 2470n
+preplace netloc uP_control|coherent_average_0_finished 1 0 3 NJ 2830 NJ 2830 4650
+preplace netloc uP_control|log2_divisor_Dout 1 2 1 NJ 2890
+preplace netloc uP_control|processing_system7_0_FCLK_CLK0 1 0 2 4040 2610 4360
+preplace netloc uP_control|rst_Dout 1 2 1 NJ 1930
+preplace netloc uP_control|rst_ps7_0_125M_peripheral_aresetn 1 0 2 4050 2620 4370
+preplace netloc uP_control|trig_Dout 1 2 1 NJ 2030
+preplace netloc uP_control|trigger_level_Dout 1 2 1 NJ 2770
+preplace netloc uP_control|trigger_mode_Dout 1 2 1 N 2530
+preplace netloc uP_control|xlslice_0_Dout 1 2 1 NJ 1830
+preplace netloc uP_control|S_AXI3_1 1 0 1 N 2260
+preplace netloc uP_control|S_AXI4_1 1 0 1 4030 2370n
+preplace netloc uP_control|S_AXI5_1 1 0 2 NJ 2390 4370
+preplace netloc uP_control|ps7_0_axi_periph_M01_AXI 1 0 1 N 1860
+preplace netloc uP_control|ps7_0_axi_periph_M02_AXI 1 0 2 4020J 2630 N
+preplace netloc uP_control|ps7_0_axi_periph_M03_AXI 1 0 1 4030 2060n
+preplace netloc uP|processing_system7_0_FCLK_CLK0 1 0 3 1280 1658 1780 2888 NJ
+preplace netloc uP|processing_system7_0_FCLK_RESET0_N 1 0 2 1290 1668 1770
+preplace netloc uP|rst_ps7_0_125M_peripheral_aresetn 1 1 2 1770 2908 NJ
+preplace netloc uP|Conn1 1 2 1 N 2588
+preplace netloc uP|processing_system7_0_DDR 1 1 2 N 1418 NJ
+preplace netloc uP|processing_system7_0_FIXED_IO 1 1 2 N 1438 NJ
+preplace netloc uP|processing_system7_0_M_AXI_GP0 1 1 1 1790 1498n
+preplace netloc uP|ps7_0_axi_periph_M00_AXI 1 2 1 N 1568
+preplace netloc uP|ps7_0_axi_periph_M01_AXI 1 2 1 N 1738
+preplace netloc uP|ps7_0_axi_periph_M02_AXI 1 2 1 N 1908
+preplace netloc uP|ps7_0_axi_periph_M03_AXI 1 2 1 N 2078
+preplace netloc uP|ps7_0_axi_periph_M04_AXI 1 2 1 N 2248
+preplace netloc uP|ps7_0_axi_periph_M05_AXI 1 2 1 N 2418
+preplace netloc uP|ps7_0_axi_periph_M07_AXI 1 2 1 N 2728
+preplace netloc Procesamiento|N_averaged_samples_1 1 0 2 1220 818 1660J
+preplace netloc Procesamiento|N_ca_in_1 1 0 2 NJ 928 NJ
+preplace netloc Procesamiento|axis_red_pitaya_adc_0_adc_clk 1 0 2 1260 808 N
+preplace netloc Procesamiento|bram_porta_rddata_1 1 0 2 NJ 908 1620J
+preplace netloc Procesamiento|bram_portb_rddata_1 1 0 2 NJ 888 1630J
+preplace netloc Procesamiento|coherent_average_0_bram_porta_addr 1 2 1 2110 828n
+preplace netloc Procesamiento|coherent_average_0_bram_porta_clk 1 2 1 2090 848n
+preplace netloc Procesamiento|coherent_average_0_bram_porta_we 1 2 1 2130 808n
+preplace netloc Procesamiento|coherent_average_0_bram_porta_wrdata 1 2 1 N 988
+preplace netloc Procesamiento|coherent_average_0_bram_portb_addr 1 2 1 N 908
+preplace netloc Procesamiento|coherent_average_0_bram_portb_clk 1 2 1 2100 928n
+preplace netloc Procesamiento|coherent_average_0_bram_portb_rst 1 2 1 2120 928n
+preplace netloc Procesamiento|coherent_average_0_bram_portb_we 1 2 1 2070 868n
+preplace netloc Procesamiento|coherent_average_0_bram_portb_wrdata 1 2 1 2080 888n
+preplace netloc Procesamiento|coherent_average_0_finished 1 2 1 2070 968n
+preplace netloc Procesamiento|data_1 1 0 1 1230 688n
+preplace netloc Procesamiento|data_valid_1 1 0 1 N 708
+preplace netloc Procesamiento|log2_divisor_1 1 0 1 1250 728n
+preplace netloc Procesamiento|promedio_lineal_0_data_out 1 1 2 1650 1108 NJ
+preplace netloc Procesamiento|promedio_lineal_0_data_out_valid 1 1 2 1640 1088 NJ
+preplace netloc Procesamiento|rst_Dout 1 0 2 1210J 848 N
+preplace netloc Procesamiento|rst_ps7_0_125M_peripheral_aresetn 1 0 2 1240 828 N
+preplace netloc Procesamiento|trigger_1 1 0 2 1260J 868 NJ
+preplace netloc Procesamiento1|N_averaged_samples_1 1 0 2 1200 386 N
+preplace netloc Procesamiento1|N_ca_in_1 1 0 2 NJ 366 N
+preplace netloc Procesamiento1|axis_red_pitaya_adc_0_adc_clk 1 0 2 1250 56 1660
+preplace netloc Procesamiento1|bram_porta_rddata_1 1 0 2 NJ 346 1610
+preplace netloc Procesamiento1|bram_portb_rddata_1 1 0 2 NJ 326 1620
+preplace netloc Procesamiento1|coherent_average_0_bram_porta_addr 1 2 1 2100 266n
+preplace netloc Procesamiento1|coherent_average_0_bram_porta_clk 1 2 1 2080 286n
+preplace netloc Procesamiento1|coherent_average_0_bram_porta_we 1 2 1 2120 246n
+preplace netloc Procesamiento1|coherent_average_0_bram_porta_wrdata 1 2 1 N 426
+preplace netloc Procesamiento1|coherent_average_0_bram_portb_addr 1 2 1 N 346
+preplace netloc Procesamiento1|coherent_average_0_bram_portb_clk 1 2 1 2090 366n
+preplace netloc Procesamiento1|coherent_average_0_bram_portb_rst 1 2 1 2110 366n
+preplace netloc Procesamiento1|coherent_average_0_bram_portb_we 1 2 1 2060 306n
+preplace netloc Procesamiento1|coherent_average_0_bram_portb_wrdata 1 2 1 2070 326n
+preplace netloc Procesamiento1|coherent_average_0_finished 1 2 1 2060 406n
+preplace netloc Procesamiento1|data_1 1 0 1 1210 156n
+preplace netloc Procesamiento1|data_valid_1 1 0 1 N 176
+preplace netloc Procesamiento1|log2_divisor_1 1 0 1 1230 196n
+preplace netloc Procesamiento1|promedio_lineal_0_data_out 1 1 1 1650 156n
+preplace netloc Procesamiento1|promedio_lineal_0_data_out_valid 1 1 1 1630 176n
+preplace netloc Procesamiento1|rst_Dout 1 0 2 1220J 286 N
+preplace netloc Procesamiento1|rst_ps7_0_125M_peripheral_aresetn 1 0 2 1240 276 1640
+preplace netloc Procesamiento1|trigger_1 1 0 2 1250J 306 N
+preplace netloc BRAM1|blk_mem_gen_1_douta 1 2 2 4800 242 NJ
+preplace netloc BRAM1|coherent_average_0_bram_porta_addr 1 0 3 NJ 322 NJ 322 N
+preplace netloc BRAM1|coherent_average_0_bram_porta_clk 1 0 3 NJ 282 NJ 282 4790
+preplace netloc BRAM1|coherent_average_0_bram_porta_we 1 0 3 NJ 302 NJ 302 4760
+preplace netloc BRAM1|coherent_average_0_bram_porta_wrdata 1 0 3 NJ 362 NJ 362 N
+preplace netloc BRAM1|processing_system7_0_FCLK_CLK0 1 0 1 N 162
+preplace netloc BRAM1|s00_axi_aresetn_1 1 0 1 N 182
+preplace netloc BRAM1|axi_bram_reader_1_bram_porta_rst 1 1 1 4360 122n
+preplace netloc BRAM1|axi_bram_reader_1_bram_porta_clk 1 1 1 4350 142n
+preplace netloc BRAM1|axi_bram_reader_1_bram_porta_addr 1 1 1 4340 162n
+preplace netloc BRAM1|axi_bram_reader_1_bram_porta_din 1 1 1 4320 182n
+preplace netloc BRAM1|bram_switch_0_bram_porta_rddata 1 1 2 N 202 4750
+preplace netloc BRAM1|axi_bram_reader_1_bram_porta_we 1 1 1 4330 222n
+preplace netloc BRAM1|led_o_1 1 0 2 3950J 572 4310
+preplace netloc BRAM1|bram_switch_0_bram_portc_we 1 2 1 4770 512n
+preplace netloc BRAM1|bram_switch_0_bram_portc_wrdata 1 2 1 4790 502n
+preplace netloc BRAM1|blk_mem_gen_1_doutb 1 1 2 4330 742 4800J
+preplace netloc BRAM1|bram_switch_0_bram_portc_clk 1 2 1 4780 482n
+preplace netloc BRAM1|bram_switch_0_bram_portc_addr 1 2 1 4760 462n
+preplace netloc BRAM1|bram_portb_we_1 1 0 2 3960J 542 N
+preplace netloc BRAM1|bram_portb_addr_1 1 0 2 3970J 562 N
+preplace netloc BRAM1|bram_portb_clk_1 1 0 2 NJ 582 N
+preplace netloc BRAM1|bram_portb_rst_1 1 0 2 NJ 602 N
+preplace netloc BRAM1|bram_portb_wrdata_1 1 0 2 NJ 662 N
+preplace netloc BRAM1|bram_switch_0_bram_portb_rddata 1 2 2 4770 602 NJ
+preplace netloc BRAM1|ps7_0_axi_periph_M00_AXI 1 0 1 N 142
+preplace netloc BRAM2|blk_mem_gen_1_douta 1 2 2 4800 1036 NJ
+preplace netloc BRAM2|coherent_average_0_bram_porta_addr 1 0 3 NJ 1116 NJ 1116 N
+preplace netloc BRAM2|coherent_average_0_bram_porta_clk 1 0 3 NJ 1076 NJ 1076 4790
+preplace netloc BRAM2|coherent_average_0_bram_porta_we 1 0 3 NJ 1096 NJ 1096 4760
+preplace netloc BRAM2|coherent_average_0_bram_porta_wrdata 1 0 3 NJ 1156 NJ 1156 N
+preplace netloc BRAM2|processing_system7_0_FCLK_CLK0 1 0 1 N 956
+preplace netloc BRAM2|s00_axi_aresetn_1 1 0 1 N 976
+preplace netloc BRAM2|axi_bram_reader_1_bram_porta_rst 1 1 1 4360 916n
+preplace netloc BRAM2|axi_bram_reader_1_bram_porta_clk 1 1 1 4350 936n
+preplace netloc BRAM2|axi_bram_reader_1_bram_porta_addr 1 1 1 4340 956n
+preplace netloc BRAM2|axi_bram_reader_1_bram_porta_din 1 1 1 4320 976n
+preplace netloc BRAM2|bram_switch_0_bram_porta_rddata 1 1 2 N 996 4750
+preplace netloc BRAM2|axi_bram_reader_1_bram_porta_we 1 1 1 4330 1016n
+preplace netloc BRAM2|led_o_1 1 0 2 3950J 1366 4310
+preplace netloc BRAM2|bram_switch_0_bram_portc_we 1 2 1 4770 1306n
+preplace netloc BRAM2|bram_switch_0_bram_portc_wrdata 1 2 1 4790 1296n
+preplace netloc BRAM2|blk_mem_gen_1_doutb 1 1 2 4330 1536 4800J
+preplace netloc BRAM2|bram_switch_0_bram_portc_clk 1 2 1 4780 1276n
+preplace netloc BRAM2|bram_switch_0_bram_portc_addr 1 2 1 4760 1256n
+preplace netloc BRAM2|bram_portb_we_1 1 0 2 3960J 1336 N
+preplace netloc BRAM2|bram_portb_addr_1 1 0 2 3970J 1356 N
+preplace netloc BRAM2|bram_portb_clk_1 1 0 2 NJ 1376 N
+preplace netloc BRAM2|bram_portb_rst_1 1 0 2 NJ 1396 N
+preplace netloc BRAM2|bram_portb_wrdata_1 1 0 2 NJ 1456 N
+preplace netloc BRAM2|bram_switch_0_bram_portb_rddata 1 2 2 4770 1396 NJ
+preplace netloc BRAM2|ps7_0_axi_periph_M00_AXI 1 0 1 N 936
+preplace netloc uP|ps7_0_axi_periph|ps7_0_axi_periph_ACLK_net 1 0 3 1950 2128 2510 1918 2830
+preplace netloc uP|ps7_0_axi_periph|ps7_0_axi_periph_ARESETN_net 1 0 3 1940 2138 2500 1908 2840
+preplace netloc uP|ps7_0_axi_periph|ps7_0_axi_periph_to_s00_couplers 1 0 1 N 2008
+preplace netloc uP|ps7_0_axi_periph|s00_couplers_to_xbar 1 1 1 N 2028
+preplace netloc uP|ps7_0_axi_periph|m00_couplers_to_ps7_0_axi_periph 1 3 1 N 1568
+preplace netloc uP|ps7_0_axi_periph|xbar_to_m00_couplers 1 2 1 2790 1528n
+preplace netloc uP|ps7_0_axi_periph|m01_couplers_to_ps7_0_axi_periph 1 3 1 N 1738
+preplace netloc uP|ps7_0_axi_periph|xbar_to_m01_couplers 1 2 1 2810 1698n
+preplace netloc uP|ps7_0_axi_periph|m02_couplers_to_ps7_0_axi_periph 1 3 1 N 1908
+preplace netloc uP|ps7_0_axi_periph|xbar_to_m02_couplers 1 2 1 2850 1868n
+preplace netloc uP|ps7_0_axi_periph|m03_couplers_to_ps7_0_axi_periph 1 3 1 N 2078
+preplace netloc uP|ps7_0_axi_periph|xbar_to_m03_couplers 1 2 1 N 2038
+preplace netloc uP|ps7_0_axi_periph|m04_couplers_to_ps7_0_axi_periph 1 3 1 N 2248
+preplace netloc uP|ps7_0_axi_periph|xbar_to_m04_couplers 1 2 1 2800 2058n
+preplace netloc uP|ps7_0_axi_periph|m05_couplers_to_ps7_0_axi_periph 1 3 1 N 2418
+preplace netloc uP|ps7_0_axi_periph|xbar_to_m05_couplers 1 2 1 2820 2078n
+preplace netloc uP|ps7_0_axi_periph|m06_couplers_to_ps7_0_axi_periph 1 3 1 N 2588
+preplace netloc uP|ps7_0_axi_periph|xbar_to_m06_couplers 1 2 1 2810 2098n
+preplace netloc uP|ps7_0_axi_periph|m07_couplers_to_ps7_0_axi_periph 1 3 1 N 2728
+preplace netloc uP|ps7_0_axi_periph|xbar_to_m07_couplers 1 2 1 2790 2118n
+preplace netloc uP|ps7_0_axi_periph|s00_couplers|S_ACLK_1 1 0 1 2090 2028n
+preplace netloc uP|ps7_0_axi_periph|s00_couplers|S_ARESETN_1 1 0 1 2100 2048n
+preplace netloc uP|ps7_0_axi_periph|s00_couplers|s00_couplers_to_auto_pc 1 0 1 N 2008
+preplace netloc uP|ps7_0_axi_periph|s00_couplers|auto_pc_to_s00_couplers 1 1 1 N 2028
+preplace netloc uP|ps7_0_axi_periph|m07_couplers|m07_couplers_to_m07_couplers 1 0 1 N 2728
+levelinfo -pg 1 -10 200 660 1340 4090 5500 5690
+levelinfo -hier uP_control * 4190 4510 *
+levelinfo -hier uP * 1530 2030 *
+levelinfo -hier Procesamiento * 1440 1870 *
+levelinfo -hier Procesamiento1 * 1430 1860 *
+levelinfo -hier BRAM1 * 4140 4560 4900 *
+levelinfo -hier BRAM2 * 4140 4560 4900 *
+levelinfo -hier uP|ps7_0_axi_periph * 2140 2650 3040 *
+levelinfo -hier uP|ps7_0_axi_periph|s00_couplers * 2250 *
 levelinfo -hier uP|ps7_0_axi_periph|m07_couplers * *
-pagesize -pg 1 -db -bbox -sgen -290 -3280 6860 2220
-pagesize -hier uP_control -db -bbox -sgen 2440 -960 3160 370
-pagesize -hier uP -db -bbox -sgen 30 -490 1990 1120
-pagesize -hier Procesamiento -db -bbox -sgen 3820 -602 5230 128
-pagesize -hier Procesamiento1 -db -bbox -sgen 3830 660 4810 1140
-pagesize -hier uP|ps7_0_axi_periph -db -bbox -sgen 680 -360 1860 1060
-pagesize -hier uP|ps7_0_axi_periph|s00_couplers -db -bbox -sgen 850 -150 1010 -10
-pagesize -hier uP|ps7_0_axi_periph|m05_couplers -db -bbox -sgen 1600 538 1760 678
-pagesize -hier uP|ps7_0_axi_periph|m07_couplers -db -bbox -sgen 1600 898 1760 1038
+pagesize -pg 1 -db -bbox -sgen -180 -70 5850 3310
+pagesize -hier uP_control -db -bbox -sgen 3990 1770 4690 2950
+pagesize -hier uP -db -bbox -sgen 1260 1338 3340 2918
+pagesize -hier Procesamiento -db -bbox -sgen 1180 588 2160 1118
+pagesize -hier Procesamiento1 -db -bbox -sgen 1170 46 2150 506
+pagesize -hier BRAM1 -db -bbox -sgen 3920 42 5030 752
+pagesize -hier BRAM2 -db -bbox -sgen 3920 836 5030 1546
+pagesize -hier uP|ps7_0_axi_periph -db -bbox -sgen 1910 1468 3220 2858
+pagesize -hier uP|ps7_0_axi_periph|s00_couplers -db -bbox -sgen 2060 1948 2430 2108
+pagesize -hier uP|ps7_0_axi_periph|m07_couplers -db -bbox -sgen 2960 2698 3120 2838
 "
 }
 {

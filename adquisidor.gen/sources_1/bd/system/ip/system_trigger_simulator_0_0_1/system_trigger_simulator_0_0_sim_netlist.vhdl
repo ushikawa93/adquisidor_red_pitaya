@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Tue Aug  8 14:08:10 2023
+-- Date        : Thu Aug 10 17:36:59 2023
 -- Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0_sim_netlist.vhdl
@@ -21,8 +21,8 @@ entity system_trigger_simulator_0_0_trigger_simulator is
     user_reset : in STD_LOGIC;
     trigger_mode_in : in STD_LOGIC_VECTOR ( 3 downto 0 );
     clk : in STD_LOGIC;
-    data_valid : in STD_LOGIC;
     M_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    data_valid : in STD_LOGIC;
     log2_div_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     trigger_level_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     K_sobremuestreo_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -105,6 +105,7 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal counter_ext : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal counter_ext0 : STD_LOGIC_VECTOR ( 31 downto 1 );
   signal \counter_ext[0]_i_1_n_0\ : STD_LOGIC;
+  signal \counter_ext[31]_i_1_n_0\ : STD_LOGIC;
   signal \counter_ext_reg[12]_i_2_n_0\ : STD_LOGIC;
   signal \counter_ext_reg[12]_i_2_n_1\ : STD_LOGIC;
   signal \counter_ext_reg[12]_i_2_n_2\ : STD_LOGIC;
@@ -125,8 +126,8 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal \counter_ext_reg[28]_i_2_n_1\ : STD_LOGIC;
   signal \counter_ext_reg[28]_i_2_n_2\ : STD_LOGIC;
   signal \counter_ext_reg[28]_i_2_n_3\ : STD_LOGIC;
-  signal \counter_ext_reg[31]_i_2_n_2\ : STD_LOGIC;
-  signal \counter_ext_reg[31]_i_2_n_3\ : STD_LOGIC;
+  signal \counter_ext_reg[31]_i_3_n_2\ : STD_LOGIC;
+  signal \counter_ext_reg[31]_i_3_n_3\ : STD_LOGIC;
   signal \counter_ext_reg[4]_i_2_n_0\ : STD_LOGIC;
   signal \counter_ext_reg[4]_i_2_n_1\ : STD_LOGIC;
   signal \counter_ext_reg[4]_i_2_n_2\ : STD_LOGIC;
@@ -138,37 +139,6 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal counter_level : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal counter_level0 : STD_LOGIC_VECTOR ( 31 downto 1 );
   signal \counter_level[0]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[10]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[11]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[12]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[13]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[14]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[15]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[16]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[17]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[18]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[19]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[1]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[20]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[21]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[22]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[23]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[24]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[25]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[26]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[27]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[28]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[29]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[2]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[30]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[31]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[3]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[4]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[5]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[6]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[7]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[8]_i_1_n_0\ : STD_LOGIC;
-  signal \counter_level[9]_i_1_n_0\ : STD_LOGIC;
   signal \counter_level_reg[12]_i_2_n_0\ : STD_LOGIC;
   signal \counter_level_reg[12]_i_2_n_1\ : STD_LOGIC;
   signal \counter_level_reg[12]_i_2_n_2\ : STD_LOGIC;
@@ -234,6 +204,7 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal \i__carry_i_8_n_0\ : STD_LOGIC;
   signal log2_div_reg : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal p_0_in : STD_LOGIC_VECTOR ( 31 downto 1 );
+  signal p_1_in : STD_LOGIC_VECTOR ( 31 downto 1 );
   signal state0 : STD_LOGIC;
   signal \state2_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \state2_carry__0_i_2_n_0\ : STD_LOGIC;
@@ -348,6 +319,7 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal \state3_inferred__0/i__carry_n_2\ : STD_LOGIC;
   signal \state3_inferred__0/i__carry_n_3\ : STD_LOGIC;
   signal \state[0]_i_2_n_0\ : STD_LOGIC;
+  signal state_ext : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \state_ext2_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \state_ext2_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \state_ext2_carry__0_i_3_n_0\ : STD_LOGIC;
@@ -397,7 +369,6 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal state_ext2_carry_n_2 : STD_LOGIC;
   signal state_ext2_carry_n_3 : STD_LOGIC;
   signal \state_ext[0]_i_1_n_0\ : STD_LOGIC;
-  signal \state_ext_reg_n_0_[0]\ : STD_LOGIC;
   signal \state_reg_n_0_[0]\ : STD_LOGIC;
   signal trig_INST_0_i_1_n_0 : STD_LOGIC;
   signal trigger_continuo : STD_LOGIC;
@@ -484,8 +455,8 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal trigger_continuo_carry_n_1 : STD_LOGIC;
   signal trigger_continuo_carry_n_2 : STD_LOGIC;
   signal trigger_continuo_carry_n_3 : STD_LOGIC;
+  signal trigger_ext_reg : STD_LOGIC;
   signal trigger_ext_reg_i_1_n_0 : STD_LOGIC;
-  signal trigger_ext_reg_reg_n_0 : STD_LOGIC;
   signal \trigger_level_k_mult0__0_n_100\ : STD_LOGIC;
   signal \trigger_level_k_mult0__0_n_101\ : STD_LOGIC;
   signal \trigger_level_k_mult0__0_n_102\ : STD_LOGIC;
@@ -909,8 +880,8 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   signal trigger_nivel : STD_LOGIC;
   signal trigger_nivel_reg_i_1_n_0 : STD_LOGIC;
   signal \NLW_counter_cont_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
-  signal \NLW_counter_ext_reg[31]_i_2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
-  signal \NLW_counter_ext_reg[31]_i_2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_counter_ext_reg[31]_i_3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  signal \NLW_counter_ext_reg[31]_i_3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_counter_level_reg[31]_i_2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_counter_level_reg[31]_i_2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal NLW_state2_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -973,78 +944,77 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   attribute ADDER_THRESHOLD of \counter_cont_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \counter_cont_reg[8]_i_1\ : label is 11;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \counter_ext[0]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \counter_ext[10]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \counter_ext[0]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \counter_ext[10]_i_1\ : label is "soft_lutpair27";
   attribute SOFT_HLUTNM of \counter_ext[11]_i_1\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \counter_ext[12]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \counter_ext[12]_i_1\ : label is "soft_lutpair28";
   attribute SOFT_HLUTNM of \counter_ext[13]_i_1\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \counter_ext[14]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \counter_ext[14]_i_1\ : label is "soft_lutpair29";
   attribute SOFT_HLUTNM of \counter_ext[15]_i_1\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \counter_ext[16]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \counter_ext[16]_i_1\ : label is "soft_lutpair30";
   attribute SOFT_HLUTNM of \counter_ext[17]_i_1\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \counter_ext[18]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \counter_ext[18]_i_1\ : label is "soft_lutpair31";
   attribute SOFT_HLUTNM of \counter_ext[19]_i_1\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \counter_ext[1]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \counter_ext[20]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \counter_ext[1]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \counter_ext[20]_i_1\ : label is "soft_lutpair32";
   attribute SOFT_HLUTNM of \counter_ext[21]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \counter_ext[22]_i_1\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \counter_ext[22]_i_1\ : label is "soft_lutpair33";
   attribute SOFT_HLUTNM of \counter_ext[23]_i_1\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \counter_ext[24]_i_1\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \counter_ext[24]_i_1\ : label is "soft_lutpair34";
   attribute SOFT_HLUTNM of \counter_ext[25]_i_1\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \counter_ext[26]_i_1\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \counter_ext[26]_i_1\ : label is "soft_lutpair35";
   attribute SOFT_HLUTNM of \counter_ext[27]_i_1\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \counter_ext[28]_i_1\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \counter_ext[28]_i_1\ : label is "soft_lutpair36";
   attribute SOFT_HLUTNM of \counter_ext[29]_i_1\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \counter_ext[2]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \counter_ext[30]_i_1\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \counter_ext[31]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \counter_ext[2]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \counter_ext[30]_i_1\ : label is "soft_lutpair37";
   attribute SOFT_HLUTNM of \counter_ext[3]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \counter_ext[4]_i_1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \counter_ext[4]_i_1\ : label is "soft_lutpair24";
   attribute SOFT_HLUTNM of \counter_ext[5]_i_1\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \counter_ext[6]_i_1\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \counter_ext[6]_i_1\ : label is "soft_lutpair25";
   attribute SOFT_HLUTNM of \counter_ext[7]_i_1\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \counter_ext[8]_i_1\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \counter_ext[8]_i_1\ : label is "soft_lutpair26";
   attribute SOFT_HLUTNM of \counter_ext[9]_i_1\ : label is "soft_lutpair27";
   attribute ADDER_THRESHOLD of \counter_ext_reg[12]_i_2\ : label is 35;
   attribute ADDER_THRESHOLD of \counter_ext_reg[16]_i_2\ : label is 35;
   attribute ADDER_THRESHOLD of \counter_ext_reg[20]_i_2\ : label is 35;
   attribute ADDER_THRESHOLD of \counter_ext_reg[24]_i_2\ : label is 35;
   attribute ADDER_THRESHOLD of \counter_ext_reg[28]_i_2\ : label is 35;
-  attribute ADDER_THRESHOLD of \counter_ext_reg[31]_i_2\ : label is 35;
+  attribute ADDER_THRESHOLD of \counter_ext_reg[31]_i_3\ : label is 35;
   attribute ADDER_THRESHOLD of \counter_ext_reg[4]_i_2\ : label is 35;
   attribute ADDER_THRESHOLD of \counter_ext_reg[8]_i_2\ : label is 35;
-  attribute SOFT_HLUTNM of \counter_level[0]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \counter_level[10]_i_1\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \counter_level[11]_i_1\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \counter_level[12]_i_1\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \counter_level[13]_i_1\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \counter_level[14]_i_1\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \counter_level[15]_i_1\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \counter_level[16]_i_1\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \counter_level[17]_i_1\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \counter_level[18]_i_1\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \counter_level[19]_i_1\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \counter_level[1]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \counter_level[20]_i_1\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \counter_level[21]_i_1\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \counter_level[22]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \counter_level[23]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \counter_level[24]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \counter_level[25]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \counter_level[26]_i_1\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \counter_level[27]_i_1\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \counter_level[28]_i_1\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \counter_level[29]_i_1\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \counter_level[2]_i_1\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \counter_level[30]_i_1\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \counter_level[31]_i_1\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \counter_level[3]_i_1\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \counter_level[4]_i_1\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \counter_level[5]_i_1\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \counter_level[6]_i_1\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \counter_level[7]_i_1\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \counter_level[8]_i_1\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \counter_level[9]_i_1\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \counter_level[0]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \counter_level[10]_i_1\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \counter_level[11]_i_1\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \counter_level[12]_i_1\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \counter_level[13]_i_1\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \counter_level[14]_i_1\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \counter_level[15]_i_1\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \counter_level[16]_i_1\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \counter_level[17]_i_1\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \counter_level[18]_i_1\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \counter_level[19]_i_1\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \counter_level[1]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \counter_level[20]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \counter_level[21]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \counter_level[22]_i_1\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \counter_level[23]_i_1\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \counter_level[24]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \counter_level[25]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \counter_level[26]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \counter_level[27]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \counter_level[28]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \counter_level[29]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \counter_level[2]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \counter_level[30]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \counter_level[31]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \counter_level[3]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \counter_level[4]_i_1\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \counter_level[5]_i_1\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \counter_level[6]_i_1\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \counter_level[7]_i_1\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \counter_level[8]_i_1\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \counter_level[9]_i_1\ : label is "soft_lutpair41";
   attribute ADDER_THRESHOLD of \counter_level_reg[12]_i_2\ : label is 35;
   attribute ADDER_THRESHOLD of \counter_level_reg[16]_i_2\ : label is 35;
   attribute ADDER_THRESHOLD of \counter_level_reg[20]_i_2\ : label is 35;
@@ -1071,7 +1041,6 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   attribute COMPARATOR_THRESHOLD of \state_ext2_carry__0\ : label is 11;
   attribute COMPARATOR_THRESHOLD of \state_ext2_carry__1\ : label is 11;
   attribute COMPARATOR_THRESHOLD of \state_ext2_carry__2\ : label is 11;
-  attribute SOFT_HLUTNM of \state_ext[0]_i_1\ : label is "soft_lutpair9";
   attribute ADDER_THRESHOLD of trigger_continuo0_carry : label is 35;
   attribute ADDER_THRESHOLD of \trigger_continuo0_carry__0\ : label is 35;
   attribute ADDER_THRESHOLD of \trigger_continuo0_carry__1\ : label is 35;
@@ -1080,7 +1049,7 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   attribute ADDER_THRESHOLD of \trigger_continuo0_carry__4\ : label is 35;
   attribute ADDER_THRESHOLD of \trigger_continuo0_carry__5\ : label is 35;
   attribute ADDER_THRESHOLD of \trigger_continuo0_carry__6\ : label is 35;
-  attribute SOFT_HLUTNM of trigger_ext_reg_i_1 : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of trigger_ext_reg_i_1 : label is "soft_lutpair21";
   attribute METHODOLOGY_DRC_VIOS : string;
   attribute METHODOLOGY_DRC_VIOS of trigger_level_k_mult0 : label is "{SYNTH-10 {cell *THIS*} {string 16x18 4}}";
   attribute METHODOLOGY_DRC_VIOS of \trigger_level_k_mult0__0\ : label is "{SYNTH-10 {cell *THIS*} {string 18x18 4}}";
@@ -1088,45 +1057,45 @@ architecture STRUCTURE of system_trigger_simulator_0_0_trigger_simulator is
   attribute ADDER_THRESHOLD of \trigger_level_k_mult0_carry__0\ : label is 35;
   attribute ADDER_THRESHOLD of \trigger_level_k_mult0_carry__1\ : label is 35;
   attribute ADDER_THRESHOLD of \trigger_level_k_mult0_carry__2\ : label is 35;
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[0]_i_2\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[0]_i_3\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[10]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[0]_i_2\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[0]_i_3\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[10]_i_1\ : label is "soft_lutpair14";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[10]_i_3\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[11]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[11]_i_1\ : label is "soft_lutpair15";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[11]_i_3\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[12]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[12]_i_1\ : label is "soft_lutpair15";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[12]_i_3\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[13]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[13]_i_1\ : label is "soft_lutpair16";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[13]_i_3\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[14]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[14]_i_1\ : label is "soft_lutpair16";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[14]_i_3\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[15]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[15]_i_1\ : label is "soft_lutpair17";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[15]_i_3\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[16]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[16]_i_1\ : label is "soft_lutpair17";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[16]_i_3\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[16]_i_4\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[17]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[17]_i_1\ : label is "soft_lutpair18";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[17]_i_3\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[17]_i_4\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[18]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[18]_i_1\ : label is "soft_lutpair18";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[18]_i_3\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[18]_i_4\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[19]_i_3\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[19]_i_4\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[1]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[26]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[27]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[28]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[29]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[2]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[3]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[4]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[5]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[6]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[7]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[8]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[1]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[26]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[27]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[28]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[29]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[2]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[3]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[4]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[5]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[6]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[7]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[8]_i_1\ : label is "soft_lutpair13";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[8]_i_3\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[9]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \trigger_level_k_mult_div[9]_i_1\ : label is "soft_lutpair14";
   attribute SOFT_HLUTNM of \trigger_level_k_mult_div[9]_i_3\ : label is "soft_lutpair1";
   attribute METHODOLOGY_DRC_VIOS of trigger_level_k_mult_reg : label is "{SYNTH-10 {cell *THIS*} {string 18x16 4}}";
   attribute SOFT_HLUTNM of trigger_nivel_reg_i_1 : label is "soft_lutpair8";
@@ -1788,7 +1757,7 @@ begin
       INIT => X"2"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext(0),
       O => \counter_ext[0]_i_1_n_0\
     );
@@ -1797,284 +1766,293 @@ begin
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(10),
-      O => p_0_in(10)
+      O => p_1_in(10)
     );
 \counter_ext[11]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(11),
-      O => p_0_in(11)
+      O => p_1_in(11)
     );
 \counter_ext[12]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(12),
-      O => p_0_in(12)
+      O => p_1_in(12)
     );
 \counter_ext[13]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(13),
-      O => p_0_in(13)
+      O => p_1_in(13)
     );
 \counter_ext[14]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(14),
-      O => p_0_in(14)
+      O => p_1_in(14)
     );
 \counter_ext[15]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(15),
-      O => p_0_in(15)
+      O => p_1_in(15)
     );
 \counter_ext[16]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(16),
-      O => p_0_in(16)
+      O => p_1_in(16)
     );
 \counter_ext[17]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(17),
-      O => p_0_in(17)
+      O => p_1_in(17)
     );
 \counter_ext[18]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(18),
-      O => p_0_in(18)
+      O => p_1_in(18)
     );
 \counter_ext[19]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(19),
-      O => p_0_in(19)
+      O => p_1_in(19)
     );
 \counter_ext[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(1),
-      O => p_0_in(1)
+      O => p_1_in(1)
     );
 \counter_ext[20]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(20),
-      O => p_0_in(20)
+      O => p_1_in(20)
     );
 \counter_ext[21]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(21),
-      O => p_0_in(21)
+      O => p_1_in(21)
     );
 \counter_ext[22]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(22),
-      O => p_0_in(22)
+      O => p_1_in(22)
     );
 \counter_ext[23]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(23),
-      O => p_0_in(23)
+      O => p_1_in(23)
     );
 \counter_ext[24]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(24),
-      O => p_0_in(24)
+      O => p_1_in(24)
     );
 \counter_ext[25]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(25),
-      O => p_0_in(25)
+      O => p_1_in(25)
     );
 \counter_ext[26]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(26),
-      O => p_0_in(26)
+      O => p_1_in(26)
     );
 \counter_ext[27]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(27),
-      O => p_0_in(27)
+      O => p_1_in(27)
     );
 \counter_ext[28]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(28),
-      O => p_0_in(28)
+      O => p_1_in(28)
     );
 \counter_ext[29]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(29),
-      O => p_0_in(29)
+      O => p_1_in(29)
     );
 \counter_ext[2]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(2),
-      O => p_0_in(2)
+      O => p_1_in(2)
     );
 \counter_ext[30]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(30),
-      O => p_0_in(30)
+      O => p_1_in(30)
     );
 \counter_ext[31]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"B"
+    )
+        port map (
+      I0 => data_valid,
+      I1 => state_ext(0),
+      O => \counter_ext[31]_i_1_n_0\
+    );
+\counter_ext[31]_i_2\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(31),
-      O => p_0_in(31)
+      O => p_1_in(31)
     );
 \counter_ext[3]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(3),
-      O => p_0_in(3)
+      O => p_1_in(3)
     );
 \counter_ext[4]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(4),
-      O => p_0_in(4)
+      O => p_1_in(4)
     );
 \counter_ext[5]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(5),
-      O => p_0_in(5)
+      O => p_1_in(5)
     );
 \counter_ext[6]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(6),
-      O => p_0_in(6)
+      O => p_1_in(6)
     );
 \counter_ext[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(7),
-      O => p_0_in(7)
+      O => p_1_in(7)
     );
 \counter_ext[8]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(8),
-      O => p_0_in(8)
+      O => p_1_in(8)
     );
 \counter_ext[9]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
-      I0 => \state_ext_reg_n_0_[0]\,
+      I0 => state_ext(0),
       I1 => counter_ext0(9),
-      O => p_0_in(9)
+      O => p_1_in(9)
     );
 \counter_ext_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
+      CE => \counter_ext[31]_i_1_n_0\,
       D => \counter_ext[0]_i_1_n_0\,
       Q => counter_ext(0),
       R => counter_cont2
@@ -2082,24 +2060,24 @@ begin
 \counter_ext_reg[10]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(10),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(10),
       Q => counter_ext(10),
       R => counter_cont2
     );
 \counter_ext_reg[11]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(11),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(11),
       Q => counter_ext(11),
       R => counter_cont2
     );
 \counter_ext_reg[12]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(12),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(12),
       Q => counter_ext(12),
       R => counter_cont2
     );
@@ -2118,32 +2096,32 @@ begin
 \counter_ext_reg[13]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(13),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(13),
       Q => counter_ext(13),
       R => counter_cont2
     );
 \counter_ext_reg[14]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(14),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(14),
       Q => counter_ext(14),
       R => counter_cont2
     );
 \counter_ext_reg[15]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(15),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(15),
       Q => counter_ext(15),
       R => counter_cont2
     );
 \counter_ext_reg[16]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(16),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(16),
       Q => counter_ext(16),
       R => counter_cont2
     );
@@ -2162,40 +2140,40 @@ begin
 \counter_ext_reg[17]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(17),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(17),
       Q => counter_ext(17),
       R => counter_cont2
     );
 \counter_ext_reg[18]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(18),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(18),
       Q => counter_ext(18),
       R => counter_cont2
     );
 \counter_ext_reg[19]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(19),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(19),
       Q => counter_ext(19),
       R => counter_cont2
     );
 \counter_ext_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(1),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(1),
       Q => counter_ext(1),
       R => counter_cont2
     );
 \counter_ext_reg[20]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(20),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(20),
       Q => counter_ext(20),
       R => counter_cont2
     );
@@ -2214,32 +2192,32 @@ begin
 \counter_ext_reg[21]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(21),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(21),
       Q => counter_ext(21),
       R => counter_cont2
     );
 \counter_ext_reg[22]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(22),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(22),
       Q => counter_ext(22),
       R => counter_cont2
     );
 \counter_ext_reg[23]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(23),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(23),
       Q => counter_ext(23),
       R => counter_cont2
     );
 \counter_ext_reg[24]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(24),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(24),
       Q => counter_ext(24),
       R => counter_cont2
     );
@@ -2258,32 +2236,32 @@ begin
 \counter_ext_reg[25]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(25),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(25),
       Q => counter_ext(25),
       R => counter_cont2
     );
 \counter_ext_reg[26]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(26),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(26),
       Q => counter_ext(26),
       R => counter_cont2
     );
 \counter_ext_reg[27]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(27),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(27),
       Q => counter_ext(27),
       R => counter_cont2
     );
 \counter_ext_reg[28]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(28),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(28),
       Q => counter_ext(28),
       R => counter_cont2
     );
@@ -2302,44 +2280,44 @@ begin
 \counter_ext_reg[29]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(29),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(29),
       Q => counter_ext(29),
       R => counter_cont2
     );
 \counter_ext_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(2),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(2),
       Q => counter_ext(2),
       R => counter_cont2
     );
 \counter_ext_reg[30]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(30),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(30),
       Q => counter_ext(30),
       R => counter_cont2
     );
 \counter_ext_reg[31]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(31),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(31),
       Q => counter_ext(31),
       R => counter_cont2
     );
-\counter_ext_reg[31]_i_2\: unisim.vcomponents.CARRY4
+\counter_ext_reg[31]_i_3\: unisim.vcomponents.CARRY4
      port map (
       CI => \counter_ext_reg[28]_i_2_n_0\,
-      CO(3 downto 2) => \NLW_counter_ext_reg[31]_i_2_CO_UNCONNECTED\(3 downto 2),
-      CO(1) => \counter_ext_reg[31]_i_2_n_2\,
-      CO(0) => \counter_ext_reg[31]_i_2_n_3\,
+      CO(3 downto 2) => \NLW_counter_ext_reg[31]_i_3_CO_UNCONNECTED\(3 downto 2),
+      CO(1) => \counter_ext_reg[31]_i_3_n_2\,
+      CO(0) => \counter_ext_reg[31]_i_3_n_3\,
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
-      O(3) => \NLW_counter_ext_reg[31]_i_2_O_UNCONNECTED\(3),
+      O(3) => \NLW_counter_ext_reg[31]_i_3_O_UNCONNECTED\(3),
       O(2 downto 0) => counter_ext0(31 downto 29),
       S(3) => '0',
       S(2 downto 0) => counter_ext(31 downto 29)
@@ -2347,16 +2325,16 @@ begin
 \counter_ext_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(3),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(3),
       Q => counter_ext(3),
       R => counter_cont2
     );
 \counter_ext_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(4),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(4),
       Q => counter_ext(4),
       R => counter_cont2
     );
@@ -2375,32 +2353,32 @@ begin
 \counter_ext_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(5),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(5),
       Q => counter_ext(5),
       R => counter_cont2
     );
 \counter_ext_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(6),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(6),
       Q => counter_ext(6),
       R => counter_cont2
     );
 \counter_ext_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(7),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(7),
       Q => counter_ext(7),
       R => counter_cont2
     );
 \counter_ext_reg[8]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(8),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(8),
       Q => counter_ext(8),
       R => counter_cont2
     );
@@ -2419,8 +2397,8 @@ begin
 \counter_ext_reg[9]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
-      D => p_0_in(9),
+      CE => \counter_ext[31]_i_1_n_0\,
+      D => p_1_in(9),
       Q => counter_ext(9),
       R => counter_cont2
     );
@@ -2440,7 +2418,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(10),
-      O => \counter_level[10]_i_1_n_0\
+      O => p_0_in(10)
     );
 \counter_level[11]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2449,7 +2427,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(11),
-      O => \counter_level[11]_i_1_n_0\
+      O => p_0_in(11)
     );
 \counter_level[12]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2458,7 +2436,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(12),
-      O => \counter_level[12]_i_1_n_0\
+      O => p_0_in(12)
     );
 \counter_level[13]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2467,7 +2445,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(13),
-      O => \counter_level[13]_i_1_n_0\
+      O => p_0_in(13)
     );
 \counter_level[14]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2476,7 +2454,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(14),
-      O => \counter_level[14]_i_1_n_0\
+      O => p_0_in(14)
     );
 \counter_level[15]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2485,7 +2463,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(15),
-      O => \counter_level[15]_i_1_n_0\
+      O => p_0_in(15)
     );
 \counter_level[16]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2494,7 +2472,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(16),
-      O => \counter_level[16]_i_1_n_0\
+      O => p_0_in(16)
     );
 \counter_level[17]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2503,7 +2481,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(17),
-      O => \counter_level[17]_i_1_n_0\
+      O => p_0_in(17)
     );
 \counter_level[18]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2512,7 +2490,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(18),
-      O => \counter_level[18]_i_1_n_0\
+      O => p_0_in(18)
     );
 \counter_level[19]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2521,7 +2499,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(19),
-      O => \counter_level[19]_i_1_n_0\
+      O => p_0_in(19)
     );
 \counter_level[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2530,7 +2508,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(1),
-      O => \counter_level[1]_i_1_n_0\
+      O => p_0_in(1)
     );
 \counter_level[20]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2539,7 +2517,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(20),
-      O => \counter_level[20]_i_1_n_0\
+      O => p_0_in(20)
     );
 \counter_level[21]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2548,7 +2526,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(21),
-      O => \counter_level[21]_i_1_n_0\
+      O => p_0_in(21)
     );
 \counter_level[22]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2557,7 +2535,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(22),
-      O => \counter_level[22]_i_1_n_0\
+      O => p_0_in(22)
     );
 \counter_level[23]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2566,7 +2544,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(23),
-      O => \counter_level[23]_i_1_n_0\
+      O => p_0_in(23)
     );
 \counter_level[24]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2575,7 +2553,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(24),
-      O => \counter_level[24]_i_1_n_0\
+      O => p_0_in(24)
     );
 \counter_level[25]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2584,7 +2562,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(25),
-      O => \counter_level[25]_i_1_n_0\
+      O => p_0_in(25)
     );
 \counter_level[26]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2593,7 +2571,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(26),
-      O => \counter_level[26]_i_1_n_0\
+      O => p_0_in(26)
     );
 \counter_level[27]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2602,7 +2580,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(27),
-      O => \counter_level[27]_i_1_n_0\
+      O => p_0_in(27)
     );
 \counter_level[28]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2611,7 +2589,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(28),
-      O => \counter_level[28]_i_1_n_0\
+      O => p_0_in(28)
     );
 \counter_level[29]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2620,7 +2598,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(29),
-      O => \counter_level[29]_i_1_n_0\
+      O => p_0_in(29)
     );
 \counter_level[2]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2629,7 +2607,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(2),
-      O => \counter_level[2]_i_1_n_0\
+      O => p_0_in(2)
     );
 \counter_level[30]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2638,7 +2616,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(30),
-      O => \counter_level[30]_i_1_n_0\
+      O => p_0_in(30)
     );
 \counter_level[31]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2647,7 +2625,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(31),
-      O => \counter_level[31]_i_1_n_0\
+      O => p_0_in(31)
     );
 \counter_level[3]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2656,7 +2634,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(3),
-      O => \counter_level[3]_i_1_n_0\
+      O => p_0_in(3)
     );
 \counter_level[4]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2665,7 +2643,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(4),
-      O => \counter_level[4]_i_1_n_0\
+      O => p_0_in(4)
     );
 \counter_level[5]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2674,7 +2652,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(5),
-      O => \counter_level[5]_i_1_n_0\
+      O => p_0_in(5)
     );
 \counter_level[6]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2683,7 +2661,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(6),
-      O => \counter_level[6]_i_1_n_0\
+      O => p_0_in(6)
     );
 \counter_level[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2692,7 +2670,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(7),
-      O => \counter_level[7]_i_1_n_0\
+      O => p_0_in(7)
     );
 \counter_level[8]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2701,7 +2679,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(8),
-      O => \counter_level[8]_i_1_n_0\
+      O => p_0_in(8)
     );
 \counter_level[9]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2710,7 +2688,7 @@ begin
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => counter_level0(9),
-      O => \counter_level[9]_i_1_n_0\
+      O => p_0_in(9)
     );
 \counter_level_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -2724,7 +2702,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[10]_i_1_n_0\,
+      D => p_0_in(10),
       Q => counter_level(10),
       R => state0
     );
@@ -2732,7 +2710,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[11]_i_1_n_0\,
+      D => p_0_in(11),
       Q => counter_level(11),
       R => state0
     );
@@ -2740,7 +2718,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[12]_i_1_n_0\,
+      D => p_0_in(12),
       Q => counter_level(12),
       R => state0
     );
@@ -2760,7 +2738,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[13]_i_1_n_0\,
+      D => p_0_in(13),
       Q => counter_level(13),
       R => state0
     );
@@ -2768,7 +2746,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[14]_i_1_n_0\,
+      D => p_0_in(14),
       Q => counter_level(14),
       R => state0
     );
@@ -2776,7 +2754,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[15]_i_1_n_0\,
+      D => p_0_in(15),
       Q => counter_level(15),
       R => state0
     );
@@ -2784,7 +2762,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[16]_i_1_n_0\,
+      D => p_0_in(16),
       Q => counter_level(16),
       R => state0
     );
@@ -2804,7 +2782,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[17]_i_1_n_0\,
+      D => p_0_in(17),
       Q => counter_level(17),
       R => state0
     );
@@ -2812,7 +2790,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[18]_i_1_n_0\,
+      D => p_0_in(18),
       Q => counter_level(18),
       R => state0
     );
@@ -2820,7 +2798,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[19]_i_1_n_0\,
+      D => p_0_in(19),
       Q => counter_level(19),
       R => state0
     );
@@ -2828,7 +2806,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[1]_i_1_n_0\,
+      D => p_0_in(1),
       Q => counter_level(1),
       R => state0
     );
@@ -2836,7 +2814,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[20]_i_1_n_0\,
+      D => p_0_in(20),
       Q => counter_level(20),
       R => state0
     );
@@ -2856,7 +2834,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[21]_i_1_n_0\,
+      D => p_0_in(21),
       Q => counter_level(21),
       R => state0
     );
@@ -2864,7 +2842,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[22]_i_1_n_0\,
+      D => p_0_in(22),
       Q => counter_level(22),
       R => state0
     );
@@ -2872,7 +2850,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[23]_i_1_n_0\,
+      D => p_0_in(23),
       Q => counter_level(23),
       R => state0
     );
@@ -2880,7 +2858,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[24]_i_1_n_0\,
+      D => p_0_in(24),
       Q => counter_level(24),
       R => state0
     );
@@ -2900,7 +2878,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[25]_i_1_n_0\,
+      D => p_0_in(25),
       Q => counter_level(25),
       R => state0
     );
@@ -2908,7 +2886,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[26]_i_1_n_0\,
+      D => p_0_in(26),
       Q => counter_level(26),
       R => state0
     );
@@ -2916,7 +2894,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[27]_i_1_n_0\,
+      D => p_0_in(27),
       Q => counter_level(27),
       R => state0
     );
@@ -2924,7 +2902,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[28]_i_1_n_0\,
+      D => p_0_in(28),
       Q => counter_level(28),
       R => state0
     );
@@ -2944,7 +2922,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[29]_i_1_n_0\,
+      D => p_0_in(29),
       Q => counter_level(29),
       R => state0
     );
@@ -2952,7 +2930,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[2]_i_1_n_0\,
+      D => p_0_in(2),
       Q => counter_level(2),
       R => state0
     );
@@ -2960,7 +2938,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[30]_i_1_n_0\,
+      D => p_0_in(30),
       Q => counter_level(30),
       R => state0
     );
@@ -2968,7 +2946,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[31]_i_1_n_0\,
+      D => p_0_in(31),
       Q => counter_level(31),
       R => state0
     );
@@ -2989,7 +2967,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[3]_i_1_n_0\,
+      D => p_0_in(3),
       Q => counter_level(3),
       R => state0
     );
@@ -2997,7 +2975,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[4]_i_1_n_0\,
+      D => p_0_in(4),
       Q => counter_level(4),
       R => state0
     );
@@ -3017,7 +2995,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[5]_i_1_n_0\,
+      D => p_0_in(5),
       Q => counter_level(5),
       R => state0
     );
@@ -3025,7 +3003,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[6]_i_1_n_0\,
+      D => p_0_in(6),
       Q => counter_level(6),
       R => state0
     );
@@ -3033,7 +3011,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[7]_i_1_n_0\,
+      D => p_0_in(7),
       Q => counter_level(7),
       R => state0
     );
@@ -3041,7 +3019,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[8]_i_1_n_0\,
+      D => p_0_in(8),
       Q => counter_level(8),
       R => state0
     );
@@ -3061,7 +3039,7 @@ begin
      port map (
       C => clk,
       CE => data_valid,
-      D => \counter_level[9]_i_1_n_0\,
+      D => p_0_in(9),
       Q => counter_level(9),
       R => state0
     );
@@ -5295,16 +5273,16 @@ state_ext2_carry_i_8: unisim.vcomponents.LUT4
     )
         port map (
       I0 => \state_ext2_carry__2_n_0\,
-      I1 => \state_ext_reg_n_0_[0]\,
-      I2 => trig_externo,
+      I1 => state_ext(0),
+      I2 => trigger_ext_reg,
       O => \state_ext[0]_i_1_n_0\
     );
 \state_ext_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
+      CE => '1',
       D => \state_ext[0]_i_1_n_0\,
-      Q => \state_ext_reg_n_0_[0]\,
+      Q => state_ext(0),
       R => counter_cont2
     );
 \state_reg[0]\: unisim.vcomponents.FDRE
@@ -5322,7 +5300,7 @@ trig_INST_0: unisim.vcomponents.LUT6
         port map (
       I0 => trigger_continuo,
       I1 => trigger_mode_reg(1),
-      I2 => trigger_ext_reg_reg_n_0,
+      I2 => trigger_ext_reg,
       I3 => trigger_mode_reg(0),
       I4 => trigger_nivel,
       I5 => trig_INST_0_i_1_n_0,
@@ -5898,15 +5876,15 @@ trigger_ext_reg_i_1: unisim.vcomponents.LUT2
     )
         port map (
       I0 => trig_externo,
-      I1 => \state_ext_reg_n_0_[0]\,
+      I1 => state_ext(0),
       O => trigger_ext_reg_i_1_n_0
     );
 trigger_ext_reg_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => data_valid,
+      CE => \counter_ext[31]_i_1_n_0\,
       D => trigger_ext_reg_i_1_n_0,
-      Q => trigger_ext_reg_reg_n_0,
+      Q => trigger_ext_reg,
       R => counter_cont2
     );
 trigger_level_k_mult0: unisim.vcomponents.DSP48E1
@@ -8321,7 +8299,7 @@ entity system_trigger_simulator_0_0 is
     log2_div_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
     trigger_mode_in : in STD_LOGIC_VECTOR ( 3 downto 0 );
     trigger_level_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    trig_externo : in STD_LOGIC;
+    trig_externo : inout STD_LOGIC;
     trig : out STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;

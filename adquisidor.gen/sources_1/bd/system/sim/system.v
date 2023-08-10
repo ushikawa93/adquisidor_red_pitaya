@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue Aug  8 14:06:22 2023
+//Date        : Thu Aug 10 18:06:33 2023
 //Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -140,29 +140,29 @@ module BRAM1_imp_D57AIZ
   input s00_axi_aresetn;
   input [0:0]wea;
 
-  wire [15:0]axi_bram_reader_1_BRAM_PORTA_ADDR;
-  wire axi_bram_reader_1_BRAM_PORTA_CLK;
-  wire [31:0]axi_bram_reader_1_BRAM_PORTA_DIN;
-  wire [31:0]axi_bram_reader_1_BRAM_PORTA_DOUT;
-  wire axi_bram_reader_1_BRAM_PORTA_RST;
-  wire [3:0]axi_bram_reader_1_BRAM_PORTA_WE;
+  wire [15:0]axi_bram_reader_1_bram_porta_addr;
+  wire axi_bram_reader_1_bram_porta_clk;
+  wire [31:0]axi_bram_reader_1_bram_porta_din;
+  wire axi_bram_reader_1_bram_porta_rst;
+  wire [3:0]axi_bram_reader_1_bram_porta_we;
   wire [31:0]blk_mem_gen_1_douta;
-  wire [15:0]bram_switch_0_BRAM_PORTC_ADDR;
-  wire bram_switch_0_BRAM_PORTC_CLK;
-  wire [31:0]bram_switch_0_BRAM_PORTC_DIN;
-  wire [31:0]bram_switch_0_BRAM_PORTC_DOUT;
-  wire bram_switch_0_BRAM_PORTC_WE;
+  wire [31:0]blk_mem_gen_1_doutb;
+  wire [15:0]bram_portb_addr_1;
+  wire bram_portb_clk_1;
+  wire bram_portb_rst_1;
+  wire bram_portb_we_1;
+  wire [31:0]bram_portb_wrdata_1;
+  wire [31:0]bram_switch_0_bram_porta_rddata;
   wire [31:0]bram_switch_0_bram_portb_rddata;
+  wire [14:0]bram_switch_0_bram_portc_addr;
+  wire bram_switch_0_bram_portc_clk;
+  wire bram_switch_0_bram_portc_we;
+  wire [31:0]bram_switch_0_bram_portc_wrdata;
   wire [15:0]coherent_average_0_bram_porta_addr;
   wire coherent_average_0_bram_porta_clk;
   wire [0:0]coherent_average_0_bram_porta_we;
   wire [31:0]coherent_average_0_bram_porta_wrdata;
-  wire [15:0]coherent_average_0_bram_portb_addr;
-  wire coherent_average_0_bram_portb_clk;
-  wire coherent_average_0_bram_portb_rst;
-  wire coherent_average_0_bram_portb_we;
-  wire [31:0]coherent_average_0_bram_portb_wrdata;
-  wire coherent_average_0_finished;
+  wire led_o_1;
   wire processing_system7_0_FCLK_CLK0;
   wire [31:0]ps7_0_axi_periph_M00_AXI_ARADDR;
   wire [2:0]ps7_0_axi_periph_M00_AXI_ARPROT;
@@ -193,18 +193,18 @@ module BRAM1_imp_D57AIZ
   assign S_AXI_rresp[1:0] = ps7_0_axi_periph_M00_AXI_RRESP;
   assign S_AXI_rvalid = ps7_0_axi_periph_M00_AXI_RVALID;
   assign S_AXI_wready = ps7_0_axi_periph_M00_AXI_WREADY;
+  assign bram_portb_addr_1 = bram_portb_addr[15:0];
+  assign bram_portb_clk_1 = bram_portb_clk;
   assign bram_portb_rddata[31:0] = bram_switch_0_bram_portb_rddata;
+  assign bram_portb_rst_1 = bram_portb_rst;
+  assign bram_portb_we_1 = bram_portb_we;
+  assign bram_portb_wrdata_1 = bram_portb_wrdata[31:0];
   assign coherent_average_0_bram_porta_addr = addra[15:0];
   assign coherent_average_0_bram_porta_clk = clka;
   assign coherent_average_0_bram_porta_we = wea[0];
   assign coherent_average_0_bram_porta_wrdata = dina[31:0];
-  assign coherent_average_0_bram_portb_addr = bram_portb_addr[15:0];
-  assign coherent_average_0_bram_portb_clk = bram_portb_clk;
-  assign coherent_average_0_bram_portb_rst = bram_portb_rst;
-  assign coherent_average_0_bram_portb_we = bram_portb_we;
-  assign coherent_average_0_bram_portb_wrdata = bram_portb_wrdata[31:0];
-  assign coherent_average_0_finished = led_o;
   assign douta[31:0] = blk_mem_gen_1_douta;
+  assign led_o_1 = led_o;
   assign processing_system7_0_FCLK_CLK0 = s00_axi_aclk;
   assign ps7_0_axi_periph_M00_AXI_ARADDR = S_AXI_araddr[31:0];
   assign ps7_0_axi_periph_M00_AXI_ARPROT = S_AXI_arprot[2:0];
@@ -219,12 +219,12 @@ module BRAM1_imp_D57AIZ
   assign ps7_0_axi_periph_M00_AXI_WVALID = S_AXI_wvalid;
   assign s00_axi_aresetn_1 = s00_axi_aresetn;
   system_axi_bram_reader_1_1 axi_bram_reader_1
-       (.bram_porta_addr(axi_bram_reader_1_BRAM_PORTA_ADDR),
-        .bram_porta_clk(axi_bram_reader_1_BRAM_PORTA_CLK),
-        .bram_porta_din(axi_bram_reader_1_BRAM_PORTA_DIN),
-        .bram_porta_dout(axi_bram_reader_1_BRAM_PORTA_DOUT),
-        .bram_porta_rst(axi_bram_reader_1_BRAM_PORTA_RST),
-        .bram_porta_we(axi_bram_reader_1_BRAM_PORTA_WE),
+       (.bram_porta_addr(axi_bram_reader_1_bram_porta_addr),
+        .bram_porta_clk(axi_bram_reader_1_bram_porta_clk),
+        .bram_porta_din(axi_bram_reader_1_bram_porta_din),
+        .bram_porta_dout(bram_switch_0_bram_porta_rddata),
+        .bram_porta_rst(axi_bram_reader_1_bram_porta_rst),
+        .bram_porta_we(axi_bram_reader_1_bram_porta_we),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_araddr(ps7_0_axi_periph_M00_AXI_ARADDR[17:0]),
         .s00_axi_aresetn(s00_axi_aresetn_1),
@@ -248,38 +248,38 @@ module BRAM1_imp_D57AIZ
         .s00_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
   system_blk_mem_gen_1_1 blk_mem_gen_1
        (.addra(coherent_average_0_bram_porta_addr[14:0]),
-        .addrb(bram_switch_0_BRAM_PORTC_ADDR[14:0]),
+        .addrb(bram_switch_0_bram_portc_addr),
         .clka(coherent_average_0_bram_porta_clk),
-        .clkb(bram_switch_0_BRAM_PORTC_CLK),
+        .clkb(bram_switch_0_bram_portc_clk),
         .dina(coherent_average_0_bram_porta_wrdata),
-        .dinb(bram_switch_0_BRAM_PORTC_DIN),
+        .dinb(bram_switch_0_bram_portc_wrdata),
         .douta(blk_mem_gen_1_douta),
-        .doutb(bram_switch_0_BRAM_PORTC_DOUT),
+        .doutb(blk_mem_gen_1_doutb),
         .ena(coherent_average_0_bram_porta_we),
         .wea(coherent_average_0_bram_porta_we),
-        .web(bram_switch_0_BRAM_PORTC_WE));
+        .web(bram_switch_0_bram_portc_we));
   system_bram_switch_0_1 bram_switch_0
-       (.bram_porta_addr(axi_bram_reader_1_BRAM_PORTA_ADDR),
-        .bram_porta_clk(axi_bram_reader_1_BRAM_PORTA_CLK),
-        .bram_porta_rddata(axi_bram_reader_1_BRAM_PORTA_DOUT),
-        .bram_porta_rst(axi_bram_reader_1_BRAM_PORTA_RST),
-        .bram_porta_we(axi_bram_reader_1_BRAM_PORTA_WE[0]),
-        .bram_porta_wrdata(axi_bram_reader_1_BRAM_PORTA_DIN),
-        .bram_portb_addr(coherent_average_0_bram_portb_addr),
-        .bram_portb_clk(coherent_average_0_bram_portb_clk),
+       (.bram_porta_addr(axi_bram_reader_1_bram_porta_addr[14:0]),
+        .bram_porta_clk(axi_bram_reader_1_bram_porta_clk),
+        .bram_porta_rddata(bram_switch_0_bram_porta_rddata),
+        .bram_porta_rst(axi_bram_reader_1_bram_porta_rst),
+        .bram_porta_we(axi_bram_reader_1_bram_porta_we[0]),
+        .bram_porta_wrdata(axi_bram_reader_1_bram_porta_din),
+        .bram_portb_addr(bram_portb_addr_1[14:0]),
+        .bram_portb_clk(bram_portb_clk_1),
         .bram_portb_rddata(bram_switch_0_bram_portb_rddata),
-        .bram_portb_rst(coherent_average_0_bram_portb_rst),
-        .bram_portb_we(coherent_average_0_bram_portb_we),
-        .bram_portb_wrdata(coherent_average_0_bram_portb_wrdata),
-        .bram_portc_addr(bram_switch_0_BRAM_PORTC_ADDR),
-        .bram_portc_clk(bram_switch_0_BRAM_PORTC_CLK),
-        .bram_portc_rddata(bram_switch_0_BRAM_PORTC_DOUT),
-        .bram_portc_we(bram_switch_0_BRAM_PORTC_WE),
-        .bram_portc_wrdata(bram_switch_0_BRAM_PORTC_DIN),
-        .switch(coherent_average_0_finished));
+        .bram_portb_rst(bram_portb_rst_1),
+        .bram_portb_we(bram_portb_we_1),
+        .bram_portb_wrdata(bram_portb_wrdata_1),
+        .bram_portc_addr(bram_switch_0_bram_portc_addr),
+        .bram_portc_clk(bram_switch_0_bram_portc_clk),
+        .bram_portc_rddata(blk_mem_gen_1_doutb),
+        .bram_portc_we(bram_switch_0_bram_portc_we),
+        .bram_portc_wrdata(bram_switch_0_bram_portc_wrdata),
+        .switch(led_o_1));
 endmodule
 
-module BRAM_imp_47SZ6
+module BRAM2_imp_8ITUAE
    (S_AXI_araddr,
     S_AXI_arprot,
     S_AXI_arready,
@@ -347,29 +347,29 @@ module BRAM_imp_47SZ6
   input s00_axi_aresetn;
   input [0:0]wea;
 
-  wire [15:0]axi_bram_reader_1_BRAM_PORTA_ADDR;
-  wire axi_bram_reader_1_BRAM_PORTA_CLK;
-  wire [31:0]axi_bram_reader_1_BRAM_PORTA_DIN;
-  wire [31:0]axi_bram_reader_1_BRAM_PORTA_DOUT;
-  wire axi_bram_reader_1_BRAM_PORTA_RST;
-  wire [3:0]axi_bram_reader_1_BRAM_PORTA_WE;
+  wire [15:0]axi_bram_reader_1_bram_porta_addr;
+  wire axi_bram_reader_1_bram_porta_clk;
+  wire [31:0]axi_bram_reader_1_bram_porta_din;
+  wire axi_bram_reader_1_bram_porta_rst;
+  wire [3:0]axi_bram_reader_1_bram_porta_we;
   wire [31:0]blk_mem_gen_1_douta;
-  wire [15:0]bram_switch_0_BRAM_PORTC_ADDR;
-  wire bram_switch_0_BRAM_PORTC_CLK;
-  wire [31:0]bram_switch_0_BRAM_PORTC_DIN;
-  wire [31:0]bram_switch_0_BRAM_PORTC_DOUT;
-  wire bram_switch_0_BRAM_PORTC_WE;
+  wire [31:0]blk_mem_gen_1_doutb;
+  wire [15:0]bram_portb_addr_1;
+  wire bram_portb_clk_1;
+  wire bram_portb_rst_1;
+  wire bram_portb_we_1;
+  wire [31:0]bram_portb_wrdata_1;
+  wire [31:0]bram_switch_0_bram_porta_rddata;
   wire [31:0]bram_switch_0_bram_portb_rddata;
+  wire [14:0]bram_switch_0_bram_portc_addr;
+  wire bram_switch_0_bram_portc_clk;
+  wire bram_switch_0_bram_portc_we;
+  wire [31:0]bram_switch_0_bram_portc_wrdata;
   wire [15:0]coherent_average_0_bram_porta_addr;
   wire coherent_average_0_bram_porta_clk;
   wire [0:0]coherent_average_0_bram_porta_we;
   wire [31:0]coherent_average_0_bram_porta_wrdata;
-  wire [15:0]coherent_average_0_bram_portb_addr;
-  wire coherent_average_0_bram_portb_clk;
-  wire coherent_average_0_bram_portb_rst;
-  wire coherent_average_0_bram_portb_we;
-  wire [31:0]coherent_average_0_bram_portb_wrdata;
-  wire coherent_average_0_finished;
+  wire led_o_1;
   wire processing_system7_0_FCLK_CLK0;
   wire [31:0]ps7_0_axi_periph_M00_AXI_ARADDR;
   wire [2:0]ps7_0_axi_periph_M00_AXI_ARPROT;
@@ -390,7 +390,7 @@ module BRAM_imp_47SZ6
   wire ps7_0_axi_periph_M00_AXI_WREADY;
   wire [3:0]ps7_0_axi_periph_M00_AXI_WSTRB;
   wire ps7_0_axi_periph_M00_AXI_WVALID;
-  wire rst_ps7_0_125M_peripheral_aresetn;
+  wire s00_axi_aresetn_1;
 
   assign S_AXI_arready = ps7_0_axi_periph_M00_AXI_ARREADY;
   assign S_AXI_awready = ps7_0_axi_periph_M00_AXI_AWREADY;
@@ -400,18 +400,18 @@ module BRAM_imp_47SZ6
   assign S_AXI_rresp[1:0] = ps7_0_axi_periph_M00_AXI_RRESP;
   assign S_AXI_rvalid = ps7_0_axi_periph_M00_AXI_RVALID;
   assign S_AXI_wready = ps7_0_axi_periph_M00_AXI_WREADY;
+  assign bram_portb_addr_1 = bram_portb_addr[15:0];
+  assign bram_portb_clk_1 = bram_portb_clk;
   assign bram_portb_rddata[31:0] = bram_switch_0_bram_portb_rddata;
+  assign bram_portb_rst_1 = bram_portb_rst;
+  assign bram_portb_we_1 = bram_portb_we;
+  assign bram_portb_wrdata_1 = bram_portb_wrdata[31:0];
   assign coherent_average_0_bram_porta_addr = addra[15:0];
   assign coherent_average_0_bram_porta_clk = clka;
   assign coherent_average_0_bram_porta_we = wea[0];
   assign coherent_average_0_bram_porta_wrdata = dina[31:0];
-  assign coherent_average_0_bram_portb_addr = bram_portb_addr[15:0];
-  assign coherent_average_0_bram_portb_clk = bram_portb_clk;
-  assign coherent_average_0_bram_portb_rst = bram_portb_rst;
-  assign coherent_average_0_bram_portb_we = bram_portb_we;
-  assign coherent_average_0_bram_portb_wrdata = bram_portb_wrdata[31:0];
-  assign coherent_average_0_finished = led_o;
   assign douta[31:0] = blk_mem_gen_1_douta;
+  assign led_o_1 = led_o;
   assign processing_system7_0_FCLK_CLK0 = s00_axi_aclk;
   assign ps7_0_axi_periph_M00_AXI_ARADDR = S_AXI_araddr[31:0];
   assign ps7_0_axi_periph_M00_AXI_ARPROT = S_AXI_arprot[2:0];
@@ -424,17 +424,17 @@ module BRAM_imp_47SZ6
   assign ps7_0_axi_periph_M00_AXI_WDATA = S_AXI_wdata[31:0];
   assign ps7_0_axi_periph_M00_AXI_WSTRB = S_AXI_wstrb[3:0];
   assign ps7_0_axi_periph_M00_AXI_WVALID = S_AXI_wvalid;
-  assign rst_ps7_0_125M_peripheral_aresetn = s00_axi_aresetn;
-  system_axi_bram_reader_1_0 axi_bram_reader_1
-       (.bram_porta_addr(axi_bram_reader_1_BRAM_PORTA_ADDR),
-        .bram_porta_clk(axi_bram_reader_1_BRAM_PORTA_CLK),
-        .bram_porta_din(axi_bram_reader_1_BRAM_PORTA_DIN),
-        .bram_porta_dout(axi_bram_reader_1_BRAM_PORTA_DOUT),
-        .bram_porta_rst(axi_bram_reader_1_BRAM_PORTA_RST),
-        .bram_porta_we(axi_bram_reader_1_BRAM_PORTA_WE),
+  assign s00_axi_aresetn_1 = s00_axi_aresetn;
+  system_axi_bram_reader_1_2 axi_bram_reader_1
+       (.bram_porta_addr(axi_bram_reader_1_bram_porta_addr),
+        .bram_porta_clk(axi_bram_reader_1_bram_porta_clk),
+        .bram_porta_din(axi_bram_reader_1_bram_porta_din),
+        .bram_porta_dout(bram_switch_0_bram_porta_rddata),
+        .bram_porta_rst(axi_bram_reader_1_bram_porta_rst),
+        .bram_porta_we(axi_bram_reader_1_bram_porta_we),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_araddr(ps7_0_axi_periph_M00_AXI_ARADDR[17:0]),
-        .s00_axi_aresetn(rst_ps7_0_125M_peripheral_aresetn),
+        .s00_axi_aresetn(s00_axi_aresetn_1),
         .s00_axi_arprot(ps7_0_axi_periph_M00_AXI_ARPROT),
         .s00_axi_arready(ps7_0_axi_periph_M00_AXI_ARREADY),
         .s00_axi_arvalid(ps7_0_axi_periph_M00_AXI_ARVALID),
@@ -453,37 +453,37 @@ module BRAM_imp_47SZ6
         .s00_axi_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s00_axi_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .s00_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
-  system_blk_mem_gen_1_0 blk_mem_gen_1
+  system_blk_mem_gen_1_2 blk_mem_gen_1
        (.addra(coherent_average_0_bram_porta_addr[14:0]),
-        .addrb(bram_switch_0_BRAM_PORTC_ADDR[14:0]),
+        .addrb(bram_switch_0_bram_portc_addr),
         .clka(coherent_average_0_bram_porta_clk),
-        .clkb(bram_switch_0_BRAM_PORTC_CLK),
+        .clkb(bram_switch_0_bram_portc_clk),
         .dina(coherent_average_0_bram_porta_wrdata),
-        .dinb(bram_switch_0_BRAM_PORTC_DIN),
+        .dinb(bram_switch_0_bram_portc_wrdata),
         .douta(blk_mem_gen_1_douta),
-        .doutb(bram_switch_0_BRAM_PORTC_DOUT),
+        .doutb(blk_mem_gen_1_doutb),
         .ena(coherent_average_0_bram_porta_we),
         .wea(coherent_average_0_bram_porta_we),
-        .web(bram_switch_0_BRAM_PORTC_WE));
-  system_bram_switch_0_0 bram_switch_0
-       (.bram_porta_addr(axi_bram_reader_1_BRAM_PORTA_ADDR),
-        .bram_porta_clk(axi_bram_reader_1_BRAM_PORTA_CLK),
-        .bram_porta_rddata(axi_bram_reader_1_BRAM_PORTA_DOUT),
-        .bram_porta_rst(axi_bram_reader_1_BRAM_PORTA_RST),
-        .bram_porta_we(axi_bram_reader_1_BRAM_PORTA_WE[0]),
-        .bram_porta_wrdata(axi_bram_reader_1_BRAM_PORTA_DIN),
-        .bram_portb_addr(coherent_average_0_bram_portb_addr),
-        .bram_portb_clk(coherent_average_0_bram_portb_clk),
+        .web(bram_switch_0_bram_portc_we));
+  system_bram_switch_0_2 bram_switch_0
+       (.bram_porta_addr(axi_bram_reader_1_bram_porta_addr[14:0]),
+        .bram_porta_clk(axi_bram_reader_1_bram_porta_clk),
+        .bram_porta_rddata(bram_switch_0_bram_porta_rddata),
+        .bram_porta_rst(axi_bram_reader_1_bram_porta_rst),
+        .bram_porta_we(axi_bram_reader_1_bram_porta_we[0]),
+        .bram_porta_wrdata(axi_bram_reader_1_bram_porta_din),
+        .bram_portb_addr(bram_portb_addr_1[14:0]),
+        .bram_portb_clk(bram_portb_clk_1),
         .bram_portb_rddata(bram_switch_0_bram_portb_rddata),
-        .bram_portb_rst(coherent_average_0_bram_portb_rst),
-        .bram_portb_we(coherent_average_0_bram_portb_we),
-        .bram_portb_wrdata(coherent_average_0_bram_portb_wrdata),
-        .bram_portc_addr(bram_switch_0_BRAM_PORTC_ADDR),
-        .bram_portc_clk(bram_switch_0_BRAM_PORTC_CLK),
-        .bram_portc_rddata(bram_switch_0_BRAM_PORTC_DOUT),
-        .bram_portc_we(bram_switch_0_BRAM_PORTC_WE),
-        .bram_portc_wrdata(bram_switch_0_BRAM_PORTC_DIN),
-        .switch(coherent_average_0_finished));
+        .bram_portb_rst(bram_portb_rst_1),
+        .bram_portb_we(bram_portb_we_1),
+        .bram_portb_wrdata(bram_portb_wrdata_1),
+        .bram_portc_addr(bram_switch_0_bram_portc_addr),
+        .bram_portc_clk(bram_switch_0_bram_portc_clk),
+        .bram_portc_rddata(blk_mem_gen_1_doutb),
+        .bram_portc_we(bram_switch_0_bram_portc_we),
+        .bram_portc_wrdata(bram_switch_0_bram_portc_wrdata),
+        .switch(led_o_1));
 endmodule
 
 module DAC_imp_F94JA7
@@ -552,8 +552,7 @@ module DAC_imp_F94JA7
 endmodule
 
 module Procesamiento1_imp_1WKXFKW
-   (M_in,
-    N_averaged_samples,
+   (N_averaged_samples,
     N_ca_in,
     bram_porta_addr,
     bram_porta_clk,
@@ -574,10 +573,7 @@ module Procesamiento1_imp_1WKXFKW
     log2_divisor,
     reset_n,
     trigger,
-    trigger_level_in,
-    trigger_mode_in,
     user_reset);
-  input [15:0]M_in;
   input [31:0]N_averaged_samples;
   input [15:0]N_ca_in;
   output [15:0]bram_porta_addr;
@@ -599,8 +595,6 @@ module Procesamiento1_imp_1WKXFKW
   input [31:0]log2_divisor;
   input reset_n;
   input trigger;
-  input [31:0]trigger_level_in;
-  input [3:0]trigger_mode_in;
   input user_reset;
 
   wire [31:0]N_averaged_samples_1;
@@ -681,8 +675,7 @@ module Procesamiento1_imp_1WKXFKW
 endmodule
 
 module Procesamiento_imp_XLRG7U
-   (M_in,
-    N_averaged_samples,
+   (N_averaged_samples,
     N_ca_in,
     bram_porta_addr,
     bram_porta_clk,
@@ -697,17 +690,16 @@ module Procesamiento_imp_XLRG7U
     bram_portb_wrdata,
     clk,
     data,
+    data_out,
+    data_out_valid,
     data_valid,
     enable,
     led_o,
     log2_divisor,
     reset_n,
     trig,
-    trig_externo,
-    trigger_level_in,
-    trigger_mode_in,
+    trigger,
     user_reset);
-  input [15:0]M_in;
   input [31:0]N_averaged_samples;
   input [15:0]N_ca_in;
   output [15:0]bram_porta_addr;
@@ -723,15 +715,15 @@ module Procesamiento_imp_XLRG7U
   output [31:0]bram_portb_wrdata;
   input clk;
   input [31:0]data;
+  output [31:0]data_out;
+  output data_out_valid;
   input data_valid;
   input enable;
   output led_o;
   input [31:0]log2_divisor;
   input reset_n;
   output trig;
-  input trig_externo;
-  input [31:0]trigger_level_in;
-  input [3:0]trigger_mode_in;
+  input trigger;
   input user_reset;
 
   wire [31:0]N_averaged_samples_1;
@@ -756,11 +748,7 @@ module Procesamiento_imp_XLRG7U
   wire promedio_lineal_0_data_out_valid;
   wire rst_Dout;
   wire rst_ps7_0_125M_peripheral_aresetn;
-  wire trig_externo_1;
-  wire [31:0]trigger_level_in_1;
-  wire [3:0]trigger_mode_in_1;
-  wire trigger_simulator_0_trig;
-  wire [15:0]uP_control_Dout4;
+  wire trigger_1;
 
   assign N_averaged_samples_1 = N_averaged_samples[31:0];
   assign N_ca_in_1 = N_ca_in[15:0];
@@ -777,16 +765,14 @@ module Procesamiento_imp_XLRG7U
   assign bram_portb_we = coherent_average_0_bram_portb_we;
   assign bram_portb_wrdata[31:0] = coherent_average_0_bram_portb_wrdata;
   assign data_1 = data[31:0];
+  assign data_out[31:0] = promedio_lineal_0_data_out;
+  assign data_out_valid = promedio_lineal_0_data_out_valid;
   assign data_valid_1 = data_valid;
   assign led_o = coherent_average_0_finished;
   assign log2_divisor_1 = log2_divisor[31:0];
   assign rst_Dout = user_reset;
   assign rst_ps7_0_125M_peripheral_aresetn = reset_n;
-  assign trig = trigger_simulator_0_trig;
-  assign trig_externo_1 = trig_externo;
-  assign trigger_level_in_1 = trigger_level_in[31:0];
-  assign trigger_mode_in_1 = trigger_mode_in[3:0];
-  assign uP_control_Dout4 = M_in[15:0];
+  assign trigger_1 = trigger;
   system_coherent_average_0_0 coherent_average_0
        (.N_ca_in({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,N_ca_in_1}),
         .N_prom_lineal_in(N_averaged_samples_1),
@@ -806,7 +792,7 @@ module Procesamiento_imp_XLRG7U
         .data_valid(promedio_lineal_0_data_out_valid),
         .finished(coherent_average_0_finished),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
-        .trigger(trigger_simulator_0_trig),
+        .trigger(trigger_1),
         .user_reset(rst_Dout));
   system_promedio_lineal_0_0 promedio_lineal_0
        (.N_averaged_samples(N_averaged_samples_1),
@@ -817,19 +803,6 @@ module Procesamiento_imp_XLRG7U
         .data_valid(data_valid_1),
         .log2_divisor(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn));
-  system_trigger_simulator_0_0 trigger_simulator_0
-       (.K_sobremuestreo_in(N_averaged_samples_1),
-        .M_in({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,uP_control_Dout4}),
-        .clk(axis_red_pitaya_adc_0_adc_clk),
-        .data_in(promedio_lineal_0_data_out),
-        .data_valid(promedio_lineal_0_data_out_valid),
-        .log2_div_in(log2_divisor_1),
-        .reset_n(rst_ps7_0_125M_peripheral_aresetn),
-        .trig(trigger_simulator_0_trig),
-        .trig_externo(trig_externo_1),
-        .trigger_level_in(trigger_level_in_1),
-        .trigger_mode_in(trigger_mode_in_1),
-        .user_reset(rst_Dout));
 endmodule
 
 module m00_couplers_imp_I10L1P
@@ -2221,7 +2194,7 @@ module s00_couplers_imp_X5C1SS
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=38,numNonXlnxBlks=7,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=9,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=38,numNonXlnxBlks=5,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=9,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2310,9 +2283,8 @@ module system
   wire ADC_M_AXIS_PORT1_tvalid;
   wire ADC_adc_csn_o;
   wire [31:0]BRAM1_bram_portb_rddata;
-  wire [31:0]BRAM_bram_portb_rddata;
-  wire [31:0]BRAM_douta;
   wire [31:0]N_averaged_samples_1;
+  wire [7:0]Net;
   wire [31:0]Net1;
   wire Procesamiento1_bram_porta_clk;
   wire [15:0]Procesamiento1_bram_portb_addr;
@@ -2320,6 +2292,8 @@ module system
   wire Procesamiento1_bram_portb_rst;
   wire Procesamiento1_bram_portb_we;
   wire [31:0]Procesamiento1_bram_portb_wrdata;
+  wire [31:0]Procesamiento_data_out;
+  wire Procesamiento_data_out_valid;
   wire Procesamiento_led_o;
   wire [31:0]S_AXI_1_ARADDR;
   wire [2:0]S_AXI_1_ARPROT;
@@ -2353,8 +2327,10 @@ module system
   wire axis_red_pitaya_dac_0_dac_sel;
   wire axis_red_pitaya_dac_0_dac_wrt;
   wire [31:0]bram_porta_rddata_1;
+  wire [31:0]bram_porta_rddata_2;
   wire [15:0]bram_portb_addr_1;
   wire bram_portb_clk_1;
+  wire [31:0]bram_portb_rddata_1;
   wire bram_portb_rst_1;
   wire bram_portb_we_1;
   wire [31:0]bram_portb_wrdata_1;
@@ -2390,25 +2366,6 @@ module system
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
-  wire [31:0]ps7_0_axi_periph_M00_AXI_ARADDR;
-  wire [2:0]ps7_0_axi_periph_M00_AXI_ARPROT;
-  wire ps7_0_axi_periph_M00_AXI_ARREADY;
-  wire ps7_0_axi_periph_M00_AXI_ARVALID;
-  wire [31:0]ps7_0_axi_periph_M00_AXI_AWADDR;
-  wire [2:0]ps7_0_axi_periph_M00_AXI_AWPROT;
-  wire ps7_0_axi_periph_M00_AXI_AWREADY;
-  wire ps7_0_axi_periph_M00_AXI_AWVALID;
-  wire ps7_0_axi_periph_M00_AXI_BREADY;
-  wire [1:0]ps7_0_axi_periph_M00_AXI_BRESP;
-  wire ps7_0_axi_periph_M00_AXI_BVALID;
-  wire [31:0]ps7_0_axi_periph_M00_AXI_RDATA;
-  wire ps7_0_axi_periph_M00_AXI_RREADY;
-  wire [1:0]ps7_0_axi_periph_M00_AXI_RRESP;
-  wire ps7_0_axi_periph_M00_AXI_RVALID;
-  wire [31:0]ps7_0_axi_periph_M00_AXI_WDATA;
-  wire ps7_0_axi_periph_M00_AXI_WREADY;
-  wire [3:0]ps7_0_axi_periph_M00_AXI_WSTRB;
-  wire ps7_0_axi_periph_M00_AXI_WVALID;
   wire [31:0]ps7_0_axi_periph_M01_AXI_ARADDR;
   wire [0:0]ps7_0_axi_periph_M01_AXI_ARREADY;
   wire [0:0]ps7_0_axi_periph_M01_AXI_ARVALID;
@@ -2462,10 +2419,26 @@ module system
   wire [0:0]ps7_0_axi_periph_M03_AXI_WVALID;
   wire [0:0]rst_Dout;
   wire [0:0]rst_ps7_0_125M_peripheral_aresetn;
-  wire [7:0]trig_externo_1;
-  wire trigger_1;
-  wire [31:0]trigger_level_in_1;
-  wire [3:0]trigger_mode_in_1;
+  wire trigger_simulator_1_trig;
+  wire [31:0]uP_M00_AXI_ARADDR;
+  wire [2:0]uP_M00_AXI_ARPROT;
+  wire uP_M00_AXI_ARREADY;
+  wire uP_M00_AXI_ARVALID;
+  wire [31:0]uP_M00_AXI_AWADDR;
+  wire [2:0]uP_M00_AXI_AWPROT;
+  wire uP_M00_AXI_AWREADY;
+  wire uP_M00_AXI_AWVALID;
+  wire uP_M00_AXI_BREADY;
+  wire [1:0]uP_M00_AXI_BRESP;
+  wire uP_M00_AXI_BVALID;
+  wire [31:0]uP_M00_AXI_RDATA;
+  wire uP_M00_AXI_RREADY;
+  wire [1:0]uP_M00_AXI_RRESP;
+  wire uP_M00_AXI_RVALID;
+  wire [31:0]uP_M00_AXI_WDATA;
+  wire uP_M00_AXI_WREADY;
+  wire [3:0]uP_M00_AXI_WSTRB;
+  wire uP_M00_AXI_WVALID;
   wire [31:0]uP_M04_AXI_ARADDR;
   wire [0:0]uP_M04_AXI_ARREADY;
   wire [0:0]uP_M04_AXI_ARVALID;
@@ -2520,6 +2493,8 @@ module system
   wire [15:0]uP_control_Dout;
   wire [0:0]uP_control_Dout2;
   wire [15:0]uP_control_Dout4;
+  wire [3:0]uP_control_Dout5;
+  wire [31:0]uP_control_Dout6;
   wire [31:0]uP_control_gpio_io_o1;
   wire [1:0]util_ds_buf_1_IBUF_OUT;
   wire [1:0]util_ds_buf_2_OBUF_DS_N;
@@ -2553,40 +2528,6 @@ module system
         .adc_csn_o(ADC_adc_csn_o),
         .adc_dat_a_i(adc_dat_a_i_1),
         .adc_dat_b_i(adc_dat_b_i_1));
-  BRAM_imp_47SZ6 BRAM
-       (.S_AXI_araddr(ps7_0_axi_periph_M00_AXI_ARADDR),
-        .S_AXI_arprot(ps7_0_axi_periph_M00_AXI_ARPROT),
-        .S_AXI_arready(ps7_0_axi_periph_M00_AXI_ARREADY),
-        .S_AXI_arvalid(ps7_0_axi_periph_M00_AXI_ARVALID),
-        .S_AXI_awaddr(ps7_0_axi_periph_M00_AXI_AWADDR),
-        .S_AXI_awprot(ps7_0_axi_periph_M00_AXI_AWPROT),
-        .S_AXI_awready(ps7_0_axi_periph_M00_AXI_AWREADY),
-        .S_AXI_awvalid(ps7_0_axi_periph_M00_AXI_AWVALID),
-        .S_AXI_bready(ps7_0_axi_periph_M00_AXI_BREADY),
-        .S_AXI_bresp(ps7_0_axi_periph_M00_AXI_BRESP),
-        .S_AXI_bvalid(ps7_0_axi_periph_M00_AXI_BVALID),
-        .S_AXI_rdata(ps7_0_axi_periph_M00_AXI_RDATA),
-        .S_AXI_rready(ps7_0_axi_periph_M00_AXI_RREADY),
-        .S_AXI_rresp(ps7_0_axi_periph_M00_AXI_RRESP),
-        .S_AXI_rvalid(ps7_0_axi_periph_M00_AXI_RVALID),
-        .S_AXI_wdata(ps7_0_axi_periph_M00_AXI_WDATA),
-        .S_AXI_wready(ps7_0_axi_periph_M00_AXI_WREADY),
-        .S_AXI_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
-        .S_AXI_wvalid(ps7_0_axi_periph_M00_AXI_WVALID),
-        .addra(addra_1),
-        .bram_portb_addr(bram_portb_addr_1),
-        .bram_portb_clk(bram_portb_clk_1),
-        .bram_portb_rddata(BRAM_bram_portb_rddata),
-        .bram_portb_rst(bram_portb_rst_1),
-        .bram_portb_we(bram_portb_we_1),
-        .bram_portb_wrdata(bram_portb_wrdata_1),
-        .clka(clka_1),
-        .dina(dina_1),
-        .douta(BRAM_douta),
-        .led_o(Procesamiento_led_o),
-        .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
-        .s00_axi_aresetn(rst_ps7_0_125M_peripheral_aresetn),
-        .wea(wea_1));
   BRAM1_imp_D57AIZ BRAM1
        (.S_AXI_araddr(S_AXI_1_ARADDR),
         .S_AXI_arprot(S_AXI_1_ARPROT),
@@ -2621,6 +2562,40 @@ module system
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_aresetn(rst_ps7_0_125M_peripheral_aresetn),
         .wea(wea_2));
+  BRAM2_imp_8ITUAE BRAM2
+       (.S_AXI_araddr(uP_M00_AXI_ARADDR),
+        .S_AXI_arprot(uP_M00_AXI_ARPROT),
+        .S_AXI_arready(uP_M00_AXI_ARREADY),
+        .S_AXI_arvalid(uP_M00_AXI_ARVALID),
+        .S_AXI_awaddr(uP_M00_AXI_AWADDR),
+        .S_AXI_awprot(uP_M00_AXI_AWPROT),
+        .S_AXI_awready(uP_M00_AXI_AWREADY),
+        .S_AXI_awvalid(uP_M00_AXI_AWVALID),
+        .S_AXI_bready(uP_M00_AXI_BREADY),
+        .S_AXI_bresp(uP_M00_AXI_BRESP),
+        .S_AXI_bvalid(uP_M00_AXI_BVALID),
+        .S_AXI_rdata(uP_M00_AXI_RDATA),
+        .S_AXI_rready(uP_M00_AXI_RREADY),
+        .S_AXI_rresp(uP_M00_AXI_RRESP),
+        .S_AXI_rvalid(uP_M00_AXI_RVALID),
+        .S_AXI_wdata(uP_M00_AXI_WDATA),
+        .S_AXI_wready(uP_M00_AXI_WREADY),
+        .S_AXI_wstrb(uP_M00_AXI_WSTRB),
+        .S_AXI_wvalid(uP_M00_AXI_WVALID),
+        .addra(addra_1),
+        .bram_portb_addr(bram_portb_addr_1),
+        .bram_portb_clk(bram_portb_clk_1),
+        .bram_portb_rddata(bram_portb_rddata_1),
+        .bram_portb_rst(bram_portb_rst_1),
+        .bram_portb_we(bram_portb_we_1),
+        .bram_portb_wrdata(bram_portb_wrdata_1),
+        .clka(clka_1),
+        .dina(dina_1),
+        .douta(bram_porta_rddata_2),
+        .led_o(Procesamiento_led_o),
+        .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
+        .s00_axi_aresetn(rst_ps7_0_125M_peripheral_aresetn),
+        .wea(wea_1));
   DAC_imp_F94JA7 DAC
        (.aclk(axis_red_pitaya_adc_0_adc_clk),
         .cfg_data(Net1),
@@ -2630,35 +2605,32 @@ module system
         .dac_sel_o(axis_red_pitaya_dac_0_dac_sel),
         .dac_wrt_o(axis_red_pitaya_dac_0_dac_wrt));
   Procesamiento_imp_XLRG7U Procesamiento
-       (.M_in(uP_control_Dout4),
-        .N_averaged_samples(N_averaged_samples_1),
+       (.N_averaged_samples(N_averaged_samples_1),
         .N_ca_in(uP_control_Dout),
         .bram_porta_addr(addra_1),
         .bram_porta_clk(clka_1),
-        .bram_porta_rddata(BRAM_douta),
+        .bram_porta_rddata(bram_porta_rddata_2),
         .bram_porta_we(wea_1),
         .bram_porta_wrdata(dina_1),
         .bram_portb_addr(bram_portb_addr_1),
         .bram_portb_clk(bram_portb_clk_1),
-        .bram_portb_rddata(BRAM_bram_portb_rddata),
+        .bram_portb_rddata(bram_portb_rddata_1),
         .bram_portb_rst(bram_portb_rst_1),
         .bram_portb_we(bram_portb_we_1),
         .bram_portb_wrdata(bram_portb_wrdata_1),
         .clk(axis_red_pitaya_adc_0_adc_clk),
         .data(ADC_M_AXIS_PORT1_tdata),
+        .data_out(Procesamiento_data_out),
+        .data_out_valid(Procesamiento_data_out_valid),
         .data_valid(ADC_M_AXIS_PORT1_tvalid),
         .enable(uP_control_Dout2),
         .led_o(Procesamiento_led_o),
         .log2_divisor(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
-        .trig(trigger_1),
-        .trig_externo(exp_n_tri_io[0]),
-        .trigger_level_in(trigger_level_in_1),
-        .trigger_mode_in(trigger_mode_in_1),
+        .trigger(trigger_simulator_1_trig),
         .user_reset(rst_Dout));
   Procesamiento1_imp_1WKXFKW Procesamiento1
-       (.M_in(uP_control_Dout4),
-        .N_averaged_samples(N_averaged_samples_1),
+       (.N_averaged_samples(N_averaged_samples_1),
         .N_ca_in(uP_control_Dout),
         .bram_porta_addr(addra_2),
         .bram_porta_clk(Procesamiento1_bram_porta_clk),
@@ -2678,9 +2650,7 @@ module system
         .led_o(led_o_1),
         .log2_divisor(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
-        .trigger(trigger_1),
-        .trigger_level_in(trigger_level_in_1),
-        .trigger_mode_in(trigger_mode_in_1),
+        .trigger(trigger_simulator_1_trig),
         .user_reset(rst_Dout));
   system_level_detector_0_0 level_detector_0
        (.clk(axis_red_pitaya_adc_0_adc_clk),
@@ -2689,6 +2659,19 @@ module system
         .level_detected(level_detector_0_level_detected),
         .level_to_detect(uP_control_gpio_io_o1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn));
+  system_trigger_simulator_0_0 trigger_simulator_0
+       (.K_sobremuestreo_in(N_averaged_samples_1),
+        .M_in({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,uP_control_Dout4}),
+        .clk(axis_red_pitaya_adc_0_adc_clk),
+        .data_in(Procesamiento_data_out),
+        .data_valid(Procesamiento_data_out_valid),
+        .log2_div_in(log2_divisor_1),
+        .reset_n(rst_ps7_0_125M_peripheral_aresetn),
+        .trig(trigger_simulator_1_trig),
+        .trig_externo(exp_n_tri_io[0]),
+        .trigger_level_in(uP_control_Dout6),
+        .trigger_mode_in(uP_control_Dout5),
+        .user_reset(rst_Dout));
   uP_imp_1ANG6V uP
        (.DDR_addr(DDR_addr[14:0]),
         .DDR_ba(DDR_ba[2:0]),
@@ -2712,25 +2695,25 @@ module system
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .M00_AXI_araddr(ps7_0_axi_periph_M00_AXI_ARADDR),
-        .M00_AXI_arprot(ps7_0_axi_periph_M00_AXI_ARPROT),
-        .M00_AXI_arready(ps7_0_axi_periph_M00_AXI_ARREADY),
-        .M00_AXI_arvalid(ps7_0_axi_periph_M00_AXI_ARVALID),
-        .M00_AXI_awaddr(ps7_0_axi_periph_M00_AXI_AWADDR),
-        .M00_AXI_awprot(ps7_0_axi_periph_M00_AXI_AWPROT),
-        .M00_AXI_awready(ps7_0_axi_periph_M00_AXI_AWREADY),
-        .M00_AXI_awvalid(ps7_0_axi_periph_M00_AXI_AWVALID),
-        .M00_AXI_bready(ps7_0_axi_periph_M00_AXI_BREADY),
-        .M00_AXI_bresp(ps7_0_axi_periph_M00_AXI_BRESP),
-        .M00_AXI_bvalid(ps7_0_axi_periph_M00_AXI_BVALID),
-        .M00_AXI_rdata(ps7_0_axi_periph_M00_AXI_RDATA),
-        .M00_AXI_rready(ps7_0_axi_periph_M00_AXI_RREADY),
-        .M00_AXI_rresp(ps7_0_axi_periph_M00_AXI_RRESP),
-        .M00_AXI_rvalid(ps7_0_axi_periph_M00_AXI_RVALID),
-        .M00_AXI_wdata(ps7_0_axi_periph_M00_AXI_WDATA),
-        .M00_AXI_wready(ps7_0_axi_periph_M00_AXI_WREADY),
-        .M00_AXI_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
-        .M00_AXI_wvalid(ps7_0_axi_periph_M00_AXI_WVALID),
+        .M00_AXI_araddr(uP_M00_AXI_ARADDR),
+        .M00_AXI_arprot(uP_M00_AXI_ARPROT),
+        .M00_AXI_arready(uP_M00_AXI_ARREADY),
+        .M00_AXI_arvalid(uP_M00_AXI_ARVALID),
+        .M00_AXI_awaddr(uP_M00_AXI_AWADDR),
+        .M00_AXI_awprot(uP_M00_AXI_AWPROT),
+        .M00_AXI_awready(uP_M00_AXI_AWREADY),
+        .M00_AXI_awvalid(uP_M00_AXI_AWVALID),
+        .M00_AXI_bready(uP_M00_AXI_BREADY),
+        .M00_AXI_bresp(uP_M00_AXI_BRESP),
+        .M00_AXI_bvalid(uP_M00_AXI_BVALID),
+        .M00_AXI_rdata(uP_M00_AXI_RDATA),
+        .M00_AXI_rready(uP_M00_AXI_RREADY),
+        .M00_AXI_rresp(uP_M00_AXI_RRESP),
+        .M00_AXI_rvalid(uP_M00_AXI_RVALID),
+        .M00_AXI_wdata(uP_M00_AXI_WDATA),
+        .M00_AXI_wready(uP_M00_AXI_WREADY),
+        .M00_AXI_wstrb(uP_M00_AXI_WSTRB),
+        .M00_AXI_wvalid(uP_M00_AXI_WVALID),
         .M01_AXI_araddr(ps7_0_axi_periph_M01_AXI_ARADDR),
         .M01_AXI_arready(ps7_0_axi_periph_M01_AXI_ARREADY),
         .M01_AXI_arvalid(ps7_0_axi_periph_M01_AXI_ARVALID),
@@ -2859,8 +2842,8 @@ module system
         .Dout2(uP_control_Dout2),
         .Dout3(N_averaged_samples_1),
         .Dout4(uP_control_Dout4),
-        .Dout5(trigger_mode_in_1),
-        .Dout6(trigger_level_in_1),
+        .Dout5(uP_control_Dout5),
+        .Dout6(uP_control_Dout6),
         .Dout7(log2_divisor_1),
         .S_AXI1_araddr(ps7_0_axi_periph_M03_AXI_ARADDR),
         .S_AXI1_arready(ps7_0_axi_periph_M03_AXI_ARREADY),

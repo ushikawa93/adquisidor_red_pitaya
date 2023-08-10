@@ -24,4 +24,4 @@ ssh root@$ip <<EOF
 EOF
 
 
-read -p "Presione cualquier tecla para salir..."
+#read -p "Presione cualquier tecla para salir..."

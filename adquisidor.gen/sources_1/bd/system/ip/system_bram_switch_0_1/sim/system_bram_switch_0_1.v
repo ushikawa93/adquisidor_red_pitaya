@@ -47,8 +47,8 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: anton-potocnik:user:bram_switch:1.0
-// IP Revision: 1
+// IP VLNV: xilinx.com:user:bram_switch:1.0
+// IP Revision: 5
 
 `timescale 1ns/1ps
 
@@ -77,55 +77,40 @@ module system_bram_switch_0_1 (
 );
 
 input wire switch;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_porta_clk, ASSOCIATED_RESET bram_porta_rst, ASSOCIATED_BUSIF BRAM_PORTA, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_porta_clk CLK, xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta CLK" *)
 input wire bram_porta_clk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_porta_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_porta_rst RST, xilinx.com:interface:bram:1.0 BRAM_PORTA RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta RST" *)
 input wire bram_porta_rst;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *)
-input wire [15 : 0] bram_porta_addr;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta ADDR" *)
+input wire [14 : 0] bram_porta_addr;
 input wire [31 : 0] bram_porta_wrdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *)
 output wire [31 : 0] bram_porta_rddata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA WE" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta WE" *)
 input wire bram_porta_we;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_portb_clk, ASSOCIATED_RESET bram_portb_rst, ASSOCIATED_BUSIF BRAM_PORTB, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_coherent_average_0_0_bram_portb_clk, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_portb_clk CLK, xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb CLK" *)
 input wire bram_portb_clk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_portb_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_portb_rst RST, xilinx.com:interface:bram:1.0 BRAM_PORTB RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb RST" *)
 input wire bram_portb_rst;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB ADDR" *)
-input wire [15 : 0] bram_portb_addr;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DIN" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb ADDR" *)
+input wire [14 : 0] bram_portb_addr;
 input wire [31 : 0] bram_portb_wrdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT" *)
 output wire [31 : 0] bram_portb_rddata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB WE" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb WE" *)
 input wire bram_portb_we;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_portc_clk, ASSOCIATED_RESET bram_portc_rst, ASSOCIATED_BUSIF BRAM_PORTB, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_portc_clk CLK, xilinx.com:interface:bram:1.0 BRAM_PORTC CLK" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portc CLK" *)
 output wire bram_portc_clk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_portc_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_portc_rst RST, xilinx.com:interface:bram:1.0 BRAM_PORTC RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portc RST" *)
 output wire bram_portc_rst;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTC ADDR" *)
-output wire [15 : 0] bram_portc_addr;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTC DIN" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portc ADDR" *)
+output wire [14 : 0] bram_portc_addr;
 output wire [31 : 0] bram_portc_wrdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTC DOUT" *)
 input wire [31 : 0] bram_portc_rddata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTC, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTC WE" *)
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portc WE" *)
 output wire bram_portc_we;
 
   bram_switch #(
     .BRAM_DATA_WIDTH(32),
-    .BRAM_ADDR_WIDTH(16)
+    .BRAM_ADDR_WIDTH(15)
   ) inst (
     .switch(switch),
     .bram_porta_clk(bram_porta_clk),

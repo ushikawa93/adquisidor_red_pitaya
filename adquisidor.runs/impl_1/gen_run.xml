@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1691514413">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1691705238">
   <File Type="ROUTE-PWR" Name="system_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="BITSTR-MMI" Name="system_wrapper.mmi"/>
@@ -108,14 +108,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/trigger_simulator.v">
+    <File Path="$PSRCDIR/sources_1/imports/my_cores/level_detector.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/level_detector.v">
+    <File Path="$PSRCDIR/sources_1/imports/my_cores/trigger_simulator.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -184,19 +184,20 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../../Led_blink_custom/cfg/clocks.xdc">
+    <File Path="$PPRDIR/cfg/clocks.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../Led_blink_custom/cfg/ports.xdc">
+    <File Path="$PPRDIR/cfg/ports.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PPRDIR/cfg/ports.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
@@ -217,7 +218,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2022"/>
+    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2022">
+      <Desc>To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)</Desc>
+    </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -237,11 +240,12 @@
     </Step>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_promedio_lineal_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_level_detector_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_blk_mem_gen_1_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_promedio_lineal_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_bram_switch_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_coherent_average_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_promedio_lineal_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_coherent_average_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_bram_switch_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_blk_mem_gen_1_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_trigger_simulator_0_0"/>
 </GenRun>

@@ -91,7 +91,9 @@ public:
         ip = ip_;
         num_archivo = 0;
         archivo_destino_base = "test";
-        adc_threshold = 10000;  // Lo inicializo en un valor alto
+        adc_threshold = 8191;  // Lo inicializo en un valor alto
+        setThreshold(adc_threshold);
+        system("cls");
     }
 
     void set_bitstream_in_fpga()
@@ -276,7 +278,7 @@ public:
 
 int main()
 {
-    string ip = "169.254.172.188";
+    string ip = "192.168.1.100";
     int frec_obj = 10;
     int ciclos_promediados = 1;
 
@@ -305,14 +307,14 @@ int main()
             adquisidor.set_bitstream_in_fpga();
             break;}
         case 2:{
-            cout << "Temporalmente deshabilitado..." << endl; /*
+            cout << "Temporalmente deshabilitado..." << endl;
             int value;
             cout << "Ingrese el valor deseado en cuentas [-8192 a 8192]" << endl;
             cin >> value;
             if(!(adquisidor.setThreshold(value))){
                 cout << "El valor ingresado no es valido" << endl;
             }
-            fflush(stdin);getchar();*/
+            fflush(stdin);getchar();
 
             fflush(stdin);
             getchar();

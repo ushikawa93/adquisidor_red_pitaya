@@ -48,7 +48,7 @@
         "log2_div_in": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "trigger_mode_in": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
         "trigger_level_in": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
-        "trig_externo": [ { "direction": "in" } ],
+        "trig_externo": [ { "direction": "inout" } ],
         "trig": [ { "direction": "out" } ]
       },
       "interfaces": {

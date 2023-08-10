@@ -1,0 +1,76 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Aug  8 13:42:19 2023
+# Process ID: 15288
+# Current directory: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7676 C:\Users\MatiOliva\Documents\04-RedPitaya\adquisidor\adquisidor_red_pitaya\adquisidor.xpr
+# Log file: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/vivado.log
+# Journal file: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya\vivado.jou
+# Running On: DESKTOP-BRUHM76, OS: Windows, CPU Frequency: 3912 MHz, CPU Physical cores: 2, Host memory: 17041 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.xpr
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
+update_compile_order -fileset sources_1
+delete_bd_objs [get_bd_nets uP_control/Net5]
+connect_bd_net [get_bd_pins uP_control/Trigger/gpio_io_o] [get_bd_pins uP_control/trigger_mode/Din]
+connect_bd_net [get_bd_pins uP_control/Trigger/gpio_io_i] [get_bd_pins uP_control/Trigger/gpio_io_o]
+connect_bd_net [get_bd_pins uP_control/Trigger/gpio2_io_i] [get_bd_pins uP_control/trigger_level/Din]
+connect_bd_net [get_bd_pins uP_control/Trigger/gpio2_io_o] [get_bd_pins uP_control/Trigger/gpio2_io_i]
+startgroup
+set_property CONFIG.DIN_TO {0} [get_bd_cells uP_control/trigger_level]
+endgroup
+startgroup
+set_property -dict [list \
+  CONFIG.DIN_FROM {3} \
+  CONFIG.DIN_WIDTH {32} \
+] [get_bd_cells uP_control/trigger_mode]
+endgroup
+update_module_reference system_trigger_simulator_0_0
+copy_bd_objs /  [get_bd_cells {uP_control/Trigger}]
+set_property name Level_detector [get_bd_cells Trigger]
+set_property name Level_detect [get_bd_cells Level_detector]
+set_property location {1 134 370} [get_bd_cells Level_detect]
+set_property location {1 77 -102} [get_bd_cells Level_detect]
+set_property location {2 873 329} [get_bd_cells Level_detect]
+move_bd_cells [get_bd_cells uP_control] [get_bd_cells Level_detect]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/uP/processing_system7_0/FCLK_CLK0 (125 MHz)} Clk_slave {Auto} Clk_xbar {/uP/processing_system7_0/FCLK_CLK0 (125 MHz)} Master {/uP/processing_system7_0/M_AXI_GP0} Slave {/uP_control/Level_detect/S_AXI} ddr_seg {Auto} intc_ip {/uP/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins uP_control/Level_detect/S_AXI]
+close [ open C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/new/level_detector.v w ]
+add_files C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/new/level_detector.v
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference level_detector level_detector_0
+set_property location {6 4496 -2638} [get_bd_cells level_detector_0]
+set_property location {6 4621 -1667} [get_bd_cells level_detector_0]
+set_property location {5 4145 -1412} [get_bd_cells level_detector_0]
+set_property location {2 1075 836} [get_bd_cells level_detector_0]
+set_property location {3 2187 1435} [get_bd_cells level_detector_0]
+connect_bd_net [get_bd_pins level_detector_0/clk] [get_bd_pins ADC/adc_csn_o]
+connect_bd_net [get_bd_pins level_detector_0/reset_n] [get_bd_pins ADC/adc_csn_o]
+undo
+connect_bd_net [get_bd_pins level_detector_0/reset_n] [get_bd_pins uP/S00_ARESETN]
+connect_bd_net [get_bd_pins level_detector_0/level_to_detect] [get_bd_pins uP_control/Level_detect/gpio_io_o]
+connect_bd_net [get_bd_pins uP_control/Level_detect/gpio_io_i] [get_bd_pins uP_control/Level_detect/gpio_io_o]
+connect_bd_net [get_bd_pins level_detector_0/data_in_valid] [get_bd_pins ADC/M_AXIS_PORT1_tvalid]
+connect_bd_net [get_bd_pins level_detector_0/data_in] [get_bd_pins ADC/M_AXIS_PORT1_tdata]
+connect_bd_net [get_bd_ports led_o] [get_bd_pins level_detector_0/level_detected]
+save_bd_design
+set_property location {4822 1470} [get_bd_ports dac_wrt_o]
+undo
+update_compile_order -fileset sources_1
+set_property location {4792 1344} [get_bd_ports dac_wrt_o]
+undo
+set_property location {4804 229} [get_bd_ports led_o]
+set_property location {4792 1329} [get_bd_ports led_o]
+set_property location {4785 1403} [get_bd_ports led_o]
+delete_bd_objs [get_bd_nets axis_red_pitaya_adc_0_adc_csn]
+connect_bd_net [get_bd_ports adc_csn_o] [get_bd_pins ADC/adc_csn_o]
+connect_bd_net [get_bd_pins level_detector_0/clk] [get_bd_pins ADC/adc_clk]
+save_bd_design
+reset_run synth_1
+reset_run system_xbar_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_run impl_1
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}

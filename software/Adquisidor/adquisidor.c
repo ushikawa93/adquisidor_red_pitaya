@@ -158,22 +158,22 @@ int main(int argc, char **argv)
 	// por algun motivo sino se leen mal...
 	uint32_t discard;
 	int i; 		
-	int32_t reads_chA [M];	
-	int32_t reads_chB [M];
+	int32_t reads_chA [M-1];	
+	int32_t reads_chB [M-1];
 	
-	for(i=0;i<M;i++)
+	for(i=1;i<M;i++)
 	{
 		discard = *((int32_t *)(cfg+ DATA_CH_A_ADDRESS - START_ADDRESS + 4*i ));
-		reads_chA[i] = *((int32_t *)(cfg + DATA_CH_A_ADDRESS - START_ADDRESS + 4*i ));
+		reads_chA[i-1] = *((int32_t *)(cfg + DATA_CH_A_ADDRESS - START_ADDRESS + 4*i ));
 	}	
 	
-	for(i=0;i<M;i++)
+	for(i=1;i<M;i++)
 	{
 		discard = *((int32_t *)(cfg+ DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
-		reads_chB[i] = *((int32_t *)(cfg + DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
+		reads_chB[i-1] = *((int32_t *)(cfg + DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
 	}	
 	
-	escribirArchivo(reads_chA,reads_chB,M,nombreArchivo,(float)125000000/K_sobremuestreo,N_promC,K_sobremuestreo,custom_pow(2,log2_divisor));
+	escribirArchivo(reads_chA,reads_chB,M-1,nombreArchivo,(float)125000000/K_sobremuestreo,N_promC,K_sobremuestreo,custom_pow(2,log2_divisor));
     
     munmap(cfg, sysconf(_SC_PAGESIZE));
 

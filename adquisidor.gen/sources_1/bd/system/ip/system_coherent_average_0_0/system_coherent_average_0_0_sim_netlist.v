@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Aug  2 16:08:38 2023
+// Date        : Wed Aug  2 16:08:37 2023
 // Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_coherent_average_0_0/system_coherent_average_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_coherent_average_0_0 -prefix
+//               system_coherent_average_0_0_ system_coherent_average_0_0_sim_netlist.v
 // Design      : system_coherent_average_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,131 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_coherent_average_0_0,coherent_average,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "coherent_average,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module system_coherent_average_0_0
-   (clk,
-    reset_n,
-    user_reset,
-    trigger,
-    data,
-    data_valid,
-    finished,
-    N_ca_in,
-    N_prom_lineal_in,
-    bram_porta_clk,
-    bram_porta_rst,
-    bram_porta_addr,
-    bram_porta_wrdata,
-    bram_porta_rddata,
-    bram_porta_we,
-    bram_portb_clk,
-    bram_portb_rst,
-    bram_portb_addr,
-    bram_portb_wrdata,
-    bram_portb_rddata,
-    bram_portb_we);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset_n;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 user_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME user_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input user_reset;
-  input trigger;
-  input [31:0]data;
-  input data_valid;
-  output finished;
-  input [31:0]N_ca_in;
-  input [31:0]N_prom_lineal_in;
-  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta CLK" *) output bram_porta_clk;
-  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta RST" *) output bram_porta_rst;
-  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta ADDR" *) output [15:0]bram_porta_addr;
-  output [31:0]bram_porta_wrdata;
-  input [31:0]bram_porta_rddata;
-  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta WE" *) output bram_porta_we;
-  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb CLK" *) output bram_portb_clk;
-  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb RST" *) output bram_portb_rst;
-  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb ADDR" *) output [15:0]bram_portb_addr;
-  output [31:0]bram_portb_wrdata;
-  input [31:0]bram_portb_rddata;
-  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb WE" *) output bram_portb_we;
-
-  wire \<const0> ;
-  wire [31:0]N_ca_in;
-  wire [31:0]N_prom_lineal_in;
-  wire [15:0]bram_porta_addr;
-  wire bram_porta_rst;
-  wire bram_porta_we;
-  wire [31:0]bram_porta_wrdata;
-  wire [15:0]bram_portb_addr;
-  wire [31:0]bram_portb_rddata;
-  wire clk;
-  wire [31:0]data;
-  wire data_valid;
-  wire finished;
-  wire reset_n;
-  wire trigger;
-  wire user_reset;
-
-  assign bram_porta_clk = clk;
-  assign bram_portb_clk = clk;
-  assign bram_portb_rst = bram_porta_rst;
-  assign bram_portb_we = \<const0> ;
-  assign bram_portb_wrdata[31] = \<const0> ;
-  assign bram_portb_wrdata[30] = \<const0> ;
-  assign bram_portb_wrdata[29] = \<const0> ;
-  assign bram_portb_wrdata[28] = \<const0> ;
-  assign bram_portb_wrdata[27] = \<const0> ;
-  assign bram_portb_wrdata[26] = \<const0> ;
-  assign bram_portb_wrdata[25] = \<const0> ;
-  assign bram_portb_wrdata[24] = \<const0> ;
-  assign bram_portb_wrdata[23] = \<const0> ;
-  assign bram_portb_wrdata[22] = \<const0> ;
-  assign bram_portb_wrdata[21] = \<const0> ;
-  assign bram_portb_wrdata[20] = \<const0> ;
-  assign bram_portb_wrdata[19] = \<const0> ;
-  assign bram_portb_wrdata[18] = \<const0> ;
-  assign bram_portb_wrdata[17] = \<const0> ;
-  assign bram_portb_wrdata[16] = \<const0> ;
-  assign bram_portb_wrdata[15] = \<const0> ;
-  assign bram_portb_wrdata[14] = \<const0> ;
-  assign bram_portb_wrdata[13] = \<const0> ;
-  assign bram_portb_wrdata[12] = \<const0> ;
-  assign bram_portb_wrdata[11] = \<const0> ;
-  assign bram_portb_wrdata[10] = \<const0> ;
-  assign bram_portb_wrdata[9] = \<const0> ;
-  assign bram_portb_wrdata[8] = \<const0> ;
-  assign bram_portb_wrdata[7] = \<const0> ;
-  assign bram_portb_wrdata[6] = \<const0> ;
-  assign bram_portb_wrdata[5] = \<const0> ;
-  assign bram_portb_wrdata[4] = \<const0> ;
-  assign bram_portb_wrdata[3] = \<const0> ;
-  assign bram_portb_wrdata[2] = \<const0> ;
-  assign bram_portb_wrdata[1] = \<const0> ;
-  assign bram_portb_wrdata[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  LUT1 #(
-    .INIT(2'h1)) 
-    bram_portb_rst_INST_0
-       (.I0(reset_n),
-        .O(bram_porta_rst));
-  system_coherent_average_0_0_coherent_average inst
-       (.N_ca_in(N_ca_in),
-        .N_prom_lineal_in(N_prom_lineal_in),
-        .bram_porta_addr(bram_porta_addr),
-        .bram_porta_we(bram_porta_we),
-        .bram_porta_wrdata(bram_porta_wrdata),
-        .bram_portb_addr(bram_portb_addr),
-        .bram_portb_rddata(bram_portb_rddata),
-        .clk(clk),
-        .data(data),
-        .data_valid(data_valid),
-        .finished(finished),
-        .reset_n(reset_n),
-        .trigger(trigger),
-        .user_reset(user_reset));
-endmodule
-
-(* ORIG_REF_NAME = "coherent_average" *) 
 module system_coherent_average_0_0_coherent_average
    (finished,
     bram_porta_addr,
@@ -4996,6 +4871,130 @@ module system_coherent_average_0_0_coherent_average
         .D(wr_enable_i_1_n_0),
         .Q(wr_enable_reg_n_0),
         .R(\wr_data[31]_i_1_n_0 ));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_coherent_average_0_0,coherent_average,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "coherent_average,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module system_coherent_average_0_0
+   (clk,
+    reset_n,
+    user_reset,
+    trigger,
+    data,
+    data_valid,
+    finished,
+    N_ca_in,
+    N_prom_lineal_in,
+    bram_porta_clk,
+    bram_porta_rst,
+    bram_porta_addr,
+    bram_porta_wrdata,
+    bram_porta_rddata,
+    bram_porta_we,
+    bram_portb_clk,
+    bram_portb_rst,
+    bram_portb_addr,
+    bram_portb_wrdata,
+    bram_portb_rddata,
+    bram_portb_we);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset_n;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 user_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME user_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input user_reset;
+  input trigger;
+  input [31:0]data;
+  input data_valid;
+  output finished;
+  input [31:0]N_ca_in;
+  input [31:0]N_prom_lineal_in;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta CLK" *) output bram_porta_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta RST" *) output bram_porta_rst;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta ADDR" *) output [15:0]bram_porta_addr;
+  output [31:0]bram_porta_wrdata;
+  input [31:0]bram_porta_rddata;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_porta WE" *) output bram_porta_we;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb CLK" *) output bram_portb_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb RST" *) output bram_portb_rst;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb ADDR" *) output [15:0]bram_portb_addr;
+  output [31:0]bram_portb_wrdata;
+  input [31:0]bram_portb_rddata;
+  (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb WE" *) output bram_portb_we;
+
+  wire \<const0> ;
+  wire [31:0]N_ca_in;
+  wire [31:0]N_prom_lineal_in;
+  wire [15:0]bram_porta_addr;
+  wire bram_porta_rst;
+  wire bram_porta_we;
+  wire [31:0]bram_porta_wrdata;
+  wire [15:0]bram_portb_addr;
+  wire [31:0]bram_portb_rddata;
+  wire clk;
+  wire [31:0]data;
+  wire data_valid;
+  wire finished;
+  wire reset_n;
+  wire trigger;
+  wire user_reset;
+
+  assign bram_porta_clk = clk;
+  assign bram_portb_clk = clk;
+  assign bram_portb_rst = bram_porta_rst;
+  assign bram_portb_we = \<const0> ;
+  assign bram_portb_wrdata[31] = \<const0> ;
+  assign bram_portb_wrdata[30] = \<const0> ;
+  assign bram_portb_wrdata[29] = \<const0> ;
+  assign bram_portb_wrdata[28] = \<const0> ;
+  assign bram_portb_wrdata[27] = \<const0> ;
+  assign bram_portb_wrdata[26] = \<const0> ;
+  assign bram_portb_wrdata[25] = \<const0> ;
+  assign bram_portb_wrdata[24] = \<const0> ;
+  assign bram_portb_wrdata[23] = \<const0> ;
+  assign bram_portb_wrdata[22] = \<const0> ;
+  assign bram_portb_wrdata[21] = \<const0> ;
+  assign bram_portb_wrdata[20] = \<const0> ;
+  assign bram_portb_wrdata[19] = \<const0> ;
+  assign bram_portb_wrdata[18] = \<const0> ;
+  assign bram_portb_wrdata[17] = \<const0> ;
+  assign bram_portb_wrdata[16] = \<const0> ;
+  assign bram_portb_wrdata[15] = \<const0> ;
+  assign bram_portb_wrdata[14] = \<const0> ;
+  assign bram_portb_wrdata[13] = \<const0> ;
+  assign bram_portb_wrdata[12] = \<const0> ;
+  assign bram_portb_wrdata[11] = \<const0> ;
+  assign bram_portb_wrdata[10] = \<const0> ;
+  assign bram_portb_wrdata[9] = \<const0> ;
+  assign bram_portb_wrdata[8] = \<const0> ;
+  assign bram_portb_wrdata[7] = \<const0> ;
+  assign bram_portb_wrdata[6] = \<const0> ;
+  assign bram_portb_wrdata[5] = \<const0> ;
+  assign bram_portb_wrdata[4] = \<const0> ;
+  assign bram_portb_wrdata[3] = \<const0> ;
+  assign bram_portb_wrdata[2] = \<const0> ;
+  assign bram_portb_wrdata[1] = \<const0> ;
+  assign bram_portb_wrdata[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    bram_portb_rst_INST_0
+       (.I0(reset_n),
+        .O(bram_porta_rst));
+  system_coherent_average_0_0_coherent_average inst
+       (.N_ca_in(N_ca_in),
+        .N_prom_lineal_in(N_prom_lineal_in),
+        .bram_porta_addr(bram_porta_addr),
+        .bram_porta_we(bram_porta_we),
+        .bram_porta_wrdata(bram_porta_wrdata),
+        .bram_portb_addr(bram_portb_addr),
+        .bram_portb_rddata(bram_portb_rddata),
+        .clk(clk),
+        .data(data),
+        .data_valid(data_valid),
+        .finished(finished),
+        .reset_n(reset_n),
+        .trigger(trigger),
+        .user_reset(user_reset));
 endmodule
 `ifndef GLBL
 `define GLBL
