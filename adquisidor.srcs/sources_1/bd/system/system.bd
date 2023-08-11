@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD3CB062DFC8DFEB1",
+      "boundary_crc": "0xD651F3541F276A03",
       "device": "xc7z010clg400-1",
       "gen_directory": "../../../../adquisidor.gen/sources_1/bd/system",
       "name": "system",
@@ -70,13 +70,13 @@
         "blk_mem_gen_1": "",
         "bram_switch_0": ""
       },
-      "level_detector_0": "",
       "BRAM2": {
         "axi_bram_reader_1": "",
         "blk_mem_gen_1": "",
         "bram_switch_0": ""
       },
-      "trigger_simulator_0": ""
+      "trigger_simulator_0": "",
+      "level_detector_0": ""
     },
     "interface_ports": {
       "Vp_Vn": {
@@ -353,7 +353,7 @@
       },
       "exp_p_tri_io": {
         "direction": "IO",
-        "left": "3",
+        "left": "1",
         "right": "0"
       },
       "exp_n_tri_io": {
@@ -5391,59 +5391,6 @@
           }
         }
       },
-      "level_detector_0": {
-        "vlnv": "xilinx.com:module_ref:level_detector:1.0",
-        "xci_name": "system_level_detector_0_0",
-        "xci_path": "ip\\system_level_detector_0_0\\system_level_detector_0_0.xci",
-        "inst_hier_path": "level_detector_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "level_detector",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "system_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "reset_n": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "const_prop"
-              }
-            }
-          },
-          "level_to_detect": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "data_in": {
-            "direction": "I",
-            "left": "13",
-            "right": "0"
-          },
-          "data_in_valid": {
-            "direction": "I"
-          },
-          "level_detected": {
-            "direction": "O"
-          }
-        }
-      },
       "BRAM2": {
         "interface_ports": {
           "S_AXI": {
@@ -5837,6 +5784,69 @@
             "direction": "O"
           }
         }
+      },
+      "level_detector_0": {
+        "vlnv": "xilinx.com:module_ref:level_detector:1.0",
+        "xci_name": "system_level_detector_0_0",
+        "xci_path": "ip\\system_level_detector_0_0\\system_level_detector_0_0.xci",
+        "inst_hier_path": "level_detector_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "level_detector",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_axis_red_pitaya_adc_0_0_adc_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "level_to_detect": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "data_in_1": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "data_in_1_valid": {
+            "direction": "I"
+          },
+          "data_in_2": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "data_in_2_valid": {
+            "direction": "I"
+          },
+          "level_detected": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -5906,14 +5916,14 @@
         "ports": [
           "ADC/M_AXIS_PORT1_tdata",
           "Procesamiento/data",
-          "level_detector_0/data_in"
+          "level_detector_0/data_in_1"
         ]
       },
       "ADC_M_AXIS_PORT1_tvalid": {
         "ports": [
           "ADC/M_AXIS_PORT1_tvalid",
           "Procesamiento/data_valid",
-          "level_detector_0/data_in_valid"
+          "level_detector_0/data_in_1_valid"
         ]
       },
       "ADC_adc_csn_o": {
@@ -6045,8 +6055,8 @@
           "DAC/aclk",
           "Procesamiento/clk",
           "Procesamiento1/clk",
-          "level_detector_0/clk",
-          "trigger_simulator_0/clk"
+          "trigger_simulator_0/clk",
+          "level_detector_0/clk"
         ]
       },
       "axis_red_pitaya_dac_0_dac_clk": {
@@ -6148,13 +6158,15 @@
       "data_1": {
         "ports": [
           "ADC/M_AXIS_PORT2_tdata",
-          "Procesamiento1/data"
+          "Procesamiento1/data",
+          "level_detector_0/data_in_2"
         ]
       },
       "data_valid_1": {
         "ports": [
           "ADC/M_AXIS_PORT2_tvalid",
-          "Procesamiento1/data_valid"
+          "Procesamiento1/data_valid",
+          "level_detector_0/data_in_2_valid"
         ]
       },
       "dina_1": {
@@ -6178,7 +6190,8 @@
       "level_detector_0_level_detected": {
         "ports": [
           "level_detector_0/level_detected",
-          "led_o"
+          "led_o",
+          "exp_p_tri_io"
         ]
       },
       "log2_divisor_1": {
@@ -6212,9 +6225,9 @@
           "Procesamiento/reset_n",
           "Procesamiento1/reset_n",
           "BRAM1/s00_axi_aresetn",
-          "level_detector_0/reset_n",
           "BRAM2/s00_axi_aresetn",
-          "trigger_simulator_0/reset_n"
+          "trigger_simulator_0/reset_n",
+          "level_detector_0/reset_n"
         ]
       },
       "trigger_simulator_1_trig": {

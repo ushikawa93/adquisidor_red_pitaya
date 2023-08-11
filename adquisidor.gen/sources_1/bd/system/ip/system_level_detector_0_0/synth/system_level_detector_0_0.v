@@ -59,8 +59,10 @@ module system_level_detector_0_0 (
   clk,
   reset_n,
   level_to_detect,
-  data_in,
-  data_in_valid,
+  data_in_1,
+  data_in_1_valid,
+  data_in_2,
+  data_in_2_valid,
   level_detected
 );
 
@@ -71,16 +73,20 @@ input wire clk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *)
 input wire reset_n;
 input wire [31 : 0] level_to_detect;
-input wire [13 : 0] data_in;
-input wire data_in_valid;
-output wire level_detected;
+input wire [13 : 0] data_in_1;
+input wire data_in_1_valid;
+input wire [13 : 0] data_in_2;
+input wire data_in_2_valid;
+output wire [1 : 0] level_detected;
 
   level_detector inst (
     .clk(clk),
     .reset_n(reset_n),
     .level_to_detect(level_to_detect),
-    .data_in(data_in),
-    .data_in_valid(data_in_valid),
+    .data_in_1(data_in_1),
+    .data_in_1_valid(data_in_1_valid),
+    .data_in_2(data_in_2),
+    .data_in_2_valid(data_in_2_valid),
     .level_detected(level_detected)
   );
 endmodule

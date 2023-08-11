@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 11 17:06:01 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 11 19:39:41 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -162,7 +162,11 @@
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="3" NAME="dac_pwm_o" RIGHT="0" SIGIS="undef"/>
-    <PORT DIR="IO" LEFT="3" NAME="exp_p_tri_io" RIGHT="0" SIGIS="undef"/>
+    <PORT DIR="IO" LEFT="1" NAME="exp_p_tri_io" RIGHT="0" SIGIS="undef" SIGNAME="level_detector_0_level_detected">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="level_detector_0" PORT="level_detected"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="IO" LEFT="7" NAME="exp_n_tri_io" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_exp_n_tri_io">
       <CONNECTIONS>
         <CONNECTION INSTANCE="trigger_simulator_0" PORT="trig_export"/>
@@ -283,8 +287,8 @@
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="clk"/>
             <CONNECTION INSTANCE="Procesamiento1_promedio_lineal_0" PORT="clk"/>
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="clk"/>
-            <CONNECTION INSTANCE="level_detector_0" PORT="clk"/>
             <CONNECTION INSTANCE="trigger_simulator_0" PORT="clk"/>
+            <CONNECTION INSTANCE="level_detector_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="adc_csn" SIGIS="undef" SIGNAME="ADC_axis_red_pitaya_adc_0_adc_csn">
@@ -367,23 +371,25 @@
         <PORT DIR="O" LEFT="31" NAME="M_AXIS_PORT1_tdata" RIGHT="0" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT1_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento_promedio_lineal_0" PORT="data"/>
-            <CONNECTION INSTANCE="level_detector_0" PORT="data_in"/>
+            <CONNECTION INSTANCE="level_detector_0" PORT="data_in_1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M_AXIS_PORT1_tvalid" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT1_tvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento_promedio_lineal_0" PORT="data_valid"/>
-            <CONNECTION INSTANCE="level_detector_0" PORT="data_in_valid"/>
+            <CONNECTION INSTANCE="level_detector_0" PORT="data_in_1_valid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M_AXIS_PORT2_tdata" RIGHT="0" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT2_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento1_promedio_lineal_0" PORT="data"/>
+            <CONNECTION INSTANCE="level_detector_0" PORT="data_in_2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M_AXIS_PORT2_tvalid" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT2_tvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento1_promedio_lineal_0" PORT="data_valid"/>
+            <CONNECTION INSTANCE="level_detector_0" PORT="data_in_2_valid"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3004,19 +3010,30 @@
             <CONNECTION INSTANCE="uP_control_Level_detect" PORT="gpio_io_o"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="13" NAME="data_in" RIGHT="0" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT1_tdata">
+        <PORT DIR="I" LEFT="13" NAME="data_in_1" RIGHT="0" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT1_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ADC_signal_split_0" PORT="M_AXIS_PORT1_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="data_in_valid" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT1_tvalid">
+        <PORT DIR="I" NAME="data_in_1_valid" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT1_tvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ADC_signal_split_0" PORT="M_AXIS_PORT1_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="level_detected" SIGIS="undef" SIGNAME="level_detector_0_level_detected">
+        <PORT DIR="I" LEFT="13" NAME="data_in_2" RIGHT="0" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT2_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ADC_signal_split_0" PORT="M_AXIS_PORT2_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="data_in_2_valid" SIGIS="undef" SIGNAME="ADC_signal_split_0_M_AXIS_PORT2_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ADC_signal_split_0" PORT="M_AXIS_PORT2_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="level_detected" RIGHT="0" SIGIS="undef" SIGNAME="level_detector_0_level_detected">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="led_o"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="exp_p_tri_io"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -8766,9 +8783,9 @@
             <CONNECTION INSTANCE="Procesamiento1_promedio_lineal_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="BRAM1_axi_bram_reader_1" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="level_detector_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="BRAM2_axi_bram_reader_1" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="trigger_simulator_0" PORT="reset_n"/>
+            <CONNECTION INSTANCE="level_detector_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="uP_ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="uP_ps7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="uP_ps7_0_axi_periph" PORT="ARESETN"/>

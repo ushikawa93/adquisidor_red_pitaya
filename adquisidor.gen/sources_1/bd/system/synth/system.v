@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Aug 11 17:05:58 2023
-//Host        : DESKTOP-4F847D8 running 64-bit major release  (build 9200)
+//Date        : Fri Aug 11 19:39:38 2023
+//Host        : DESKTOP-TN92N90 running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -2276,7 +2276,7 @@ module system
   input [1:0]daisy_p_i;
   output [1:0]daisy_p_o;
   inout [7:0]exp_n_tri_io;
-  inout [3:0]exp_p_tri_io;
+  inout [1:0]exp_p_tri_io;
   output [1:0]led_o;
 
   wire [31:0]ADC_M_AXIS_PORT1_tdata;
@@ -2342,7 +2342,7 @@ module system
   wire [31:0]dina_1;
   wire [31:0]dina_2;
   wire led_o_1;
-  wire level_detector_0_level_detected;
+  wire [1:0]level_detector_0_level_detected;
   wire [31:0]log2_divisor_1;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
@@ -2516,7 +2516,7 @@ module system
   assign daisy_n_o[1:0] = util_ds_buf_2_OBUF_DS_N;
   assign daisy_p_i_1 = daisy_p_i[1:0];
   assign daisy_p_o[1:0] = util_ds_buf_2_OBUF_DS_P;
-  assign led_o[0] = level_detector_0_level_detected;
+  assign led_o[1:0] = exp_p_tri_io[1:0];
   ADC_imp_EKYMYC ADC
        (.M_AXIS_PORT1_tdata(ADC_M_AXIS_PORT1_tdata),
         .M_AXIS_PORT1_tvalid(ADC_M_AXIS_PORT1_tvalid),
@@ -2654,9 +2654,11 @@ module system
         .user_reset(rst_Dout));
   system_level_detector_0_0 level_detector_0
        (.clk(axis_red_pitaya_adc_0_adc_clk),
-        .data_in(ADC_M_AXIS_PORT1_tdata[13:0]),
-        .data_in_valid(ADC_M_AXIS_PORT1_tvalid),
-        .level_detected(level_detector_0_level_detected),
+        .data_in_1(ADC_M_AXIS_PORT1_tdata[13:0]),
+        .data_in_1_valid(ADC_M_AXIS_PORT1_tvalid),
+        .data_in_2(data_1[13:0]),
+        .data_in_2_valid(data_valid_1),
+        .level_detected(exp_p_tri_io[1:0]),
         .level_to_detect(uP_control_gpio_io_o1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn));
   system_trigger_simulator_0_0 trigger_simulator_0

@@ -24,36 +24,52 @@ module level_detector(
     input clk,
     input reset_n,
     input signed [31:0] level_to_detect,
-    input signed [13:0] data_in,
-    input data_in_valid,
-    output level_detected
+    
+    input signed [13:0] data_in_1,
+    input data_in_1_valid,
+    
+    input signed [13:0] data_in_2,
+    input data_in_2_valid,
+    
+    
+    output [1:0] level_detected
     );
     
 
-reg level_detected_reg;
+reg level_detected_1_reg;
+reg level_detected_2_reg;
+
 reg signed [31:0] level;
 
-reg signed [13:0] data_in_reg;
+reg signed [13:0] data_in_1_reg;
+reg signed [13:0] data_in_2_reg;
 
 always @ (posedge clk)
 begin
 
     if (!reset_n)
     begin
-        level_detected_reg <= 0;
+        level_detected_1_reg <= 0;
+        level_detected_2_reg <= 0;
         level <= 0;
-        data_in_reg <= 0;
+        data_in_1_reg <= 0;
+        data_in_2_reg <= 0;
     end
     else
     begin
         
         level <= level_to_detect;
         
-        if(data_in_valid)
+        if(data_in_1_valid)
         begin
-            data_in_reg <= data_in;    
-            level_detected_reg <= (data_in_reg > level) ? 1 : 0;
+            data_in_1_reg <= data_in_1;    
+            level_detected_1_reg <= (data_in_1_reg > level) ? 1 : 0;        
+        end
         
+        if(data_in_2_valid)
+        begin
+            data_in_2_reg <= data_in_2;    
+            level_detected_2_reg <= (data_in_2_reg > level) ? 1 : 0;        
         end
         
     end
@@ -61,7 +77,8 @@ begin
 
 end
 
-assign level_detected = level_detected_reg;   
+assign level_detected[0] = level_detected_1_reg;
+assign level_detected[1] = level_detected_2_reg;   
     
     
 endmodule

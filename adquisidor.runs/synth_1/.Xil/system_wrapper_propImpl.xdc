@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/clocks.xdc rfile:../../../cfg/clocks.xdc id:1} [current_design]
-set_property SRC_FILE_INFO {cfile:C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc rfile:../../../cfg/ports.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya/cfg/clocks.xdc rfile:../../../cfg/clocks.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc rfile:../../../cfg/ports.xdc id:2} [current_design]
 set_property src_info {type:XDC file:1 line:10 export:INPUT save:INPUT read:READ} [current_design]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets system_i/uP/processing_system7_0/inst/FCLK_CLK0]
 set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
