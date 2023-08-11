@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Aug 10 18:06:33 2023
-//Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
+//Date        : Fri Aug 11 17:05:59 2023
+//Host        : DESKTOP-4F847D8 running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -2668,7 +2668,7 @@ module system
         .log2_div_in(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
         .trig(trigger_simulator_1_trig),
-        .trig_externo(exp_n_tri_io[0]),
+        .trig_export(exp_n_tri_io[1:0]),
         .trigger_level_in(uP_control_Dout6),
         .trigger_mode_in(uP_control_Dout5),
         .user_reset(rst_Dout));

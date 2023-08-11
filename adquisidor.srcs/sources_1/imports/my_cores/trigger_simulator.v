@@ -35,12 +35,19 @@ module trigger_simulator
     input [3:0] trigger_mode_in,
     input signed [31:0] trigger_level_in,
     
-    inout trig_externo,
+    inout [1:0] trig_export,
     
     output trig
 
 );
+
+// Comunicacion con el exterior:
+
+wire trig_externo = trig_export[0];
+wire trig_cont_export = trig_export[1];
     
+    
+
 // Pongo registros para las entradas que vienen del uC
 
 reg [31:0] M_reg;
@@ -83,6 +90,7 @@ end
 // esto funcinoa si conozco exactamente la frecuencia de lo que quiero medir 
 // por ejemplo si la estoy generando
 reg [31:0] counter_cont;
+reg trigger_continuo_reg;
 
 always @ (posedge clk)
 begin  
@@ -94,6 +102,7 @@ begin
 	else if(data_valid)
 	begin
 		counter_cont <= ( counter_cont == M_reg-1 )? 0 : counter_cont + 1;
+		trigger_continuo_reg = (counter_cont == M_reg-1)?1:0;
 	end
     
 end
@@ -186,9 +195,10 @@ begin
     end
 end
 
-wire trigger_continuo = (counter_cont == M_reg-1)?1:0;
+wire trigger_continuo = trigger_continuo_reg;
 wire trigger_nivel = trigger_nivel_reg; 
 wire trigger_externo = trigger_ext_reg;
+assign trig_cont_export = trigger_continuo_reg;
     
 assign trig = (trigger_mode_reg == 0) ? trigger_continuo: ( (trigger_mode_reg == 1)? trigger_nivel: ( (trigger_mode_reg == 2)? trigger_externo : 0  ) );
  

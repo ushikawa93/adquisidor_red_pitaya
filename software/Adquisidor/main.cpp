@@ -92,7 +92,6 @@ public:
         num_archivo = 0;
         archivo_destino_base = "test";
         adc_threshold = 8191;  // Lo inicializo en un valor alto
-        setThreshold(adc_threshold);
         system("cls");
     }
 

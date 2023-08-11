@@ -140,7 +140,7 @@ int main(int argc, char **argv)
 	{
 		 fin = clock(); // Guardar el tiempo de finalización
 		 double tiempo = (double)(fin - inicio) / CLOCKS_PER_SEC; // Calcular el tiempo transcurrido en segundos
-		 if((tiempo > 10 * tiempo_estimado)&&(tiempo > 5)){printf("ERROR, los calculos no se terminaron a tiempo");return 0;}
+		 if((tiempo > 10 * tiempo_estimado)&&(tiempo > 5)){printf("ERROR, los calculos no se terminaron a tiempo\n");return 0;}
 	}
 
 

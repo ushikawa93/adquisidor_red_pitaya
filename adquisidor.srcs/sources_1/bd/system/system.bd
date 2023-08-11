@@ -5828,8 +5828,10 @@
             "left": "31",
             "right": "0"
           },
-          "trig_externo": {
-            "direction": "IO"
+          "trig_export": {
+            "direction": "IO",
+            "left": "1",
+            "right": "0"
           },
           "trig": {
             "direction": "O"
@@ -5937,7 +5939,7 @@
       "Net": {
         "ports": [
           "exp_n_tri_io",
-          "trigger_simulator_0/trig_externo"
+          "trigger_simulator_0/trig_export"
         ]
       },
       "Net1": {

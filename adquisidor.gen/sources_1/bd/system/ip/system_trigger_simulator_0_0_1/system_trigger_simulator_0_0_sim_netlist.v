@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Aug 10 17:36:58 2023
-// Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
+// Date        : Fri Aug 11 17:08:25 2023
+// Host        : DESKTOP-4F847D8 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0_sim_netlist.v
+//               c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0_sim_netlist.v
 // Design      : system_trigger_simulator_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,7 +26,7 @@ module system_trigger_simulator_0_0
     log2_div_in,
     trigger_mode_in,
     trigger_level_in,
-    trig_externo,
+    trig_export,
     trig);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset_n;
@@ -38,7 +38,7 @@ module system_trigger_simulator_0_0
   input [31:0]log2_div_in;
   input [3:0]trigger_mode_in;
   input [31:0]trigger_level_in;
-  inout trig_externo;
+  inout [1:0]trig_export;
   output trig;
 
   wire [31:0]K_sobremuestreo_in;
@@ -49,7 +49,7 @@ module system_trigger_simulator_0_0
   wire [31:0]log2_div_in;
   wire reset_n;
   wire trig;
-  wire trig_externo;
+  wire [1:0]trig_export;
   wire [31:0]trigger_level_in;
   wire [3:0]trigger_mode_in;
   wire user_reset;
@@ -63,7 +63,8 @@ module system_trigger_simulator_0_0
         .log2_div_in(log2_div_in),
         .reset_n(reset_n),
         .trig(trig),
-        .trig_externo(trig_externo),
+        .trig_export(trig_export[1]),
+        .trigger_ext_reg_reg_0(trig_export[0]),
         .trigger_level_in(trigger_level_in),
         .trigger_mode_in(trigger_mode_in),
         .user_reset(user_reset));
@@ -72,34 +73,89 @@ endmodule
 (* ORIG_REF_NAME = "trigger_simulator" *) 
 module system_trigger_simulator_0_0_trigger_simulator
    (trig,
+    trig_export,
     reset_n,
     user_reset,
+    data_valid,
     trigger_mode_in,
     clk,
     M_in,
-    data_valid,
     log2_div_in,
     trigger_level_in,
     K_sobremuestreo_in,
     data_in,
-    trig_externo);
+    trigger_ext_reg_reg_0);
   output trig;
+  inout [0:0]trig_export;
   input reset_n;
   input user_reset;
+  input data_valid;
   input [3:0]trigger_mode_in;
   input clk;
   input [31:0]M_in;
-  input data_valid;
   input [31:0]log2_div_in;
   input [31:0]trigger_level_in;
   input [31:0]K_sobremuestreo_in;
   input [31:0]data_in;
-  input trig_externo;
+  input [0:0]trigger_ext_reg_reg_0;
 
   wire [31:0]K_sobremuestreo_in;
   wire [31:0]M_in;
   wire [31:0]M_reg;
   wire clk;
+  wire counter_cont0_carry__0_i_1_n_0;
+  wire counter_cont0_carry__0_i_2_n_0;
+  wire counter_cont0_carry__0_i_3_n_0;
+  wire counter_cont0_carry__0_i_4_n_0;
+  wire counter_cont0_carry__0_n_0;
+  wire counter_cont0_carry__0_n_1;
+  wire counter_cont0_carry__0_n_2;
+  wire counter_cont0_carry__0_n_3;
+  wire counter_cont0_carry__1_i_1_n_0;
+  wire counter_cont0_carry__1_i_2_n_0;
+  wire counter_cont0_carry__1_i_3_n_0;
+  wire counter_cont0_carry__1_n_1;
+  wire counter_cont0_carry__1_n_2;
+  wire counter_cont0_carry__1_n_3;
+  wire counter_cont0_carry_i_1_n_0;
+  wire counter_cont0_carry_i_2_n_0;
+  wire counter_cont0_carry_i_3_n_0;
+  wire counter_cont0_carry_i_4_n_0;
+  wire counter_cont0_carry_n_0;
+  wire counter_cont0_carry_n_1;
+  wire counter_cont0_carry_n_2;
+  wire counter_cont0_carry_n_3;
+  wire [31:1]counter_cont1;
+  wire \counter_cont1_inferred__0/i__carry__0_n_0 ;
+  wire \counter_cont1_inferred__0/i__carry__0_n_1 ;
+  wire \counter_cont1_inferred__0/i__carry__0_n_2 ;
+  wire \counter_cont1_inferred__0/i__carry__0_n_3 ;
+  wire \counter_cont1_inferred__0/i__carry__1_n_0 ;
+  wire \counter_cont1_inferred__0/i__carry__1_n_1 ;
+  wire \counter_cont1_inferred__0/i__carry__1_n_2 ;
+  wire \counter_cont1_inferred__0/i__carry__1_n_3 ;
+  wire \counter_cont1_inferred__0/i__carry__2_n_0 ;
+  wire \counter_cont1_inferred__0/i__carry__2_n_1 ;
+  wire \counter_cont1_inferred__0/i__carry__2_n_2 ;
+  wire \counter_cont1_inferred__0/i__carry__2_n_3 ;
+  wire \counter_cont1_inferred__0/i__carry__3_n_0 ;
+  wire \counter_cont1_inferred__0/i__carry__3_n_1 ;
+  wire \counter_cont1_inferred__0/i__carry__3_n_2 ;
+  wire \counter_cont1_inferred__0/i__carry__3_n_3 ;
+  wire \counter_cont1_inferred__0/i__carry__4_n_0 ;
+  wire \counter_cont1_inferred__0/i__carry__4_n_1 ;
+  wire \counter_cont1_inferred__0/i__carry__4_n_2 ;
+  wire \counter_cont1_inferred__0/i__carry__4_n_3 ;
+  wire \counter_cont1_inferred__0/i__carry__5_n_0 ;
+  wire \counter_cont1_inferred__0/i__carry__5_n_1 ;
+  wire \counter_cont1_inferred__0/i__carry__5_n_2 ;
+  wire \counter_cont1_inferred__0/i__carry__5_n_3 ;
+  wire \counter_cont1_inferred__0/i__carry__6_n_2 ;
+  wire \counter_cont1_inferred__0/i__carry__6_n_3 ;
+  wire \counter_cont1_inferred__0/i__carry_n_0 ;
+  wire \counter_cont1_inferred__0/i__carry_n_1 ;
+  wire \counter_cont1_inferred__0/i__carry_n_2 ;
+  wire \counter_cont1_inferred__0/i__carry_n_3 ;
   wire counter_cont2;
   wire \counter_cont[0]_i_1_n_0 ;
   wire \counter_cont[0]_i_3_n_0 ;
@@ -237,33 +293,64 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire [31:0]data_in;
   wire [31:0]data_in_reg;
   wire data_valid;
+  wire i__carry__0_i_1__0_n_0;
   wire i__carry__0_i_1_n_0;
+  wire i__carry__0_i_2__0_n_0;
   wire i__carry__0_i_2_n_0;
+  wire i__carry__0_i_3__0_n_0;
   wire i__carry__0_i_3_n_0;
+  wire i__carry__0_i_4__0_n_0;
   wire i__carry__0_i_4_n_0;
   wire i__carry__0_i_5_n_0;
   wire i__carry__0_i_6_n_0;
   wire i__carry__0_i_7_n_0;
   wire i__carry__0_i_8_n_0;
+  wire i__carry__1_i_1__0_n_0;
   wire i__carry__1_i_1_n_0;
+  wire i__carry__1_i_2__0_n_0;
   wire i__carry__1_i_2_n_0;
+  wire i__carry__1_i_3__0_n_0;
   wire i__carry__1_i_3_n_0;
+  wire i__carry__1_i_4__0_n_0;
   wire i__carry__1_i_4_n_0;
   wire i__carry__1_i_5_n_0;
   wire i__carry__1_i_6_n_0;
   wire i__carry__1_i_7_n_0;
   wire i__carry__1_i_8_n_0;
+  wire i__carry__2_i_1__0_n_0;
   wire i__carry__2_i_1_n_0;
+  wire i__carry__2_i_2__0_n_0;
   wire i__carry__2_i_2_n_0;
+  wire i__carry__2_i_3__0_n_0;
   wire i__carry__2_i_3_n_0;
+  wire i__carry__2_i_4__0_n_0;
   wire i__carry__2_i_4_n_0;
   wire i__carry__2_i_5_n_0;
   wire i__carry__2_i_6_n_0;
   wire i__carry__2_i_7_n_0;
   wire i__carry__2_i_8_n_0;
+  wire i__carry__3_i_1_n_0;
+  wire i__carry__3_i_2_n_0;
+  wire i__carry__3_i_3_n_0;
+  wire i__carry__3_i_4_n_0;
+  wire i__carry__4_i_1_n_0;
+  wire i__carry__4_i_2_n_0;
+  wire i__carry__4_i_3_n_0;
+  wire i__carry__4_i_4_n_0;
+  wire i__carry__5_i_1_n_0;
+  wire i__carry__5_i_2_n_0;
+  wire i__carry__5_i_3_n_0;
+  wire i__carry__5_i_4_n_0;
+  wire i__carry__6_i_1_n_0;
+  wire i__carry__6_i_2_n_0;
+  wire i__carry__6_i_3_n_0;
+  wire i__carry_i_1__0_n_0;
   wire i__carry_i_1_n_0;
+  wire i__carry_i_2__0_n_0;
   wire i__carry_i_2_n_0;
+  wire i__carry_i_3__0_n_0;
   wire i__carry_i_3_n_0;
+  wire i__carry_i_4__0_n_0;
   wire i__carry_i_4_n_0;
   wire i__carry_i_5_n_0;
   wire i__carry_i_6_n_0;
@@ -274,7 +361,6 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire [31:1]p_0_in;
   wire [31:1]p_1_in;
   wire reset_n;
-  wire state0;
   wire state2_carry__0_i_1_n_0;
   wire state2_carry__0_i_2_n_0;
   wire state2_carry__0_i_3_n_0;
@@ -324,7 +410,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire state2_carry_n_2;
   wire state2_carry_n_3;
   wire state3;
-  wire state31_in;
+  wire state32_in;
   wire state3_carry__0_i_1_n_0;
   wire state3_carry__0_i_2_n_0;
   wire state3_carry__0_i_3_n_0;
@@ -387,6 +473,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire \state3_inferred__0/i__carry_n_1 ;
   wire \state3_inferred__0/i__carry_n_2 ;
   wire \state3_inferred__0/i__carry_n_3 ;
+  wire \state[0]_i_1_n_0 ;
   wire \state[0]_i_2_n_0 ;
   wire [0:0]state_ext;
   wire state_ext2_carry__0_i_1_n_0;
@@ -441,93 +528,11 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire \state_reg_n_0_[0] ;
   wire trig;
   wire trig_INST_0_i_1_n_0;
-  wire trig_externo;
-  wire trigger_continuo;
-  wire [31:1]trigger_continuo0;
-  wire trigger_continuo0_carry__0_i_1_n_0;
-  wire trigger_continuo0_carry__0_i_2_n_0;
-  wire trigger_continuo0_carry__0_i_3_n_0;
-  wire trigger_continuo0_carry__0_i_4_n_0;
-  wire trigger_continuo0_carry__0_n_0;
-  wire trigger_continuo0_carry__0_n_1;
-  wire trigger_continuo0_carry__0_n_2;
-  wire trigger_continuo0_carry__0_n_3;
-  wire trigger_continuo0_carry__1_i_1_n_0;
-  wire trigger_continuo0_carry__1_i_2_n_0;
-  wire trigger_continuo0_carry__1_i_3_n_0;
-  wire trigger_continuo0_carry__1_i_4_n_0;
-  wire trigger_continuo0_carry__1_n_0;
-  wire trigger_continuo0_carry__1_n_1;
-  wire trigger_continuo0_carry__1_n_2;
-  wire trigger_continuo0_carry__1_n_3;
-  wire trigger_continuo0_carry__2_i_1_n_0;
-  wire trigger_continuo0_carry__2_i_2_n_0;
-  wire trigger_continuo0_carry__2_i_3_n_0;
-  wire trigger_continuo0_carry__2_i_4_n_0;
-  wire trigger_continuo0_carry__2_n_0;
-  wire trigger_continuo0_carry__2_n_1;
-  wire trigger_continuo0_carry__2_n_2;
-  wire trigger_continuo0_carry__2_n_3;
-  wire trigger_continuo0_carry__3_i_1_n_0;
-  wire trigger_continuo0_carry__3_i_2_n_0;
-  wire trigger_continuo0_carry__3_i_3_n_0;
-  wire trigger_continuo0_carry__3_i_4_n_0;
-  wire trigger_continuo0_carry__3_n_0;
-  wire trigger_continuo0_carry__3_n_1;
-  wire trigger_continuo0_carry__3_n_2;
-  wire trigger_continuo0_carry__3_n_3;
-  wire trigger_continuo0_carry__4_i_1_n_0;
-  wire trigger_continuo0_carry__4_i_2_n_0;
-  wire trigger_continuo0_carry__4_i_3_n_0;
-  wire trigger_continuo0_carry__4_i_4_n_0;
-  wire trigger_continuo0_carry__4_n_0;
-  wire trigger_continuo0_carry__4_n_1;
-  wire trigger_continuo0_carry__4_n_2;
-  wire trigger_continuo0_carry__4_n_3;
-  wire trigger_continuo0_carry__5_i_1_n_0;
-  wire trigger_continuo0_carry__5_i_2_n_0;
-  wire trigger_continuo0_carry__5_i_3_n_0;
-  wire trigger_continuo0_carry__5_i_4_n_0;
-  wire trigger_continuo0_carry__5_n_0;
-  wire trigger_continuo0_carry__5_n_1;
-  wire trigger_continuo0_carry__5_n_2;
-  wire trigger_continuo0_carry__5_n_3;
-  wire trigger_continuo0_carry__6_i_1_n_0;
-  wire trigger_continuo0_carry__6_i_2_n_0;
-  wire trigger_continuo0_carry__6_i_3_n_0;
-  wire trigger_continuo0_carry__6_n_2;
-  wire trigger_continuo0_carry__6_n_3;
-  wire trigger_continuo0_carry_i_1_n_0;
-  wire trigger_continuo0_carry_i_2_n_0;
-  wire trigger_continuo0_carry_i_3_n_0;
-  wire trigger_continuo0_carry_i_4_n_0;
-  wire trigger_continuo0_carry_n_0;
-  wire trigger_continuo0_carry_n_1;
-  wire trigger_continuo0_carry_n_2;
-  wire trigger_continuo0_carry_n_3;
-  wire trigger_continuo_carry__0_i_1_n_0;
-  wire trigger_continuo_carry__0_i_2_n_0;
-  wire trigger_continuo_carry__0_i_3_n_0;
-  wire trigger_continuo_carry__0_i_4_n_0;
-  wire trigger_continuo_carry__0_n_0;
-  wire trigger_continuo_carry__0_n_1;
-  wire trigger_continuo_carry__0_n_2;
-  wire trigger_continuo_carry__0_n_3;
-  wire trigger_continuo_carry__1_i_1_n_0;
-  wire trigger_continuo_carry__1_i_2_n_0;
-  wire trigger_continuo_carry__1_i_3_n_0;
-  wire trigger_continuo_carry__1_n_2;
-  wire trigger_continuo_carry__1_n_3;
-  wire trigger_continuo_carry_i_1_n_0;
-  wire trigger_continuo_carry_i_2_n_0;
-  wire trigger_continuo_carry_i_3_n_0;
-  wire trigger_continuo_carry_i_4_n_0;
-  wire trigger_continuo_carry_n_0;
-  wire trigger_continuo_carry_n_1;
-  wire trigger_continuo_carry_n_2;
-  wire trigger_continuo_carry_n_3;
+  wire [0:0]trig_export;
+  wire trigger_continuo_reg_i_1_n_0;
   wire trigger_ext_reg;
   wire trigger_ext_reg_i_1_n_0;
+  wire [0:0]trigger_ext_reg_reg_0;
   wire [31:0]trigger_level_in;
   wire trigger_level_k_mult0__0_n_100;
   wire trigger_level_k_mult0__0_n_101;
@@ -953,6 +958,12 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire trigger_nivel;
   wire trigger_nivel_reg_i_1_n_0;
   wire user_reset;
+  wire [3:0]NLW_counter_cont0_carry_O_UNCONNECTED;
+  wire [3:0]NLW_counter_cont0_carry__0_O_UNCONNECTED;
+  wire [3:3]NLW_counter_cont0_carry__1_CO_UNCONNECTED;
+  wire [3:0]NLW_counter_cont0_carry__1_O_UNCONNECTED;
+  wire [3:2]\NLW_counter_cont1_inferred__0/i__carry__6_CO_UNCONNECTED ;
+  wire [3:3]\NLW_counter_cont1_inferred__0/i__carry__6_O_UNCONNECTED ;
   wire [3:3]\NLW_counter_cont_reg[28]_i_1_CO_UNCONNECTED ;
   wire [3:2]\NLW_counter_ext_reg[31]_i_3_CO_UNCONNECTED ;
   wire [3:3]\NLW_counter_ext_reg[31]_i_3_O_UNCONNECTED ;
@@ -974,12 +985,6 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire [3:0]NLW_state_ext2_carry__0_O_UNCONNECTED;
   wire [3:0]NLW_state_ext2_carry__1_O_UNCONNECTED;
   wire [3:0]NLW_state_ext2_carry__2_O_UNCONNECTED;
-  wire [3:2]NLW_trigger_continuo0_carry__6_CO_UNCONNECTED;
-  wire [3:3]NLW_trigger_continuo0_carry__6_O_UNCONNECTED;
-  wire [3:0]NLW_trigger_continuo_carry_O_UNCONNECTED;
-  wire [3:0]NLW_trigger_continuo_carry__0_O_UNCONNECTED;
-  wire [3:3]NLW_trigger_continuo_carry__1_CO_UNCONNECTED;
-  wire [3:0]NLW_trigger_continuo_carry__1_O_UNCONNECTED;
   wire NLW_trigger_level_k_mult0_CARRYCASCOUT_UNCONNECTED;
   wire NLW_trigger_level_k_mult0_MULTSIGNOUT_UNCONNECTED;
   wire NLW_trigger_level_k_mult0_OVERFLOW_UNCONNECTED;
@@ -1201,12 +1206,205 @@ module system_trigger_simulator_0_0_trigger_simulator
         .D(M_in[9]),
         .Q(M_reg[9]),
         .R(counter_cont2));
+  CARRY4 counter_cont0_carry
+       (.CI(1'b0),
+        .CO({counter_cont0_carry_n_0,counter_cont0_carry_n_1,counter_cont0_carry_n_2,counter_cont0_carry_n_3}),
+        .CYINIT(1'b1),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_counter_cont0_carry_O_UNCONNECTED[3:0]),
+        .S({counter_cont0_carry_i_1_n_0,counter_cont0_carry_i_2_n_0,counter_cont0_carry_i_3_n_0,counter_cont0_carry_i_4_n_0}));
+  CARRY4 counter_cont0_carry__0
+       (.CI(counter_cont0_carry_n_0),
+        .CO({counter_cont0_carry__0_n_0,counter_cont0_carry__0_n_1,counter_cont0_carry__0_n_2,counter_cont0_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_counter_cont0_carry__0_O_UNCONNECTED[3:0]),
+        .S({counter_cont0_carry__0_i_1_n_0,counter_cont0_carry__0_i_2_n_0,counter_cont0_carry__0_i_3_n_0,counter_cont0_carry__0_i_4_n_0}));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry__0_i_1
+       (.I0(counter_cont_reg[21]),
+        .I1(counter_cont1[21]),
+        .I2(counter_cont1[23]),
+        .I3(counter_cont_reg[23]),
+        .I4(counter_cont1[22]),
+        .I5(counter_cont_reg[22]),
+        .O(counter_cont0_carry__0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry__0_i_2
+       (.I0(counter_cont_reg[18]),
+        .I1(counter_cont1[18]),
+        .I2(counter_cont1[20]),
+        .I3(counter_cont_reg[20]),
+        .I4(counter_cont1[19]),
+        .I5(counter_cont_reg[19]),
+        .O(counter_cont0_carry__0_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry__0_i_3
+       (.I0(counter_cont_reg[15]),
+        .I1(counter_cont1[15]),
+        .I2(counter_cont1[17]),
+        .I3(counter_cont_reg[17]),
+        .I4(counter_cont1[16]),
+        .I5(counter_cont_reg[16]),
+        .O(counter_cont0_carry__0_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry__0_i_4
+       (.I0(counter_cont_reg[12]),
+        .I1(counter_cont1[12]),
+        .I2(counter_cont1[14]),
+        .I3(counter_cont_reg[14]),
+        .I4(counter_cont1[13]),
+        .I5(counter_cont_reg[13]),
+        .O(counter_cont0_carry__0_i_4_n_0));
+  CARRY4 counter_cont0_carry__1
+       (.CI(counter_cont0_carry__0_n_0),
+        .CO({NLW_counter_cont0_carry__1_CO_UNCONNECTED[3],counter_cont0_carry__1_n_1,counter_cont0_carry__1_n_2,counter_cont0_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_counter_cont0_carry__1_O_UNCONNECTED[3:0]),
+        .S({1'b0,counter_cont0_carry__1_i_1_n_0,counter_cont0_carry__1_i_2_n_0,counter_cont0_carry__1_i_3_n_0}));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    counter_cont0_carry__1_i_1
+       (.I0(counter_cont_reg[30]),
+        .I1(counter_cont1[30]),
+        .I2(counter_cont_reg[31]),
+        .I3(counter_cont1[31]),
+        .O(counter_cont0_carry__1_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry__1_i_2
+       (.I0(counter_cont_reg[27]),
+        .I1(counter_cont1[27]),
+        .I2(counter_cont1[29]),
+        .I3(counter_cont_reg[29]),
+        .I4(counter_cont1[28]),
+        .I5(counter_cont_reg[28]),
+        .O(counter_cont0_carry__1_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry__1_i_3
+       (.I0(counter_cont_reg[24]),
+        .I1(counter_cont1[24]),
+        .I2(counter_cont1[26]),
+        .I3(counter_cont_reg[26]),
+        .I4(counter_cont1[25]),
+        .I5(counter_cont_reg[25]),
+        .O(counter_cont0_carry__1_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry_i_1
+       (.I0(counter_cont_reg[9]),
+        .I1(counter_cont1[9]),
+        .I2(counter_cont1[11]),
+        .I3(counter_cont_reg[11]),
+        .I4(counter_cont1[10]),
+        .I5(counter_cont_reg[10]),
+        .O(counter_cont0_carry_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry_i_2
+       (.I0(counter_cont_reg[6]),
+        .I1(counter_cont1[6]),
+        .I2(counter_cont1[8]),
+        .I3(counter_cont_reg[8]),
+        .I4(counter_cont1[7]),
+        .I5(counter_cont_reg[7]),
+        .O(counter_cont0_carry_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    counter_cont0_carry_i_3
+       (.I0(counter_cont_reg[3]),
+        .I1(counter_cont1[3]),
+        .I2(counter_cont1[5]),
+        .I3(counter_cont_reg[5]),
+        .I4(counter_cont1[4]),
+        .I5(counter_cont_reg[4]),
+        .O(counter_cont0_carry_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h6006000000006006)) 
+    counter_cont0_carry_i_4
+       (.I0(counter_cont_reg[0]),
+        .I1(M_reg[0]),
+        .I2(counter_cont1[2]),
+        .I3(counter_cont_reg[2]),
+        .I4(counter_cont1[1]),
+        .I5(counter_cont_reg[1]),
+        .O(counter_cont0_carry_i_4_n_0));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \counter_cont1_inferred__0/i__carry 
+       (.CI(1'b0),
+        .CO({\counter_cont1_inferred__0/i__carry_n_0 ,\counter_cont1_inferred__0/i__carry_n_1 ,\counter_cont1_inferred__0/i__carry_n_2 ,\counter_cont1_inferred__0/i__carry_n_3 }),
+        .CYINIT(M_reg[0]),
+        .DI(M_reg[4:1]),
+        .O(counter_cont1[4:1]),
+        .S({i__carry_i_1__0_n_0,i__carry_i_2__0_n_0,i__carry_i_3__0_n_0,i__carry_i_4__0_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \counter_cont1_inferred__0/i__carry__0 
+       (.CI(\counter_cont1_inferred__0/i__carry_n_0 ),
+        .CO({\counter_cont1_inferred__0/i__carry__0_n_0 ,\counter_cont1_inferred__0/i__carry__0_n_1 ,\counter_cont1_inferred__0/i__carry__0_n_2 ,\counter_cont1_inferred__0/i__carry__0_n_3 }),
+        .CYINIT(1'b0),
+        .DI(M_reg[8:5]),
+        .O(counter_cont1[8:5]),
+        .S({i__carry__0_i_1__0_n_0,i__carry__0_i_2__0_n_0,i__carry__0_i_3__0_n_0,i__carry__0_i_4__0_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \counter_cont1_inferred__0/i__carry__1 
+       (.CI(\counter_cont1_inferred__0/i__carry__0_n_0 ),
+        .CO({\counter_cont1_inferred__0/i__carry__1_n_0 ,\counter_cont1_inferred__0/i__carry__1_n_1 ,\counter_cont1_inferred__0/i__carry__1_n_2 ,\counter_cont1_inferred__0/i__carry__1_n_3 }),
+        .CYINIT(1'b0),
+        .DI(M_reg[12:9]),
+        .O(counter_cont1[12:9]),
+        .S({i__carry__1_i_1__0_n_0,i__carry__1_i_2__0_n_0,i__carry__1_i_3__0_n_0,i__carry__1_i_4__0_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \counter_cont1_inferred__0/i__carry__2 
+       (.CI(\counter_cont1_inferred__0/i__carry__1_n_0 ),
+        .CO({\counter_cont1_inferred__0/i__carry__2_n_0 ,\counter_cont1_inferred__0/i__carry__2_n_1 ,\counter_cont1_inferred__0/i__carry__2_n_2 ,\counter_cont1_inferred__0/i__carry__2_n_3 }),
+        .CYINIT(1'b0),
+        .DI(M_reg[16:13]),
+        .O(counter_cont1[16:13]),
+        .S({i__carry__2_i_1__0_n_0,i__carry__2_i_2__0_n_0,i__carry__2_i_3__0_n_0,i__carry__2_i_4__0_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \counter_cont1_inferred__0/i__carry__3 
+       (.CI(\counter_cont1_inferred__0/i__carry__2_n_0 ),
+        .CO({\counter_cont1_inferred__0/i__carry__3_n_0 ,\counter_cont1_inferred__0/i__carry__3_n_1 ,\counter_cont1_inferred__0/i__carry__3_n_2 ,\counter_cont1_inferred__0/i__carry__3_n_3 }),
+        .CYINIT(1'b0),
+        .DI(M_reg[20:17]),
+        .O(counter_cont1[20:17]),
+        .S({i__carry__3_i_1_n_0,i__carry__3_i_2_n_0,i__carry__3_i_3_n_0,i__carry__3_i_4_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \counter_cont1_inferred__0/i__carry__4 
+       (.CI(\counter_cont1_inferred__0/i__carry__3_n_0 ),
+        .CO({\counter_cont1_inferred__0/i__carry__4_n_0 ,\counter_cont1_inferred__0/i__carry__4_n_1 ,\counter_cont1_inferred__0/i__carry__4_n_2 ,\counter_cont1_inferred__0/i__carry__4_n_3 }),
+        .CYINIT(1'b0),
+        .DI(M_reg[24:21]),
+        .O(counter_cont1[24:21]),
+        .S({i__carry__4_i_1_n_0,i__carry__4_i_2_n_0,i__carry__4_i_3_n_0,i__carry__4_i_4_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \counter_cont1_inferred__0/i__carry__5 
+       (.CI(\counter_cont1_inferred__0/i__carry__4_n_0 ),
+        .CO({\counter_cont1_inferred__0/i__carry__5_n_0 ,\counter_cont1_inferred__0/i__carry__5_n_1 ,\counter_cont1_inferred__0/i__carry__5_n_2 ,\counter_cont1_inferred__0/i__carry__5_n_3 }),
+        .CYINIT(1'b0),
+        .DI(M_reg[28:25]),
+        .O(counter_cont1[28:25]),
+        .S({i__carry__5_i_1_n_0,i__carry__5_i_2_n_0,i__carry__5_i_3_n_0,i__carry__5_i_4_n_0}));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \counter_cont1_inferred__0/i__carry__6 
+       (.CI(\counter_cont1_inferred__0/i__carry__5_n_0 ),
+        .CO({\NLW_counter_cont1_inferred__0/i__carry__6_CO_UNCONNECTED [3:2],\counter_cont1_inferred__0/i__carry__6_n_2 ,\counter_cont1_inferred__0/i__carry__6_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,M_reg[30:29]}),
+        .O({\NLW_counter_cont1_inferred__0/i__carry__6_O_UNCONNECTED [3],counter_cont1[31:29]}),
+        .S({1'b0,i__carry__6_i_1_n_0,i__carry__6_i_2_n_0,i__carry__6_i_3_n_0}));
   LUT4 #(
     .INIT(16'hFDDD)) 
     \counter_cont[0]_i_1 
        (.I0(reset_n),
         .I1(user_reset),
-        .I2(trigger_continuo),
+        .I2(counter_cont0_carry__1_n_1),
         .I3(data_valid),
         .O(\counter_cont[0]_i_1_n_0 ));
   LUT1 #(
@@ -2184,25 +2382,25 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(\counter_level[0]_i_1_n_0 ),
         .Q(counter_level[0]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[10] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[10]),
         .Q(counter_level[10]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[11] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[11]),
         .Q(counter_level[11]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[12] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[12]),
         .Q(counter_level[12]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_level_reg[12]_i_2 
        (.CI(\counter_level_reg[8]_i_2_n_0 ),
@@ -2216,25 +2414,25 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(p_0_in[13]),
         .Q(counter_level[13]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[14] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[14]),
         .Q(counter_level[14]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[15] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[15]),
         .Q(counter_level[15]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[16] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[16]),
         .Q(counter_level[16]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_level_reg[16]_i_2 
        (.CI(\counter_level_reg[12]_i_2_n_0 ),
@@ -2248,31 +2446,31 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(p_0_in[17]),
         .Q(counter_level[17]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[18] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[18]),
         .Q(counter_level[18]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[19] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[19]),
         .Q(counter_level[19]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[1] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[1]),
         .Q(counter_level[1]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[20] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[20]),
         .Q(counter_level[20]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_level_reg[20]_i_2 
        (.CI(\counter_level_reg[16]_i_2_n_0 ),
@@ -2286,25 +2484,25 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(p_0_in[21]),
         .Q(counter_level[21]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[22] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[22]),
         .Q(counter_level[22]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[23] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[23]),
         .Q(counter_level[23]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[24] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[24]),
         .Q(counter_level[24]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_level_reg[24]_i_2 
        (.CI(\counter_level_reg[20]_i_2_n_0 ),
@@ -2318,25 +2516,25 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(p_0_in[25]),
         .Q(counter_level[25]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[26] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[26]),
         .Q(counter_level[26]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[27] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[27]),
         .Q(counter_level[27]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[28] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[28]),
         .Q(counter_level[28]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_level_reg[28]_i_2 
        (.CI(\counter_level_reg[24]_i_2_n_0 ),
@@ -2350,25 +2548,25 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(p_0_in[29]),
         .Q(counter_level[29]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[2] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[2]),
         .Q(counter_level[2]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[30] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[30]),
         .Q(counter_level[30]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[31] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[31]),
         .Q(counter_level[31]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_level_reg[31]_i_2 
        (.CI(\counter_level_reg[28]_i_2_n_0 ),
@@ -2382,13 +2580,13 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(p_0_in[3]),
         .Q(counter_level[3]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[4] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[4]),
         .Q(counter_level[4]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_level_reg[4]_i_2 
        (.CI(1'b0),
@@ -2402,25 +2600,25 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(p_0_in[5]),
         .Q(counter_level[5]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[6] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[6]),
         .Q(counter_level[6]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[7] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[7]),
         .Q(counter_level[7]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \counter_level_reg[8] 
        (.C(clk),
         .CE(data_valid),
         .D(p_0_in[8]),
         .Q(counter_level[8]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_level_reg[8]_i_2 
        (.CI(\counter_level_reg[4]_i_2_n_0 ),
@@ -2434,199 +2632,199 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(p_0_in[9]),
         .Q(counter_level[9]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[0] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[0]),
         .Q(data_in_reg[0]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[10] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[10]),
         .Q(data_in_reg[10]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[11] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[11]),
         .Q(data_in_reg[11]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[12] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[12]),
         .Q(data_in_reg[12]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[13] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[13]),
         .Q(data_in_reg[13]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[14] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[14]),
         .Q(data_in_reg[14]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[15] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[15]),
         .Q(data_in_reg[15]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[16] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[16]),
         .Q(data_in_reg[16]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[17] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[17]),
         .Q(data_in_reg[17]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[18] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[18]),
         .Q(data_in_reg[18]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[19] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[19]),
         .Q(data_in_reg[19]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[1] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[1]),
         .Q(data_in_reg[1]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[20] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[20]),
         .Q(data_in_reg[20]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[21] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[21]),
         .Q(data_in_reg[21]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[22] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[22]),
         .Q(data_in_reg[22]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[23] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[23]),
         .Q(data_in_reg[23]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[24] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[24]),
         .Q(data_in_reg[24]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[25] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[25]),
         .Q(data_in_reg[25]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[26] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[26]),
         .Q(data_in_reg[26]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[27] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[27]),
         .Q(data_in_reg[27]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[28] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[28]),
         .Q(data_in_reg[28]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[29] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[29]),
         .Q(data_in_reg[29]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[2] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[2]),
         .Q(data_in_reg[2]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[30] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[30]),
         .Q(data_in_reg[30]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[31] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[31]),
         .Q(data_in_reg[31]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[3] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[3]),
         .Q(data_in_reg[3]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[4] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[4]),
         .Q(data_in_reg[4]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[5] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[5]),
         .Q(data_in_reg[5]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[6] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[6]),
         .Q(data_in_reg[6]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[7] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[7]),
         .Q(data_in_reg[7]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[8] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[8]),
         .Q(data_in_reg[8]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   FDRE \data_in_reg_reg[9] 
        (.C(clk),
         .CE(data_valid),
         .D(data_in[9]),
         .Q(data_in_reg[9]),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__0_i_1
@@ -2635,6 +2833,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[15]),
         .I3(data_in[15]),
         .O(i__carry__0_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_1__0
+       (.I0(M_reg[8]),
+        .O(i__carry__0_i_1__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__0_i_2
@@ -2643,6 +2846,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[13]),
         .I3(data_in[13]),
         .O(i__carry__0_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_2__0
+       (.I0(M_reg[7]),
+        .O(i__carry__0_i_2__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__0_i_3
@@ -2651,6 +2859,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[11]),
         .I3(data_in[11]),
         .O(i__carry__0_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_3__0
+       (.I0(M_reg[6]),
+        .O(i__carry__0_i_3__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__0_i_4
@@ -2659,6 +2872,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[9]),
         .I3(data_in[9]),
         .O(i__carry__0_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_4__0
+       (.I0(M_reg[5]),
+        .O(i__carry__0_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     i__carry__0_i_5
@@ -2699,6 +2917,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[23]),
         .I3(data_in[23]),
         .O(i__carry__1_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_1__0
+       (.I0(M_reg[12]),
+        .O(i__carry__1_i_1__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__1_i_2
@@ -2707,6 +2930,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[21]),
         .I3(data_in[21]),
         .O(i__carry__1_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_2__0
+       (.I0(M_reg[11]),
+        .O(i__carry__1_i_2__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__1_i_3
@@ -2715,6 +2943,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[19]),
         .I3(data_in[19]),
         .O(i__carry__1_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_3__0
+       (.I0(M_reg[10]),
+        .O(i__carry__1_i_3__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__1_i_4
@@ -2723,6 +2956,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[17]),
         .I3(data_in[17]),
         .O(i__carry__1_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_4__0
+       (.I0(M_reg[9]),
+        .O(i__carry__1_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     i__carry__1_i_5
@@ -2763,6 +3001,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(data_in[31]),
         .I3(trigger_level_k_mult_div[31]),
         .O(i__carry__2_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_1__0
+       (.I0(M_reg[16]),
+        .O(i__carry__2_i_1__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__2_i_2
@@ -2771,6 +3014,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[29]),
         .I3(data_in[29]),
         .O(i__carry__2_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_2__0
+       (.I0(M_reg[15]),
+        .O(i__carry__2_i_2__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__2_i_3
@@ -2779,6 +3027,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[27]),
         .I3(data_in[27]),
         .O(i__carry__2_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_3__0
+       (.I0(M_reg[14]),
+        .O(i__carry__2_i_3__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry__2_i_4
@@ -2787,6 +3040,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[25]),
         .I3(data_in[25]),
         .O(i__carry__2_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_4__0
+       (.I0(M_reg[13]),
+        .O(i__carry__2_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     i__carry__2_i_5
@@ -2819,6 +3077,81 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(data_in[25]),
         .I3(trigger_level_k_mult_div[25]),
         .O(i__carry__2_i_8_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__3_i_1
+       (.I0(M_reg[20]),
+        .O(i__carry__3_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__3_i_2
+       (.I0(M_reg[19]),
+        .O(i__carry__3_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__3_i_3
+       (.I0(M_reg[18]),
+        .O(i__carry__3_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__3_i_4
+       (.I0(M_reg[17]),
+        .O(i__carry__3_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__4_i_1
+       (.I0(M_reg[24]),
+        .O(i__carry__4_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__4_i_2
+       (.I0(M_reg[23]),
+        .O(i__carry__4_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__4_i_3
+       (.I0(M_reg[22]),
+        .O(i__carry__4_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__4_i_4
+       (.I0(M_reg[21]),
+        .O(i__carry__4_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__5_i_1
+       (.I0(M_reg[28]),
+        .O(i__carry__5_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__5_i_2
+       (.I0(M_reg[27]),
+        .O(i__carry__5_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__5_i_3
+       (.I0(M_reg[26]),
+        .O(i__carry__5_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__5_i_4
+       (.I0(M_reg[25]),
+        .O(i__carry__5_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__6_i_1
+       (.I0(M_reg[31]),
+        .O(i__carry__6_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__6_i_2
+       (.I0(M_reg[30]),
+        .O(i__carry__6_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__6_i_3
+       (.I0(M_reg[29]),
+        .O(i__carry__6_i_3_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry_i_1
@@ -2827,6 +3160,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[7]),
         .I3(data_in[7]),
         .O(i__carry_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_1__0
+       (.I0(M_reg[4]),
+        .O(i__carry_i_1__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry_i_2
@@ -2835,6 +3173,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[5]),
         .I3(data_in[5]),
         .O(i__carry_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_2__0
+       (.I0(M_reg[3]),
+        .O(i__carry_i_2__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry_i_3
@@ -2843,6 +3186,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[3]),
         .I3(data_in[3]),
         .O(i__carry_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_3__0
+       (.I0(M_reg[2]),
+        .O(i__carry_i_3__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry_i_4
@@ -2851,6 +3199,11 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(trigger_level_k_mult_div[1]),
         .I3(data_in[1]),
         .O(i__carry_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_4__0
+       (.I0(M_reg[1]),
+        .O(i__carry_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     i__carry_i_5
@@ -3676,7 +4029,7 @@ module system_trigger_simulator_0_0_trigger_simulator
   (* COMPARATOR_THRESHOLD = "11" *) 
   CARRY4 \state3_inferred__0/i__carry__2 
        (.CI(\state3_inferred__0/i__carry__1_n_0 ),
-        .CO({state31_in,\state3_inferred__0/i__carry__2_n_1 ,\state3_inferred__0/i__carry__2_n_2 ,\state3_inferred__0/i__carry__2_n_3 }),
+        .CO({state32_in,\state3_inferred__0/i__carry__2_n_1 ,\state3_inferred__0/i__carry__2_n_2 ,\state3_inferred__0/i__carry__2_n_3 }),
         .CYINIT(1'b0),
         .DI({i__carry__2_i_1_n_0,i__carry__2_i_2_n_0,i__carry__2_i_3_n_0,i__carry__2_i_4_n_0}),
         .O(\NLW_state3_inferred__0/i__carry__2_O_UNCONNECTED [3:0]),
@@ -3686,14 +4039,14 @@ module system_trigger_simulator_0_0_trigger_simulator
     \state[0]_i_1 
        (.I0(user_reset),
         .I1(reset_n),
-        .O(state0));
+        .O(\state[0]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'hB888)) 
     \state[0]_i_2 
        (.I0(state2_carry__2_n_0),
         .I1(\state_reg_n_0_[0] ),
-        .I2(state31_in),
+        .I2(state32_in),
         .I3(state3),
         .O(\state[0]_i_2_n_0 ));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -4000,376 +4353,44 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(\state[0]_i_2_n_0 ),
         .Q(\state_reg_n_0_[0] ),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000033E200E2)) 
+    .INIT(64'h0000000000002E22)) 
     trig_INST_0
-       (.I0(trigger_continuo),
-        .I1(trigger_mode_reg[1]),
-        .I2(trigger_ext_reg),
-        .I3(trigger_mode_reg[0]),
-        .I4(trigger_nivel),
-        .I5(trig_INST_0_i_1_n_0),
+       (.I0(trig_INST_0_i_1_n_0),
+        .I1(trigger_mode_reg[0]),
+        .I2(trigger_mode_reg[1]),
+        .I3(trigger_nivel),
+        .I4(\trigger_mode_reg_reg_n_0_[2] ),
+        .I5(\trigger_mode_reg_reg_n_0_[3] ),
         .O(trig));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE4)) 
     trig_INST_0_i_1
-       (.I0(\trigger_mode_reg_reg_n_0_[3] ),
-        .I1(\trigger_mode_reg_reg_n_0_[2] ),
+       (.I0(trigger_mode_reg[1]),
+        .I1(trig_export),
+        .I2(trigger_ext_reg),
         .O(trig_INST_0_i_1_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 trigger_continuo0_carry
-       (.CI(1'b0),
-        .CO({trigger_continuo0_carry_n_0,trigger_continuo0_carry_n_1,trigger_continuo0_carry_n_2,trigger_continuo0_carry_n_3}),
-        .CYINIT(M_reg[0]),
-        .DI(M_reg[4:1]),
-        .O(trigger_continuo0[4:1]),
-        .S({trigger_continuo0_carry_i_1_n_0,trigger_continuo0_carry_i_2_n_0,trigger_continuo0_carry_i_3_n_0,trigger_continuo0_carry_i_4_n_0}));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 trigger_continuo0_carry__0
-       (.CI(trigger_continuo0_carry_n_0),
-        .CO({trigger_continuo0_carry__0_n_0,trigger_continuo0_carry__0_n_1,trigger_continuo0_carry__0_n_2,trigger_continuo0_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI(M_reg[8:5]),
-        .O(trigger_continuo0[8:5]),
-        .S({trigger_continuo0_carry__0_i_1_n_0,trigger_continuo0_carry__0_i_2_n_0,trigger_continuo0_carry__0_i_3_n_0,trigger_continuo0_carry__0_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__0_i_1
-       (.I0(M_reg[8]),
-        .O(trigger_continuo0_carry__0_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__0_i_2
-       (.I0(M_reg[7]),
-        .O(trigger_continuo0_carry__0_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__0_i_3
-       (.I0(M_reg[6]),
-        .O(trigger_continuo0_carry__0_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__0_i_4
-       (.I0(M_reg[5]),
-        .O(trigger_continuo0_carry__0_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 trigger_continuo0_carry__1
-       (.CI(trigger_continuo0_carry__0_n_0),
-        .CO({trigger_continuo0_carry__1_n_0,trigger_continuo0_carry__1_n_1,trigger_continuo0_carry__1_n_2,trigger_continuo0_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI(M_reg[12:9]),
-        .O(trigger_continuo0[12:9]),
-        .S({trigger_continuo0_carry__1_i_1_n_0,trigger_continuo0_carry__1_i_2_n_0,trigger_continuo0_carry__1_i_3_n_0,trigger_continuo0_carry__1_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__1_i_1
-       (.I0(M_reg[12]),
-        .O(trigger_continuo0_carry__1_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__1_i_2
-       (.I0(M_reg[11]),
-        .O(trigger_continuo0_carry__1_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__1_i_3
-       (.I0(M_reg[10]),
-        .O(trigger_continuo0_carry__1_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__1_i_4
-       (.I0(M_reg[9]),
-        .O(trigger_continuo0_carry__1_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 trigger_continuo0_carry__2
-       (.CI(trigger_continuo0_carry__1_n_0),
-        .CO({trigger_continuo0_carry__2_n_0,trigger_continuo0_carry__2_n_1,trigger_continuo0_carry__2_n_2,trigger_continuo0_carry__2_n_3}),
-        .CYINIT(1'b0),
-        .DI(M_reg[16:13]),
-        .O(trigger_continuo0[16:13]),
-        .S({trigger_continuo0_carry__2_i_1_n_0,trigger_continuo0_carry__2_i_2_n_0,trigger_continuo0_carry__2_i_3_n_0,trigger_continuo0_carry__2_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__2_i_1
-       (.I0(M_reg[16]),
-        .O(trigger_continuo0_carry__2_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__2_i_2
-       (.I0(M_reg[15]),
-        .O(trigger_continuo0_carry__2_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__2_i_3
-       (.I0(M_reg[14]),
-        .O(trigger_continuo0_carry__2_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__2_i_4
-       (.I0(M_reg[13]),
-        .O(trigger_continuo0_carry__2_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 trigger_continuo0_carry__3
-       (.CI(trigger_continuo0_carry__2_n_0),
-        .CO({trigger_continuo0_carry__3_n_0,trigger_continuo0_carry__3_n_1,trigger_continuo0_carry__3_n_2,trigger_continuo0_carry__3_n_3}),
-        .CYINIT(1'b0),
-        .DI(M_reg[20:17]),
-        .O(trigger_continuo0[20:17]),
-        .S({trigger_continuo0_carry__3_i_1_n_0,trigger_continuo0_carry__3_i_2_n_0,trigger_continuo0_carry__3_i_3_n_0,trigger_continuo0_carry__3_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__3_i_1
-       (.I0(M_reg[20]),
-        .O(trigger_continuo0_carry__3_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__3_i_2
-       (.I0(M_reg[19]),
-        .O(trigger_continuo0_carry__3_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__3_i_3
-       (.I0(M_reg[18]),
-        .O(trigger_continuo0_carry__3_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__3_i_4
-       (.I0(M_reg[17]),
-        .O(trigger_continuo0_carry__3_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 trigger_continuo0_carry__4
-       (.CI(trigger_continuo0_carry__3_n_0),
-        .CO({trigger_continuo0_carry__4_n_0,trigger_continuo0_carry__4_n_1,trigger_continuo0_carry__4_n_2,trigger_continuo0_carry__4_n_3}),
-        .CYINIT(1'b0),
-        .DI(M_reg[24:21]),
-        .O(trigger_continuo0[24:21]),
-        .S({trigger_continuo0_carry__4_i_1_n_0,trigger_continuo0_carry__4_i_2_n_0,trigger_continuo0_carry__4_i_3_n_0,trigger_continuo0_carry__4_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__4_i_1
-       (.I0(M_reg[24]),
-        .O(trigger_continuo0_carry__4_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__4_i_2
-       (.I0(M_reg[23]),
-        .O(trigger_continuo0_carry__4_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__4_i_3
-       (.I0(M_reg[22]),
-        .O(trigger_continuo0_carry__4_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__4_i_4
-       (.I0(M_reg[21]),
-        .O(trigger_continuo0_carry__4_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 trigger_continuo0_carry__5
-       (.CI(trigger_continuo0_carry__4_n_0),
-        .CO({trigger_continuo0_carry__5_n_0,trigger_continuo0_carry__5_n_1,trigger_continuo0_carry__5_n_2,trigger_continuo0_carry__5_n_3}),
-        .CYINIT(1'b0),
-        .DI(M_reg[28:25]),
-        .O(trigger_continuo0[28:25]),
-        .S({trigger_continuo0_carry__5_i_1_n_0,trigger_continuo0_carry__5_i_2_n_0,trigger_continuo0_carry__5_i_3_n_0,trigger_continuo0_carry__5_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__5_i_1
-       (.I0(M_reg[28]),
-        .O(trigger_continuo0_carry__5_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__5_i_2
-       (.I0(M_reg[27]),
-        .O(trigger_continuo0_carry__5_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__5_i_3
-       (.I0(M_reg[26]),
-        .O(trigger_continuo0_carry__5_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__5_i_4
-       (.I0(M_reg[25]),
-        .O(trigger_continuo0_carry__5_i_4_n_0));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 trigger_continuo0_carry__6
-       (.CI(trigger_continuo0_carry__5_n_0),
-        .CO({NLW_trigger_continuo0_carry__6_CO_UNCONNECTED[3:2],trigger_continuo0_carry__6_n_2,trigger_continuo0_carry__6_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,M_reg[30:29]}),
-        .O({NLW_trigger_continuo0_carry__6_O_UNCONNECTED[3],trigger_continuo0[31:29]}),
-        .S({1'b0,trigger_continuo0_carry__6_i_1_n_0,trigger_continuo0_carry__6_i_2_n_0,trigger_continuo0_carry__6_i_3_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__6_i_1
-       (.I0(M_reg[31]),
-        .O(trigger_continuo0_carry__6_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__6_i_2
-       (.I0(M_reg[30]),
-        .O(trigger_continuo0_carry__6_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry__6_i_3
-       (.I0(M_reg[29]),
-        .O(trigger_continuo0_carry__6_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry_i_1
-       (.I0(M_reg[4]),
-        .O(trigger_continuo0_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry_i_2
-       (.I0(M_reg[3]),
-        .O(trigger_continuo0_carry_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry_i_3
-       (.I0(M_reg[2]),
-        .O(trigger_continuo0_carry_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    trigger_continuo0_carry_i_4
-       (.I0(M_reg[1]),
-        .O(trigger_continuo0_carry_i_4_n_0));
-  CARRY4 trigger_continuo_carry
-       (.CI(1'b0),
-        .CO({trigger_continuo_carry_n_0,trigger_continuo_carry_n_1,trigger_continuo_carry_n_2,trigger_continuo_carry_n_3}),
-        .CYINIT(1'b1),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_trigger_continuo_carry_O_UNCONNECTED[3:0]),
-        .S({trigger_continuo_carry_i_1_n_0,trigger_continuo_carry_i_2_n_0,trigger_continuo_carry_i_3_n_0,trigger_continuo_carry_i_4_n_0}));
-  CARRY4 trigger_continuo_carry__0
-       (.CI(trigger_continuo_carry_n_0),
-        .CO({trigger_continuo_carry__0_n_0,trigger_continuo_carry__0_n_1,trigger_continuo_carry__0_n_2,trigger_continuo_carry__0_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_trigger_continuo_carry__0_O_UNCONNECTED[3:0]),
-        .S({trigger_continuo_carry__0_i_1_n_0,trigger_continuo_carry__0_i_2_n_0,trigger_continuo_carry__0_i_3_n_0,trigger_continuo_carry__0_i_4_n_0}));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry__0_i_1
-       (.I0(counter_cont_reg[21]),
-        .I1(trigger_continuo0[21]),
-        .I2(trigger_continuo0[23]),
-        .I3(counter_cont_reg[23]),
-        .I4(trigger_continuo0[22]),
-        .I5(counter_cont_reg[22]),
-        .O(trigger_continuo_carry__0_i_1_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry__0_i_2
-       (.I0(counter_cont_reg[18]),
-        .I1(trigger_continuo0[18]),
-        .I2(trigger_continuo0[20]),
-        .I3(counter_cont_reg[20]),
-        .I4(trigger_continuo0[19]),
-        .I5(counter_cont_reg[19]),
-        .O(trigger_continuo_carry__0_i_2_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry__0_i_3
-       (.I0(counter_cont_reg[15]),
-        .I1(trigger_continuo0[15]),
-        .I2(trigger_continuo0[17]),
-        .I3(counter_cont_reg[17]),
-        .I4(trigger_continuo0[16]),
-        .I5(counter_cont_reg[16]),
-        .O(trigger_continuo_carry__0_i_3_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry__0_i_4
-       (.I0(counter_cont_reg[12]),
-        .I1(trigger_continuo0[12]),
-        .I2(trigger_continuo0[14]),
-        .I3(counter_cont_reg[14]),
-        .I4(trigger_continuo0[13]),
-        .I5(counter_cont_reg[13]),
-        .O(trigger_continuo_carry__0_i_4_n_0));
-  CARRY4 trigger_continuo_carry__1
-       (.CI(trigger_continuo_carry__0_n_0),
-        .CO({NLW_trigger_continuo_carry__1_CO_UNCONNECTED[3],trigger_continuo,trigger_continuo_carry__1_n_2,trigger_continuo_carry__1_n_3}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_trigger_continuo_carry__1_O_UNCONNECTED[3:0]),
-        .S({1'b0,trigger_continuo_carry__1_i_1_n_0,trigger_continuo_carry__1_i_2_n_0,trigger_continuo_carry__1_i_3_n_0}));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    trigger_continuo_carry__1_i_1
-       (.I0(counter_cont_reg[30]),
-        .I1(trigger_continuo0[30]),
-        .I2(counter_cont_reg[31]),
-        .I3(trigger_continuo0[31]),
-        .O(trigger_continuo_carry__1_i_1_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry__1_i_2
-       (.I0(counter_cont_reg[27]),
-        .I1(trigger_continuo0[27]),
-        .I2(trigger_continuo0[29]),
-        .I3(counter_cont_reg[29]),
-        .I4(trigger_continuo0[28]),
-        .I5(counter_cont_reg[28]),
-        .O(trigger_continuo_carry__1_i_2_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry__1_i_3
-       (.I0(counter_cont_reg[24]),
-        .I1(trigger_continuo0[24]),
-        .I2(trigger_continuo0[26]),
-        .I3(counter_cont_reg[26]),
-        .I4(trigger_continuo0[25]),
-        .I5(counter_cont_reg[25]),
-        .O(trigger_continuo_carry__1_i_3_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry_i_1
-       (.I0(counter_cont_reg[9]),
-        .I1(trigger_continuo0[9]),
-        .I2(trigger_continuo0[11]),
-        .I3(counter_cont_reg[11]),
-        .I4(trigger_continuo0[10]),
-        .I5(counter_cont_reg[10]),
-        .O(trigger_continuo_carry_i_1_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry_i_2
-       (.I0(counter_cont_reg[6]),
-        .I1(trigger_continuo0[6]),
-        .I2(trigger_continuo0[8]),
-        .I3(counter_cont_reg[8]),
-        .I4(trigger_continuo0[7]),
-        .I5(counter_cont_reg[7]),
-        .O(trigger_continuo_carry_i_2_n_0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    trigger_continuo_carry_i_3
-       (.I0(counter_cont_reg[3]),
-        .I1(trigger_continuo0[3]),
-        .I2(trigger_continuo0[5]),
-        .I3(counter_cont_reg[5]),
-        .I4(trigger_continuo0[4]),
-        .I5(counter_cont_reg[4]),
-        .O(trigger_continuo_carry_i_3_n_0));
-  LUT6 #(
-    .INIT(64'h6006000000006006)) 
-    trigger_continuo_carry_i_4
-       (.I0(counter_cont_reg[0]),
-        .I1(M_reg[0]),
-        .I2(trigger_continuo0[2]),
-        .I3(counter_cont_reg[2]),
-        .I4(trigger_continuo0[1]),
-        .I5(counter_cont_reg[1]),
-        .O(trigger_continuo_carry_i_4_n_0));
+  LUT5 #(
+    .INIT(32'hFF08F700)) 
+    trigger_continuo_reg_i_1
+       (.I0(data_valid),
+        .I1(reset_n),
+        .I2(user_reset),
+        .I3(trig_export),
+        .I4(counter_cont0_carry__1_n_1),
+        .O(trigger_continuo_reg_i_1_n_0));
+  FDRE trigger_continuo_reg_reg
+       (.C(clk),
+        .CE(1'b1),
+        .D(trigger_continuo_reg_i_1_n_0),
+        .Q(trig_export),
+        .R(1'b0));
   (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h2)) 
     trigger_ext_reg_i_1
-       (.I0(trig_externo),
+       (.I0(trigger_ext_reg_reg_0),
         .I1(state_ext),
         .O(trigger_ext_reg_i_1_n_0));
   FDRE trigger_ext_reg_reg
@@ -5961,7 +5982,7 @@ module system_trigger_simulator_0_0_trigger_simulator
     .INIT(8'h08)) 
     trigger_nivel_reg_i_1
        (.I0(state3),
-        .I1(state31_in),
+        .I1(state32_in),
         .I2(\state_reg_n_0_[0] ),
         .O(trigger_nivel_reg_i_1_n_0));
   FDRE trigger_nivel_reg_reg
@@ -5969,7 +5990,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CE(data_valid),
         .D(trigger_nivel_reg_i_1_n_0),
         .Q(trigger_nivel),
-        .R(state0));
+        .R(\state[0]_i_1_n_0 ));
 endmodule
 `ifndef GLBL
 `define GLBL

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Aug 10 18:06:35 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 11 17:06:01 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -165,7 +165,7 @@
     <PORT DIR="IO" LEFT="3" NAME="exp_p_tri_io" RIGHT="0" SIGIS="undef"/>
     <PORT DIR="IO" LEFT="7" NAME="exp_n_tri_io" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_exp_n_tri_io">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="trigger_simulator_0" PORT="trig_externo"/>
+        <CONNECTION INSTANCE="trigger_simulator_0" PORT="trig_export"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="1" NAME="daisy_p_o" RIGHT="0" SIGIS="undef" SIGNAME="util_ds_buf_2_OBUF_DS_P">
@@ -933,12 +933,12 @@
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="finished"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="bram_porta_clk" SIGIS="clk" SIGNAME="BRAM1_axi_bram_reader_1_bram_porta_clk">
+        <PORT DIR="I" NAME="bram_porta_clk" SIGIS="undef" SIGNAME="BRAM1_axi_bram_reader_1_bram_porta_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_axi_bram_reader_1" PORT="bram_porta_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_porta_rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="BRAM1_axi_bram_reader_1_bram_porta_rst">
+        <PORT DIR="I" NAME="bram_porta_rst" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="BRAM1_axi_bram_reader_1_bram_porta_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_axi_bram_reader_1" PORT="bram_porta_rst"/>
           </CONNECTIONS>
@@ -963,12 +963,12 @@
             <CONNECTION INSTANCE="BRAM1_axi_bram_reader_1" PORT="bram_porta_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_portb_clk" SIGIS="clk" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_clk">
+        <PORT DIR="I" NAME="bram_portb_clk" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="bram_portb_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_portb_rst" SIGIS="rst" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_rst">
+        <PORT DIR="I" NAME="bram_portb_rst" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="bram_portb_rst"/>
           </CONNECTIONS>
@@ -993,12 +993,12 @@
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="bram_portb_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portc_clk" SIGIS="clk" SIGNAME="BRAM1_bram_switch_0_bram_portc_clk">
+        <PORT DIR="O" NAME="bram_portc_clk" SIGIS="undef" SIGNAME="BRAM1_bram_switch_0_bram_portc_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="clkb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portc_rst" SIGIS="rst"/>
+        <PORT DIR="O" NAME="bram_portc_rst" SIGIS="undef"/>
         <PORT DIR="O" LEFT="14" NAME="bram_portc_addr" RIGHT="0" SIGIS="undef" SIGNAME="BRAM1_bram_switch_0_bram_portc_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="addrb"/>
@@ -1533,12 +1533,12 @@
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="finished"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="bram_porta_clk" SIGIS="clk" SIGNAME="BRAM2_axi_bram_reader_1_bram_porta_clk">
+        <PORT DIR="I" NAME="bram_porta_clk" SIGIS="undef" SIGNAME="BRAM2_axi_bram_reader_1_bram_porta_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_axi_bram_reader_1" PORT="bram_porta_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_porta_rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="BRAM2_axi_bram_reader_1_bram_porta_rst">
+        <PORT DIR="I" NAME="bram_porta_rst" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="BRAM2_axi_bram_reader_1_bram_porta_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_axi_bram_reader_1" PORT="bram_porta_rst"/>
           </CONNECTIONS>
@@ -1563,12 +1563,12 @@
             <CONNECTION INSTANCE="BRAM2_axi_bram_reader_1" PORT="bram_porta_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_portb_clk" SIGIS="clk" SIGNAME="Procesamiento_coherent_average_0_bram_portb_clk">
+        <PORT DIR="I" NAME="bram_portb_clk" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_portb_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="bram_portb_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_portb_rst" SIGIS="rst" SIGNAME="Procesamiento_coherent_average_0_bram_portb_rst">
+        <PORT DIR="I" NAME="bram_portb_rst" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_portb_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="bram_portb_rst"/>
           </CONNECTIONS>
@@ -1593,12 +1593,12 @@
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="bram_portb_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portc_clk" SIGIS="clk" SIGNAME="BRAM2_bram_switch_0_bram_portc_clk">
+        <PORT DIR="O" NAME="bram_portc_clk" SIGIS="undef" SIGNAME="BRAM2_bram_switch_0_bram_portc_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="clkb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portc_rst" SIGIS="rst"/>
+        <PORT DIR="O" NAME="bram_portc_rst" SIGIS="undef"/>
         <PORT DIR="O" LEFT="14" NAME="bram_portc_addr" RIGHT="0" SIGIS="undef" SIGNAME="BRAM2_bram_switch_0_bram_portc_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="addrb"/>
@@ -2662,12 +2662,12 @@
             <CONNECTION INSTANCE="uP_control_N_prom_lineal" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_porta_clk" SIGIS="clk" SIGNAME="Procesamiento1_coherent_average_0_bram_porta_clk">
+        <PORT DIR="O" NAME="bram_porta_clk" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_porta_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="clka"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_porta_rst" SIGIS="rst"/>
+        <PORT DIR="O" NAME="bram_porta_rst" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="bram_porta_addr" RIGHT="0" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_porta_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="addra"/>
@@ -2689,12 +2689,12 @@
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="ena"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portb_clk" SIGIS="clk" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_clk">
+        <PORT DIR="O" NAME="bram_portb_clk" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_bram_switch_0" PORT="bram_portb_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portb_rst" SIGIS="rst" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_rst">
+        <PORT DIR="O" NAME="bram_portb_rst" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_bram_switch_0" PORT="bram_portb_rst"/>
           </CONNECTIONS>
@@ -2850,12 +2850,12 @@
             <CONNECTION INSTANCE="uP_control_N_prom_lineal" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_porta_clk" SIGIS="clk" SIGNAME="Procesamiento_coherent_average_0_bram_porta_clk">
+        <PORT DIR="O" NAME="bram_porta_clk" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_porta_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="clka"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_porta_rst" SIGIS="rst"/>
+        <PORT DIR="O" NAME="bram_porta_rst" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="bram_porta_addr" RIGHT="0" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_porta_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="addra"/>
@@ -2877,12 +2877,12 @@
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="ena"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portb_clk" SIGIS="clk" SIGNAME="Procesamiento_coherent_average_0_bram_portb_clk">
+        <PORT DIR="O" NAME="bram_portb_clk" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_portb_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_bram_switch_0" PORT="bram_portb_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portb_rst" SIGIS="rst" SIGNAME="Procesamiento_coherent_average_0_bram_portb_rst">
+        <PORT DIR="O" NAME="bram_portb_rst" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_portb_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_bram_switch_0" PORT="bram_portb_rst"/>
           </CONNECTIONS>
@@ -3079,7 +3079,7 @@
             <CONNECTION INSTANCE="uP_control_trigger_level" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="IO" NAME="trig_externo" SIGIS="undef" SIGNAME="External_Ports_exp_n_tri_io">
+        <PORT DIR="IO" LEFT="1" NAME="trig_export" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_exp_n_tri_io">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="exp_n_tri_io"/>
           </CONNECTIONS>

@@ -1,5 +1,5 @@
 % Abre el archivo de texto para lectura
-fid = fopen('test_9.dat', 'r');
+fid = fopen('data_5.dat', 'r');
 
 % Ignora la primera l�nea
 metadata= textscan(fgetl(fid), "Frecuencia_de_muestreo: %f Factor_de_sobremuestreo: %f Ciclos_de_promediacion: %f Divisor: %f");
@@ -33,7 +33,8 @@ values_chB = data{1}/(K*N/DIV);
 fclose(fid);
 
 % Grafica los valores
-figure;
+%figure;
+hold on;
 plot(values_chA,'-x');hold on;plot(values_chB,'-x');
 grid on;
 
