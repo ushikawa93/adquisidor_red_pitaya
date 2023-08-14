@@ -366,3 +366,5 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 open_run: Time (s): cpu = 00:01:05 ; elapsed = 00:01:05 . Memory (MB): peak = 2528.375 ; gain = 948.004
 open_report: Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 2635.184 ; gain = 106.266
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Aug 11 20:18:59 2023...
