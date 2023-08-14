@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Aug 11 19:39:39 2023
-//Host        : DESKTOP-TN92N90 running 64-bit major release  (build 9200)
+//Date        : Mon Aug 14 15:28:47 2023
+//Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 //Command     : generate_target system_wrapper.bd
 //Design      : system_wrapper
 //Purpose     : IP block netlist
@@ -90,8 +90,8 @@ module system_wrapper
   input [1:0]daisy_p_i;
   output [1:0]daisy_p_o;
   inout [7:0]exp_n_tri_io;
-  inout [1:0]exp_p_tri_io;
-  output [1:0]led_o;
+  inout [7:0]exp_p_tri_io;
+  output [7:0]led_o;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -132,8 +132,8 @@ module system_wrapper
   wire [1:0]daisy_p_i;
   wire [1:0]daisy_p_o;
   wire [7:0]exp_n_tri_io;
-  wire [1:0]exp_p_tri_io;
-  wire [1:0]led_o;
+  wire [7:0]exp_p_tri_io;
+  wire [7:0]led_o;
 
   system system_i
        (.DDR_addr(DDR_addr),

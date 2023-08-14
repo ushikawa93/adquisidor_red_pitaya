@@ -276,7 +276,7 @@ public:
 
 int main()
 {
-    string ip = "169.254.172.188";
+    string ip = "192.168.1.100";
     int frec_obj = 10;
     int ciclos_promediados = 1;
 

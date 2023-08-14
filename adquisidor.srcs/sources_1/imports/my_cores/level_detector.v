@@ -32,7 +32,8 @@ module level_detector(
     input data_in_2_valid,
     
     
-    output [1:0] level_detected
+    output level_detected_0,
+    output level_detected_1
     );
     
 
@@ -77,8 +78,8 @@ begin
 
 end
 
-assign level_detected[0] = level_detected_1_reg;
-assign level_detected[1] = level_detected_2_reg;   
+assign level_detected_0 = level_detected_1_reg;
+assign level_detected_1 = level_detected_2_reg;   
     
     
 endmodule

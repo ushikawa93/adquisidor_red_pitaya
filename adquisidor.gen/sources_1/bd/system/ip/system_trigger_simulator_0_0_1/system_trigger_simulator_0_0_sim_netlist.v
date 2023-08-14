@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri Aug 11 17:08:25 2023
-// Host        : DESKTOP-4F847D8 running 64-bit major release  (build 9200)
+// Date        : Mon Aug 14 15:30:42 2023
+// Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0_sim_netlist.v
+//               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_trigger_simulator_0_0_1/system_trigger_simulator_0_0_sim_netlist.v
 // Design      : system_trigger_simulator_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,7 +26,8 @@ module system_trigger_simulator_0_0
     log2_div_in,
     trigger_mode_in,
     trigger_level_in,
-    trig_export,
+    trig_externo,
+    trig_cont_export,
     trig);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset_n;
@@ -38,7 +39,8 @@ module system_trigger_simulator_0_0
   input [31:0]log2_div_in;
   input [3:0]trigger_mode_in;
   input [31:0]trigger_level_in;
-  inout [1:0]trig_export;
+  input trig_externo;
+  output trig_cont_export;
   output trig;
 
   wire [31:0]K_sobremuestreo_in;
@@ -49,7 +51,8 @@ module system_trigger_simulator_0_0
   wire [31:0]log2_div_in;
   wire reset_n;
   wire trig;
-  wire [1:0]trig_export;
+  wire trig_cont_export;
+  wire trig_externo;
   wire [31:0]trigger_level_in;
   wire [3:0]trigger_mode_in;
   wire user_reset;
@@ -63,8 +66,8 @@ module system_trigger_simulator_0_0
         .log2_div_in(log2_div_in),
         .reset_n(reset_n),
         .trig(trig),
-        .trig_export(trig_export[1]),
-        .trigger_ext_reg_reg_0(trig_export[0]),
+        .trig_cont_export(trig_cont_export),
+        .trig_externo(trig_externo),
         .trigger_level_in(trigger_level_in),
         .trigger_mode_in(trigger_mode_in),
         .user_reset(user_reset));
@@ -73,31 +76,31 @@ endmodule
 (* ORIG_REF_NAME = "trigger_simulator" *) 
 module system_trigger_simulator_0_0_trigger_simulator
    (trig,
-    trig_export,
+    trig_cont_export,
     reset_n,
     user_reset,
-    data_valid,
-    trigger_mode_in,
-    clk,
     M_in,
+    clk,
+    trigger_mode_in,
+    data_valid,
     log2_div_in,
     trigger_level_in,
     K_sobremuestreo_in,
     data_in,
-    trigger_ext_reg_reg_0);
+    trig_externo);
   output trig;
-  inout [0:0]trig_export;
+  output trig_cont_export;
   input reset_n;
   input user_reset;
-  input data_valid;
-  input [3:0]trigger_mode_in;
-  input clk;
   input [31:0]M_in;
+  input clk;
+  input [3:0]trigger_mode_in;
+  input data_valid;
   input [31:0]log2_div_in;
   input [31:0]trigger_level_in;
   input [31:0]K_sobremuestreo_in;
   input [31:0]data_in;
-  input [0:0]trigger_ext_reg_reg_0;
+  input trig_externo;
 
   wire [31:0]K_sobremuestreo_in;
   wire [31:0]M_in;
@@ -528,11 +531,11 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire \state_reg_n_0_[0] ;
   wire trig;
   wire trig_INST_0_i_1_n_0;
-  wire [0:0]trig_export;
+  wire trig_cont_export;
+  wire trig_externo;
   wire trigger_continuo_reg_i_1_n_0;
   wire trigger_ext_reg;
   wire trigger_ext_reg_i_1_n_0;
-  wire [0:0]trigger_ext_reg_reg_0;
   wire [31:0]trigger_level_in;
   wire trigger_level_k_mult0__0_n_100;
   wire trigger_level_k_mult0__0_n_101;
@@ -1014,6 +1017,11 @@ module system_trigger_simulator_0_0_trigger_simulator
   wire [3:0]NLW_trigger_level_k_mult_reg_CARRYOUT_UNCONNECTED;
   wire [47:0]NLW_trigger_level_k_mult_reg_PCOUT_UNCONNECTED;
 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \M_reg[31]_i_1 
+       (.I0(reset_n),
+        .O(counter_cont2));
   FDRE \M_reg_reg[0] 
        (.C(clk),
         .CE(1'b1),
@@ -1342,7 +1350,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CYINIT(M_reg[0]),
         .DI(M_reg[4:1]),
         .O(counter_cont1[4:1]),
-        .S({i__carry_i_1__0_n_0,i__carry_i_2__0_n_0,i__carry_i_3__0_n_0,i__carry_i_4__0_n_0}));
+        .S({i__carry_i_1_n_0,i__carry_i_2_n_0,i__carry_i_3_n_0,i__carry_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_cont1_inferred__0/i__carry__0 
        (.CI(\counter_cont1_inferred__0/i__carry_n_0 ),
@@ -1350,7 +1358,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CYINIT(1'b0),
         .DI(M_reg[8:5]),
         .O(counter_cont1[8:5]),
-        .S({i__carry__0_i_1__0_n_0,i__carry__0_i_2__0_n_0,i__carry__0_i_3__0_n_0,i__carry__0_i_4__0_n_0}));
+        .S({i__carry__0_i_1_n_0,i__carry__0_i_2_n_0,i__carry__0_i_3_n_0,i__carry__0_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_cont1_inferred__0/i__carry__1 
        (.CI(\counter_cont1_inferred__0/i__carry__0_n_0 ),
@@ -1358,7 +1366,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CYINIT(1'b0),
         .DI(M_reg[12:9]),
         .O(counter_cont1[12:9]),
-        .S({i__carry__1_i_1__0_n_0,i__carry__1_i_2__0_n_0,i__carry__1_i_3__0_n_0,i__carry__1_i_4__0_n_0}));
+        .S({i__carry__1_i_1_n_0,i__carry__1_i_2_n_0,i__carry__1_i_3_n_0,i__carry__1_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_cont1_inferred__0/i__carry__2 
        (.CI(\counter_cont1_inferred__0/i__carry__1_n_0 ),
@@ -1366,7 +1374,7 @@ module system_trigger_simulator_0_0_trigger_simulator
         .CYINIT(1'b0),
         .DI(M_reg[16:13]),
         .O(counter_cont1[16:13]),
-        .S({i__carry__2_i_1__0_n_0,i__carry__2_i_2__0_n_0,i__carry__2_i_3__0_n_0,i__carry__2_i_4__0_n_0}));
+        .S({i__carry__2_i_1_n_0,i__carry__2_i_2_n_0,i__carry__2_i_3_n_0,i__carry__2_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \counter_cont1_inferred__0/i__carry__3 
        (.CI(\counter_cont1_inferred__0/i__carry__2_n_0 ),
@@ -2825,57 +2833,57 @@ module system_trigger_simulator_0_0_trigger_simulator
         .D(data_in[9]),
         .Q(data_in_reg[9]),
         .R(\state[0]_i_1_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_1
+       (.I0(M_reg[8]),
+        .O(i__carry__0_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__0_i_1
+    i__carry__0_i_1__0
        (.I0(data_in[14]),
         .I1(trigger_level_k_mult_div[14]),
         .I2(trigger_level_k_mult_div[15]),
         .I3(data_in[15]),
-        .O(i__carry__0_i_1_n_0));
+        .O(i__carry__0_i_1__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__0_i_1__0
-       (.I0(M_reg[8]),
-        .O(i__carry__0_i_1__0_n_0));
+    i__carry__0_i_2
+       (.I0(M_reg[7]),
+        .O(i__carry__0_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__0_i_2
+    i__carry__0_i_2__0
        (.I0(data_in[12]),
         .I1(trigger_level_k_mult_div[12]),
         .I2(trigger_level_k_mult_div[13]),
         .I3(data_in[13]),
-        .O(i__carry__0_i_2_n_0));
+        .O(i__carry__0_i_2__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__0_i_2__0
-       (.I0(M_reg[7]),
-        .O(i__carry__0_i_2__0_n_0));
+    i__carry__0_i_3
+       (.I0(M_reg[6]),
+        .O(i__carry__0_i_3_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__0_i_3
+    i__carry__0_i_3__0
        (.I0(data_in[10]),
         .I1(trigger_level_k_mult_div[10]),
         .I2(trigger_level_k_mult_div[11]),
         .I3(data_in[11]),
-        .O(i__carry__0_i_3_n_0));
+        .O(i__carry__0_i_3__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__0_i_3__0
-       (.I0(M_reg[6]),
-        .O(i__carry__0_i_3__0_n_0));
+    i__carry__0_i_4
+       (.I0(M_reg[5]),
+        .O(i__carry__0_i_4_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__0_i_4
+    i__carry__0_i_4__0
        (.I0(data_in[8]),
         .I1(trigger_level_k_mult_div[8]),
         .I2(trigger_level_k_mult_div[9]),
         .I3(data_in[9]),
-        .O(i__carry__0_i_4_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i__carry__0_i_4__0
-       (.I0(M_reg[5]),
         .O(i__carry__0_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -2909,57 +2917,57 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(data_in[9]),
         .I3(trigger_level_k_mult_div[9]),
         .O(i__carry__0_i_8_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_1
+       (.I0(M_reg[12]),
+        .O(i__carry__1_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__1_i_1
+    i__carry__1_i_1__0
        (.I0(data_in[22]),
         .I1(trigger_level_k_mult_div[22]),
         .I2(trigger_level_k_mult_div[23]),
         .I3(data_in[23]),
-        .O(i__carry__1_i_1_n_0));
+        .O(i__carry__1_i_1__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__1_i_1__0
-       (.I0(M_reg[12]),
-        .O(i__carry__1_i_1__0_n_0));
+    i__carry__1_i_2
+       (.I0(M_reg[11]),
+        .O(i__carry__1_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__1_i_2
+    i__carry__1_i_2__0
        (.I0(data_in[20]),
         .I1(trigger_level_k_mult_div[20]),
         .I2(trigger_level_k_mult_div[21]),
         .I3(data_in[21]),
-        .O(i__carry__1_i_2_n_0));
+        .O(i__carry__1_i_2__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__1_i_2__0
-       (.I0(M_reg[11]),
-        .O(i__carry__1_i_2__0_n_0));
+    i__carry__1_i_3
+       (.I0(M_reg[10]),
+        .O(i__carry__1_i_3_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__1_i_3
+    i__carry__1_i_3__0
        (.I0(data_in[18]),
         .I1(trigger_level_k_mult_div[18]),
         .I2(trigger_level_k_mult_div[19]),
         .I3(data_in[19]),
-        .O(i__carry__1_i_3_n_0));
+        .O(i__carry__1_i_3__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__1_i_3__0
-       (.I0(M_reg[10]),
-        .O(i__carry__1_i_3__0_n_0));
+    i__carry__1_i_4
+       (.I0(M_reg[9]),
+        .O(i__carry__1_i_4_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__1_i_4
+    i__carry__1_i_4__0
        (.I0(data_in[16]),
         .I1(trigger_level_k_mult_div[16]),
         .I2(trigger_level_k_mult_div[17]),
         .I3(data_in[17]),
-        .O(i__carry__1_i_4_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i__carry__1_i_4__0
-       (.I0(M_reg[9]),
         .O(i__carry__1_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -2993,57 +3001,57 @@ module system_trigger_simulator_0_0_trigger_simulator
         .I2(data_in[17]),
         .I3(trigger_level_k_mult_div[17]),
         .O(i__carry__1_i_8_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_1
+       (.I0(M_reg[16]),
+        .O(i__carry__2_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__2_i_1
+    i__carry__2_i_1__0
        (.I0(data_in[30]),
         .I1(trigger_level_k_mult_div[30]),
         .I2(data_in[31]),
         .I3(trigger_level_k_mult_div[31]),
-        .O(i__carry__2_i_1_n_0));
+        .O(i__carry__2_i_1__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__2_i_1__0
-       (.I0(M_reg[16]),
-        .O(i__carry__2_i_1__0_n_0));
+    i__carry__2_i_2
+       (.I0(M_reg[15]),
+        .O(i__carry__2_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__2_i_2
+    i__carry__2_i_2__0
        (.I0(data_in[28]),
         .I1(trigger_level_k_mult_div[28]),
         .I2(trigger_level_k_mult_div[29]),
         .I3(data_in[29]),
-        .O(i__carry__2_i_2_n_0));
+        .O(i__carry__2_i_2__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__2_i_2__0
-       (.I0(M_reg[15]),
-        .O(i__carry__2_i_2__0_n_0));
+    i__carry__2_i_3
+       (.I0(M_reg[14]),
+        .O(i__carry__2_i_3_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__2_i_3
+    i__carry__2_i_3__0
        (.I0(data_in[26]),
         .I1(trigger_level_k_mult_div[26]),
         .I2(trigger_level_k_mult_div[27]),
         .I3(data_in[27]),
-        .O(i__carry__2_i_3_n_0));
+        .O(i__carry__2_i_3__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry__2_i_3__0
-       (.I0(M_reg[14]),
-        .O(i__carry__2_i_3__0_n_0));
+    i__carry__2_i_4
+       (.I0(M_reg[13]),
+        .O(i__carry__2_i_4_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry__2_i_4
+    i__carry__2_i_4__0
        (.I0(data_in[24]),
         .I1(trigger_level_k_mult_div[24]),
         .I2(trigger_level_k_mult_div[25]),
         .I3(data_in[25]),
-        .O(i__carry__2_i_4_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i__carry__2_i_4__0
-       (.I0(M_reg[13]),
         .O(i__carry__2_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -3152,57 +3160,57 @@ module system_trigger_simulator_0_0_trigger_simulator
     i__carry__6_i_3
        (.I0(M_reg[29]),
         .O(i__carry__6_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_1
+       (.I0(M_reg[4]),
+        .O(i__carry_i_1_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry_i_1
+    i__carry_i_1__0
        (.I0(data_in[6]),
         .I1(trigger_level_k_mult_div[6]),
         .I2(trigger_level_k_mult_div[7]),
         .I3(data_in[7]),
-        .O(i__carry_i_1_n_0));
+        .O(i__carry_i_1__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry_i_1__0
-       (.I0(M_reg[4]),
-        .O(i__carry_i_1__0_n_0));
+    i__carry_i_2
+       (.I0(M_reg[3]),
+        .O(i__carry_i_2_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry_i_2
+    i__carry_i_2__0
        (.I0(data_in[4]),
         .I1(trigger_level_k_mult_div[4]),
         .I2(trigger_level_k_mult_div[5]),
         .I3(data_in[5]),
-        .O(i__carry_i_2_n_0));
+        .O(i__carry_i_2__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry_i_2__0
-       (.I0(M_reg[3]),
-        .O(i__carry_i_2__0_n_0));
+    i__carry_i_3
+       (.I0(M_reg[2]),
+        .O(i__carry_i_3_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry_i_3
+    i__carry_i_3__0
        (.I0(data_in[2]),
         .I1(trigger_level_k_mult_div[2]),
         .I2(trigger_level_k_mult_div[3]),
         .I3(data_in[3]),
-        .O(i__carry_i_3_n_0));
+        .O(i__carry_i_3__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
-    i__carry_i_3__0
-       (.I0(M_reg[2]),
-        .O(i__carry_i_3__0_n_0));
+    i__carry_i_4
+       (.I0(M_reg[1]),
+        .O(i__carry_i_4_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
-    i__carry_i_4
+    i__carry_i_4__0
        (.I0(data_in[0]),
         .I1(trigger_level_k_mult_div[0]),
         .I2(trigger_level_k_mult_div[1]),
         .I3(data_in[1]),
-        .O(i__carry_i_4_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    i__carry_i_4__0
-       (.I0(M_reg[1]),
         .O(i__carry_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -4007,7 +4015,7 @@ module system_trigger_simulator_0_0_trigger_simulator
        (.CI(1'b0),
         .CO({\state3_inferred__0/i__carry_n_0 ,\state3_inferred__0/i__carry_n_1 ,\state3_inferred__0/i__carry_n_2 ,\state3_inferred__0/i__carry_n_3 }),
         .CYINIT(1'b0),
-        .DI({i__carry_i_1_n_0,i__carry_i_2_n_0,i__carry_i_3_n_0,i__carry_i_4_n_0}),
+        .DI({i__carry_i_1__0_n_0,i__carry_i_2__0_n_0,i__carry_i_3__0_n_0,i__carry_i_4__0_n_0}),
         .O(\NLW_state3_inferred__0/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_5_n_0,i__carry_i_6_n_0,i__carry_i_7_n_0,i__carry_i_8_n_0}));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -4015,7 +4023,7 @@ module system_trigger_simulator_0_0_trigger_simulator
        (.CI(\state3_inferred__0/i__carry_n_0 ),
         .CO({\state3_inferred__0/i__carry__0_n_0 ,\state3_inferred__0/i__carry__0_n_1 ,\state3_inferred__0/i__carry__0_n_2 ,\state3_inferred__0/i__carry__0_n_3 }),
         .CYINIT(1'b0),
-        .DI({i__carry__0_i_1_n_0,i__carry__0_i_2_n_0,i__carry__0_i_3_n_0,i__carry__0_i_4_n_0}),
+        .DI({i__carry__0_i_1__0_n_0,i__carry__0_i_2__0_n_0,i__carry__0_i_3__0_n_0,i__carry__0_i_4__0_n_0}),
         .O(\NLW_state3_inferred__0/i__carry__0_O_UNCONNECTED [3:0]),
         .S({i__carry__0_i_5_n_0,i__carry__0_i_6_n_0,i__carry__0_i_7_n_0,i__carry__0_i_8_n_0}));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -4023,7 +4031,7 @@ module system_trigger_simulator_0_0_trigger_simulator
        (.CI(\state3_inferred__0/i__carry__0_n_0 ),
         .CO({\state3_inferred__0/i__carry__1_n_0 ,\state3_inferred__0/i__carry__1_n_1 ,\state3_inferred__0/i__carry__1_n_2 ,\state3_inferred__0/i__carry__1_n_3 }),
         .CYINIT(1'b0),
-        .DI({i__carry__1_i_1_n_0,i__carry__1_i_2_n_0,i__carry__1_i_3_n_0,i__carry__1_i_4_n_0}),
+        .DI({i__carry__1_i_1__0_n_0,i__carry__1_i_2__0_n_0,i__carry__1_i_3__0_n_0,i__carry__1_i_4__0_n_0}),
         .O(\NLW_state3_inferred__0/i__carry__1_O_UNCONNECTED [3:0]),
         .S({i__carry__1_i_5_n_0,i__carry__1_i_6_n_0,i__carry__1_i_7_n_0,i__carry__1_i_8_n_0}));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -4031,7 +4039,7 @@ module system_trigger_simulator_0_0_trigger_simulator
        (.CI(\state3_inferred__0/i__carry__1_n_0 ),
         .CO({state32_in,\state3_inferred__0/i__carry__2_n_1 ,\state3_inferred__0/i__carry__2_n_2 ,\state3_inferred__0/i__carry__2_n_3 }),
         .CYINIT(1'b0),
-        .DI({i__carry__2_i_1_n_0,i__carry__2_i_2_n_0,i__carry__2_i_3_n_0,i__carry__2_i_4_n_0}),
+        .DI({i__carry__2_i_1__0_n_0,i__carry__2_i_2__0_n_0,i__carry__2_i_3__0_n_0,i__carry__2_i_4__0_n_0}),
         .O(\NLW_state3_inferred__0/i__carry__2_O_UNCONNECTED [3:0]),
         .S({i__carry__2_i_5_n_0,i__carry__2_i_6_n_0,i__carry__2_i_7_n_0,i__carry__2_i_8_n_0}));
   LUT2 #(
@@ -4354,43 +4362,42 @@ module system_trigger_simulator_0_0_trigger_simulator
         .D(\state[0]_i_2_n_0 ),
         .Q(\state_reg_n_0_[0] ),
         .R(\state[0]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000000000002E22)) 
+  LUT3 #(
+    .INIT(8'h02)) 
     trig_INST_0
        (.I0(trig_INST_0_i_1_n_0),
-        .I1(trigger_mode_reg[0]),
-        .I2(trigger_mode_reg[1]),
-        .I3(trigger_nivel),
-        .I4(\trigger_mode_reg_reg_n_0_[2] ),
-        .I5(\trigger_mode_reg_reg_n_0_[3] ),
+        .I1(\trigger_mode_reg_reg_n_0_[2] ),
+        .I2(\trigger_mode_reg_reg_n_0_[3] ),
         .O(trig));
-  LUT3 #(
-    .INIT(8'hE4)) 
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
     trig_INST_0_i_1
-       (.I0(trigger_mode_reg[1]),
-        .I1(trig_export),
+       (.I0(trigger_nivel),
+        .I1(trigger_mode_reg[0]),
         .I2(trigger_ext_reg),
+        .I3(trigger_mode_reg[1]),
+        .I4(trig_cont_export),
         .O(trig_INST_0_i_1_n_0));
   LUT5 #(
-    .INIT(32'hFF08F700)) 
+    .INIT(32'hFFBF0080)) 
     trigger_continuo_reg_i_1
-       (.I0(data_valid),
-        .I1(reset_n),
-        .I2(user_reset),
-        .I3(trig_export),
-        .I4(counter_cont0_carry__1_n_1),
+       (.I0(counter_cont0_carry__1_n_1),
+        .I1(data_valid),
+        .I2(reset_n),
+        .I3(user_reset),
+        .I4(trig_cont_export),
         .O(trigger_continuo_reg_i_1_n_0));
   FDRE trigger_continuo_reg_reg
        (.C(clk),
         .CE(1'b1),
         .D(trigger_continuo_reg_i_1_n_0),
-        .Q(trig_export),
+        .Q(trig_cont_export),
         .R(1'b0));
   (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h2)) 
     trigger_ext_reg_i_1
-       (.I0(trigger_ext_reg_reg_0),
+       (.I0(trig_externo),
         .I1(state_ext),
         .O(trigger_ext_reg_i_1_n_0));
   FDRE trigger_ext_reg_reg
@@ -5948,11 +5955,6 @@ module system_trigger_simulator_0_0_trigger_simulator
         .D(trigger_level_k_mult0__0_n_96),
         .Q(\trigger_level_k_mult_reg[9]__0_n_0 ),
         .R(counter_cont2));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \trigger_mode_reg[3]_i_1 
-       (.I0(reset_n),
-        .O(counter_cont2));
   FDRE \trigger_mode_reg_reg[0] 
        (.C(clk),
         .CE(1'b1),

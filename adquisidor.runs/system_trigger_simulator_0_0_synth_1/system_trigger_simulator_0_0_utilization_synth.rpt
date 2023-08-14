@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Aug 11 17:08:25 2023
-| Host         : DESKTOP-4F847D8 running 64-bit major release  (build 9200)
+| Date         : Mon Aug 14 15:30:42 2023
+| Host         : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_trigger_simulator_0_0_utilization_synth.rpt -pb system_trigger_simulator_0_0_utilization_synth.pb
 | Design       : system_trigger_simulator_0_0
 | Device       : xc7z010clg400-1
@@ -153,10 +153,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 | LUT4     |  138 |                 LUT |
 | LUT2     |   82 |                 LUT |
 | CARRY4   |   55 |          CarryLogic |
-| LUT6     |   52 |                 LUT |
+| LUT6     |   51 |                 LUT |
 | LUT1     |   33 |                 LUT |
 | LUT3     |   32 |                 LUT |
-| LUT5     |   22 |                 LUT |
+| LUT5     |   23 |                 LUT |
 | DSP48E1  |    3 |    Block Arithmetic |
 +----------+------+---------------------+
 

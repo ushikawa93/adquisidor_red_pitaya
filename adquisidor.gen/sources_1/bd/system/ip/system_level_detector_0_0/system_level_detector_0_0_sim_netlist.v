@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri Aug 11 19:43:05 2023
-// Host        : DESKTOP-TN92N90 running 64-bit major release  (build 9200)
+// Date        : Mon Aug 14 15:30:32 2023
+// Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               c:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_level_detector_0_0/system_level_detector_0_0_sim_netlist.v
+//               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_level_detector_0_0/system_level_detector_0_0_sim_netlist.v
 // Design      : system_level_detector_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -23,7 +23,8 @@ module system_level_detector_0_0
     data_in_1_valid,
     data_in_2,
     data_in_2_valid,
-    level_detected);
+    level_detected_0,
+    level_detected_1);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input reset_n;
   input [31:0]level_to_detect;
@@ -31,14 +32,16 @@ module system_level_detector_0_0
   input data_in_1_valid;
   input [13:0]data_in_2;
   input data_in_2_valid;
-  output [1:0]level_detected;
+  output level_detected_0;
+  output level_detected_1;
 
   wire clk;
   wire [13:0]data_in_1;
   wire data_in_1_valid;
   wire [13:0]data_in_2;
   wire data_in_2_valid;
-  wire [1:0]level_detected;
+  wire level_detected_0;
+  wire level_detected_1;
   wire [31:0]level_to_detect;
   wire reset_n;
 
@@ -48,14 +51,16 @@ module system_level_detector_0_0
         .data_in_1_valid(data_in_1_valid),
         .data_in_2(data_in_2),
         .data_in_2_valid(data_in_2_valid),
-        .level_detected(level_detected),
+        .level_detected_0(level_detected_0),
+        .level_detected_1(level_detected_1),
         .level_to_detect(level_to_detect),
         .reset_n(reset_n));
 endmodule
 
 (* ORIG_REF_NAME = "level_detector" *) 
 module system_level_detector_0_0_level_detector
-   (level_detected,
+   (level_detected_0,
+    level_detected_1,
     level_to_detect,
     clk,
     data_in_1_valid,
@@ -63,7 +68,8 @@ module system_level_detector_0_0_level_detector
     data_in_2_valid,
     data_in_2,
     reset_n);
-  output [1:0]level_detected;
+  output level_detected_0;
+  output level_detected_1;
   input [31:0]level_to_detect;
   input clk;
   input data_in_1_valid;
@@ -80,7 +86,8 @@ module system_level_detector_0_0_level_detector
   wire [13:0]data_in_2_reg;
   wire data_in_2_valid;
   wire [31:0]level;
-  wire [1:0]level_detected;
+  wire level_detected_0;
+  wire level_detected_1;
   wire level_detected_1_reg0_carry__0_i_1_n_0;
   wire level_detected_1_reg0_carry__0_i_2_n_0;
   wire level_detected_1_reg0_carry__0_i_3_n_0;
@@ -627,11 +634,16 @@ module system_level_detector_0_0_level_detector
         .I2(data_in_1_reg[1]),
         .I3(level[1]),
         .O(level_detected_1_reg0_carry_i_8_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    level_detected_1_reg_i_1
+       (.I0(reset_n),
+        .O(p_0_in));
   FDRE level_detected_1_reg_reg
        (.C(clk),
         .CE(data_in_1_valid),
         .D(p_1_in),
-        .Q(level_detected[0]),
+        .Q(level_detected_0),
         .R(p_0_in));
   (* COMPARATOR_THRESHOLD = "11" *) 
   CARRY4 level_detected_2_reg0_carry
@@ -903,16 +915,11 @@ module system_level_detector_0_0_level_detector
         .I2(data_in_2_reg[1]),
         .I3(level[1]),
         .O(level_detected_2_reg0_carry_i_8_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    level_detected_2_reg_i_1
-       (.I0(reset_n),
-        .O(p_0_in));
   FDRE level_detected_2_reg_reg
        (.C(clk),
         .CE(data_in_2_valid),
         .D(level_detected_2_reg0_carry__2_n_0),
-        .Q(level_detected[1]),
+        .Q(level_detected_1),
         .R(p_0_in));
   FDRE \level_reg[0] 
        (.C(clk),

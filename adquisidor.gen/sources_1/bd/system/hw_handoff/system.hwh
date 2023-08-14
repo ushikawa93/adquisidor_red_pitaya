@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 11 19:39:41 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Aug 14 15:28:48 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -162,14 +162,14 @@
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="3" NAME="dac_pwm_o" RIGHT="0" SIGIS="undef"/>
-    <PORT DIR="IO" LEFT="1" NAME="exp_p_tri_io" RIGHT="0" SIGIS="undef" SIGNAME="level_detector_0_level_detected">
+    <PORT DIR="IO" LEFT="7" NAME="exp_p_tri_io" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_exp_p_tri_io">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="level_detector_0" PORT="level_detected"/>
+        <CONNECTION INSTANCE="drive_gpios_1" PORT="signal_export"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="IO" LEFT="7" NAME="exp_n_tri_io" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_exp_n_tri_io">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="trigger_simulator_0" PORT="trig_export"/>
+        <CONNECTION INSTANCE="drive_gpios_0" PORT="signal_export"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="1" NAME="daisy_p_o" RIGHT="0" SIGIS="undef" SIGNAME="util_ds_buf_2_OBUF_DS_P">
@@ -192,9 +192,9 @@
         <CONNECTION INSTANCE="util_ds_buf_1" PORT="IBUF_DS_N"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="1" NAME="led_o" RIGHT="0" SIGIS="undef" SIGNAME="level_detector_0_level_detected">
+    <PORT DIR="O" LEFT="7" NAME="led_o" RIGHT="0" SIGIS="undef" SIGNAME="drive_leds_0_signal_out">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="level_detector_0" PORT="level_detected"/>
+        <CONNECTION INSTANCE="drive_leds_0" PORT="signal_out"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -287,8 +287,8 @@
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="clk"/>
             <CONNECTION INSTANCE="Procesamiento1_promedio_lineal_0" PORT="clk"/>
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="clk"/>
-            <CONNECTION INSTANCE="trigger_simulator_0" PORT="clk"/>
             <CONNECTION INSTANCE="level_detector_0" PORT="clk"/>
+            <CONNECTION INSTANCE="trigger_simulator_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="adc_csn" SIGIS="undef" SIGNAME="ADC_axis_red_pitaya_adc_0_adc_csn">
@@ -939,12 +939,12 @@
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="finished"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_porta_clk" SIGIS="undef" SIGNAME="BRAM1_axi_bram_reader_1_bram_porta_clk">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="bram_porta_clk" SIGIS="clk" SIGNAME="BRAM1_axi_bram_reader_1_bram_porta_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_axi_bram_reader_1" PORT="bram_porta_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_porta_rst" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="BRAM1_axi_bram_reader_1_bram_porta_rst">
+        <PORT DIR="I" NAME="bram_porta_rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="BRAM1_axi_bram_reader_1_bram_porta_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_axi_bram_reader_1" PORT="bram_porta_rst"/>
           </CONNECTIONS>
@@ -969,12 +969,12 @@
             <CONNECTION INSTANCE="BRAM1_axi_bram_reader_1" PORT="bram_porta_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_portb_clk" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_clk">
+        <PORT DIR="I" NAME="bram_portb_clk" SIGIS="clk" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="bram_portb_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_portb_rst" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_rst">
+        <PORT DIR="I" NAME="bram_portb_rst" SIGIS="rst" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="bram_portb_rst"/>
           </CONNECTIONS>
@@ -999,12 +999,12 @@
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="bram_portb_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portc_clk" SIGIS="undef" SIGNAME="BRAM1_bram_switch_0_bram_portc_clk">
+        <PORT DIR="O" NAME="bram_portc_clk" SIGIS="clk" SIGNAME="BRAM1_bram_switch_0_bram_portc_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="clkb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portc_rst" SIGIS="undef"/>
+        <PORT DIR="O" NAME="bram_portc_rst" SIGIS="rst"/>
         <PORT DIR="O" LEFT="14" NAME="bram_portc_addr" RIGHT="0" SIGIS="undef" SIGNAME="BRAM1_bram_switch_0_bram_portc_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="addrb"/>
@@ -1539,12 +1539,12 @@
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="finished"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_porta_clk" SIGIS="undef" SIGNAME="BRAM2_axi_bram_reader_1_bram_porta_clk">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="bram_porta_clk" SIGIS="clk" SIGNAME="BRAM2_axi_bram_reader_1_bram_porta_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_axi_bram_reader_1" PORT="bram_porta_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_porta_rst" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="BRAM2_axi_bram_reader_1_bram_porta_rst">
+        <PORT DIR="I" NAME="bram_porta_rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="BRAM2_axi_bram_reader_1_bram_porta_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_axi_bram_reader_1" PORT="bram_porta_rst"/>
           </CONNECTIONS>
@@ -1569,12 +1569,12 @@
             <CONNECTION INSTANCE="BRAM2_axi_bram_reader_1" PORT="bram_porta_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_portb_clk" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_portb_clk">
+        <PORT DIR="I" NAME="bram_portb_clk" SIGIS="clk" SIGNAME="Procesamiento_coherent_average_0_bram_portb_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="bram_portb_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="bram_portb_rst" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_portb_rst">
+        <PORT DIR="I" NAME="bram_portb_rst" SIGIS="rst" SIGNAME="Procesamiento_coherent_average_0_bram_portb_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="bram_portb_rst"/>
           </CONNECTIONS>
@@ -1599,12 +1599,12 @@
             <CONNECTION INSTANCE="Procesamiento_coherent_average_0" PORT="bram_portb_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portc_clk" SIGIS="undef" SIGNAME="BRAM2_bram_switch_0_bram_portc_clk">
+        <PORT DIR="O" NAME="bram_portc_clk" SIGIS="clk" SIGNAME="BRAM2_bram_switch_0_bram_portc_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="clkb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portc_rst" SIGIS="undef"/>
+        <PORT DIR="O" NAME="bram_portc_rst" SIGIS="rst"/>
         <PORT DIR="O" LEFT="14" NAME="bram_portc_addr" RIGHT="0" SIGIS="undef" SIGNAME="BRAM2_bram_switch_0_bram_portc_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="addrb"/>
@@ -2668,12 +2668,12 @@
             <CONNECTION INSTANCE="uP_control_N_prom_lineal" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_porta_clk" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_porta_clk">
+        <PORT DIR="O" NAME="bram_porta_clk" SIGIS="clk" SIGNAME="Procesamiento1_coherent_average_0_bram_porta_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="clka"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_porta_rst" SIGIS="undef"/>
+        <PORT DIR="O" NAME="bram_porta_rst" SIGIS="rst"/>
         <PORT DIR="O" LEFT="15" NAME="bram_porta_addr" RIGHT="0" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_porta_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="addra"/>
@@ -2695,12 +2695,12 @@
             <CONNECTION INSTANCE="BRAM1_blk_mem_gen_1" PORT="ena"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portb_clk" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_clk">
+        <PORT DIR="O" NAME="bram_portb_clk" SIGIS="clk" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_bram_switch_0" PORT="bram_portb_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portb_rst" SIGIS="undef" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_rst">
+        <PORT DIR="O" NAME="bram_portb_rst" SIGIS="rst" SIGNAME="Procesamiento1_coherent_average_0_bram_portb_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM1_bram_switch_0" PORT="bram_portb_rst"/>
           </CONNECTIONS>
@@ -2856,12 +2856,12 @@
             <CONNECTION INSTANCE="uP_control_N_prom_lineal" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_porta_clk" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_porta_clk">
+        <PORT DIR="O" NAME="bram_porta_clk" SIGIS="clk" SIGNAME="Procesamiento_coherent_average_0_bram_porta_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="clka"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_porta_rst" SIGIS="undef"/>
+        <PORT DIR="O" NAME="bram_porta_rst" SIGIS="rst"/>
         <PORT DIR="O" LEFT="15" NAME="bram_porta_addr" RIGHT="0" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_porta_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="addra"/>
@@ -2883,12 +2883,12 @@
             <CONNECTION INSTANCE="BRAM2_blk_mem_gen_1" PORT="ena"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portb_clk" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_portb_clk">
+        <PORT DIR="O" NAME="bram_portb_clk" SIGIS="clk" SIGNAME="Procesamiento_coherent_average_0_bram_portb_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_bram_switch_0" PORT="bram_portb_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="bram_portb_rst" SIGIS="undef" SIGNAME="Procesamiento_coherent_average_0_bram_portb_rst">
+        <PORT DIR="O" NAME="bram_portb_rst" SIGIS="rst" SIGNAME="Procesamiento_coherent_average_0_bram_portb_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="BRAM2_bram_switch_0" PORT="bram_portb_rst"/>
           </CONNECTIONS>
@@ -2988,6 +2988,99 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/drive_gpios_0" HWVERSION="1.0" INSTANCE="drive_gpios_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="drive_gpios" VLNV="xilinx.com:module_ref:drive_gpios:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="system_drive_gpios_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="input_0" SIGIS="undef" SIGNAME="trigger_simulator_0_trig_cont_export">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="trigger_simulator_0" PORT="trig_cont_export"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="input_1" SIGIS="undef"/>
+        <PORT DIR="I" NAME="input_2" SIGIS="undef"/>
+        <PORT DIR="I" NAME="input_3" SIGIS="undef"/>
+        <PORT DIR="O" NAME="output_0" SIGIS="undef" SIGNAME="drive_gpios_0_output_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="trigger_simulator_0" PORT="trig_externo"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="output_1" SIGIS="undef"/>
+        <PORT DIR="O" NAME="output_2" SIGIS="undef"/>
+        <PORT DIR="O" NAME="output_3" SIGIS="undef"/>
+        <PORT DIR="IO" LEFT="7" NAME="signal_export" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_exp_n_tri_io">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="exp_n_tri_io"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/drive_gpios_1" HWVERSION="1.0" INSTANCE="drive_gpios_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="drive_gpios" VLNV="xilinx.com:module_ref:drive_gpios:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="system_drive_gpios_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="input_0" SIGIS="undef" SIGNAME="level_detector_0_level_detected_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="level_detector_0" PORT="level_detected_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="input_1" SIGIS="undef" SIGNAME="level_detector_0_level_detected_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="level_detector_0" PORT="level_detected_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="input_2" SIGIS="undef"/>
+        <PORT DIR="I" NAME="input_3" SIGIS="undef"/>
+        <PORT DIR="O" NAME="output_0" SIGIS="undef"/>
+        <PORT DIR="O" NAME="output_1" SIGIS="undef"/>
+        <PORT DIR="O" NAME="output_2" SIGIS="undef"/>
+        <PORT DIR="O" NAME="output_3" SIGIS="undef"/>
+        <PORT DIR="IO" LEFT="7" NAME="signal_export" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_exp_p_tri_io">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="exp_p_tri_io"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/drive_leds_0" HWVERSION="1.0" INSTANCE="drive_leds_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="drive_leds" VLNV="xilinx.com:module_ref:drive_leds:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="system_drive_leds_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="signal_0" SIGIS="undef" SIGNAME="level_detector_0_level_detected_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="level_detector_0" PORT="level_detected_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="signal_1" SIGIS="undef" SIGNAME="level_detector_0_level_detected_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="level_detector_0" PORT="level_detected_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="signal_2" SIGIS="undef"/>
+        <PORT DIR="I" NAME="signal_3" SIGIS="undef"/>
+        <PORT DIR="I" NAME="signal_4" SIGIS="undef"/>
+        <PORT DIR="I" NAME="signal_5" SIGIS="undef"/>
+        <PORT DIR="I" NAME="signal_6" SIGIS="undef"/>
+        <PORT DIR="I" NAME="signal_7" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="7" NAME="signal_out" RIGHT="0" SIGIS="undef" SIGNAME="drive_leds_0_signal_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led_o"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/level_detector_0" HWVERSION="1.0" INSTANCE="level_detector_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="level_detector" VLNV="xilinx.com:module_ref:level_detector:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -3030,10 +3123,16 @@
             <CONNECTION INSTANCE="ADC_signal_split_0" PORT="M_AXIS_PORT2_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="level_detected" RIGHT="0" SIGIS="undef" SIGNAME="level_detector_0_level_detected">
+        <PORT DIR="O" NAME="level_detected_0" SIGIS="undef" SIGNAME="level_detector_0_level_detected_0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="led_o"/>
-            <CONNECTION INSTANCE="External_Ports" PORT="exp_p_tri_io"/>
+            <CONNECTION INSTANCE="drive_leds_0" PORT="signal_0"/>
+            <CONNECTION INSTANCE="drive_gpios_1" PORT="input_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="level_detected_1" SIGIS="undef" SIGNAME="level_detector_0_level_detected_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="drive_leds_0" PORT="signal_1"/>
+            <CONNECTION INSTANCE="drive_gpios_1" PORT="input_1"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3096,9 +3195,14 @@
             <CONNECTION INSTANCE="uP_control_trigger_level" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="IO" LEFT="1" NAME="trig_export" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_exp_n_tri_io">
+        <PORT DIR="I" NAME="trig_externo" SIGIS="undef" SIGNAME="drive_gpios_0_output_0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="exp_n_tri_io"/>
+            <CONNECTION INSTANCE="drive_gpios_0" PORT="output_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="trig_cont_export" SIGIS="undef" SIGNAME="trigger_simulator_0_trig_cont_export">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="drive_gpios_0" PORT="input_0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="trig" SIGIS="undef" SIGNAME="trigger_simulator_0_trig">
@@ -8784,8 +8888,8 @@
             <CONNECTION INSTANCE="Procesamiento1_coherent_average_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="BRAM1_axi_bram_reader_1" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="BRAM2_axi_bram_reader_1" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="trigger_simulator_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="level_detector_0" PORT="reset_n"/>
+            <CONNECTION INSTANCE="trigger_simulator_0" PORT="reset_n"/>
             <CONNECTION INSTANCE="uP_ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="uP_ps7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="uP_ps7_0_axi_periph" PORT="ARESETN"/>

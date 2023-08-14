@@ -35,17 +35,14 @@ module trigger_simulator
     input [3:0] trigger_mode_in,
     input signed [31:0] trigger_level_in,
     
-    inout [1:0] trig_export,
+    input trig_externo,
+    output trig_cont_export,
     
     output trig
 
 );
 
-// Comunicacion con el exterior:
-
-wire trig_externo = trig_export[0];
-wire trig_cont_export = trig_export[1];
-    
+   
     
 
 // Pongo registros para las entradas que vienen del uC

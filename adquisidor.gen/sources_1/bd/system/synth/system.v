@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Aug 11 19:39:38 2023
-//Host        : DESKTOP-TN92N90 running 64-bit major release  (build 9200)
+//Date        : Mon Aug 14 15:28:47 2023
+//Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -2194,7 +2194,7 @@ module s00_couplers_imp_X5C1SS
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=38,numNonXlnxBlks=5,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=9,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=59,numReposBlks=41,numNonXlnxBlks=5,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=9,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2276,8 +2276,8 @@ module system
   input [1:0]daisy_p_i;
   output [1:0]daisy_p_o;
   inout [7:0]exp_n_tri_io;
-  inout [1:0]exp_p_tri_io;
-  output [1:0]led_o;
+  inout [7:0]exp_p_tri_io;
+  output [7:0]led_o;
 
   wire [31:0]ADC_M_AXIS_PORT1_tdata;
   wire ADC_M_AXIS_PORT1_tvalid;
@@ -2286,6 +2286,7 @@ module system
   wire [31:0]N_averaged_samples_1;
   wire [7:0]Net;
   wire [31:0]Net1;
+  wire [7:0]Net2;
   wire Procesamiento1_bram_porta_clk;
   wire [15:0]Procesamiento1_bram_portb_addr;
   wire Procesamiento1_bram_portb_clk;
@@ -2341,8 +2342,11 @@ module system
   wire data_valid_1;
   wire [31:0]dina_1;
   wire [31:0]dina_2;
+  wire drive_gpios_0_output_0;
+  wire [7:0]drive_leds_0_signal_out;
   wire led_o_1;
-  wire [1:0]level_detector_0_level_detected;
+  wire level_detector_0_level_detected_0;
+  wire level_detector_0_level_detected_1;
   wire [31:0]log2_divisor_1;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
@@ -2419,6 +2423,7 @@ module system
   wire [0:0]ps7_0_axi_periph_M03_AXI_WVALID;
   wire [0:0]rst_Dout;
   wire [0:0]rst_ps7_0_125M_peripheral_aresetn;
+  wire trigger_simulator_0_trig_cont_export;
   wire trigger_simulator_1_trig;
   wire [31:0]uP_M00_AXI_ARADDR;
   wire [2:0]uP_M00_AXI_ARPROT;
@@ -2516,7 +2521,7 @@ module system
   assign daisy_n_o[1:0] = util_ds_buf_2_OBUF_DS_N;
   assign daisy_p_i_1 = daisy_p_i[1:0];
   assign daisy_p_o[1:0] = util_ds_buf_2_OBUF_DS_P;
-  assign led_o[1:0] = exp_p_tri_io[1:0];
+  assign led_o[7:0] = drive_leds_0_signal_out;
   ADC_imp_EKYMYC ADC
        (.M_AXIS_PORT1_tdata(ADC_M_AXIS_PORT1_tdata),
         .M_AXIS_PORT1_tvalid(ADC_M_AXIS_PORT1_tvalid),
@@ -2652,13 +2657,37 @@ module system
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
         .trigger(trigger_simulator_1_trig),
         .user_reset(rst_Dout));
+  system_drive_gpios_0_0 drive_gpios_0
+       (.input_0(trigger_simulator_0_trig_cont_export),
+        .input_1(1'b0),
+        .input_2(1'b0),
+        .input_3(1'b0),
+        .output_0(drive_gpios_0_output_0),
+        .signal_export(exp_n_tri_io[7:0]));
+  system_drive_gpios_0_1 drive_gpios_1
+       (.input_0(level_detector_0_level_detected_0),
+        .input_1(level_detector_0_level_detected_1),
+        .input_2(1'b0),
+        .input_3(1'b0),
+        .signal_export(exp_p_tri_io[7:0]));
+  system_drive_leds_0_0 drive_leds_0
+       (.signal_0(level_detector_0_level_detected_0),
+        .signal_1(level_detector_0_level_detected_1),
+        .signal_2(1'b0),
+        .signal_3(1'b0),
+        .signal_4(1'b0),
+        .signal_5(1'b0),
+        .signal_6(1'b0),
+        .signal_7(1'b0),
+        .signal_out(drive_leds_0_signal_out));
   system_level_detector_0_0 level_detector_0
        (.clk(axis_red_pitaya_adc_0_adc_clk),
         .data_in_1(ADC_M_AXIS_PORT1_tdata[13:0]),
         .data_in_1_valid(ADC_M_AXIS_PORT1_tvalid),
         .data_in_2(data_1[13:0]),
         .data_in_2_valid(data_valid_1),
-        .level_detected(exp_p_tri_io[1:0]),
+        .level_detected_0(level_detector_0_level_detected_0),
+        .level_detected_1(level_detector_0_level_detected_1),
         .level_to_detect(uP_control_gpio_io_o1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn));
   system_trigger_simulator_0_0 trigger_simulator_0
@@ -2670,7 +2699,8 @@ module system
         .log2_div_in(log2_divisor_1),
         .reset_n(rst_ps7_0_125M_peripheral_aresetn),
         .trig(trigger_simulator_1_trig),
-        .trig_export(exp_n_tri_io[1:0]),
+        .trig_cont_export(trigger_simulator_0_trig_cont_export),
+        .trig_externo(drive_gpios_0_output_0),
         .trigger_level_in(uP_control_Dout6),
         .trigger_mode_in(uP_control_Dout5),
         .user_reset(rst_Dout));

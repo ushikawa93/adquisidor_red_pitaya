@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Aug 11 20:01:41 2023
-| Host         : DESKTOP-TN92N90 running 64-bit major release  (build 9200)
+| Date         : Mon Aug 14 15:43:16 2023
+| Host         : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 | Design       : system_wrapper
 | Device       : xc7z010clg400-1
@@ -23,14 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 85
+             Violations found: 87
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
 | TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree | 1          |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
-| HPDR-1    | Warning          | Port pin direction inconsistency                   | 9          |
-| HPDR-2    | Warning          | Port pin INOUT inconsistency                       | 5          |
+| HPDR-1    | Warning          | Port pin direction inconsistency                   | 8          |
+| HPDR-2    | Warning          | Port pin INOUT inconsistency                       | 8          |
 | TIMING-9  | Warning          | Unknown CDC Logic                                  | 1          |
 | TIMING-18 | Warning          | Missing input or output delay                      | 68         |
 +-----------+------------------+----------------------------------------------------+------------+
@@ -49,72 +49,82 @@ Related violations: <none>
 
 HPDR-1#1 Warning
 Port pin direction inconsistency  
-Hierarchical port(pin) exp_n_tri_io[1] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io[1]) connected to this Port, but both were not found.
+Hierarchical port(pin) exp_n_tri_io[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io[4]) connected to this Port, but both were not found.
 Related violations: <none>
 
 HPDR-1#2 Warning
 Port pin direction inconsistency  
-Hierarchical port(pin) exp_p_tri_io[0] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[0]) connected to this Port, but both were not found.
+Hierarchical port(pin) exp_n_tri_io[5] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io[5]) connected to this Port, but both were not found.
 Related violations: <none>
 
 HPDR-1#3 Warning
 Port pin direction inconsistency  
-Hierarchical port(pin) exp_p_tri_io[1] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[1]) connected to this Port, but both were not found.
+Hierarchical port(pin) exp_n_tri_io[6] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io[6]) connected to this Port, but both were not found.
 Related violations: <none>
 
 HPDR-1#4 Warning
 Port pin direction inconsistency  
-Hierarchical port(pin) exp_p_tri_io[2] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[2]) connected to this Port, but both were not found.
+Hierarchical port(pin) exp_n_tri_io[7] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io[7]) connected to this Port, but both were not found.
 Related violations: <none>
 
 HPDR-1#5 Warning
 Port pin direction inconsistency  
-Hierarchical port(pin) exp_p_tri_io[3] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[3]) connected to this Port, but both were not found.
+Hierarchical port(pin) exp_p_tri_io[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[4]) connected to this Port, but both were not found.
 Related violations: <none>
 
 HPDR-1#6 Warning
 Port pin direction inconsistency  
-Hierarchical port(pin) exp_p_tri_io[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[4]) connected to this Port, but both were not found.
+Hierarchical port(pin) exp_p_tri_io[5] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[5]) connected to this Port, but both were not found.
 Related violations: <none>
 
 HPDR-1#7 Warning
 Port pin direction inconsistency  
-Hierarchical port(pin) exp_p_tri_io[5] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[5]) connected to this Port, but both were not found.
-Related violations: <none>
-
-HPDR-1#8 Warning
-Port pin direction inconsistency  
 Hierarchical port(pin) exp_p_tri_io[6] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[6]) connected to this Port, but both were not found.
 Related violations: <none>
 
-HPDR-1#9 Warning
+HPDR-1#8 Warning
 Port pin direction inconsistency  
 Hierarchical port(pin) exp_p_tri_io[7] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io[7]) connected to this Port, but both were not found.
 Related violations: <none>
 
 HPDR-2#1 Warning
 Port pin INOUT inconsistency  
-Hierarchical port(pin) system_i/exp_n_tri_io[0] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io_OBUF[0]) connected to this hierarchical pin/port, but both were not found.
+Hierarchical port(pin) system_i/drive_gpios_0/signal_export[0] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (system_i/drive_gpios_0/signal_export[0]) connected to this hierarchical pin/port, but both were not found.
 Related violations: <none>
 
 HPDR-2#2 Warning
 Port pin INOUT inconsistency  
-Hierarchical port(pin) system_i/exp_n_tri_io[1] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io_OBUF[1]) connected to this hierarchical pin/port, but both were not found.
+Hierarchical port(pin) system_i/drive_gpios_0/signal_export[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (system_i/drive_gpios_0/input_0) connected to this hierarchical pin/port, but both were not found.
 Related violations: <none>
 
 HPDR-2#3 Warning
 Port pin INOUT inconsistency  
-Hierarchical port(pin) system_i/exp_p_tri_io[0] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io_IBUF[0]) connected to this hierarchical pin/port, but both were not found.
+Hierarchical port(pin) system_i/drive_gpios_1/signal_export[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (system_i/drive_gpios_1/input_0) connected to this hierarchical pin/port, but both were not found.
 Related violations: <none>
 
 HPDR-2#4 Warning
 Port pin INOUT inconsistency  
-Hierarchical port(pin) system_i/exp_p_tri_io[1] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io_IBUF[1]) connected to this hierarchical pin/port, but both were not found.
+Hierarchical port(pin) system_i/drive_gpios_1/signal_export[5] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (system_i/drive_gpios_1/input_1) connected to this hierarchical pin/port, but both were not found.
 Related violations: <none>
 
 HPDR-2#5 Warning
 Port pin INOUT inconsistency  
-Hierarchical port(pin) system_i/trigger_simulator_0/trig_export[0] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (system_i/trigger_simulator_0/trig_export[0]) connected to this hierarchical pin/port, but both were not found.
+Hierarchical port(pin) system_i/exp_n_tri_io[0] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io_IBUF[0]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#6 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) system_i/exp_n_tri_io[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_n_tri_io_IBUF[4]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#7 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) system_i/exp_p_tri_io[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io_OBUF[4]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#8 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) system_i/exp_p_tri_io[5] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (exp_p_tri_io_OBUF[5]) connected to this hierarchical pin/port, but both were not found.
 Related violations: <none>
 
 TIMING-9#1 Warning

@@ -62,7 +62,8 @@ module system_level_detector_0_0 (
   data_in_1_valid,
   data_in_2,
   data_in_2_valid,
-  level_detected
+  level_detected_0,
+  level_detected_1
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
@@ -76,7 +77,8 @@ input wire [13 : 0] data_in_1;
 input wire data_in_1_valid;
 input wire [13 : 0] data_in_2;
 input wire data_in_2_valid;
-output wire [1 : 0] level_detected;
+output wire level_detected_0;
+output wire level_detected_1;
 
   level_detector inst (
     .clk(clk),
@@ -86,6 +88,7 @@ output wire [1 : 0] level_detected;
     .data_in_1_valid(data_in_1_valid),
     .data_in_2(data_in_2),
     .data_in_2_valid(data_in_2_valid),
-    .level_detected(level_detected)
+    .level_detected_0(level_detected_0),
+    .level_detected_1(level_detected_1)
   );
 endmodule

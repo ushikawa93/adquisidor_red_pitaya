@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD651F3541F276A03",
+      "boundary_crc": "0xFD95B303C5C28E48",
       "device": "xc7z010clg400-1",
       "gen_directory": "../../../../adquisidor.gen/sources_1/bd/system",
       "name": "system",
@@ -75,8 +75,11 @@
         "blk_mem_gen_1": "",
         "bram_switch_0": ""
       },
+      "level_detector_0": "",
       "trigger_simulator_0": "",
-      "level_detector_0": ""
+      "drive_leds_0": "",
+      "drive_gpios_0": "",
+      "drive_gpios_1": ""
     },
     "interface_ports": {
       "Vp_Vn": {
@@ -353,7 +356,7 @@
       },
       "exp_p_tri_io": {
         "direction": "IO",
-        "left": "1",
+        "left": "7",
         "right": "0"
       },
       "exp_n_tri_io": {
@@ -411,7 +414,7 @@
       },
       "led_o": {
         "direction": "O",
-        "left": "1",
+        "left": "7",
         "right": "0"
       }
     },
@@ -5703,6 +5706,70 @@
           }
         }
       },
+      "level_detector_0": {
+        "vlnv": "xilinx.com:module_ref:level_detector:1.0",
+        "xci_name": "system_level_detector_0_0",
+        "xci_path": "ip\\system_level_detector_0_0\\system_level_detector_0_0.xci",
+        "inst_hier_path": "level_detector_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "level_detector",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_axis_red_pitaya_adc_0_0_adc_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "level_to_detect": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "data_in_1": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "data_in_1_valid": {
+            "direction": "I"
+          },
+          "data_in_2": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "data_in_2_valid": {
+            "direction": "I"
+          },
+          "level_detected_0": {
+            "direction": "O"
+          },
+          "level_detected_1": {
+            "direction": "O"
+          }
+        }
+      },
       "trigger_simulator_0": {
         "vlnv": "xilinx.com:module_ref:trigger_simulator:1.0",
         "xci_name": "system_trigger_simulator_0_0",
@@ -5775,75 +5842,139 @@
             "left": "31",
             "right": "0"
           },
-          "trig_export": {
-            "direction": "IO",
-            "left": "1",
-            "right": "0"
+          "trig_externo": {
+            "direction": "I"
+          },
+          "trig_cont_export": {
+            "direction": "O"
           },
           "trig": {
             "direction": "O"
           }
         }
       },
-      "level_detector_0": {
-        "vlnv": "xilinx.com:module_ref:level_detector:1.0",
-        "xci_name": "system_level_detector_0_0",
-        "xci_path": "ip\\system_level_detector_0_0\\system_level_detector_0_0.xci",
-        "inst_hier_path": "level_detector_0",
+      "drive_leds_0": {
+        "vlnv": "xilinx.com:module_ref:drive_leds:1.0",
+        "xci_name": "system_drive_leds_0_0",
+        "xci_path": "ip\\system_drive_leds_0_0\\system_drive_leds_0_0.xci",
+        "inst_hier_path": "drive_leds_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "level_detector",
+          "ref_name": "drive_leds",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "125000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "system_axis_red_pitaya_adc_0_0_adc_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "reset_n": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "const_prop"
-              }
-            }
-          },
-          "level_to_detect": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "data_in_1": {
-            "direction": "I",
-            "left": "13",
-            "right": "0"
-          },
-          "data_in_1_valid": {
+          "signal_0": {
             "direction": "I"
           },
-          "data_in_2": {
-            "direction": "I",
-            "left": "13",
-            "right": "0"
-          },
-          "data_in_2_valid": {
+          "signal_1": {
             "direction": "I"
           },
-          "level_detected": {
+          "signal_2": {
+            "direction": "I"
+          },
+          "signal_3": {
+            "direction": "I"
+          },
+          "signal_4": {
+            "direction": "I"
+          },
+          "signal_5": {
+            "direction": "I"
+          },
+          "signal_6": {
+            "direction": "I"
+          },
+          "signal_7": {
+            "direction": "I"
+          },
+          "signal_out": {
             "direction": "O",
-            "left": "1",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "drive_gpios_0": {
+        "vlnv": "xilinx.com:module_ref:drive_gpios:1.0",
+        "xci_name": "system_drive_gpios_0_0",
+        "xci_path": "ip\\system_drive_gpios_0_0\\system_drive_gpios_0_0.xci",
+        "inst_hier_path": "drive_gpios_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "drive_gpios",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "input_0": {
+            "direction": "I"
+          },
+          "input_1": {
+            "direction": "I"
+          },
+          "input_2": {
+            "direction": "I"
+          },
+          "input_3": {
+            "direction": "I"
+          },
+          "output_0": {
+            "direction": "O"
+          },
+          "output_1": {
+            "direction": "O"
+          },
+          "output_2": {
+            "direction": "O"
+          },
+          "output_3": {
+            "direction": "O"
+          },
+          "signal_export": {
+            "direction": "IO",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "drive_gpios_1": {
+        "vlnv": "xilinx.com:module_ref:drive_gpios:1.0",
+        "xci_name": "system_drive_gpios_0_1",
+        "xci_path": "ip\\system_drive_gpios_0_1\\system_drive_gpios_0_1.xci",
+        "inst_hier_path": "drive_gpios_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "drive_gpios",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "input_0": {
+            "direction": "I"
+          },
+          "input_1": {
+            "direction": "I"
+          },
+          "input_2": {
+            "direction": "I"
+          },
+          "input_3": {
+            "direction": "I"
+          },
+          "output_0": {
+            "direction": "O"
+          },
+          "output_1": {
+            "direction": "O"
+          },
+          "output_2": {
+            "direction": "O"
+          },
+          "output_3": {
+            "direction": "O"
+          },
+          "signal_export": {
+            "direction": "IO",
+            "left": "7",
             "right": "0"
           }
         }
@@ -5948,14 +6079,20 @@
       },
       "Net": {
         "ports": [
-          "exp_n_tri_io",
-          "trigger_simulator_0/trig_export"
+          "exp_p_tri_io",
+          "drive_gpios_1/signal_export"
         ]
       },
       "Net1": {
         "ports": [
           "uP_control/gpio_io_o",
           "DAC/cfg_data"
+        ]
+      },
+      "Net2": {
+        "ports": [
+          "exp_n_tri_io",
+          "drive_gpios_0/signal_export"
         ]
       },
       "Procesamiento1_bram_porta_clk": {
@@ -6055,8 +6192,8 @@
           "DAC/aclk",
           "Procesamiento/clk",
           "Procesamiento1/clk",
-          "trigger_simulator_0/clk",
-          "level_detector_0/clk"
+          "level_detector_0/clk",
+          "trigger_simulator_0/clk"
         ]
       },
       "axis_red_pitaya_dac_0_dac_clk": {
@@ -6181,17 +6318,36 @@
           "BRAM1/dina"
         ]
       },
+      "drive_gpios_0_output_0": {
+        "ports": [
+          "drive_gpios_0/output_0",
+          "trigger_simulator_0/trig_externo"
+        ]
+      },
+      "drive_leds_0_signal_out": {
+        "ports": [
+          "drive_leds_0/signal_out",
+          "led_o"
+        ]
+      },
       "led_o_1": {
         "ports": [
           "Procesamiento1/led_o",
           "BRAM1/led_o"
         ]
       },
-      "level_detector_0_level_detected": {
+      "level_detector_0_level_detected_0": {
         "ports": [
-          "level_detector_0/level_detected",
-          "led_o",
-          "exp_p_tri_io"
+          "level_detector_0/level_detected_0",
+          "drive_leds_0/signal_0",
+          "drive_gpios_1/input_0"
+        ]
+      },
+      "level_detector_0_level_detected_1": {
+        "ports": [
+          "level_detector_0/level_detected_1",
+          "drive_leds_0/signal_1",
+          "drive_gpios_1/input_1"
         ]
       },
       "log2_divisor_1": {
@@ -6226,8 +6382,14 @@
           "Procesamiento1/reset_n",
           "BRAM1/s00_axi_aresetn",
           "BRAM2/s00_axi_aresetn",
-          "trigger_simulator_0/reset_n",
-          "level_detector_0/reset_n"
+          "level_detector_0/reset_n",
+          "trigger_simulator_0/reset_n"
+        ]
+      },
+      "trigger_simulator_0_trig_cont_export": {
+        "ports": [
+          "trigger_simulator_0/trig_cont_export",
+          "drive_gpios_0/input_0"
         ]
       },
       "trigger_simulator_1_trig": {

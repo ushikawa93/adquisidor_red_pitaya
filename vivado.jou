@@ -2,28 +2,109 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Fri Aug 11 18:46:47 2023
-# Process ID: 4064
-# Current directory: C:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5552 C:\Users\mati9\Documents\02-RedPitaya\adquisidor_red_pitaya\adquisidor.xpr
-# Log file: C:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya/vivado.log
-# Journal file: C:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya\vivado.jou
-# Running On: DESKTOP-TN92N90, OS: Windows, CPU Frequency: 3014 MHz, CPU Physical cores: 2, Host memory: 8588 MB
+# Start of session at: Mon Aug 14 14:54:48 2023
+# Process ID: 4468
+# Current directory: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15204 C:\Users\MatiOliva\Documents\04-RedPitaya\adquisidor\adquisidor_red_pitaya\adquisidor.xpr
+# Log file: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/vivado.log
+# Journal file: C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya\vivado.jou
+# Running On: DESKTOP-BRUHM76, OS: Windows, CPU Frequency: 3912 MHz, CPU Physical cores: 2, Host memory: 17041 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya/adquisidor.xpr
-open_bd_design {C:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
-regenerate_bd_layout
+open_project C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.xpr
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
 update_compile_order -fileset sources_1
+close [ open C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/concat_inout.v w ]
+add_files C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/concat_inout.v
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference concat_inout concat_inout_0
+set_property location {4 1768 420} [get_bd_cells concat_inout_0]
+delete_bd_objs [get_bd_nets Net]
+connect_bd_net [get_bd_ports exp_n_tri_io] [get_bd_pins concat_inout_0/signal]
+copy_bd_objs /  [get_bd_cells {concat_inout_0}]
+set_property location {4 1879 131} [get_bd_cells concat_inout_1]
+delete_bd_objs [get_bd_nets level_detector_0_level_detected]
+connect_bd_net [get_bd_ports exp_p_tri_io] [get_bd_pins concat_inout_1/signal]
+update_module_reference system_trigger_simulator_0_0
 update_module_reference system_level_detector_0_0
-connect_bd_net [get_bd_pins level_detector_0/data_in_1_valid] [get_bd_pins ADC/M_AXIS_PORT1_tvalid]
-connect_bd_net [get_bd_pins level_detector_0/data_in_1] [get_bd_pins ADC/M_AXIS_PORT1_tdata]
-connect_bd_net [get_bd_pins level_detector_0/data_in_2] [get_bd_pins ADC/M_AXIS_PORT2_tdata]
-connect_bd_net [get_bd_pins level_detector_0/data_in_2_valid] [get_bd_pins ADC/M_AXIS_PORT2_tvalid]
-connect_bd_net [get_bd_pins level_detector/level_detected] [get_bd_pins exp_p_tri_io]
-connect_bd_net [get_bd_pins level_detector_0/level_detected] [get_bd_pins exp_p_tri_io]
+update_compile_order -fileset sources_1
+connect_bd_net [get pins trigger_simulator_0/trig externo] [concat_inout_0/signal_0]
+connect_bd_net [get_pins trigger_simulator_0/trig externo] [get_pins concat_inout_0/signal_0]
+connect_bd_net [get_pins trigger_simulator_0/trig_externo] [get_pins concat_inout_0/signal_0]
+open_run synth_1 -name synth_1
+connect_bd_net [get_pins trigger_simulator_0/trig_externo] [get_pins concat_inout_0/signal_0]
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
+connect_bd_net [get_pins trigger_simulator_0/trig_externo] [get_pins concat_inout_0/signal_0]
+connect_bd_net [get_pins trigger_simulator_0/trig_externo] [get_pins concat_inout_0/signal_0]
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}
+close [ open C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/drive_gpios.v w ]
+add_files C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/drive_gpios.v
+update_compile_order -fileset sources_1
+delete_bd_objs [get_bd_nets Net] [get_bd_cells concat_inout_0]
+delete_bd_objs [get_bd_nets Net2] [get_bd_cells concat_inout_1]
+export_ip_user_files -of_objects  [get_files C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/concat_inout.v] -no_script -reset -force -quiet
+remove_files  C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/concat_inout.v
+file delete -force C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/concat_inout.v
+create_bd_cell -type module -reference drive_gpios drive_gpios_0
+startgroup
+copy_bd_objs /  [get_bd_cells {drive_gpios_0}]
+set_property location {4 1777 242} [get_bd_cells drive_gpios_1]
+endgroup
+set_property location {4 1748 -63} [get_bd_cells drive_gpios_0]
+connect_bd_net [get_bd_ports exp_p_tri_io] [get_bd_pins drive_gpios_1/signal]
+connect_bd_net [get_bd_ports exp_n_tri_io] [get_bd_pins drive_gpios_0/signal]
+set_property location {4 1926 821} [get_bd_cells drive_gpios_0]
+set_property location {4 1881 489} [get_bd_cells drive_gpios_1]
+connect_bd_net [get_bd_pins drive_gpios_0/input_0] [get_bd_pins trigger_simulator_0/trig_externo]
+delete_bd_objs [get_bd_nets trigger_simulator_0_trig_externo]
+update_module_reference system_trigger_simulator_0_0
+update_module_reference {system_drive_gpios_0_0 system_drive_gpios_0_1}
+connect_bd_net [get_bd_pins trigger_simulator_0/trig_externo] [get_bd_pins drive_gpios_0/output_0]
+connect_bd_net [get_bd_pins trigger_simulator_0/trig_cont_export] [get_bd_pins drive_gpios_0/input_0]
+update_compile_order -fileset sources_1
+set_property location {2290 515} [get_bd_intf_ports gpio_rtl_0]
+set_property location {2239 391} [get_bd_intf_ports gpio_rtl_0]
+set_property location {2278 62} [get_bd_intf_ports gpio_rtl_0]
+set_property location {2311 312} [get_bd_ports exp_p_tri_io]
+set_property location {2317 519} [get_bd_ports exp_p_tri_io]
+set_property location {2317 529} [get_bd_ports exp_p_tri_io]
+set_property location {2284 723} [get_bd_ports adc_csn_o]
+set_property location {2338 859} [get_bd_ports exp_n_tri_io]
+connect_bd_net [get_bd_pins level_detector_0/level_detected_0] [get_bd_pins drive_gpios_1/input_0]
+connect_bd_net [get_bd_pins level_detector_0/level_detected_1] [get_bd_pins drive_gpios_1/input_1]
+close [ open C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/drive_leds.v w ]
+add_files C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/drive_leds.v
+update_compile_order -fileset sources_1
+set_property LEFT 7 [get_bd_ports /exp_p_tri_io]
+create_bd_cell -type module -reference drive_leds drive_leds_0
+set_property location {4 1955 185} [get_bd_cells drive_leds_0]
+set_property location {2290 196} [get_bd_ports led_o]
+startgroup
+connect_bd_net [get_bd_ports led_o] [get_bd_pins drive_leds_0/signal_out]
+endgroup
+connect_bd_net [get_bd_pins drive_leds_0/signal_0] [get_bd_pins level_detector_0/level_detected_0]
+connect_bd_net [get_bd_pins drive_leds_0/signal_1] [get_bd_pins drive_leds_0/signal_4]
+undo
+connect_bd_net [get_bd_pins drive_leds_0/signal_1] [get_bd_pins level_detector_0/level_detected_1]
+save_bd_design
+set_property LEFT 7 [get_bd_ports /led_o]
+update_compile_order -fileset sources_1
 save_bd_design
 reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+reset_run system_drive_gpios_0_1_synth_1
+reset_run system_drive_gpios_0_0_synth_1
+reset_run system_drive_leds_0_0_synth_1
+reset_run system_trigger_simulator_0_0_synth_1
+reset_run system_level_detector_0_0_synth_1
+update_module_reference {system_drive_gpios_0_0 system_drive_gpios_0_1}
+connect_bd_net [get_bd_pins drive_gpios_0/signal_export] [get_bd_pins exp_n_tri_io]
+connect_bd_net [get_bd_pins drive_gpios_1/signal_export] [get_bd_pins exp_p_tri_io]
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 2
 wait_on_run impl_1
 open_run impl_1
+open_bd_design {C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd}

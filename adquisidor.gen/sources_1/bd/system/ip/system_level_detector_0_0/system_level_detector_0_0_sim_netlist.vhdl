@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Fri Aug 11 19:43:05 2023
--- Host        : DESKTOP-TN92N90 running 64-bit major release  (build 9200)
+-- Date        : Mon Aug 14 15:30:32 2023
+-- Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               c:/Users/mati9/Documents/02-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_level_detector_0_0/system_level_detector_0_0_sim_netlist.vhdl
+--               c:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_level_detector_0_0/system_level_detector_0_0_sim_netlist.vhdl
 -- Design      : system_level_detector_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,7 +16,8 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity system_level_detector_0_0_level_detector is
   port (
-    level_detected : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    level_detected_0 : out STD_LOGIC;
+    level_detected_1 : out STD_LOGIC;
     level_to_detect : in STD_LOGIC_VECTOR ( 31 downto 0 );
     clk : in STD_LOGIC;
     data_in_1_valid : in STD_LOGIC;
@@ -778,12 +779,20 @@ level_detected_1_reg0_carry_i_8: unisim.vcomponents.LUT4
       I3 => level(1),
       O => level_detected_1_reg0_carry_i_8_n_0
     );
+level_detected_1_reg_i_1: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => reset_n,
+      O => p_0_in
+    );
 level_detected_1_reg_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => data_in_1_valid,
       D => p_1_in,
-      Q => level_detected(0),
+      Q => level_detected_0,
       R => p_0_in
     );
 level_detected_2_reg0_carry: unisim.vcomponents.CARRY4
@@ -1192,20 +1201,12 @@ level_detected_2_reg0_carry_i_8: unisim.vcomponents.LUT4
       I3 => level(1),
       O => level_detected_2_reg0_carry_i_8_n_0
     );
-level_detected_2_reg_i_1: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => reset_n,
-      O => p_0_in
-    );
 level_detected_2_reg_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => data_in_2_valid,
       D => \level_detected_2_reg0_carry__2_n_0\,
-      Q => level_detected(1),
+      Q => level_detected_1,
       R => p_0_in
     );
 \level_reg[0]\: unisim.vcomponents.FDRE
@@ -1478,7 +1479,8 @@ entity system_level_detector_0_0 is
     data_in_1_valid : in STD_LOGIC;
     data_in_2 : in STD_LOGIC_VECTOR ( 13 downto 0 );
     data_in_2_valid : in STD_LOGIC;
-    level_detected : out STD_LOGIC_VECTOR ( 1 downto 0 )
+    level_detected_0 : out STD_LOGIC;
+    level_detected_1 : out STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of system_level_detector_0_0 : entity is true;
@@ -1507,7 +1509,8 @@ inst: entity work.system_level_detector_0_0_level_detector
       data_in_1_valid => data_in_1_valid,
       data_in_2(13 downto 0) => data_in_2(13 downto 0),
       data_in_2_valid => data_in_2_valid,
-      level_detected(1 downto 0) => level_detected(1 downto 0),
+      level_detected_0 => level_detected_0,
+      level_detected_1 => level_detected_1,
       level_to_detect(31 downto 0) => level_to_detect(31 downto 0),
       reset_n => reset_n
     );
