@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper.tcl"
+  variable script "C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,7 +115,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {HDL-1065} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -130,26 +129,26 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.cache/wt [current_project]
-  set_property parent.project_path C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.xpr [current_project]
+  set_property webtalk.parent_dir C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.cache/wt [current_project]
+  set_property parent.project_path C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.xpr [current_project]
   set_property ip_repo_paths {
-  C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor_sin_trigger/ip_repo
-  C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/user_ip
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor_sin_trigger/ip_repo
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/user_ip
 } [current_project]
   update_ip_catalog
-  set_property ip_output_repo C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.cache/ip [current_project]
+  set_property ip_output_repo C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/system_wrapper.dcp
+  add_files -quiet C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/synth_1/system_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd
+  add_files C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc
-  read_xdc C:/Users/MatiOliva/Documents/04-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc
+  read_xdc C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc
+  read_xdc C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
@@ -308,35 +307,4 @@ OPTRACE "route_design write_checkpoint" END { }
 
 OPTRACE "route_design misc" END { }
 OPTRACE "Phase: Route Design" END { }
-OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
-OPTRACE "write_bitstream setup" START { }
-start_step write_bitstream
-set ACTIVE_STEP write_bitstream
-set rc [catch {
-  create_msg_db write_bitstream.pb
-OPTRACE "read constraints: write_bitstream" START { }
-OPTRACE "read constraints: write_bitstream" END { }
-  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  catch { write_mem_info -force -no_partial_mmi system_wrapper.mmi }
-OPTRACE "write_bitstream setup" END { }
-OPTRACE "write_bitstream" START { }
-  write_bitstream -force system_wrapper.bit -bin_file
-OPTRACE "write_bitstream" END { }
-OPTRACE "write_bitstream misc" START { }
-OPTRACE "read constraints: write_bitstream_post" START { }
-OPTRACE "read constraints: write_bitstream_post" END { }
-  catch {write_debug_probes -quiet -force system_wrapper}
-  catch {file copy -force system_wrapper.ltx debug_nets.ltx}
-  close_msg_db -file write_bitstream.pb
-} RESULT]
-if {$rc} {
-  step_failed write_bitstream
-  return -code error $RESULT
-} else {
-  end_step write_bitstream
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "write_bitstream misc" END { }
-OPTRACE "Phase: Write Bitstream" END { }
 OPTRACE "impl_1" END { }
