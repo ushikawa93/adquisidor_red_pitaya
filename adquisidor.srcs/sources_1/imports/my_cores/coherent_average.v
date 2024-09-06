@@ -5,7 +5,9 @@ module coherent_average
   parameter integer ADDR_WIDTH = 16,
   parameter integer N_CA_WIDTH = 32,
   parameter integer RAM_SIZE = 32768,
-  parameter integer M_WIDTH = 16
+  parameter integer M_WIDTH = 16,
+  parameter integer INDICES_ADDR = 10
+  
   )
 (
 	input wire						  clk,
@@ -34,7 +36,13 @@ module coherent_average
 	output wire [ADDR_WIDTH-1:0]  	   bram_portb_addr,
 	output wire [DATA_WIDTH-1:0]  	   bram_portb_wrdata,
 	input  wire [DATA_WIDTH-1:0]  	   bram_portb_rddata,
-	output wire                        bram_portb_we
+	output wire                        bram_portb_we,
+	
+	// BRAM extra para guardar los indices finales de cada ciclo de promediacion
+	output wire [INDICES_ADDR-1:0]     bram_index_addr,
+	output wire                        bram_index_clk,
+	output wire [16:0]                 bram_index_data,
+	output wire                        bram_index_enable
 
 
 );
@@ -62,7 +70,7 @@ reg [31:0] index,index_1,index_2,index_3,index_4;
 reg [31:0] averaged_cycles;
 
 reg [2:0] state;
-parameter clean=0,wait_for_trigger=1,calculate=2,finish=3;
+parameter clean=0,wait_for_trigger=1,calculate=2,save_last_index=3,update_last_index_address=4,finish=5;
 
    
 reg [N_CA_WIDTH-1:0] N_ca_reg;
@@ -105,6 +113,16 @@ assign bram_portb_wrdata =  0;
 assign bram_portb_addr = address_read ;
 assign bram_portb_we = 0 ;
 
+// Registros y asignaciones para la RAM donde guardo los indices:
+reg bram_index_enable_reg;
+reg [INDICES_ADDR-1:0] bram_index_addr_reg;
+reg [31:0] bram_index_data_reg;
+
+assign bram_index_clk = clk;
+assign bram_index_enable = bram_index_enable_reg;
+assign bram_index_addr = bram_index_addr_reg;
+assign bram_index_data = bram_index_data_reg;
+
 reg finished_reg;
 
 
@@ -121,7 +139,7 @@ begin
 		wr_enable <= 0;
 		wr_enable_1 <= 0;
 		wr_enable_2 <= 0;
-		 wr_enable_3 <= 0;
+		wr_enable_3 <= 0;
 		
 		index <= 0;
 		index_1 <= 0;
@@ -131,7 +149,10 @@ begin
 		
 		averaged_cycles <= 0; 
 		finished_reg <= 0;
-
+		
+		bram_index_addr_reg <= 0;
+        bram_index_enable_reg <= 0;
+        
 		state <= clean;
 	end
 	else if (data_valid)
@@ -148,6 +169,10 @@ begin
            wr_enable_3 <= 1;
            finished_reg <= 0;
            
+           bram_index_enable_reg <= 1;
+           bram_index_addr_reg <= bram_index_addr_reg + 1;
+           bram_index_data_reg <= 0;
+           
            if(address_write == RAM_SIZE-1)
            begin
                state <= wait_for_trigger;
@@ -155,6 +180,8 @@ begin
                index_4 <= 0;
                wr_enable_2 <= 0;
                wr_enable_3 <= 0;
+               bram_index_addr_reg <= 0;
+               bram_index_enable_reg <= 0;
            end
            
         end
@@ -177,6 +204,7 @@ begin
           wr_enable_1 <= 0;
           wr_enable_2 <= 0;
           finished_reg <= 0;
+          bram_index_enable_reg <= 0;
           
            if(flanco_trigger)
            begin
@@ -213,8 +241,33 @@ begin
                 index_4 <= index_3;  
                 
                 // Me llega el flanco y dejo de escribir.. debería en realidad escribir un par de muestras mas (terminar el pipeline...)
-                state <=  (flanco_trigger )? (( averaged_cycles == N_ca_reg )? finish : wait_for_trigger) : calculate ;        
+                //state <=  (flanco_trigger )? (( averaged_cycles == N_ca_reg )? finish : wait_for_trigger) : calculate ;        
+                state <=  (flanco_trigger )? save_last_index : calculate ;   
           end
+          save_last_index:
+          begin
+            wr_enable <= 0;
+            wr_enable_1 <= 0;
+            wr_enable_2 <= 0;
+            finished_reg <= 0;
+            
+            bram_index_data_reg <= address_write;
+            bram_index_enable_reg <= 1;
+            
+            state <= update_last_index_address;
+
+          end
+          
+          update_last_index_address:
+          begin
+              
+            bram_index_addr_reg <= bram_index_addr_reg + 1;   
+            bram_index_enable_reg <= 0;
+            
+            state <=  ( averaged_cycles == N_ca_reg ) ? finish : wait_for_trigger;
+
+          end
+          
           finish:
           begin		
                 wr_enable <= 0;

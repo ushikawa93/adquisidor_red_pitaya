@@ -1,8 +1,10 @@
 
-ip=${1:-192.168.1.101}
+ip=${1:-192.168.1.100}
 
 
 # Genero una clave para comunicar la computadora con la red pitaya sin clave
+export HOME=/c/Users/MatiOliva
+
 ssh-keygen
 
 # Copio la clave en la red pitaya y la cosa deberia andar
@@ -12,6 +14,7 @@ ssh-keygen
 # type $env:USERPROFILE/.ssh/id_rsa.pub | ssh root@$ip "cat >> .ssh/authorized_keys"
 
 # Para linux o similar:
+
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub root@$ip
 
 read -p "Presione cualquier tecla para salir..."

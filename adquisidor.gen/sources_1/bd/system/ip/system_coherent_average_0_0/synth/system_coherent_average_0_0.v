@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "coherent_average,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_coherent_average_0_0,coherent_average,{}" *)
-(* CORE_GENERATION_INFO = "system_coherent_average_0_0,coherent_average,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=coherent_average,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DATA_WIDTH=32,ADDR_WIDTH=16,N_CA_WIDTH=32,RAM_SIZE=32768,M_WIDTH=16}" *)
+(* CORE_GENERATION_INFO = "system_coherent_average_0_0,coherent_average,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=coherent_average,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DATA_WIDTH=32,ADDR_WIDTH=16,N_CA_WIDTH=32,RAM_SIZE=32768,M_WIDTH=16,INDICES_ADDR=10}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_coherent_average_0_0 (
@@ -76,7 +76,11 @@ module system_coherent_average_0_0 (
   bram_portb_addr,
   bram_portb_wrdata,
   bram_portb_rddata,
-  bram_portb_we
+  bram_portb_we,
+  bram_index_addr,
+  bram_index_clk,
+  bram_index_data,
+  bram_index_enable
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_axis_red_pitaya_adc_0_0_adc_clk, INSERT_VIP 0" *)
@@ -114,13 +118,20 @@ output wire [31 : 0] bram_portb_wrdata;
 input wire [31 : 0] bram_portb_rddata;
 (* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_portb WE" *)
 output wire bram_portb_we;
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_index ADDR" *)
+output wire [9 : 0] bram_index_addr;
+(* X_INTERFACE_INFO = "xilinx.com:user:BRAM:1.0 bram_index CLK" *)
+output wire bram_index_clk;
+output wire [16 : 0] bram_index_data;
+output wire bram_index_enable;
 
   coherent_average #(
     .DATA_WIDTH(32),
     .ADDR_WIDTH(16),
     .N_CA_WIDTH(32),
     .RAM_SIZE(32768),
-    .M_WIDTH(16)
+    .M_WIDTH(16),
+    .INDICES_ADDR(10)
   ) inst (
     .clk(clk),
     .reset_n(reset_n),
@@ -142,6 +153,10 @@ output wire bram_portb_we;
     .bram_portb_addr(bram_portb_addr),
     .bram_portb_wrdata(bram_portb_wrdata),
     .bram_portb_rddata(bram_portb_rddata),
-    .bram_portb_we(bram_portb_we)
+    .bram_portb_we(bram_portb_we),
+    .bram_index_addr(bram_index_addr),
+    .bram_index_clk(bram_index_clk),
+    .bram_index_data(bram_index_data),
+    .bram_index_enable(bram_index_enable)
   );
 endmodule

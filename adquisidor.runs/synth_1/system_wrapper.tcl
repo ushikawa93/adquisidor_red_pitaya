@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -92,13 +93,21 @@ set_property ip_cache_permissions {read write} [current_project]
 set_property verilog_define TOOL_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/system_wrapper.v
+read_verilog -library xil_defaultlib {
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/signal_split.v
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/promedio_lineal.v
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/coherent_average.v
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/level_detector.v
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/trigger_simulator.v
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/drive_leds.v
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/my_cores/drive_gpios.v
+  C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/imports/system_wrapper.v
+}
 add_files C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/sources_1/bd/system/system.bd
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_dds_compiler_0_0/system_dds_compiler_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_ooc.xdc]
@@ -123,11 +132,9 @@ set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Doc
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_blk_mem_gen_1_1/system_blk_mem_gen_1_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_blk_mem_gen_1_2/system_blk_mem_gen_1_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_blk_mem_gen_0_1/system_blk_mem_gen_0_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/system_ooc.xdc]
 
 OPTRACE "Adding files" END { }

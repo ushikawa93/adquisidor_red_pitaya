@@ -13,6 +13,7 @@
         "N_CA_WIDTH": [ { "value": "32", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "RAM_SIZE": [ { "value": "32768", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M_WIDTH": [ { "value": "16", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "INDICES_ADDR": [ { "value": "10", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "system_coherent_average_0_1", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
@@ -20,7 +21,8 @@
         "ADDR_WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "N_CA_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "RAM_SIZE": [ { "value": "32768", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "M_WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+        "M_WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "INDICES_ADDR": [ { "value": "10", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],
@@ -45,7 +47,7 @@
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2022.2" } ],
-        "SYNTHESISFLOW": [ { "value": "OOC_HIERARCHICAL" } ]
+        "SYNTHESISFLOW": [ { "value": "GLOBAL" } ]
       }
     },
     "boundary": {
@@ -70,9 +72,22 @@
         "bram_portb_addr": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
         "bram_portb_wrdata": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
         "bram_portb_rddata": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
-        "bram_portb_we": [ { "direction": "out" } ]
+        "bram_portb_we": [ { "direction": "out" } ],
+        "bram_index_addr": [ { "direction": "out", "size_left": "9", "size_right": "0" } ],
+        "bram_index_clk": [ { "direction": "out" } ],
+        "bram_index_data": [ { "direction": "out", "size_left": "16", "size_right": "0" } ],
+        "bram_index_enable": [ { "direction": "out" } ]
       },
       "interfaces": {
+        "bram_index": {
+          "vlnv": "xilinx.com:user:BRAM:1.0",
+          "abstraction_type": "xilinx.com:user:BRAM_rtl:1.0",
+          "mode": "slave",
+          "port_maps": {
+            "ADDR": [ { "physical_name": "bram_index_addr" } ],
+            "CLK": [ { "physical_name": "bram_index_clk" } ]
+          }
+        },
         "bram_porta": {
           "vlnv": "xilinx.com:user:BRAM:1.0",
           "abstraction_type": "xilinx.com:user:BRAM_rtl:1.0",

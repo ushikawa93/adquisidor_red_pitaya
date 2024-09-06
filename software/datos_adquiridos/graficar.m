@@ -1,5 +1,5 @@
 % Abre el archivo de texto para lectura
-fid = fopen('test_2.dat', 'r');
+fid = fopen('test_11.dat', 'r');
 
 % Ignora la primera l�nea
 metadata= textscan(fgetl(fid), "Frecuencia_de_muestreo: %f Factor_de_sobremuestreo: %f Ciclos_de_promediacion: %f Divisor: %f");

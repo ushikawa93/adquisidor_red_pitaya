@@ -77,9 +77,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_rst_
 # IP: bd/system/ip/system_xbar_0/system_xbar_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar_0 || ORIG_REF_NAME==system_xbar_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_ps7_0_axi_periph_0/system_ps7_0_axi_periph_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_ps7_0_axi_periph_0 || ORIG_REF_NAME==system_ps7_0_axi_periph_0} -quiet] -quiet
 
@@ -113,9 +110,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_bram
 # IP: bd/system/ip/system_axi_bram_reader_1_2/system_axi_bram_reader_1_2.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_bram_reader_1_2 || ORIG_REF_NAME==system_axi_bram_reader_1_2} -quiet] -quiet
 
-# IP: bd/system/ip/system_blk_mem_gen_1_2/system_blk_mem_gen_1_2.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_blk_mem_gen_1_2 || ORIG_REF_NAME==system_blk_mem_gen_1_2} -quiet] -quiet
-
 # IP: bd/system/ip/system_bram_switch_0_2/system_bram_switch_0_2.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_bram_switch_0_2 || ORIG_REF_NAME==system_bram_switch_0_2} -quiet] -quiet
 
@@ -128,10 +122,100 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_trig
 # IP: bd/system/ip/system_drive_leds_0_0/system_drive_leds_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_drive_leds_0_0 || ORIG_REF_NAME==system_drive_leds_0_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_axi_bram_reader_0_0/system_axi_bram_reader_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_bram_reader_0_0 || ORIG_REF_NAME==system_axi_bram_reader_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_blk_mem_gen_0_1/system_blk_mem_gen_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_blk_mem_gen_0_1 || ORIG_REF_NAME==system_blk_mem_gen_0_1} -quiet] -quiet
+
 # IP: bd/system/ip/system_drive_gpios_0_0/system_drive_gpios_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_drive_gpios_0_0 || ORIG_REF_NAME==system_drive_gpios_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_drive_gpios_0_1/system_drive_gpios_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_drive_gpios_0_1 || ORIG_REF_NAME==system_drive_gpios_0_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_util_ds_buf_1_0 || ORIG_REF_NAME==system_util_ds_buf_1_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_util_ds_buf_2_0 || ORIG_REF_NAME==system_util_ds_buf_2_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_clk_wiz_0_0 || ORIG_REF_NAME==system_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_clk_wiz_0_0 || ORIG_REF_NAME==system_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_0 || ORIG_REF_NAME==system_axi_gpio_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_0 || ORIG_REF_NAME==system_axi_gpio_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_axi_gpio_1_0 || ORIG_REF_NAME==system_axi_gpio_1_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_axi_gpio_1_0 || ORIG_REF_NAME==system_axi_gpio_1_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_2 || ORIG_REF_NAME==system_axi_gpio_0_2} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_2 || ORIG_REF_NAME==system_axi_gpio_0_2} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_1 || ORIG_REF_NAME==system_axi_gpio_0_1} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_axi_gpio_0_1 || ORIG_REF_NAME==system_axi_gpio_0_1} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_Control_and_Nca_0 || ORIG_REF_NAME==system_Control_and_Nca_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_Control_and_Nca_0 || ORIG_REF_NAME==system_Control_and_Nca_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_Trigger_0 || ORIG_REF_NAME==system_Trigger_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_Trigger_0 || ORIG_REF_NAME==system_Trigger_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_processing_system7_0_0 || ORIG_REF_NAME==system_processing_system7_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_rst_ps7_0_125M_0 || ORIG_REF_NAME==system_rst_ps7_0_125M_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==system_rst_ps7_0_125M_0 || ORIG_REF_NAME==system_rst_ps7_0_125M_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_blk_mem_gen_1_1/system_blk_mem_gen_1_1_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_blk_mem_gen_0_1/system_blk_mem_gen_0_1_ooc.xdc
+
+# XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc
 
 # XDC: c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/system_ooc.xdc

@@ -36,6 +36,19 @@ module drive_gpios(
     
     );
     
+    wire [3:0] input_signals;
+    wire [3:0] output_signals;
+    
+      // Asigna las señales de entrada a la parte alta de la señal_export
+    assign input_signals = {input_3, input_2, input_1, input_0};
+    assign signal_export[3:0] = input_signals;
+
+    // Asigna las señales de salida a la parte baja de la señal_export
+    assign output_signals = {output_3, output_2, output_1, output_0};
+    assign signal_export[7:4] = output_signals;
+
+
+    
     
     assign signal_export = { input_3,input_2,input_1,input_0,output_3,output_2,output_1,output_0 };
     

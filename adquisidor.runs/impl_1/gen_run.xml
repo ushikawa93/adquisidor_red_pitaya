@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1696014073">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1701454463">
   <File Type="ROUTE-PWR" Name="system_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="BITSTR-MMI" Name="system_wrapper.mmi"/>
@@ -251,17 +251,4 @@
       <Option Id="BinFile">1</Option>
     </Step>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_blk_mem_gen_1_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_promedio_lineal_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_bram_switch_0_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_level_detector_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_coherent_average_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_bram_switch_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_blk_mem_gen_1_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_trigger_simulator_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_drive_leds_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_drive_gpios_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_drive_gpios_0_0"/>
 </GenRun>

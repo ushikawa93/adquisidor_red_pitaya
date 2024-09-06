@@ -36,6 +36,8 @@
 #define TRIGGER_LEVEL_ADDRESS 0x41240008
 #define LEVEL_TO_DETECT 0x41250000
 
+#define TRIGGER_STOP_DATA_ADDRESS 0x40080000
+#define TRIG_N 1024
 
 void ResetFPGA(void *cfg);
 void SetEnable(void *cfg);
@@ -50,7 +52,9 @@ void SetLevelToDetect(void *cfg, int32_t level);
 double custom_pow(double base, int exponent);
 
 uint32_t getFinish(void *cfg);
-void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, const char* nombreArchivo, uint32_t f_muestreo, uint32_t N, uint32_t K,uint32_t div);
+void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, uint32_t f_muestreo, uint32_t N, uint32_t K, uint32_t div,int32_t trigger_stop_indexes[]);
+
+char nombreArchivo[50];
 
 int main(int argc, char **argv)
 {
@@ -62,8 +66,7 @@ int main(int argc, char **argv)
 	// Parametros desde linea de comandos:
 	uint32_t K_sobremuestreo;
 	uint32_t N_promC;
-	uint32_t M;	//Maximo del buffer	
-	char nombreArchivo[50];
+	uint32_t M;	//Maximo del buffer		
 	double freq_dac;	// Frecuencia que quiero setear en el DAC. La seteo para que entre justo en la ventana M a la frecuencia de trabajo actual
 	uint32_t trigger_mode;
 	int32_t trigger_level;
@@ -160,6 +163,7 @@ int main(int argc, char **argv)
 	int i; 		
 	int32_t reads_chA [M-1];	
 	int32_t reads_chB [M-1];
+	int32_t reads_trigger_stop [TRIG_N-1];
 	
 	for(i=1;i<M;i++)
 	{
@@ -173,15 +177,22 @@ int main(int argc, char **argv)
 		reads_chB[i-1] = *((int32_t *)(cfg + DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
 	}	
 	
-	escribirArchivo(reads_chA,reads_chB,M-1,nombreArchivo,(float)125000000/K_sobremuestreo,N_promC,K_sobremuestreo,custom_pow(2,log2_divisor));
+	for(i=0;i<N_promC;i++)
+	{
+		discard = *((int32_t *)(cfg+ TRIGGER_STOP_DATA_ADDRESS - START_ADDRESS + 4*i ));
+		reads_trigger_stop[i] = *((int32_t *)(cfg + TRIGGER_STOP_DATA_ADDRESS - START_ADDRESS + 4*i ));
+	}	
+	
+	escribirArchivo(reads_chA,reads_chB,M-1,(float)125000000/K_sobremuestreo,N_promC,K_sobremuestreo,custom_pow(2,log2_divisor),reads_trigger_stop);
     
     munmap(cfg, sysconf(_SC_PAGESIZE));
 
     return 0;
 }
 
-void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, const char* nombreArchivo, uint32_t f_muestreo, uint32_t N, uint32_t K, uint32_t div) {
+void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, uint32_t f_muestreo, uint32_t N, uint32_t K, uint32_t div,int32_t trigger_stop_indexes[]) {
     // Abrir el archivo en modo escritura
+	printf("Guardando datos en: %s \n", nombreArchivo);
     FILE* archivo = fopen(nombreArchivo, "w");
 
     if (archivo == NULL) {
@@ -208,6 +219,18 @@ void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, const ch
 
         // Si no es el último elemento, escribir una coma
         if (i != n - 1) {
+            fprintf(archivo, ",");
+        }
+    }
+	
+	fprintf(archivo,"\n\n");
+	
+	// Escribir los contenidos del buffer en el archivo
+    for (int i = 0; i < N; i++) {
+        fprintf(archivo, "%d", trigger_stop_indexes[i]);
+
+        // Si no es el último elemento, escribir una coma
+        if (i != N - 1) {
             fprintf(archivo, ",");
         }
     }

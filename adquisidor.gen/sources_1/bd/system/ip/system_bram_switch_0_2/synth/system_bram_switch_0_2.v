@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:bram_switch:1.0
-// IP Revision: 5
+// IP Revision: 6
 
 (* X_CORE_INFO = "bram_switch,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "system_bram_switch_0_2,bram_switch,{}" *)
-(* CORE_GENERATION_INFO = "system_bram_switch_0_2,bram_switch,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=bram_switch,x_ipVersion=1.0,x_ipCoreRevision=5,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,BRAM_DATA_WIDTH=32,BRAM_ADDR_WIDTH=15}" *)
+(* CORE_GENERATION_INFO = "system_bram_switch_0_2,bram_switch,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=bram_switch,x_ipVersion=1.0,x_ipCoreRevision=6,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,BRAM_DATA_WIDTH=32,BRAM_ADDR_WIDTH=15}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_bram_switch_0_2 (

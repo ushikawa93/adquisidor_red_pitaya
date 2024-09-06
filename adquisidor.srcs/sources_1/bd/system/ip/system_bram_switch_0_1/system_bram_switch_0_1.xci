@@ -2,9 +2,9 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_bram_switch_0_1",
-    "cell_name": "BRAM1/bram_switch_0",
+    "cell_name": "bram_switch_0",
     "component_reference": "xilinx.com:user:bram_switch:1.0",
-    "ip_revision": "5",
+    "ip_revision": "6",
     "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_bram_switch_0_1",
     "parameters": {
       "component_parameters": {
@@ -33,13 +33,13 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "5" } ],
+        "IPREVISION": [ { "value": "6" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_bram_switch_0_1" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2022.2" } ],
-        "SYNTHESISFLOW": [ { "value": "OUT_OF_CONTEXT" } ]
+        "SYNTHESISFLOW": [ { "value": "GLOBAL" } ]
       }
     },
     "boundary": {
