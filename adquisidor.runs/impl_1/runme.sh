@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1'
+HD_PWD='C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

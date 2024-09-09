@@ -1,0 +1,42 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sun Sep  8 19:56:20 2024
+# Process ID: 5404
+# Current directory: C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7392 C:\Users\mati9\OneDrive\Documentos\00-RedPitaya\adquisidor_red_pitaya\adquisidor.xpr
+# Log file: C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/vivado.log
+# Journal file: C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya\vivado.jou
+# Running On: DESKTOP-4F847D8, OS: Windows, CPU Frequency: 2400 MHz, CPU Physical cores: 2, Host memory: 4204 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.xpr
+update_compile_order -fileset sources_1
+update_module_reference system_drive_leds_0_0
+update_module_reference {system_drive_gpios_0_0 system_drive_gpios_0_1}
+regenerate_bd_layout
+copy_bd_objs /  [get_bd_cells {BRAM1/blk_mem_gen_1}]
+set_property location {4 2893 868} [get_bd_cells blk_mem_gen_1]
+move_bd_cells [get_bd_cells BRAM2] [get_bd_cells blk_mem_gen_1]
+set_property location {2.5 987 126} [get_bd_cells BRAM2/blk_mem_gen_1]
+connect_bd_net [get_bd_pins BRAM2/addra] [get_bd_pins BRAM2/blk_mem_gen_1/addra]
+connect_bd_net [get_bd_pins BRAM2/clka] [get_bd_pins BRAM2/blk_mem_gen_1/clka]
+connect_bd_net [get_bd_pins BRAM2/dina] [get_bd_pins BRAM2/blk_mem_gen_1/dina]
+connect_bd_net [get_bd_pins BRAM2/douta] [get_bd_pins BRAM2/blk_mem_gen_1/douta]
+connect_bd_net [get_bd_pins BRAM2/blk_mem_gen_1/douta] [get_bd_pins BRAM2/blk_mem_gen_1/ena]
+undo
+connect_bd_net [get_bd_pins BRAM2/wea] [get_bd_pins BRAM2/blk_mem_gen_1/ena]
+connect_bd_net [get_bd_pins BRAM2/wea] [get_bd_pins BRAM2/blk_mem_gen_1/wea]
+connect_bd_net [get_bd_pins BRAM2/blk_mem_gen_1/addrb] [get_bd_pins BRAM2/bram_switch_0/bram_portc_addr]
+connect_bd_net [get_bd_pins BRAM2/bram_switch_0/bram_portc_clk] [get_bd_pins BRAM2/blk_mem_gen_1/clkb]
+connect_bd_net [get_bd_pins BRAM2/bram_switch_0/bram_portc_wrdata] [get_bd_pins BRAM2/blk_mem_gen_1/dinb]
+connect_bd_net [get_bd_pins BRAM2/blk_mem_gen_1/doutb] [get_bd_pins BRAM2/bram_switch_0/bram_portc_rddata]
+connect_bd_net [get_bd_pins BRAM2/blk_mem_gen_1/web] [get_bd_pins BRAM2/bram_switch_0/bram_portc_we]
+set_property location {1279 294} [get_bd_pins BRAM2/bram_portb_rddata]
+save_bd_design
+regenerate_bd_layout
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_run impl_1

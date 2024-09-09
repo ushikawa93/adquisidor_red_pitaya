@@ -21,7 +21,7 @@ ip=${9:-192.168.1.100}
 
 #./set_bitstream.sh adquisidor_ca.bit $ip
 
-scp shell_scripts/adquisidor.c root@$ip:/root/c_programs 
+scp adquisidor.c root@$ip:/root/c_programs 
 
 ssh root@$ip <<EOF
 

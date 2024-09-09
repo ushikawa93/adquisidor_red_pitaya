@@ -73,15 +73,16 @@
       },
       "BRAM2": {
         "axi_bram_reader_1": "",
-        "bram_switch_0": ""
+        "bram_switch_0": "",
+        "blk_mem_gen_1": ""
       },
       "level_detector_0": "",
       "trigger_simulator_0": "",
-      "drive_leds_0": "",
       "trigger_indexes_mem": {
         "axi_bram_reader_0": "",
         "finish_indexes": ""
       },
+      "drive_leds_0": "",
       "drive_gpios_0": "",
       "drive_gpios_1": ""
     },
@@ -5694,6 +5695,56 @@
             "xci_name": "system_bram_switch_0_2",
             "xci_path": "ip\\system_bram_switch_0_2\\system_bram_switch_0_2.xci",
             "inst_hier_path": "BRAM2/bram_switch_0"
+          },
+          "blk_mem_gen_1": {
+            "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+            "xci_name": "system_blk_mem_gen_1_2",
+            "xci_path": "ip\\system_blk_mem_gen_1_2\\system_blk_mem_gen_1_2.xci",
+            "inst_hier_path": "BRAM2/blk_mem_gen_1",
+            "parameters": {
+              "Algorithm": {
+                "value": "Minimum_Area"
+              },
+              "Assume_Synchronous_Clk": {
+                "value": "false"
+              },
+              "Enable_A": {
+                "value": "Use_ENA_Pin"
+              },
+              "Enable_B": {
+                "value": "Always_Enabled"
+              },
+              "Fill_Remaining_Memory_Locations": {
+                "value": "true"
+              },
+              "Memory_Type": {
+                "value": "True_Dual_Port_RAM"
+              },
+              "Operating_Mode_A": {
+                "value": "READ_FIRST"
+              },
+              "Operating_Mode_B": {
+                "value": "READ_FIRST"
+              },
+              "Register_PortA_Output_of_Memory_Primitives": {
+                "value": "false"
+              },
+              "Register_PortB_Output_of_Memory_Primitives": {
+                "value": "false"
+              },
+              "Use_Byte_Write_Enable": {
+                "value": "false"
+              },
+              "Write_Depth_A": {
+                "value": "30720"
+              },
+              "Write_Width_A": {
+                "value": "32"
+              },
+              "use_bram_block": {
+                "value": "Stand_Alone"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -5705,6 +5756,12 @@
           }
         },
         "nets": {
+          "addra_1": {
+            "ports": [
+              "addra",
+              "blk_mem_gen_1/addra"
+            ]
+          },
           "axi_bram_reader_1_bram_porta_addr": {
             "ports": [
               "axi_bram_reader_1/bram_porta_addr",
@@ -5733,6 +5790,18 @@
             "ports": [
               "axi_bram_reader_1/bram_porta_we",
               "bram_switch_0/bram_porta_we"
+            ]
+          },
+          "blk_mem_gen_1_douta": {
+            "ports": [
+              "blk_mem_gen_1/douta",
+              "douta"
+            ]
+          },
+          "blk_mem_gen_1_doutb": {
+            "ports": [
+              "blk_mem_gen_1/doutb",
+              "bram_switch_0/bram_portc_rddata"
             ]
           },
           "bram_portb_addr_1": {
@@ -5777,6 +5846,42 @@
               "bram_portb_rddata"
             ]
           },
+          "bram_switch_0_bram_portc_addr": {
+            "ports": [
+              "bram_switch_0/bram_portc_addr",
+              "blk_mem_gen_1/addrb"
+            ]
+          },
+          "bram_switch_0_bram_portc_clk": {
+            "ports": [
+              "bram_switch_0/bram_portc_clk",
+              "blk_mem_gen_1/clkb"
+            ]
+          },
+          "bram_switch_0_bram_portc_we": {
+            "ports": [
+              "bram_switch_0/bram_portc_we",
+              "blk_mem_gen_1/web"
+            ]
+          },
+          "bram_switch_0_bram_portc_wrdata": {
+            "ports": [
+              "bram_switch_0/bram_portc_wrdata",
+              "blk_mem_gen_1/dinb"
+            ]
+          },
+          "clka_1": {
+            "ports": [
+              "clka",
+              "blk_mem_gen_1/clka"
+            ]
+          },
+          "dina_1": {
+            "ports": [
+              "dina",
+              "blk_mem_gen_1/dina"
+            ]
+          },
           "led_o_1": {
             "ports": [
               "led_o",
@@ -5793,6 +5898,13 @@
             "ports": [
               "s00_axi_aresetn",
               "axi_bram_reader_1/s00_axi_aresetn"
+            ]
+          },
+          "wea_1": {
+            "ports": [
+              "wea",
+              "blk_mem_gen_1/ena",
+              "blk_mem_gen_1/wea"
             ]
           }
         }
@@ -5944,48 +6056,6 @@
           }
         }
       },
-      "drive_leds_0": {
-        "vlnv": "xilinx.com:module_ref:drive_leds:1.0",
-        "xci_name": "system_drive_leds_0_0",
-        "xci_path": "ip\\system_drive_leds_0_0\\system_drive_leds_0_0.xci",
-        "inst_hier_path": "drive_leds_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "drive_leds",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "signal_0": {
-            "direction": "I"
-          },
-          "signal_1": {
-            "direction": "I"
-          },
-          "signal_2": {
-            "direction": "I"
-          },
-          "signal_3": {
-            "direction": "I"
-          },
-          "signal_4": {
-            "direction": "I"
-          },
-          "signal_5": {
-            "direction": "I"
-          },
-          "signal_6": {
-            "direction": "I"
-          },
-          "signal_7": {
-            "direction": "I"
-          },
-          "signal_out": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          }
-        }
-      },
       "trigger_indexes_mem": {
         "interface_ports": {
           "S_AXI": {
@@ -6126,6 +6196,48 @@
               "s00_axi_aresetn",
               "axi_bram_reader_0/s00_axi_aresetn"
             ]
+          }
+        }
+      },
+      "drive_leds_0": {
+        "vlnv": "xilinx.com:module_ref:drive_leds:1.0",
+        "xci_name": "system_drive_leds_0_0",
+        "xci_path": "ip\\system_drive_leds_0_0\\system_drive_leds_0_0.xci",
+        "inst_hier_path": "drive_leds_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "drive_leds",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "signal_0": {
+            "direction": "I"
+          },
+          "signal_1": {
+            "direction": "I"
+          },
+          "signal_2": {
+            "direction": "I"
+          },
+          "signal_3": {
+            "direction": "I"
+          },
+          "signal_4": {
+            "direction": "I"
+          },
+          "signal_5": {
+            "direction": "I"
+          },
+          "signal_6": {
+            "direction": "I"
+          },
+          "signal_7": {
+            "direction": "I"
+          },
+          "signal_out": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
           }
         }
       },
@@ -6662,7 +6774,9 @@
         "ports": [
           "trigger_simulator_0/trig",
           "Procesamiento/trigger",
-          "Procesamiento1/trigger"
+          "Procesamiento1/trigger",
+          "drive_leds_0/signal_2",
+          "drive_gpios_0/input_1"
         ]
       },
       "uP_control_Dout": {

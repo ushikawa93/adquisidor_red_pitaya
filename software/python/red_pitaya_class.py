@@ -66,6 +66,7 @@ class redP_handler:
     def set_bitstream_in_fpga(self):
         script_path = os.path.join("shell_scripts", "set_bitstream.sh")
         command = ( f"{script_path}  adquisidor_ca.bit {self.ip}" )
+        print(command)
         subprocess.run(command, shell=True)
 
     def set_trigger_mode(self, mode):

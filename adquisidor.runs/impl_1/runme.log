@@ -10,128 +10,92 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source system_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 393.203 ; gain = 73.910
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 373.727 ; gain = 50.793
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor_sin_trigger/ip_repo'.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.srcs/user_ip'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/mati9/OneDrive/Documentos/adquisidor_sin_trigger/ip_repo'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.srcs/user_ip'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
 WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
-Current IP cache path is C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.cache/ip 
-add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:16 . Memory (MB): peak = 450.840 ; gain = 31.992
+Current IP cache path is C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.cache/ip 
+add_files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:22 . Memory (MB): peak = 430.066 ; gain = 30.539
 Command: link_design -top system_wrapper -part xc7z010clg400-1
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7z010clg400-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.305 . Memory (MB): peak = 845.082 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 251 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.497 . Memory (MB): peak = 827.281 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 287 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-1115] Found multi-term driver net: system_i/util_ds_buf_2/U0/<const0>.
 WARNING: [Netlist 29-1115] Found multi-term driver net: system_i/util_ds_buf_1/U0/<const0>.
 INFO: [Project 1-479] Netlist was created with Vivado 2022.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_board.xdc] for cell 'system_i/util_ds_buf_1/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_board.xdc] for cell 'system_i/util_ds_buf_1/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_board.xdc] for cell 'system_i/util_ds_buf_2/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_board.xdc] for cell 'system_i/util_ds_buf_2/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_board.xdc] for cell 'system_i/DAC/clk_wiz_0/inst'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_board.xdc] for cell 'system_i/DAC/clk_wiz_0/inst'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc] for cell 'system_i/DAC/clk_wiz_0/inst'
-INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc:57]
-INFO: [Timing 38-2] Deriving generated clocks [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc:57]
-get_clocks: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1532.914 ; gain = 537.551
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc] for cell 'system_i/DAC/clk_wiz_0/inst'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_board.xdc] for cell 'system_i/uP_control/Control_and_Nca/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_board.xdc] for cell 'system_i/uP_control/Control_and_Nca/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0.xdc] for cell 'system_i/uP_control/Control_and_Nca/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0.xdc] for cell 'system_i/uP_control/Control_and_Nca/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0_board.xdc] for cell 'system_i/uP_control/finish/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0_board.xdc] for cell 'system_i/uP_control/finish/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0.xdc] for cell 'system_i/uP_control/finish/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0.xdc] for cell 'system_i/uP_control/finish/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_board.xdc] for cell 'system_i/uP_control/K_and_log2div/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_board.xdc] for cell 'system_i/uP_control/K_and_log2div/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xdc] for cell 'system_i/uP_control/K_and_log2div/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xdc] for cell 'system_i/uP_control/K_and_log2div/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_board.xdc] for cell 'system_i/uP_control/DAC_and_M/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_board.xdc] for cell 'system_i/uP_control/DAC_and_M/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xdc] for cell 'system_i/uP_control/DAC_and_M/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xdc] for cell 'system_i/uP_control/DAC_and_M/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0_board.xdc] for cell 'system_i/uP_control/Trigger/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0_board.xdc] for cell 'system_i/uP_control/Trigger/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0.xdc] for cell 'system_i/uP_control/Trigger/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0.xdc] for cell 'system_i/uP_control/Trigger/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0_board.xdc] for cell 'system_i/uP_control/Level_detect/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0_board.xdc] for cell 'system_i/uP_control/Level_detect/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0.xdc] for cell 'system_i/uP_control/Level_detect/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0.xdc] for cell 'system_i/uP_control/Level_detect/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc] for cell 'system_i/uP/processing_system7_0/inst'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc] for cell 'system_i/uP/processing_system7_0/inst'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0_board.xdc] for cell 'system_i/uP/rst_ps7_0_125M/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0_board.xdc] for cell 'system_i/uP/rst_ps7_0_125M/U0'
-Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0.xdc] for cell 'system_i/uP/rst_ps7_0_125M/U0'
-Finished Parsing XDC File [c:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0.xdc] for cell 'system_i/uP/rst_ps7_0_125M/U0'
-Parsing XDC File [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc]
-WARNING: [Vivado 12-508] No pins matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[*].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/CLKBWRCLK'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:19]
-CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_pins {system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[*].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/CLKBWRCLK}]'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:19]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-WARNING: [Vivado 12-508] No pins matched 'system_i/BRAM2/axi_bram_reader_1/inst/bram_reader_v1_0_S00_AXI_inst/axi_araddr_reg[*]/C'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:21]
-WARNING: [Vivado 12-508] No pins matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/no_softecc_sel_reg.ce_pri.sel_pipe_reg[*]/D'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:21]
-CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_pins {system_i/BRAM2/axi_bram_reader_1/inst/bram_reader_v1_0_S00_AXI_inst/axi_araddr_reg[*]/C}]'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:21]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-WARNING: [Vivado 12-508] No pins matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[*].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/CLKBWRCLK'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:25]
-CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_pins {system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[*].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/CLKBWRCLK}]'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:25]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-WARNING: [Vivado 12-508] No pins matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/no_softecc_sel_reg.ce_pri.sel_pipe_reg[*]/C'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:28]
-CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_pins {system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/no_softecc_sel_reg.ce_pri.sel_pipe_reg[*]/C}]'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:28]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-WARNING: [Vivado 12-508] No pins matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/no_softecc_sel_reg.ce_pri.sel_pipe_reg[*]/C'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:31]
-CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_pins {system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/no_softecc_sel_reg.ce_pri.sel_pipe_reg[*]/C}]'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc:31]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-Finished Parsing XDC File [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/clocks.xdc]
-Parsing XDC File [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc]
-WARNING: [Vivado 12-180] No cells matched 'system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[25]_i_2_comp'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:212]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:212]
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_board.xdc] for cell 'system_i/util_ds_buf_1/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_1_0/system_util_ds_buf_1_0_board.xdc] for cell 'system_i/util_ds_buf_1/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_board.xdc] for cell 'system_i/util_ds_buf_2/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_util_ds_buf_2_0/system_util_ds_buf_2_0_board.xdc] for cell 'system_i/util_ds_buf_2/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_board.xdc] for cell 'system_i/DAC/clk_wiz_0/inst'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_board.xdc] for cell 'system_i/DAC/clk_wiz_0/inst'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc] for cell 'system_i/DAC/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1523.641 ; gain = 544.762
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc] for cell 'system_i/DAC/clk_wiz_0/inst'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_board.xdc] for cell 'system_i/uP_control/Control_and_Nca/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_board.xdc] for cell 'system_i/uP_control/Control_and_Nca/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0.xdc] for cell 'system_i/uP_control/Control_and_Nca/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0.xdc] for cell 'system_i/uP_control/Control_and_Nca/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0_board.xdc] for cell 'system_i/uP_control/finish/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0_board.xdc] for cell 'system_i/uP_control/finish/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0.xdc] for cell 'system_i/uP_control/finish/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_1_0/system_axi_gpio_1_0.xdc] for cell 'system_i/uP_control/finish/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_board.xdc] for cell 'system_i/uP_control/K_and_log2div/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_board.xdc] for cell 'system_i/uP_control/K_and_log2div/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xdc] for cell 'system_i/uP_control/K_and_log2div/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xdc] for cell 'system_i/uP_control/K_and_log2div/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_board.xdc] for cell 'system_i/uP_control/DAC_and_M/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_board.xdc] for cell 'system_i/uP_control/DAC_and_M/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xdc] for cell 'system_i/uP_control/DAC_and_M/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xdc] for cell 'system_i/uP_control/DAC_and_M/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0_board.xdc] for cell 'system_i/uP_control/Trigger/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0_board.xdc] for cell 'system_i/uP_control/Trigger/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0.xdc] for cell 'system_i/uP_control/Trigger/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Control_and_Nca_0/system_Control_and_Nca_0.xdc] for cell 'system_i/uP_control/Trigger/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0_board.xdc] for cell 'system_i/uP_control/Level_detect/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0_board.xdc] for cell 'system_i/uP_control/Level_detect/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0.xdc] for cell 'system_i/uP_control/Level_detect/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_Trigger_0/system_Trigger_0.xdc] for cell 'system_i/uP_control/Level_detect/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc] for cell 'system_i/uP/processing_system7_0/inst'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc] for cell 'system_i/uP/processing_system7_0/inst'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0_board.xdc] for cell 'system_i/uP/rst_ps7_0_125M/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0_board.xdc] for cell 'system_i/uP/rst_ps7_0_125M/U0'
+Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0.xdc] for cell 'system_i/uP/rst_ps7_0_125M/U0'
+Finished Parsing XDC File [c:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.gen/sources_1/bd/system/ip/system_rst_ps7_0_125M_0/system_rst_ps7_0_125M_0.xdc] for cell 'system_i/uP/rst_ps7_0_125M/U0'
+Parsing XDC File [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/clocks.xdc]
+Finished Parsing XDC File [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/clocks.xdc]
+Parsing XDC File [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc]
+WARNING: [Vivado 12-180] No cells matched 'system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[25]_i_2_comp'. [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc:212]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc:212]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/BRAM2/bram_switch_0/inst/bram_porta_rddata[22]_INST_0'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:213]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:213]
+WARNING: [Vivado 12-180] No cells matched 'system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[25]_i_1_comp'. [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc:217]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc:217]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[22]_INST_0_i_2'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:214]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:214]
+WARNING: [Vivado 12-180] No cells matched 'system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[25]_i_2_comp'. [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc:219]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc:219]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[22]_INST_0'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:216]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:216]
+WARNING: [Vivado 12-180] No cells matched 'system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[25]_i_1_comp'. [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc:224]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc:224]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[25]_i_1_comp'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:217]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:217]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:218]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:218]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[25]_i_2_comp'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:219]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:219]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/BRAM2/bram_switch_0/inst/bram_porta_rddata[22]_INST_0'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:220]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:220]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[22]_INST_0_i_2'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:221]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:221]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[22]_INST_0'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:223]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:223]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-180] No cells matched 'system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[25]_i_1_comp'. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:224]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc:224]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/cfg/ports.xdc]
+Finished Parsing XDC File [C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/cfg/ports.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1532.914 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1523.641 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 2 instances
 
-13 Infos, 20 Warnings, 16 Critical Warnings and 0 Errors encountered.
+12 Infos, 8 Warnings, 4 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:44 . Memory (MB): peak = 1532.914 ; gain = 1082.074
+link_design: Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1523.641 ; gain = 1093.574
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
@@ -142,59 +106,60 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Project 1-461] DRC finished with 0 Errors, 16 Warnings
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1532.914 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1523.641 ; gain = 0.000
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 185c31ab4
+Ending Cache Timing Information Task | Checksum: 15942a682
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.497 . Memory (MB): peak = 1550.672 ; gain = 17.758
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1541.531 ; gain = 17.891
 
 Starting Logic Optimization Task
 
 Phase 1 Retarget
+INFO: [Opt 31-1287] Pulled Inverter system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/addr_arbiter_inst/m_atarget_enc[1]_i_1 into driver instance system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/addr_arbiter_inst/m_atarget_hot[9]_i_6, which resulted in an inversion of 10 pins
 INFO: [Opt 31-138] Pushed 27 inverter(s) to 28 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 16d03e26f
+Phase 1 Retarget | Checksum: 281f0229d
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.519 . Memory (MB): peak = 1878.566 ; gain = 0.000
-INFO: [Opt 31-389] Phase Retarget created 29 cells and removed 62 cells
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1871.230 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 29 cells and removed 63 cells
 INFO: [Opt 31-1021] In phase Retarget, 2 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 2 Constant propagation | Checksum: 14ee9f302
+Phase 2 Constant propagation | Checksum: 22be98ffc
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.574 . Memory (MB): peak = 1878.566 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1871.230 ; gain = 0.000
 INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 1 cells
 INFO: [Opt 31-1021] In phase Constant propagation, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: fa984cc4
+Phase 3 Sweep | Checksum: 1772896b9
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.811 . Memory (MB): peak = 1878.566 ; gain = 0.000
-INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 32 cells
-INFO: [Opt 31-1021] In phase Sweep, 56 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1871.230 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 39 cells
+INFO: [Opt 31-1021] In phase Sweep, 83 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 4 BUFG optimization
-Phase 4 BUFG optimization | Checksum: fa984cc4
+Phase 4 BUFG optimization | Checksum: 1772896b9
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.952 . Memory (MB): peak = 1878.566 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1871.230 ; gain = 0.000
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 
 Phase 5 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 5 Shift Register Optimization | Checksum: fa984cc4
+Phase 5 Shift Register Optimization | Checksum: 1772896b9
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.975 . Memory (MB): peak = 1878.566 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1871.230 ; gain = 0.000
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 6 Post Processing Netlist
-Phase 6 Post Processing Netlist | Checksum: 134adfc4f
+Phase 6 Post Processing Netlist | Checksum: 1d151bd81
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1878.566 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1871.230 ; gain = 0.000
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
-INFO: [Opt 31-1021] In phase Post Processing Netlist, 9 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 6 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 Opt_design Change Summary
 =========================
 
@@ -202,22 +167,22 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 |  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
 -------------------------------------------------------------------------------------------------------------------------
-|  Retarget                     |              29  |              62  |                                              2  |
+|  Retarget                     |              29  |              63  |                                              2  |
 |  Constant propagation         |               0  |               1  |                                              1  |
-|  Sweep                        |               0  |              32  |                                             56  |
+|  Sweep                        |               0  |              39  |                                             83  |
 |  BUFG optimization            |               0  |               0  |                                              0  |
 |  Shift Register Optimization  |               0  |               0  |                                              0  |
-|  Post Processing Netlist      |               0  |               0  |                                              9  |
+|  Post Processing Netlist      |               0  |               0  |                                              6  |
 -------------------------------------------------------------------------------------------------------------------------
 
 
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1878.566 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 1181c2f0d
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1871.230 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 18f1e2d80
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1878.566 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1871.230 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -230,43 +195,45 @@ INFO: [Pwropt 34-10] Applying ODC optimizations ...
 
 
 Starting PowerOpt Patch Enables Task
-INFO: [Pwropt 34-162] WRITE_MODE attribute of 28 BRAM(s) out of a total of 33 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 56 BRAM(s) out of a total of 61 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
-Number of BRAM Ports augmented: 27 newly gated: 0 Total Ports: 66
-Ending PowerOpt Patch Enables Task | Checksum: 13e983167
+Number of BRAM Ports augmented: 50 newly gated: 0 Total Ports: 122
+Ending PowerOpt Patch Enables Task | Checksum: 1b5f46f97
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.205 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Ending Power Optimization Task | Checksum: 13e983167
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.603 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 1b5f46f97
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 2028.449 ; gain = 149.883
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 2021.562 ; gain = 150.332
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 13e983167
+Ending Final Cleanup Task | Checksum: 1b5f46f97
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Ending Netlist Obfuscation Task | Checksum: 1cc62b574
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 13ed4dbbb
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-39 Infos, 20 Warnings, 16 Critical Warnings and 0 Errors encountered.
+39 Infos, 8 Warnings, 4 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 2028.449 ; gain = 495.535
+opt_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:28 . Memory (MB): peak = 2021.562 ; gain = 497.922
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.122 . Memory (MB): peak = 2028.449 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_opt.dcp' has been generated.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.343 . Memory (MB): peak = 2021.562 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_opt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_drc -file system_wrapper_drc_opted.rpt -pb system_wrapper_drc_opted.pb -rpx system_wrapper_drc_opted.rpx
 Command: report_drc -file system_wrapper_drc_opted.rpt -pb system_wrapper_drc_opted.pb -rpx system_wrapper_drc_opted.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 2 threads
-INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_drc_opted.rpt.
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_drc_opted.rpt.
 report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 Command: place_design -directive ExtraNetDelay_high
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
@@ -275,7 +242,7 @@ INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 Running DRC as a precondition to command place_design
 INFO: [DRC 23-27] Running DRC with 2 threads
-INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 16 Warnings
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 9 Warnings
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 
 Starting Placer Task
@@ -285,64 +252,64 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: ea1b804d
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: fc1b6cde
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.074 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 WARNING: [Place 30-120] Sub-optimal placement for a BUFG-BUFG cascade pair. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
 
 	system_i/uP/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG (BUFG.O) is provisionally placed by clockplacer on BUFGCTRL_X0Y12
-	system_i/BRAM1/bram_switch_0/inst/BUFGMUX_inst (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y1
 	system_i/BRAM2/bram_switch_0/inst/BUFGMUX_inst (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y15
+	system_i/BRAM1/bram_switch_0/inst/BUFGMUX_inst (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y1
 Resolution: A dedicated routing path between the two BUFGs can be used if they are placed in cyclically adjacent BUFG sites and both are in the same half (TOP/BOTTOM) side of an SLR. If this condition cannot be met, it is recommended that a BUFH be connected in series between the two BUFGs to ensure that clock region partitioning will account for the use of a clock spine for this connection.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: d7e11a13
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1d2a71813
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 11f671273
+Phase 1.3 Build Placer Netlist Model | Checksum: 1db5b9860
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 11f671273
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1db5b9860
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 11f671273
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 1db5b9860
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 1c4342475
+Phase 2.1 Floorplanning | Checksum: 1d1c24d3d
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 2.2 Update Timing before SLR Path Opt
-Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1a3f3a6b2
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 283f40a4b
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:10 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 2.3 Post-Processing in Floorplanning
-Phase 2.3 Post-Processing in Floorplanning | Checksum: 1a3f3a6b2
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 283f40a4b
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:10 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 2.4 Global Placement Core
 
 Phase 2.4.1 UpdateTiming Before Physical Synthesis
-Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 197ea2cb7
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 1f62d38f6
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:12 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:20 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 2.4.2 Physical Synthesis In Placer
-INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 440 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 561 LUT instances to create LUTNM shape
 INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
-INFO: [Physopt 32-1138] End 1 Pass. Optimized 190 nets or LUTs. Breaked 0 LUT, combined 190 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 254 nets or LUTs. Breaked 0 LUT, combined 254 existing LUTs and moved 0 existing LUT
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
@@ -358,7 +325,7 @@ INFO: [Physopt 32-846] No candidate cells for URAM register optimization found i
 INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
 INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -367,7 +334,7 @@ Summary of Physical Synthesis Optimizations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT Combining                                    |            0  |            190  |                   190  |           0  |           1  |  00:00:00  |
+|  LUT Combining                                    |            0  |            254  |                   254  |           0  |           1  |  00:00:01  |
 |  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
@@ -376,69 +343,69 @@ Summary of Physical Synthesis Optimizations
 |  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                                            |            0  |            190  |                   190  |           0  |           9  |  00:00:00  |
+|  Total                                            |            0  |            254  |                   254  |           0  |           9  |  00:00:01  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.4.2 Physical Synthesis In Placer | Checksum: e7e902c6
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 2668bc6f1
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 2.4 Global Placement Core | Checksum: ff6ec2c8
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:23 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 2.4 Global Placement Core | Checksum: 1c2db0c5b
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 2 Global Placement | Checksum: ff6ec2c8
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:24 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 1c2db0c5b
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:24 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 18ad54ac6
+Phase 3.1 Commit Multi Column Macros | Checksum: 229ec03af
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:14 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:25 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1720bdd5f
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1769d05e4
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:26 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 1d38da1c7
+Phase 3.3 Area Swap Optimization | Checksum: 204ae1860
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:26 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 20a1e9f25
+Phase 3.4 Pipeline Register Optimization | Checksum: 1c2a0fb1f
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:27 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3.5 Fast Optimization
-Phase 3.5 Fast Optimization | Checksum: 1ecc760a4
+Phase 3.5 Fast Optimization | Checksum: 1e2d87572
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:30 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 143217ef1
+Phase 3.6 Small Shape Detail Placement | Checksum: 2438a4755
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:19 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:37 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 1965a6bd4
+Phase 3.7 Re-assign LUT pins | Checksum: 220875523
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:20 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:50 ; elapsed = 00:00:39 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 1a07e7d7a
+Phase 3.8 Pipeline Register Optimization | Checksum: 23185d20a
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:20 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:50 ; elapsed = 00:00:39 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3.9 Fast Optimization
-Phase 3.9 Fast Optimization | Checksum: 17bc42bb2
+Phase 3.9 Fast Optimization | Checksum: 189284c23
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:22 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 17bc42bb2
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:49 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 189284c23
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:22 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:50 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -447,7 +414,7 @@ INFO: [Place 46-20] Placer is running with the ExtraNetDelay_high directive. Pos
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: a7d896be
+Post Placement Optimization Initialization | Checksum: 1e2aa0001
 
 Phase 4.1.1.1 BUFG Insertion
 
@@ -455,33 +422,33 @@ Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.726 | TNS=-2.693 |
-Phase 1 Physical Synthesis Initialization | Checksum: 16d8c8e47
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.648 | TNS=-2.757 |
+Phase 1 Physical Synthesis Initialization | Checksum: 18e931f82
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.445 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
-Ending Physical Synthesis Task | Checksum: 17fa11af3
+Ending Physical Synthesis Task | Checksum: 1aa17569e
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.514 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 4.1.1.1 BUFG Insertion | Checksum: a7d896be
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1e2aa0001
 
-Time (s): cpu = 00:00:37 ; elapsed = 00:00:25 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:01:11 ; elapsed = 00:01:03 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 4.1.1.2 Post Placement Timing Optimization
-INFO: [Place 30-746] Post Placement Timing Summary WNS=-0.317. For the most accurate timing information please run report_timing.
-Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 20b9517b4
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-0.119. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 19412e9ca
 
-Time (s): cpu = 00:05:50 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:09:35 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
-Time (s): cpu = 00:05:50 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 4.1 Post Commit Optimization | Checksum: 20b9517b4
+Time (s): cpu = 00:09:35 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 19412e9ca
 
-Time (s): cpu = 00:05:50 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:09:35 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 20b9517b4
+Phase 4.2 Post Placement Cleanup | Checksum: 19412e9ca
 
-Time (s): cpu = 00:05:50 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:09:35 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 4.3 Placer Reporting
 
@@ -491,7 +458,7 @@ INFO: [Place 30-612] Post-Placement Estimated Congestion
 |           | Global Congestion | Short Congestion  |
 | Direction | Region Size       | Region Size       |
 |___________|___________________|___________________|
-|      North|                1x1|                1x1|
+|      North|                1x1|                2x2|
 |___________|___________________|___________________|
 |      South|                1x1|                1x1|
 |___________|___________________|___________________|
@@ -500,38 +467,39 @@ INFO: [Place 30-612] Post-Placement Estimated Congestion
 |       West|                1x1|                1x1|
 |___________|___________________|___________________|
 
-Phase 4.3.1 Print Estimated Congestion | Checksum: 20b9517b4
+Phase 4.3.1 Print Estimated Congestion | Checksum: 19412e9ca
 
-Time (s): cpu = 00:05:50 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 4.3 Placer Reporting | Checksum: 20b9517b4
+Time (s): cpu = 00:09:35 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 4.3 Placer Reporting | Checksum: 19412e9ca
 
-Time (s): cpu = 00:05:50 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:09:35 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
-Time (s): cpu = 00:05:50 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1dd4733f8
+Time (s): cpu = 00:09:35 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 104eba42c
 
-Time (s): cpu = 00:05:50 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Ending Placer Task | Checksum: f350f848
+Time (s): cpu = 00:09:35 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Ending Placer Task | Checksum: 80a5b94d
 
-Time (s): cpu = 00:05:51 ; elapsed = 00:06:13 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:09:36 ; elapsed = 00:10:31 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-81 Infos, 21 Warnings, 16 Critical Warnings and 0 Errors encountered.
+81 Infos, 9 Warnings, 4 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:05:54 ; elapsed = 00:06:15 . Memory (MB): peak = 2028.449 ; gain = 0.000
+place_design: Time (s): cpu = 00:09:43 ; elapsed = 00:10:35 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2028.449 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_placed.dcp' has been generated.
+Write XDEF Complete: Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 2021.562 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_placed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_io -file system_wrapper_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.104 . Memory (MB): peak = 2028.449 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.165 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file system_wrapper_utilization_placed.rpt -pb system_wrapper_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file system_wrapper_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 2028.449 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 2021.562 ; gain = 0.000
 Command: phys_opt_design -directive AggressiveExplore
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
@@ -539,307 +507,357 @@ INFO: [Vivado_Tcl 4-137] Directive used for phys_opt_design is: AggressiveExplor
 
 Starting Initial Update Timing Task
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2028.449 ; gain = 0.000
-INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 3.00s |  WALL: 1.57s
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2021.562 ; gain = 0.000
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 4.00s |  WALL: 2.40s
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.317 | TNS=-0.641 |
-Phase 1 Physical Synthesis Initialization | Checksum: 290c43849
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.119 | TNS=-0.371 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1799e80ff
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 2 SLR Crossing Optimization
-Phase 2 SLR Crossing Optimization | Checksum: 290c43849
+Phase 2 SLR Crossing Optimization | Checksum: 1799e80ff
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2028.449 ; gain = 0.000
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.317 | TNS=-0.641 |
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2021.562 ; gain = 0.000
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.119 | TNS=-0.371 |
 
 Phase 3 Fanout Optimization
 INFO: [Physopt 32-64] No nets found for fanout-optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Phase 3 Fanout Optimization | Checksum: 290c43849
+Phase 3 Fanout Optimization | Checksum: 1799e80ff
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 4 Single Cell Placement Optimization
-INFO: [Physopt 32-660] Identified 76 candidate nets for placement-based optimization.
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[23].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[28]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[28]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[28]_INST_0_i_1
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[28].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[28]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[28]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[28]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[28].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[28]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[28]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[28]_INST_0_i_2
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[21].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26]_INST_0
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26]_INST_0_i_1_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26]_INST_0_i_1
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[26].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[26]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[26]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[26]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[26].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[26]
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26]_INST_0_i_2_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26]_INST_0_i_2
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[30]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[30]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[30]_INST_0_i_1
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[30].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[30]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[30]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[30]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[30].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[30]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[30]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[30]_INST_0_i_2
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25]_INST_0
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25]_INST_0_i_1_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25]_INST_0_i_1
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[25].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[25]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[25]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[25]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[25].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[25]
+INFO: [Physopt 32-660] Identified 126 candidate nets for placement-based optimization.
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[2].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[2]_INST_0
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[2]_INST_0_i_1_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[2]_INST_0_i_1
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[2].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[2]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[2]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[2]_INST_0_i_1
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[2].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[2]_INST_0
 INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[2]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[2]_i_1
 INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[2].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[2]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[15].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0_i_2
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[20].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[20]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[20]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[20]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[20].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[20]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8]_INST_0
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8]_INST_0_i_1_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8]_INST_0_i_1
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[8].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[8]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[8]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[8]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[8].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[8]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0_i_1
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[3].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[3]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[3]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[3]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[3].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[3]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0_i_1
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[7].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[7]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[7]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[7]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[7].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[7]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0_i_2
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[4].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[4]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[4]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[4]_INST_0_i_1
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[4].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[4]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[4]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[4]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[4].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[4]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[2]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[2]_INST_0_i_2
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[0].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[0]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[0]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[0]_INST_0_i_1
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[0].  Re-placed instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[0]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[0]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[0]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[0].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[0]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[5].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[5]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[5]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[5]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[5].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[5]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[5]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[5]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[5].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[5]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8]_INST_0_i_2
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1]_INST_0
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1]_INST_0_i_1_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[1].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[1]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[1]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[1]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[1].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[1]
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[4]_INST_0_i_2_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[4]_INST_0_i_2
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0_i_2
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[24].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[29]_INST_0
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[0]_INST_0_i_2_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[0]_INST_0_i_2
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[29]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[29]_INST_0_i_2
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[29].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[29]_INST_0
 INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[29]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[29]_i_1
 INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[29].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[29]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0_i_1
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[3].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[3]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[3]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[3]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[3].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[3]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[9].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[14]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[14]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[14]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[14].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[14]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[14]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[14]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[14].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[14]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[31]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[31]_INST_0_i_3_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[31]_INST_0_i_3
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[31].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[31]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[31]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[31]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[31].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[31]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[25].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[25]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[25]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[25]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[25].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[25]
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1]_INST_0_i_2_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1]_INST_0_i_2
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[14].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[19]_INST_0
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[19]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[19]_INST_0_i_1
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[19].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[19]_INST_0
 INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[19]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[19]_i_1
 INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[19].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[19]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[3]_INST_0_i_2
+INFO: [Physopt 32-663] Processed net system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7].  Re-placed instance system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[10]_i_1_n_0.  Did not re-place instance system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer[10]_i_1
+INFO: [Physopt 32-663] Processed net system_i/BRAM2/bram_switch_0/inst/bram_porta_rddata[7].  Re-placed instance system_i/BRAM2/bram_switch_0/inst/bram_porta_rddata[7]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg_n_0_[10].  Did not re-place instance system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[10]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[5]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[5]_INST_0_i_2
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[21].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[26]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[26].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[26]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[26]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[26]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[26].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[26]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[29]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[29]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[11].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[16]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[16]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[16]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[16].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[16]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[16]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[16]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[16].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[16]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[22].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[27]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[27]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[27]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[27].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[27]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[27]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[27]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[27].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[27]
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[19].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[24]_INST_0
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[24]_INST_0_i_2_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[24]_INST_0_i_2
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[24]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[24]_INST_0_i_1
 INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[24].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[24]_INST_0
 INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[24]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[24]_i_1
 INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[24].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[24]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[7]_INST_0_i_2
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[7].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[7]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[7]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[7]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[7].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[7]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1]_INST_0
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1]_INST_0_i_2_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[1]_INST_0_i_2
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[1].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[1]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[1]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[1]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[1].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[1]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25]_INST_0_i_2
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[6].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[6]_INST_0
-INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[6]_INST_0_i_1_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[6]_INST_0_i_1
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[6].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[6]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[6]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[6]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[6].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[6]
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[8]_INST_0_i_1
-INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[8].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[8]_INST_0
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[8]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[8]_i_1
-INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[8].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[8]
-INFO: [Physopt 32-661] Optimized 11 nets.  Re-placed 11 instances.
-INFO: [Physopt 32-775] End 1 Pass. Optimized 11 nets or cells. Created 0 new cell, deleted 0 existing cell and moved 11 existing cells
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.048 | TNS=0.000 |
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 4 Single Cell Placement Optimization | Checksum: 21cc4b688
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[18].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[23]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[23]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[23]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[23].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[23]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[23]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[23]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[23].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[23]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[15].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[20].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[20]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[20]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[20]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[20].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[20]
+INFO: [Physopt 32-663] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[16]_INST_0_i_2_n_0.  Re-placed instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[16]_INST_0_i_2
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[16].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[21]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[21]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[21]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[21].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[21]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[21]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[21]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[21].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[21]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[20]_INST_0_i_2
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[23].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[28]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[28]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[28]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[28].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[28]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[28]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[28]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[28].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[28]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[25].  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[30]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[30]_INST_0_i_1_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[30]_INST_0_i_1
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[30].  Did not re-place instance system_i/BRAM1/bram_switch_0/inst/bram_portb_rddata[30]_INST_0
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[30]_i_1_n_0.  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja[30]_i_1
+INFO: [Physopt 32-662] Processed net system_i/Procesamiento1/coherent_average_0/inst/data_vieja[30].  Did not re-place instance system_i/Procesamiento1/coherent_average_0/inst/data_vieja_reg[30]
+INFO: [Physopt 32-662] Processed net system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[27]_INST_0_i_2_n_0.  Did not re-place instance system_i/BRAM1/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/doutb[27]_INST_0_i_2
+INFO: [Physopt 32-661] Optimized 14 nets.  Re-placed 14 instances.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 14 nets or cells. Created 0 new cell, deleted 0 existing cell and moved 14 existing cells
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.050 | TNS=0.000 |
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 4 Single Cell Placement Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 5 Multi Cell Placement Optimization
 INFO: [Physopt 32-670] No setup violation found.  Multi Cell Placement Optimization was not performed.
-Phase 5 Multi Cell Placement Optimization | Checksum: 21cc4b688
+Phase 5 Multi Cell Placement Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 6 Rewire
 INFO: [Physopt 32-670] No setup violation found.  Rewire was not performed.
-Phase 6 Rewire | Checksum: 21cc4b688
+Phase 6 Rewire | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 7 Critical Cell Optimization
 INFO: [Physopt 32-670] No setup violation found.  Critical Cell Optimization was not performed.
-Phase 7 Critical Cell Optimization | Checksum: 21cc4b688
+Phase 7 Critical Cell Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 8 Fanout Optimization
 INFO: [Physopt 32-670] No setup violation found.  Fanout Optimization was not performed.
-Phase 8 Fanout Optimization | Checksum: 21cc4b688
+Phase 8 Fanout Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 9 Single Cell Placement Optimization
 INFO: [Physopt 32-670] No setup violation found.  Single Cell Placement Optimization was not performed.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 9 Single Cell Placement Optimization | Checksum: 21cc4b688
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 9 Single Cell Placement Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 10 Multi Cell Placement Optimization
 INFO: [Physopt 32-670] No setup violation found.  Multi Cell Placement Optimization was not performed.
-Phase 10 Multi Cell Placement Optimization | Checksum: 21cc4b688
+Phase 10 Multi Cell Placement Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 11 Rewire
 INFO: [Physopt 32-670] No setup violation found.  Rewire was not performed.
-Phase 11 Rewire | Checksum: 21cc4b688
+Phase 11 Rewire | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 12 Critical Cell Optimization
 INFO: [Physopt 32-670] No setup violation found.  Critical Cell Optimization was not performed.
-Phase 12 Critical Cell Optimization | Checksum: 21cc4b688
+Phase 12 Critical Cell Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 13 SLR Crossing Optimization
-Phase 13 SLR Crossing Optimization | Checksum: 21cc4b688
+Phase 13 SLR Crossing Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 14 Fanout Optimization
 INFO: [Physopt 32-670] No setup violation found.  Fanout Optimization was not performed.
-Phase 14 Fanout Optimization | Checksum: 21cc4b688
+Phase 14 Fanout Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 15 Single Cell Placement Optimization
 INFO: [Physopt 32-670] No setup violation found.  Single Cell Placement Optimization was not performed.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 15 Single Cell Placement Optimization | Checksum: 21cc4b688
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 15 Single Cell Placement Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 16 Multi Cell Placement Optimization
 INFO: [Physopt 32-670] No setup violation found.  Multi Cell Placement Optimization was not performed.
-Phase 16 Multi Cell Placement Optimization | Checksum: 21cc4b688
+Phase 16 Multi Cell Placement Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 17 Rewire
 INFO: [Physopt 32-670] No setup violation found.  Rewire was not performed.
-Phase 17 Rewire | Checksum: 21cc4b688
+Phase 17 Rewire | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 18 Critical Cell Optimization
 INFO: [Physopt 32-670] No setup violation found.  Critical Cell Optimization was not performed.
-Phase 18 Critical Cell Optimization | Checksum: 21cc4b688
+Phase 18 Critical Cell Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 19 DSP Register Optimization
 INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
-Phase 19 DSP Register Optimization | Checksum: 21cc4b688
+Phase 19 DSP Register Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 20 BRAM Register Optimization
 INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
-Phase 20 BRAM Register Optimization | Checksum: 21cc4b688
+Phase 20 BRAM Register Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 21 URAM Register Optimization
 INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
-Phase 21 URAM Register Optimization | Checksum: 21cc4b688
+Phase 21 URAM Register Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 22 Shift Register Optimization
 INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
-Phase 22 Shift Register Optimization | Checksum: 21cc4b688
+Phase 22 Shift Register Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 23 DSP Register Optimization
 INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
-Phase 23 DSP Register Optimization | Checksum: 21cc4b688
+Phase 23 DSP Register Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 24 BRAM Register Optimization
 INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
-Phase 24 BRAM Register Optimization | Checksum: 21cc4b688
+Phase 24 BRAM Register Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 25 URAM Register Optimization
 INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
-Phase 25 URAM Register Optimization | Checksum: 21cc4b688
+Phase 25 URAM Register Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 26 Shift Register Optimization
 INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
-Phase 26 Shift Register Optimization | Checksum: 21cc4b688
+Phase 26 Shift Register Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 27 Critical Pin Optimization
 INFO: [Physopt 32-670] No setup violation found.  Critical Pin Optimization was not performed.
-Phase 27 Critical Pin Optimization | Checksum: 21cc4b688
+Phase 27 Critical Pin Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 28 Very High Fanout Optimization
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Phase 28 Very High Fanout Optimization | Checksum: 21cc4b688
+Phase 28 Very High Fanout Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 29 Single Cell Placement Optimization
 INFO: [Physopt 32-670] No setup violation found.  Single Cell Placement Optimization was not performed.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 29 Single Cell Placement Optimization | Checksum: 21cc4b688
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 29 Single Cell Placement Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 30 Multi Cell Placement Optimization
 INFO: [Physopt 32-670] No setup violation found.  Multi Cell Placement Optimization was not performed.
-Phase 30 Multi Cell Placement Optimization | Checksum: 21cc4b688
+Phase 30 Multi Cell Placement Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 31 SLR Crossing Optimization
-Phase 31 SLR Crossing Optimization | Checksum: 21cc4b688
+Phase 31 SLR Crossing Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 32 Critical Path Optimization
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.048 | TNS=0.000 |
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.048 | TNS=0.000 |
-Phase 32 Critical Path Optimization | Checksum: 21cc4b688
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.050 | TNS=0.000 |
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.050 | TNS=0.000 |
+Phase 32 Critical Path Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 33 BRAM Enable Optimization
-Phase 33 BRAM Enable Optimization | Checksum: 21cc4b688
+Phase 33 BRAM Enable Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 34 Hold Fix Optimization
-INFO: [Physopt 32-668] Estimated Timing Summary | WNS=0.048 | TNS=0.000 | WHS=-1.514 | THS=-93.941 |
-INFO: [Physopt 32-45] Identified 43 candidate nets for hold slack optimization.
-INFO: [Physopt 32-234] Optimized 17 nets. Inserted 0 new ZHOLD_DELAYs. Calibrated 0 existing ZHOLD_DELAYs. Inserted 17 buffers.
+INFO: [Physopt 32-668] Estimated Timing Summary | WNS=0.050 | TNS=0.000 | WHS=-1.611 | THS=-128.094 |
+INFO: [Physopt 32-45] Identified 42 candidate nets for hold slack optimization.
+INFO: [Physopt 32-234] Optimized 21 nets. Inserted 0 new ZHOLD_DELAYs. Calibrated 0 existing ZHOLD_DELAYs. Inserted 21 buffers.
 
-INFO: [Physopt 32-668] Estimated Timing Summary | WNS=0.048 | TNS=0.000 | WHS=-0.250 | THS=-27.532 |
-Phase 34 Hold Fix Optimization | Checksum: 21cc4b688
+INFO: [Physopt 32-668] Estimated Timing Summary | WNS=0.050 | TNS=0.000 | WHS=-0.246 | THS=-18.196 |
+Phase 34 Hold Fix Optimization | Checksum: 13dab54f7
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.047 . Memory (MB): peak = 2028.449 ; gain = 0.000
-INFO: [Physopt 32-669] Post Physical Optimization Timing Summary | WNS=0.048 | TNS=0.000 | WHS=-0.250 | THS=-27.532 |
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 2021.562 ; gain = 0.000
+INFO: [Physopt 32-669] Post Physical Optimization Timing Summary | WNS=0.050 | TNS=0.000 | WHS=-0.246 | THS=-18.196 |
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -849,7 +867,7 @@ Summary of Physical Synthesis Optimizations
 |  Optimization            |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Fanout                  |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Single Cell Placement   |          0.365  |          0.641  |            0  |              0  |                    11  |           0  |           1  |  00:00:02  |
+|  Single Cell Placement   |          0.169  |          0.371  |            0  |              0  |                    14  |           0  |           1  |  00:00:04  |
 |  Multi Cell Placement    |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
 |  Rewire                  |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
 |  Critical Cell           |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
@@ -862,7 +880,7 @@ Summary of Physical Synthesis Optimizations
 |  Very High Fanout        |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  BRAM Enable             |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Critical Path           |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                   |          0.365  |          0.641  |            0  |              0  |                    11  |           0  |           8  |  00:00:02  |
+|  Total                   |          0.169  |          0.371  |            0  |              0  |                    14  |           0  |           8  |  00:00:05  |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -873,25 +891,26 @@ Summary of Hold Fix Optimizations
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization               |  WHS Gain (ns)  |  THS Gain (ns)  |  Added LUTs  |  Added FFs  |  Optimized Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT1 and ZHOLD Insertion   |          1.264  |         66.409  |          17  |          0  |              17  |           0  |           1  |  00:00:01  |
-|  Total                      |          1.264  |         66.409  |          17  |          0  |              17  |           0  |           1  |  00:00:01  |
+|  LUT1 and ZHOLD Insertion   |          1.365  |        109.898  |          21  |          0  |              21  |           0  |           1  |  00:00:01  |
+|  Total                      |          1.365  |        109.898  |          21  |          0  |              21  |           0  |           1  |  00:00:01  |
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Ending Physical Synthesis Task | Checksum: 238c30c39
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Ending Physical Synthesis Task | Checksum: 188b8f757
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-210 Infos, 21 Warnings, 16 Critical Warnings and 0 Errors encountered.
+260 Infos, 9 Warnings, 4 Critical Warnings and 0 Errors encountered.
 phys_opt_design completed successfully
-phys_opt_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 2028.449 ; gain = 0.000
+phys_opt_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:12 . Memory (MB): peak = 2021.562 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 2028.449 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_physopt.dcp' has been generated.
+Write XDEF Complete: Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 2021.562 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_physopt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.562 ; gain = 0.000
 Command: route_design -directive NoTimingRelaxation
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
@@ -909,30 +928,30 @@ INFO: [Route 35-270] Using Router directive 'NoTimingRelaxation'.
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
 
 Phase 1 Build RT Design
-Checksum: PlaceDB: d861d2d5 ConstDB: 0 ShapeSum: dcaef34e RouteDB: 0
-Post Restoration Checksum: NetGraph: 588e7c74 NumContArr: 899687f4 Constraints: 0 Timing: 0
-Phase 1 Build RT Design | Checksum: e2250468
+Checksum: PlaceDB: c127fde8 ConstDB: 0 ShapeSum: 6fde7ae8 RouteDB: 0
+Post Restoration Checksum: NetGraph: f882e85a NumContArr: 9be98c50 Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: 1946c74aa
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:22 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 2 Router Initialization
 
 Phase 2.1 Fix Topology Constraints
-Phase 2.1 Fix Topology Constraints | Checksum: e2250468
+Phase 2.1 Fix Topology Constraints | Checksum: 1946c74aa
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:22 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 2.2 Pre Route Cleanup
-Phase 2.2 Pre Route Cleanup | Checksum: e2250468
+Phase 2.2 Pre Route Cleanup | Checksum: 1946c74aa
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:23 . Memory (MB): peak = 2021.562 ; gain = 0.000
  Number of Nodes with overlaps = 0
 
 Phase 2.3 Update Timing
-Phase 2.3 Update Timing | Checksum: 111c77707
+Phase 2.3 Update Timing | Checksum: 255e3db65
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:19 . Memory (MB): peak = 2028.449 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.022  | TNS=0.000  | WHS=-0.653 | THS=-283.635|
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:29 . Memory (MB): peak = 2021.562 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.743 | TNS=-26.260| WHS=-1.007 | THS=-430.908|
 
 
 Router Utilization Summary
@@ -941,95 +960,132 @@ Router Utilization Summary
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 8046
+  Number of Failed Nets               = 8687
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 8046
+  Number of Unrouted Nets             = 8687
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 2 Router Initialization | Checksum: 48bff66d
+Phase 2 Router Initialization | Checksum: 233ccb6ea
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:21 . Memory (MB): peak = 2028.449 ; gain = 0.000
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 2021.562 ; gain = 0.000
 
 Phase 3 Initial Routing
 
 Phase 3.1 Global Routing
-Phase 3.1 Global Routing | Checksum: 48bff66d
+Phase 3.1 Global Routing | Checksum: 233ccb6ea
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:21 . Memory (MB): peak = 2028.449 ; gain = 0.000
-Phase 3 Initial Routing | Checksum: 11a340418
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 2021.562 ; gain = 0.000
+Phase 3 Initial Routing | Checksum: 1f6da2986
 
-Time (s): cpu = 00:00:49 ; elapsed = 00:00:33 . Memory (MB): peak = 2038.953 ; gain = 10.504
+Time (s): cpu = 00:01:16 ; elapsed = 00:00:51 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-580] Design has 6 pins with tight setup and hold constraints.
+
+The top 5 pins with tight setup and hold constraints:
+
++====================+===================+===================================================================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                                                                               |
++====================+===================+===================================================================================================+
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[6]/D  |
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[9]/D  |
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[11]/D |
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[4]/D  |
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[7]/D  |
++--------------------+-------------------+---------------------------------------------------------------------------------------------------+
+
+File with complete list of pins: tight_setup_hold_pins.txt
+
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 874
- Number of Nodes with overlaps = 268
- Number of Nodes with overlaps = 121
- Number of Nodes with overlaps = 73
- Number of Nodes with overlaps = 52
- Number of Nodes with overlaps = 28
- Number of Nodes with overlaps = 22
- Number of Nodes with overlaps = 9
- Number of Nodes with overlaps = 5
- Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 992
+ Number of Nodes with overlaps = 344
+ Number of Nodes with overlaps = 188
+ Number of Nodes with overlaps = 113
+ Number of Nodes with overlaps = 62
+ Number of Nodes with overlaps = 45
+ Number of Nodes with overlaps = 20
+ Number of Nodes with overlaps = 10
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.244 | TNS=-15.631| WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 9b8a5ac8
+
+Time (s): cpu = 00:02:11 ; elapsed = 00:01:41 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 4.2 Global Iteration 1
  Number of Nodes with overlaps = 2
  Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.190  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.244 | TNS=-14.677| WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 1df570aae
+Phase 4.2 Global Iteration 1 | Checksum: 1f74c0d35
 
-Time (s): cpu = 00:01:11 ; elapsed = 00:00:53 . Memory (MB): peak = 2038.953 ; gain = 10.504
-Phase 4 Rip-up And Reroute | Checksum: 1df570aae
+Time (s): cpu = 00:02:12 ; elapsed = 00:01:42 . Memory (MB): peak = 2039.836 ; gain = 18.273
+Phase 4 Rip-up And Reroute | Checksum: 1f74c0d35
 
-Time (s): cpu = 00:01:11 ; elapsed = 00:00:53 . Memory (MB): peak = 2038.953 ; gain = 10.504
+Time (s): cpu = 00:02:12 ; elapsed = 00:01:42 . Memory (MB): peak = 2039.836 ; gain = 18.273
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 1a397591c
+Phase 5.1.1 Update Timing | Checksum: 1c1bf052d
 
-Time (s): cpu = 00:01:12 ; elapsed = 00:00:54 . Memory (MB): peak = 2038.953 ; gain = 10.504
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.190  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:02:13 ; elapsed = 00:01:43 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.244 | TNS=-14.651| WHS=N/A    | THS=N/A    |
 
-Phase 5.1 Delay CleanUp | Checksum: 1a397591c
+ Number of Nodes with overlaps = 0
+Phase 5.1 Delay CleanUp | Checksum: 24451fcd3
 
-Time (s): cpu = 00:01:12 ; elapsed = 00:00:54 . Memory (MB): peak = 2038.953 ; gain = 10.504
+Time (s): cpu = 00:02:14 ; elapsed = 00:01:44 . Memory (MB): peak = 2039.836 ; gain = 18.273
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 1a397591c
+Phase 5.2 Clock Skew Optimization | Checksum: 24451fcd3
 
-Time (s): cpu = 00:01:12 ; elapsed = 00:00:54 . Memory (MB): peak = 2038.953 ; gain = 10.504
-Phase 5 Delay and Skew Optimization | Checksum: 1a397591c
+Time (s): cpu = 00:02:14 ; elapsed = 00:01:44 . Memory (MB): peak = 2039.836 ; gain = 18.273
+Phase 5 Delay and Skew Optimization | Checksum: 24451fcd3
 
-Time (s): cpu = 00:01:12 ; elapsed = 00:00:54 . Memory (MB): peak = 2038.953 ; gain = 10.504
+Time (s): cpu = 00:02:14 ; elapsed = 00:01:44 . Memory (MB): peak = 2039.836 ; gain = 18.273
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 16937f415
+Phase 6.1.1 Update Timing | Checksum: 1afe31c30
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:55 . Memory (MB): peak = 2038.953 ; gain = 10.504
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.190  | TNS=0.000  | WHS=0.022  | THS=0.000  |
+Time (s): cpu = 00:02:15 ; elapsed = 00:01:45 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.244 | TNS=-14.145| WHS=0.009  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 1d6b7b4b3
+Phase 6.1 Hold Fix Iter | Checksum: 1eb4194c0
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:55 . Memory (MB): peak = 2038.953 ; gain = 10.504
-Phase 6 Post Hold Fix | Checksum: 1d6b7b4b3
+Time (s): cpu = 00:02:15 ; elapsed = 00:01:45 . Memory (MB): peak = 2039.836 ; gain = 18.273
+Phase 6 Post Hold Fix | Checksum: 1eb4194c0
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:55 . Memory (MB): peak = 2038.953 ; gain = 10.504
+Time (s): cpu = 00:02:16 ; elapsed = 00:01:45 . Memory (MB): peak = 2039.836 ; gain = 18.273
 
-Phase 7 Route finalize
+Phase 7 Timing Verification
+
+Phase 7.1 Update Timing
+Phase 7.1 Update Timing | Checksum: 19e0dd8d5
+
+Time (s): cpu = 00:02:18 ; elapsed = 00:01:46 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.244 | TNS=-14.145| WHS=N/A    | THS=N/A    |
+
+Phase 7 Timing Verification | Checksum: 19e0dd8d5
+
+Time (s): cpu = 00:02:18 ; elapsed = 00:01:46 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 8 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 5.21382 %
-  Global Horizontal Routing Utilization  = 6.22541 %
+  Global Vertical Routing Utilization    = 7.15569 %
+  Global Horizontal Routing Utilization  = 7.20083 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -1039,57 +1095,307 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 170840493
+Congestion Report
+North Dir 1x1 Area, Max Cong = 60.3604%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 50.4505%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 63.2353%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 55.8824%, No Congested Regions.
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:55 . Memory (MB): peak = 2038.953 ; gain = 10.504
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
 
-Phase 8 Verifying routed nets
+Phase 8 Route finalize | Checksum: 19e0dd8d5
+
+Time (s): cpu = 00:02:18 ; elapsed = 00:01:47 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 9 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 170840493
+Phase 9 Verifying routed nets | Checksum: 19e0dd8d5
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:55 . Memory (MB): peak = 2038.953 ; gain = 10.504
+Time (s): cpu = 00:02:18 ; elapsed = 00:01:47 . Memory (MB): peak = 2039.836 ; gain = 18.273
 
-Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: e61492ee
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 189bfdd73
 
-Time (s): cpu = 00:01:14 ; elapsed = 00:00:56 . Memory (MB): peak = 2038.953 ; gain = 10.504
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:48 . Memory (MB): peak = 2039.836 ; gain = 18.273
 
-Phase 10 Post Router Timing
-INFO: [Route 35-20] Post Routing Timing Summary | WNS=0.223  | TNS=0.000  | WHS=0.022  | THS=0.000  |
+Phase 11 Incr Placement Change
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2039.836 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-0.853. For the most accurate timing information please run report_timing.
+Ending IncrPlace Task | Checksum: 9f054204
 
-Phase 10 Post Router Timing | Checksum: d4c76abe
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2039.836 ; gain = 0.000
+Google Cpuprofiler is only supported on Linux.
+Phase 11 Incr Placement Change | Checksum: 189bfdd73
 
-Time (s): cpu = 00:01:18 ; elapsed = 00:00:58 . Memory (MB): peak = 2038.953 ; gain = 10.504
-INFO: [Route 35-61] The design met the timing requirement.
+Time (s): cpu = 00:02:44 ; elapsed = 00:02:13 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 12 Build RT Design
+Checksum: PlaceDB: 272997e9 ConstDB: 0 ShapeSum: 77dbaa1b RouteDB: 7d5cda54
+Post Restoration Checksum: NetGraph: b9b15c9f NumContArr: 3aa793fb Constraints: 0 Timing: 0
+Phase 12 Build RT Design | Checksum: f458f09a
+
+Time (s): cpu = 00:02:49 ; elapsed = 00:02:17 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 13 Router Initialization
+
+Phase 13.1 Fix Topology Constraints
+Phase 13.1 Fix Topology Constraints | Checksum: f458f09a
+
+Time (s): cpu = 00:02:49 ; elapsed = 00:02:17 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 13.2 Pre Route Cleanup
+Phase 13.2 Pre Route Cleanup | Checksum: 5a6a2a1c
+
+Time (s): cpu = 00:02:50 ; elapsed = 00:02:17 . Memory (MB): peak = 2039.836 ; gain = 18.273
+ Number of Nodes with overlaps = 0
+
+Phase 13.3 Update Timing
+Phase 13.3 Update Timing | Checksum: 1dd2161c8
+
+Time (s): cpu = 00:02:57 ; elapsed = 00:02:22 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.833 | TNS=-8.362 | WHS=-1.007 | THS=-430.457|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 7.14161 %
+  Global Horizontal Routing Utilization  = 7.19255 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 52
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 28
+  Number of Partially Routed Nets     = 24
+  Number of Node Overlaps             = 0
+
+Phase 13 Router Initialization | Checksum: 1e0a26084
+
+Time (s): cpu = 00:03:01 ; elapsed = 00:02:24 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 14 Initial Routing
+
+Phase 14.1 Global Routing
+Phase 14.1 Global Routing | Checksum: 1e0a26084
+
+Time (s): cpu = 00:03:01 ; elapsed = 00:02:24 . Memory (MB): peak = 2039.836 ; gain = 18.273
+Phase 14 Initial Routing | Checksum: 16177f244
+
+Time (s): cpu = 00:03:01 ; elapsed = 00:02:24 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-580] Design has 96 pins with tight setup and hold constraints.
+
+The top 5 pins with tight setup and hold constraints:
+
++====================+===================+======================================================================================================================================================================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                                                                                                                                                                                  |
++====================+===================+======================================================================================================================================================================================================+
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[6]/D                                                                                                     |
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[4]/D                                                                                                     |
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[9]/D                                                                                                     |
+| clk_fpga_0         | clk_fpga_0        | system_i/uP/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[7]/D                                                                                                     |
+| clk_fpga_0         | clk_fpga_0        | system_i/BRAM2/blk_mem_gen_1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/ADDRBWRADDR[8] |
++--------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+File with complete list of pins: tight_setup_hold_pins.txt
+
+
+Phase 15 Rip-up And Reroute
+
+Phase 15.1 Global Iteration 0
+ Number of Nodes with overlaps = 10
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.959 | TNS=-8.449 | WHS=N/A    | THS=N/A    |
+
+Phase 15.1 Global Iteration 0 | Checksum: 145200671
+
+Time (s): cpu = 00:03:05 ; elapsed = 00:02:28 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 15.2 Global Iteration 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.946 | TNS=-8.423 | WHS=N/A    | THS=N/A    |
+
+Phase 15.2 Global Iteration 1 | Checksum: 1a020e42b
+
+Time (s): cpu = 00:03:06 ; elapsed = 00:02:29 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 15.3 Global Iteration 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.946 | TNS=-8.423 | WHS=N/A    | THS=N/A    |
+
+Phase 15.3 Global Iteration 2 | Checksum: ee024f0a
+
+Time (s): cpu = 00:03:07 ; elapsed = 00:02:29 . Memory (MB): peak = 2039.836 ; gain = 18.273
+Phase 15 Rip-up And Reroute | Checksum: ee024f0a
+
+Time (s): cpu = 00:03:07 ; elapsed = 00:02:29 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 16 Delay and Skew Optimization
+
+Phase 16.1 Delay CleanUp
+
+Phase 16.1.1 Update Timing
+Phase 16.1.1 Update Timing | Checksum: 1af013e9a
+
+Time (s): cpu = 00:03:08 ; elapsed = 00:02:30 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.946 | TNS=-8.423 | WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 16.1 Delay CleanUp | Checksum: 1b9cb7eb1
+
+Time (s): cpu = 00:03:08 ; elapsed = 00:02:30 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 16.2 Clock Skew Optimization
+Phase 16.2 Clock Skew Optimization | Checksum: 1b9cb7eb1
+
+Time (s): cpu = 00:03:09 ; elapsed = 00:02:30 . Memory (MB): peak = 2039.836 ; gain = 18.273
+Phase 16 Delay and Skew Optimization | Checksum: 1b9cb7eb1
+
+Time (s): cpu = 00:03:09 ; elapsed = 00:02:30 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 17 Post Hold Fix
+
+Phase 17.1 Hold Fix Iter
+
+Phase 17.1.1 Update Timing
+Phase 17.1.1 Update Timing | Checksum: 1ac62bf73
+
+Time (s): cpu = 00:03:10 ; elapsed = 00:02:31 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.946 | TNS=-8.423 | WHS=0.009  | THS=0.000  |
+
+Phase 17.1 Hold Fix Iter | Checksum: ea79b5fb
+
+Time (s): cpu = 00:03:10 ; elapsed = 00:02:32 . Memory (MB): peak = 2039.836 ; gain = 18.273
+Phase 17 Post Hold Fix | Checksum: ea79b5fb
+
+Time (s): cpu = 00:03:10 ; elapsed = 00:02:32 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 18 Timing Verification
+
+Phase 18.1 Update Timing
+Phase 18.1 Update Timing | Checksum: 109d202d6
+
+Time (s): cpu = 00:03:13 ; elapsed = 00:02:33 . Memory (MB): peak = 2039.836 ; gain = 18.273
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.946 | TNS=-8.423 | WHS=N/A    | THS=N/A    |
+
+Phase 18 Timing Verification | Checksum: 109d202d6
+
+Time (s): cpu = 00:03:13 ; elapsed = 00:02:33 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 19 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 7.16582 %
+  Global Horizontal Routing Utilization  = 7.20795 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Congestion Report
+North Dir 1x1 Area, Max Cong = 60.3604%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 50.4505%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 63.2353%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 55.8824%, No Congested Regions.
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+
+Phase 19 Route finalize | Checksum: 109d202d6
+
+Time (s): cpu = 00:03:13 ; elapsed = 00:02:33 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 20 Verifying routed nets
+
+ Verification completed successfully
+Phase 20 Verifying routed nets | Checksum: 109d202d6
+
+Time (s): cpu = 00:03:13 ; elapsed = 00:02:33 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 21 Depositing Routes
+Phase 21 Depositing Routes | Checksum: 1875623a4
+
+Time (s): cpu = 00:03:15 ; elapsed = 00:02:35 . Memory (MB): peak = 2039.836 ; gain = 18.273
+
+Phase 22 Post Router Timing
+INFO: [Route 35-20] Post Routing Timing Summary | WNS=-0.947 | TNS=-8.437 | WHS=0.009  | THS=0.000  |
+
+Phase 22 Post Router Timing | Checksum: 16aabe51f
+
+Time (s): cpu = 00:03:21 ; elapsed = 00:02:39 . Memory (MB): peak = 2039.836 ; gain = 18.273
+CRITICAL WARNING: [Route 35-39] The design did not meet timing requirements. Please run report_timing_summary for detailed reports.
+Resolution: Verify that the timing was met or had small violations at all previous steps (synthesis, placement, power_opt, and phys_opt). Run report_timing_summary and analyze individual timing paths.
+INFO: [Route 35-253] TNS is the sum of the worst slack violation on every endpoint in the design. Review the paths with the biggest WNS violations in the timing reports and modify your constraints or your design to improve both WNS and TNS.
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:01:18 ; elapsed = 00:00:58 . Memory (MB): peak = 2038.953 ; gain = 10.504
+Time (s): cpu = 00:03:21 ; elapsed = 00:02:39 . Memory (MB): peak = 2039.836 ; gain = 18.273
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-229 Infos, 21 Warnings, 16 Critical Warnings and 0 Errors encountered.
+291 Infos, 9 Warnings, 5 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:01:22 ; elapsed = 00:01:00 . Memory (MB): peak = 2038.953 ; gain = 10.504
+route_design: Time (s): cpu = 00:03:28 ; elapsed = 00:02:43 . Memory (MB): peak = 2039.836 ; gain = 18.273
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 2038.953 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_routed.dcp' has been generated.
+Write XDEF Complete: Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 2043.441 ; gain = 3.605
+INFO: [Common 17-1381] The checkpoint 'C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 2043.441 ; gain = 3.605
 INFO: [runtcl-4] Executing : report_drc -file system_wrapper_drc_routed.rpt -pb system_wrapper_drc_routed.pb -rpx system_wrapper_drc_routed.rpx
 Command: report_drc -file system_wrapper_drc_routed.rpt -pb system_wrapper_drc_routed.pb -rpx system_wrapper_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 2 threads
-INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_drc_routed.rpt.
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_drc_routed.rpt.
 report_drc completed successfully
 INFO: [runtcl-4] Executing : report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 Command: report_methodology -file system_wrapper_methodology_drc_routed.rpt -pb system_wrapper_methodology_drc_routed.pb -rpx system_wrapper_methodology_drc_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 2 threads
-INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/Users/MatiOliva/Documents/03-RedPitaya/adquisidor/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_methodology_drc_routed.rpt.
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/Users/mati9/OneDrive/Documentos/00-RedPitaya/adquisidor_red_pitaya/adquisidor.runs/impl_1/system_wrapper_methodology_drc_routed.rpt.
 report_methodology completed successfully
-report_methodology: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 2038.953 ; gain = 0.000
+report_methodology: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 2043.441 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 Command: report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -1098,12 +1404,14 @@ Running Vector-less Activity Propagation...
 Finished Running Vector-less Activity Propagation
 WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
 Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
-241 Infos, 22 Warnings, 16 Critical Warnings and 0 Errors encountered.
+303 Infos, 10 Warnings, 5 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
+report_power: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 2043.441 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_route_status -file system_wrapper_route_status.rpt -pb system_wrapper_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file system_wrapper_timing_summary_routed.rpt -pb system_wrapper_timing_summary_routed.pb -rpx system_wrapper_timing_summary_routed.rpx -warn_on_violation 
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
 INFO: [runtcl-4] Executing : report_incremental_reuse -file system_wrapper_incremental_reuse_routed.rpt
 INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
 INFO: [runtcl-4] Executing : report_clock_utilization -file system_wrapper_clock_utilization_routed.rpt
@@ -1120,7 +1428,7 @@ WARNING: [DRC DPOP-1] PREG Output pipelining: DSP system_i/trigger_simulator_0/i
 WARNING: [DRC DPOP-2] MREG Output pipelining: DSP system_i/trigger_simulator_0/inst/trigger_level_k_mult0 multiplier stage system_i/trigger_simulator_0/inst/trigger_level_k_mult0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 WARNING: [DRC DPOP-2] MREG Output pipelining: DSP system_i/trigger_simulator_0/inst/trigger_level_k_mult0__0 multiplier stage system_i/trigger_simulator_0/inst/trigger_level_k_mult0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 WARNING: [DRC DPOP-2] MREG Output pipelining: DSP system_i/trigger_simulator_0/inst/trigger_level_k_mult_reg multiplier stage system_i/trigger_simulator_0/inst/trigger_level_k_mult_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC RTSTAT-10] No routable loads: 9 net(s) have no routable loads. The problem bus(es) and/or net(s) are system_i/BRAM2/bram_switch_0/inst/switch_reg[0], system_i/BRAM1/bram_switch_0/inst/switch_reg[0], system_i/BRAM2/bram_switch_0/inst/switch_reg[1], system_i/BRAM1/bram_switch_0/inst/switch_reg[2], system_i/BRAM2/bram_switch_0/inst/switch_reg[2], system_i/BRAM1/bram_switch_0/inst/switch_reg[3], system_i/BRAM2/bram_switch_0/inst/switch_reg[3], system_i/BRAM2/bram_switch_0/inst/switch_reg[4], and system_i/BRAM2/bram_switch_0/inst/switch_reg[5].
+WARNING: [DRC RTSTAT-10] No routable loads: 6 net(s) have no routable loads. The problem bus(es) and/or net(s) are system_i/BRAM2/bram_switch_0/inst/switch_reg[0], system_i/BRAM1/bram_switch_0/inst/switch_reg[0], system_i/BRAM2/bram_switch_0/inst/switch_reg[2], system_i/BRAM1/bram_switch_0/inst/switch_reg[2], system_i/BRAM1/bram_switch_0/inst/switch_reg[3], and system_i/BRAM2/bram_switch_0/inst/switch_reg[3].
 INFO: [Vivado 12-3199] DRC finished with 0 Errors, 5 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
@@ -1137,5 +1445,5 @@ INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT dev
 INFO: [Common 17-83] Releasing license: Implementation
 12 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:24 ; elapsed = 00:00:18 . Memory (MB): peak = 2398.582 ; gain = 359.629
-INFO: [Common 17-206] Exiting Vivado at Fri Dec  1 15:27:40 2023...
+write_bitstream: Time (s): cpu = 00:00:37 ; elapsed = 00:00:29 . Memory (MB): peak = 2407.605 ; gain = 364.164
+INFO: [Common 17-206] Exiting Vivado at Mon Sep  9 03:39:12 2024...

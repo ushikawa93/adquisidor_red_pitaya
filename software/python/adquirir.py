@@ -16,13 +16,13 @@ import math
 
 set_bitstream = False; # Preferiblemente la primera vez nomas!
 graficar_respuesta = True;
-ciclos_a_mostrar = 1;
+ciclos_a_mostrar = 4;
 ip = "192.168.1.102";
-frec = 300000;
-N_ciclos_promediacion = 1;
+frec = 200;
+N_ciclos_promediacion = 100;
 modo_disparo = TriggerMode.DISPARO_NIVEL;
-nivel_disparo = 600;
-nombre_archivo = "test.dat"; 
+nivel_disparo = 1500;
+nombre_archivo = "test"; 
 
 
 ########### Medidas #####################
@@ -32,7 +32,6 @@ rp = redP_handler(ip);
 
 if(set_bitstream):
     rp.set_bitstream_in_fpga();
-
 
 rp.set_frec_objetivo(frec)
 rp.set_prom_coherente(N_ciclos_promediacion)
@@ -56,6 +55,6 @@ data_ch_1 = [elemento / div for elemento in data[1]]
 
 # Graficar opcionalmente
 if(graficar_respuesta):
-    plt.plot(data_ch_0[0:muestras_x_ciclo*10]);plt.grid();
-    plt.plot(data_ch_1[0:muestras_x_ciclo*10]);
+    plt.plot(data_ch_0[0:muestras_x_ciclo*ciclos_a_mostrar]);plt.grid();
+    plt.plot(data_ch_1[0:muestras_x_ciclo*ciclos_a_mostrar]);
     plt.show()

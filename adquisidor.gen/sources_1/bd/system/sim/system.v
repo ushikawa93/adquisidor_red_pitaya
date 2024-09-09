@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Dec  1 13:49:14 2023
-//Host        : DESKTOP-BRUHM76 running 64-bit major release  (build 9200)
+//Date        : Mon Sep  9 02:34:39 2024
+//Host        : DESKTOP-4F847D8 running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -347,11 +347,14 @@ module BRAM2_imp_8ITUAE
   input s00_axi_aresetn;
   input [0:0]wea;
 
+  wire [15:0]addra_1;
   wire [15:0]axi_bram_reader_1_bram_porta_addr;
   wire axi_bram_reader_1_bram_porta_clk;
   wire [31:0]axi_bram_reader_1_bram_porta_din;
   wire axi_bram_reader_1_bram_porta_rst;
   wire [3:0]axi_bram_reader_1_bram_porta_we;
+  wire [31:0]blk_mem_gen_1_douta;
+  wire [31:0]blk_mem_gen_1_doutb;
   wire [15:0]bram_portb_addr_1;
   wire bram_portb_clk_1;
   wire bram_portb_rst_1;
@@ -359,6 +362,12 @@ module BRAM2_imp_8ITUAE
   wire [31:0]bram_portb_wrdata_1;
   wire [31:0]bram_switch_0_bram_porta_rddata;
   wire [31:0]bram_switch_0_bram_portb_rddata;
+  wire [14:0]bram_switch_0_bram_portc_addr;
+  wire bram_switch_0_bram_portc_clk;
+  wire bram_switch_0_bram_portc_we;
+  wire [31:0]bram_switch_0_bram_portc_wrdata;
+  wire clka_1;
+  wire [31:0]dina_1;
   wire led_o_1;
   wire processing_system7_0_FCLK_CLK0;
   wire [31:0]ps7_0_axi_periph_M00_AXI_ARADDR;
@@ -381,6 +390,7 @@ module BRAM2_imp_8ITUAE
   wire [3:0]ps7_0_axi_periph_M00_AXI_WSTRB;
   wire ps7_0_axi_periph_M00_AXI_WVALID;
   wire s00_axi_aresetn_1;
+  wire [0:0]wea_1;
 
   assign S_AXI_arready = ps7_0_axi_periph_M00_AXI_ARREADY;
   assign S_AXI_awready = ps7_0_axi_periph_M00_AXI_AWREADY;
@@ -390,12 +400,16 @@ module BRAM2_imp_8ITUAE
   assign S_AXI_rresp[1:0] = ps7_0_axi_periph_M00_AXI_RRESP;
   assign S_AXI_rvalid = ps7_0_axi_periph_M00_AXI_RVALID;
   assign S_AXI_wready = ps7_0_axi_periph_M00_AXI_WREADY;
+  assign addra_1 = addra[15:0];
   assign bram_portb_addr_1 = bram_portb_addr[15:0];
   assign bram_portb_clk_1 = bram_portb_clk;
   assign bram_portb_rddata[31:0] = bram_switch_0_bram_portb_rddata;
   assign bram_portb_rst_1 = bram_portb_rst;
   assign bram_portb_we_1 = bram_portb_we;
   assign bram_portb_wrdata_1 = bram_portb_wrdata[31:0];
+  assign clka_1 = clka;
+  assign dina_1 = dina[31:0];
+  assign douta[31:0] = blk_mem_gen_1_douta;
   assign led_o_1 = led_o;
   assign processing_system7_0_FCLK_CLK0 = s00_axi_aclk;
   assign ps7_0_axi_periph_M00_AXI_ARADDR = S_AXI_araddr[31:0];
@@ -410,6 +424,7 @@ module BRAM2_imp_8ITUAE
   assign ps7_0_axi_periph_M00_AXI_WSTRB = S_AXI_wstrb[3:0];
   assign ps7_0_axi_periph_M00_AXI_WVALID = S_AXI_wvalid;
   assign s00_axi_aresetn_1 = s00_axi_aresetn;
+  assign wea_1 = wea[0];
   system_axi_bram_reader_1_2 axi_bram_reader_1
        (.bram_porta_addr(axi_bram_reader_1_bram_porta_addr),
         .bram_porta_clk(axi_bram_reader_1_bram_porta_clk),
@@ -438,6 +453,18 @@ module BRAM2_imp_8ITUAE
         .s00_axi_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s00_axi_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .s00_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
+  system_blk_mem_gen_1_2 blk_mem_gen_1
+       (.addra(addra_1[14:0]),
+        .addrb(bram_switch_0_bram_portc_addr),
+        .clka(clka_1),
+        .clkb(bram_switch_0_bram_portc_clk),
+        .dina(dina_1),
+        .dinb(bram_switch_0_bram_portc_wrdata),
+        .douta(blk_mem_gen_1_douta),
+        .doutb(blk_mem_gen_1_doutb),
+        .ena(wea_1),
+        .wea(wea_1),
+        .web(bram_switch_0_bram_portc_we));
   system_bram_switch_0_2 bram_switch_0
        (.bram_porta_addr(axi_bram_reader_1_bram_porta_addr[14:0]),
         .bram_porta_clk(axi_bram_reader_1_bram_porta_clk),
@@ -451,7 +478,11 @@ module BRAM2_imp_8ITUAE
         .bram_portb_rst(bram_portb_rst_1),
         .bram_portb_we(bram_portb_we_1),
         .bram_portb_wrdata(bram_portb_wrdata_1),
-        .bram_portc_rddata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .bram_portc_addr(bram_switch_0_bram_portc_addr),
+        .bram_portc_clk(bram_switch_0_bram_portc_clk),
+        .bram_portc_rddata(blk_mem_gen_1_doutb),
+        .bram_portc_we(bram_switch_0_bram_portc_we),
+        .bram_portc_wrdata(bram_switch_0_bram_portc_wrdata),
         .switch(led_o_1));
 endmodule
 
@@ -2329,7 +2360,7 @@ module s00_couplers_imp_X5C1SS
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=62,numReposBlks=42,numNonXlnxBlks=6,numHierBlks=20,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=63,numReposBlks=43,numNonXlnxBlks=6,numHierBlks=20,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2821,7 +2852,7 @@ module system
         .user_reset(rst_Dout));
   system_drive_gpios_0_0 drive_gpios_0
        (.input_0(trigger_simulator_0_trig_cont_export),
-        .input_1(1'b0),
+        .input_1(trigger_simulator_1_trig),
         .input_2(1'b0),
         .input_3(1'b0),
         .output_0(drive_gpios_0_output_0),
@@ -2835,7 +2866,7 @@ module system
   system_drive_leds_0_0 drive_leds_0
        (.signal_0(level_detector_0_level_detected_0),
         .signal_1(level_detector_0_level_detected_1),
-        .signal_2(1'b0),
+        .signal_2(trigger_simulator_1_trig),
         .signal_3(1'b0),
         .signal_4(1'b0),
         .signal_5(1'b0),
