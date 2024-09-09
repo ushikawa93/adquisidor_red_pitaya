@@ -9,19 +9,17 @@ from red_pitaya_class import redP_handler
 from red_pitaya_class import TriggerMode
 import matplotlib.pyplot as plt
 import os
-import math
 
 
 ########### Configuración ##################
 
 set_bitstream = False; # Preferiblemente la primera vez nomas!
 graficar_respuesta = True;
-ciclos_a_mostrar = 4;
 ip = "192.168.1.102";
-frec = 200;
-N_ciclos_promediacion = 100;
+frec = 300000;
+N_ciclos_promediacion = 2048;
 modo_disparo = TriggerMode.DISPARO_NIVEL;
-nivel_disparo = 1500;
+nivel_disparo = 2000;
 nombre_archivo = "test"; 
 
 
@@ -48,13 +46,14 @@ print(rp.get_estado())
 rp.adquirir()
 data,metadata = rp.leer_archivo(data_path)
 div = (metadata[1]*metadata[2]/metadata[3]);
-muestras_x_ciclo = math.ceil(rp.get_frec_muestreo() / (  frec  ))
 
 data_ch_0 = [elemento / div for elemento in data[0]]
 data_ch_1 = [elemento / div for elemento in data[1]]
 
+muestras_x_ciclo = min(data[2])
+
 # Graficar opcionalmente
 if(graficar_respuesta):
-    plt.plot(data_ch_0[0:muestras_x_ciclo*ciclos_a_mostrar]);plt.grid();
-    plt.plot(data_ch_1[0:muestras_x_ciclo*ciclos_a_mostrar]);
+    plt.plot(data_ch_0[0:muestras_x_ciclo]);plt.grid();
+    plt.plot(data_ch_1[0:muestras_x_ciclo]);
     plt.show()

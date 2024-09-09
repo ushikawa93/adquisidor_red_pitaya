@@ -164,9 +164,15 @@ int main(int argc, char **argv)
 	// por algun motivo sino se leen mal...
 	uint32_t discard;
 	int i; 		
-	int32_t reads_chA [M-1];	
-	int32_t reads_chB [M-1];
-	int32_t reads_trigger_stop [TRIG_N-1];
+	int32_t* reads_chA = malloc((M) * sizeof(int32_t)); // Asignación dinámica de memoria
+	int32_t* reads_chB = malloc((M) * sizeof(int32_t)); // Asignación dinámica de memoria
+	int32_t* reads_trigger_stop = malloc((TRIG_N) * sizeof(int32_t)); // Asignación dinámica de memoria
+
+	// Inicializo los arreglos en 0
+	memset(reads_chA, 0, sizeof(reads_chA)); // Inicialización a ceros
+	memset(reads_chB, 0, sizeof(reads_chB)); // Inicialización a ceros
+	memset(reads_trigger_stop, 0, TRIG_N); // Inicialización a ceros
+
 	
 	for(i=1;i<M;i++)
 	{
@@ -181,7 +187,8 @@ int main(int argc, char **argv)
 		reads_chB[i-1] = *((int32_t *)(cfg + DATA_CH_B_ADDRESS - START_ADDRESS + 4*i ));
 	}	
 	
-	for(i=0;i<N_promC;i++)
+	
+	for(i=0;i<N_promC && i< TRIG_N;i++)
 	{
 		discard = *((int32_t *)(cfg+ TRIGGER_STOP_DATA_ADDRESS - START_ADDRESS + 4*i ));
 		reads_trigger_stop[i] = *((int32_t *)(cfg + TRIGGER_STOP_DATA_ADDRESS - START_ADDRESS + 4*i ));
@@ -190,6 +197,9 @@ int main(int argc, char **argv)
 	escribirArchivo(reads_chA,reads_chB,M-1,(float)125000000/K_sobremuestreo,N_promC,K_sobremuestreo,custom_pow(2,log2_divisor),reads_trigger_stop);
     
     munmap(cfg, sysconf(_SC_PAGESIZE));
+	free(reads_chA);
+	free(reads_chB);
+	free(reads_trigger_stop);
 
     return 0;
 }
@@ -218,7 +228,7 @@ void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, uint32_t
 	fprintf(archivo,"\n\n");
 	
 	// Escribir los contenidos del buffer en el archivo
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n ; i++) {
         fprintf(archivo, "%d", buffer_b[i]);
 
         // Si no es el último elemento, escribir una coma
@@ -230,13 +240,19 @@ void escribirArchivo(int32_t buffer_a[],int32_t buffer_b[], uint32_t n, uint32_t
 	fprintf(archivo,"\n\n");
 	
 	// Escribir los contenidos del buffer en el archivo
-    for (int i = 0; i < N; i++) {
-        fprintf(archivo, "%d", trigger_stop_indexes[i]);
+    for (int i = 0; i < N && i < TRIG_N; i++) {
 
-        // Si no es el último elemento, escribir una coma
-        if (i != N - 1) {
-            fprintf(archivo, ",");
-        }
+		if(trigger_stop_indexes[i]!=0)
+		{
+			fprintf(archivo, "%d", trigger_stop_indexes[i]);	
+
+			// Si no es el último elemento, escribir una coma
+			if ((i != N - 1) && (i != TRIG_N-1 )) {
+				fprintf(archivo, ",");
+        	}
+
+		}
+        
     }
 
     // Cerrar el archivo
