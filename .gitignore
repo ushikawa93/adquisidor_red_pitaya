@@ -1,0 +1,56 @@
+# Archivos temporales de Vivado
+*.jou
+*.log
+*.str
+*.pb
+*.xml
+*.wdb
+*.webtalk
+*.lck
+*.backup
+*.bak
+
+# Carpetas de build y temporales
+*_hw
+*_sim
+*.cache
+*.hw
+*.runs
+*.ip_user_files
+*.sdk
+*.checkpoint
+*.backup
+
+# Archivos de proyecto de Vivado que se regeneran
+*.xpr.lock
+*.xpr.backup
+
+# Archivos de reportes que se regeneran
+*.rpt
+*.summary
+*.html
+
+# Archivos de síntesis y bitstream
+*.ngc
+*.ngd
+*.ncd
+*.bit
+*.drc
+*.ltx
+
+# Archivos generados por IP
+*.vhdl~
+*.v~
+*.log
+*.syr
+
+# Archivos de simulación
+sim_*.dir/
+sim_*.wdb/
+*.vcd
+*.vpd
+
+# Archivos de editor
+*.swp
+*.swo
+*~
