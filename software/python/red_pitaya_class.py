@@ -1,11 +1,42 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 23 12:43:33 2023
 
-Python class to command the Red Pitaya
+################################################################################
+# ========================== RED_PITAYA_CLASS.PY ==============================
+# ==============================================================================
+# Clase Python para controlar la adquisición de datos en la FPGA Red Pitaya.
+#
+# Funcionalidad:
+#   - Conexión a la FPGA vía IP.
+#   - Configuración de parámetros de adquisición:
+#       * Frecuencia objetivo
+#       * Ciclos de promediación coherente
+#       * Modo de disparo y nivel de trigger
+#       * Threshold del ADC
+#   - Carga de bitstream en la FPGA (opcional).
+#   - Ejecución de adquisiciones y generación de archivos de datos.
+#   - Lectura de archivos adquiridos y extracción de metadatos.
+#
+# Componentes:
+#   - Clase TriggerMode: Enum para seleccionar modo de disparo.
+#   - Clase redP_handler: Encapsula todas las operaciones de configuración y adquisición.
+#
+# Métodos principales de redP_handler:
+#   - set_bitstream_in_fpga(): carga el bitstream en la FPGA.
+#   - set_frec_objetivo(frec): define la frecuencia objetivo de la señal.
+#   - set_prom_coherente(Nca): define los ciclos de promediación coherente.
+#   - set_trigger_mode(mode), set_trigger_level(level): configura el disparo.
+#   - set_threshold(value): define el nivel de threshold del ADC.
+#   - adquirir(): ejecuta la adquisición de datos y guarda en archivo.
+#   - get_estado(): devuelve el estado actual de la configuración.
+#   - leer_archivo(nombre_archivo): lee los datos y metadatos desde un archivo.
+#
+# Notas:
+#   - Equivalente a la funcionalidad del programa adquisidor_redp.cpp, pero en Python.
+#   - Requiere que los scripts de shell (set_bitstream.sh, set_adc_threshold.sh, adquirir.sh) 
+#     estén disponibles en el directorio "shell_scripts".
+#   - Compatible con Python 3.
+################################################################################
 
-@author: MatiOliva
-"""
 
 from math import log2
 from math import ceil

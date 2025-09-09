@@ -1,3 +1,52 @@
+// ============================================================================
+// ===================== ADQUISIDOR_REDP.CPP ==================================
+// ============================================================================
+// Programa en C++ para controlar la adquisición de datos en la FPGA Red Pitaya.
+// 
+// Este programa se comunica con la FPGA vía scripts y permite configurar:
+//   - Sobremuestreo y frecuencia de muestreo
+//   - Frecuencia del DAC
+//   - Ciclos de promediación coherente
+//   - Modo y nivel de disparo (trigger)
+//   - Umbral ADC para activar LED/GPIO
+//
+// Funcionalidades principales:
+//
+//   Clase adquisidor_redp:
+//     - set_bitstream_in_fpga()  : Carga el bitstream en la FPGA.
+//     - setTriggerMode(mode)     : Configura el modo de disparo (0 = continuo, 1 = nivel, 2 = externo).
+//     - setTriggerLevel(level)   : Configura el nivel de disparo.
+//     - setIP(ip)                : Cambia la dirección IP del dispositivo.
+//     - setSobremuestreo(K)      : Configura factor de sobremuestreo.
+//     - setPromCoherente(Nca)    : Configura ciclos de promediación coherente.
+//     - setFrecObjetivo(freq)    : Configura frecuencia objetivo de la señal.
+//     - setThreshold(value)      : Ajusta el umbral ADC en FPGA.
+//     - adquirir()               : Ejecuta la adquisición y guarda los datos en archivo.
+//     - getEstado()              : Retorna información de estado de la adquisición.
+//
+//   Clase Menu:
+//     - getMenu()                : Muestra el menú de interacción con el usuario.
+//
+// Uso:
+//
+//   - Ejecutar el programa y seguir el menú interactivo para configurar
+//     parámetros y realizar adquisiciones.
+//   - Se generan archivos de salida numerados automáticamente con los datos
+//     adquiridos de la FPGA.
+//
+// Notas:
+//
+//   - La frecuencia de muestreo efectiva se calcula como:
+//       F_muestreo = 125 MHz / factor_sobremuestreo
+//   - Cada adquisición ejecuta un script externo que se comunica con la FPGA
+//     usando la dirección IP configurada.
+//   - Los datos se guardan en archivos con nombre base configurable, numerados
+//     secuencialmente.
+//
+// ============================================================================
+
+
+
 #include <iostream>
 #include <sstream>
 #include <cmath>
@@ -23,7 +72,7 @@ private:
     int log2_divisor;
     string archivo_destino_base;
     int num_archivo;
-    int adc_threshold;  // La FPGA prende un LED y sube un GPIO cuando la se�al pasa este nivel
+    int adc_threshold;  // La FPGA prende un LED y sube un GPIO cuando la se�al pasa este nivel
 
     int checkLimits()
     {
@@ -83,7 +132,7 @@ public:
     adquisidor_redp(string ip_)
     {
         frecuencia_clock =  125000000;
-        tam_buffer = 30000; // En teoria deber�a andar hasta 32768 pero despues de 32000 empieza a hacer cosas raras...
+        tam_buffer = 30000; // En teoria deber�a andar hasta 32768 pero despues de 32000 empieza a hacer cosas raras...
         setFrecObjetivo(10); // Esto configura frec_objetivo, factor_sobremuestreo y frec_dac
         ciclos_promediacion = 1;
         trigger_mode = 2;   // 0 para disparo continuo, 1 para disparo por nivel, 2 para disparo externo
@@ -237,7 +286,7 @@ public:
           state << "Threshold del ADC: " << adc_threshold << " (Aproximadamente " << (float)adc_threshold/8192 << " mV)" <<endl;
           state << "Archivo de destino: " << getArchivoDestino() << endl;
           state << "Frecuencia de muestreo: " << getFrecMuestreo() << " (CLK:125 MHz / Sobremuesreo: " << factor_sobremuestreo << ")\n";
-          state << "Configurado para se�ales de: " << frec_obj << " Hz" << endl;
+          state << "Configurado para se�ales de: " << frec_obj << " Hz" << endl;
           state << "Modo de disparo: " << getModoDisparo() << endl;
           state << "Ciclos de promediacion coherente (Nca): " << ciclos_promediacion << endl;
 
@@ -256,7 +305,7 @@ public:
         std::stringstream menu;
         menu << " ------------------------------------------ " << endl;
         menu << "1) Cargar bistream en FPGA (Recordar hacerlo la 1ra vez)" << endl;
-        menu << "2) Cambiar valor de Threshold del ADC (Si la se�al est� arriba de este valor se prende un LED y se activa un GPIO)" << endl;
+        menu << "2) Cambiar valor de Threshold del ADC (Si la se�al est� arriba de este valor se prende un LED y se activa un GPIO)" << endl;
 
         menu << "3) Cambiar direccion IP del dispositivo" << endl;
         menu << "4) Cambiar archivo de destino" << endl;
@@ -319,7 +368,7 @@ int main()
             cout << "Ingrese la IP deseada(xxx.xxx.xxx.xxx)" <<endl;
             cin >> ip;
             if ( ! (adquisidor.setIP(ip))){
-                cout << "La cadena ingresada no es v�lida" << endl;
+                cout << "La cadena ingresada no es v�lida" << endl;
                 fflush(stdin);
                 getchar();
             }

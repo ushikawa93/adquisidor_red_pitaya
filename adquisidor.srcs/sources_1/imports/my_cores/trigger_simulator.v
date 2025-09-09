@@ -1,23 +1,28 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 23.06.2023 19:15:26
-// Design Name: 
-// Module Name: trigger_simulator
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Módulo: trigger_simulator
+//
+// Descripción:
+//   Este módulo genera señales de trigger según distintas modalidades:
+//     1. Disparo periódico cada M muestras (trigger continuo)
+//     2. Disparo cuando la señal supera un nivel definido (trigger por nivel)
+//     3. Disparo externo desde un puerto (trigger externo)
+//
+// Parámetros principales:
+//   - M_in                 : Número de muestras para trigger continuo
+//   - K_sobremuestreo_in   : Factor de sobre-muestreo para trigger por nivel
+//   - log2_div_in          : División por potencia de 2 para nivel
+//   - trigger_mode_in      : Selección del modo de trigger (0=continuo, 1=nivel, 2=externo)
+//   - trigger_level_in     : Nivel de disparo para el modo por nivel
+//
+// Puertos principales:
+//   clk, reset_n           : Reloj y reset del sistema
+//   data_in, data_valid    : Señal de entrada y validez de los datos
+//   trig_externo           : Señal de trigger externo
+//   trig_cont_export       : Salida del trigger continuo
+//   trig                   : Salida del trigger seleccionado según modo
 //////////////////////////////////////////////////////////////////////////////////
+
 
 
 module trigger_simulator
@@ -106,13 +111,13 @@ end
 
 
 // Segunda opcion de trigger
-// aca me fijo cuando la se�al pasa un nivel y ahi la disparo
+// aca me fijo cuando la se�al pasa un nivel y ahi la disparo
 reg trigger_nivel_reg;
 reg signed [31:0] data_in_reg;
 reg [31:0] counter_level;
 
-// Peque�a maquina de estados para evitar que dos trigger se habiliten muy juntos
-// esto podr�a pasar por ruido por ejemplo
+// Peque�a maquina de estados para evitar que dos trigger se habiliten muy juntos
+// esto podr�a pasar por ruido por ejemplo
 // por ahora lo soluciono asi capaz hay otro metodo mejor...
 reg [2:0] state;
 localparam idle=0,trigger_off=1;

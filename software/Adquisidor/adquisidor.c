@@ -1,15 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////
+// ========================= ADQUISIDOR.C ====================================
+// ============================================================================
+// Programa en C para configurar los parámetros de la FPGA y capturar medidas
+// de los canales ADC del Red Pitaya.
+//
+// Este programa debe ejecutarse en el microprocesador integrado de la FPGA.
+//
+// Uso desde la línea de comandos:
+//
+//   adquisidor FACTOR_SOBREMUESTREO CICLOS_PROMEDIADOS NOMBRE_ARCHIVO_SALIDA
+//             MAXIMO_BUFFER FREC_DAC TRIGGER_MODE TRIGGER_LEVEL LOG2_DIVISOR
+//
+// Descripción de parámetros:
+//
+//   FACTOR_SOBREMUESTREO  : Factor K de sobremuestreo, ajusta la frecuencia de muestreo.
+//   CICLOS_PROMEDIADOS    : Número de ciclos a promediar coherentemente.
+//   NOMBRE_ARCHIVO_SALIDA : Nombre del archivo donde se guardarán los datos.
+//   MAXIMO_BUFFER         : Cantidad de muestras por ciclo de señal (M).
+//   FREC_DAC              : Frecuencia deseada del DAC en Hz.
+//   TRIGGER_MODE          : Modo de disparo (0 = continuo, 1 = por nivel).
+//   TRIGGER_LEVEL         : Nivel de disparo para captura por trigger.
+//   LOG2_DIVISOR           : Divisor después del promedio lineal (2^n).
+//
+// Nota:
+//
+//   - La frecuencia de muestreo efectiva será:
+//       F_muestreo = 125 MHz / FACTOR_SOBREMUESTREO
+//   - El programa mapea la memoria de la FPGA para controlar ADCs, DAC,
+//     triggers y buffers de captura.
+//   - Los buffers de ambos canales y los índices de trigger se escriben
+//     en el archivo de salida.
+//
+// Funciones principales:
+//
+//   ResetFPGA()            : Resetea la FPGA.
+//   SetEnable()            : Activa el trigger / enable de adquisición.
+//   SetDacFrequency()      : Configura la frecuencia del DAC.
+//   SetSobremuestreo()     : Ajusta el factor de sobremuestreo K.
+//   SetM()                 : Configura la cantidad de muestras por ciclo.
+//   SetN_ca()              : Configura ciclos de promedio coherente.
+//   SetTriggerMode()       : Configura el modo de trigger.
+//   SetTriggerLevel()      : Configura el nivel de trigger.
+//   SetDivisor()           : Configura el divisor post-promedio.
+//   SetLevelToDetect()     : Configura el nivel para encender LED/GPIO.
+//   getFinish()            : Consulta si la adquisición terminó.
+//   escribirArchivo()      : Guarda los buffers capturados en archivo.
+//   custom_pow()           : Potencia entera (para divisores 2^n).
+//
+// ============================================================================
 
 
-///// ========================== ADQUISIDOR.C ============================= /////
-///// ===================================================================== /////
-///// Programa en c para setear los parametros de la FPGA y obtener medidas /////
-///// ===================================================================== /////
-/*
-	Debe ejecutarse en el micro de la FPGA, con la sintaxis:
-		-> adquisidor FACTOR_SOBREMUESTREO | CICLOS_PROMEDIADOS | NOMBRE_ARCHIVO_SALIDA | MAXIMO_BUFFER  | FREC_DAC | ADC_THRESHOLD
-	
-	La frecuencia de muestreo va a quedar 125MHz / K_sobremuestreo
-*/
 
 
 #include <stdio.h>

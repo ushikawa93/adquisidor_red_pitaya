@@ -1,3 +1,28 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Módulo: bram_writer
+//
+// Descripción:
+//   Este módulo escribe datos en una memoria BRAM a partir de una señal de entrada.
+//   - Permite registrar los datos válidos y escribirlos secuencialmente en la BRAM.
+//   - La escritura se realiza mientras 'enable' está activo.
+//   - Indica mediante 'finished' cuando se completó toda la memoria.
+//
+// Parámetros principales:
+//   DATA_WIDTH  : Ancho de los datos a escribir
+//   ADDR_WIDTH  : Ancho de las direcciones de la BRAM
+//   MEMORY_SIZE : Cantidad total de posiciones de memoria
+//
+// Puertos principales:
+//   clk          : Reloj del sistema
+//   reset_n      : Reset activo bajo
+//   enable       : Activa la escritura en la BRAM
+//   user_reset   : Reinicia el módulo manualmente
+//   data         : Datos de entrada a escribir
+//   data_valid   : Indica que los datos de entrada son válidos
+//   finished     : Señal que indica que se completó la escritura
+//   bram_porta_* : Señales de interfaz con la BRAM (reloj, dirección, datos, enable)
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module bram_writer
 #(

@@ -2,10 +2,10 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "system_N_prom_lineal_0",
-    "cell_name": "uP_control/log2_divisor",
+    "cell_name": "N_prom_lineal",
     "component_reference": "xilinx.com:ip:xlslice:1.0",
     "ip_revision": "2",
-    "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_N_prom_lineal_0",
+    "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_N_prom_lineal_0_1",
     "parameters": {
       "component_parameters": {
         "Component_Name": [ { "value": "system_N_prom_lineal_0", "resolve_type": "user", "usage": "all" } ],
@@ -38,7 +38,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
         "IPREVISION": [ { "value": "2" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_N_prom_lineal_0" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_N_prom_lineal_0_1" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2022.2" } ],

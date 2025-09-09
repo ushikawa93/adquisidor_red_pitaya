@@ -1,23 +1,20 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 08.08.2023 13:54:12
-// Design Name: 
-// Module Name: level_detector
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Módulo: level_detector
+//
+// Descripción:
+//   Este módulo detecta cuándo las señales de entrada superan un nivel definido.
+//   - Compara dos entradas de 14 bits con un nivel de referencia de 32 bits.
+//   - Genera señales de salida que indican si se ha superado el nivel.
+//
+// Puertos principales:
+//   clk, reset_n        : Reloj y reset del sistema
+//   level_to_detect     : Nivel de referencia a detectar
+//   data_in_1, data_in_2: Señales de entrada a monitorear
+//   data_in_1_valid, data_in_2_valid: Indican que las entradas son válidas
+//   level_detected_0, level_detected_1: Salidas que indican detección del nivel
 //////////////////////////////////////////////////////////////////////////////////
+
 
 
 module level_detector(

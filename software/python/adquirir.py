@@ -1,9 +1,39 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 23 12:47:18 2023
 
-@author: MatiOliva
-"""
+################################################################################
+# ======================== ADQUISIDOR_REDP.PY ==================================
+# ==============================================================================
+# Script en Python para controlar y adquirir datos de una FPGA Red Pitaya.
+#
+# Funcionalidad:
+#   - Conecta con la FPGA vía IP usando la clase redP_handler.
+#   - Configura parámetros de adquisición: frecuencia, ciclos de promediación,
+#     modo de disparo y nivel de trigger.
+#   - Opcionalmente carga el bitstream en la FPGA.
+#   - Ejecuta la adquisición y guarda los datos en archivos.
+#   - Permite leer los datos adquiridos y graficar la respuesta de los canales.
+#
+# Configuración:
+#   - set_bitstream       : Indica si se debe cargar el bitstream (recomendado solo la primera vez).
+#   - graficar_respuesta  : Muestra las señales adquiridas mediante matplotlib.
+#   - ip                  : Dirección IP de la FPGA.
+#   - frec                : Frecuencia objetivo de la señal medida (Hz).
+#   - N_ciclos_promediacion: Número de ciclos para la promediación coherente.
+#   - modo_disparo        : Modo de disparo (TriggerMode.DISPARO_CONTINUO, _NIVEL o _EXTERNO).
+#   - nivel_disparo       : Nivel de disparo del trigger.
+#   - nombre_archivo      : Base para el nombre del archivo de salida.
+#
+# Uso:
+#   - Configurar los parámetros en la sección "Configuración".
+#   - Ejecutar el script: python adquisidor_redp.py
+#   - Los datos se guardan en el directorio 'datos_adquiridos' y se pueden graficar.
+#
+# Notas:
+#   - Este script realiza la misma función que adquisidor_redp.cpp pero usando Python.
+#   - Requiere la clase redP_handler definida en red_pitaya_class.py.
+#   - Es compatible con Python 3 y depende de matplotlib para la visualización.
+################################################################################
+
 
 from red_pitaya_class import redP_handler
 from red_pitaya_class import TriggerMode

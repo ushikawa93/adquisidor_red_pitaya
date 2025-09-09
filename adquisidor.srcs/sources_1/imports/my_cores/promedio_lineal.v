@@ -1,3 +1,23 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Módulo: promedio_lineal
+//
+// Descripción:
+//   Este módulo calcula un promedio lineal de las señales de entrada.
+//   - Suma N muestras válidas y luego divide por una potencia de 2 (log2_divisor).
+//   - Genera una salida válida cuando el promedio está listo.
+//
+// Parámetros principales:
+//   DATA_IN_WIDTH           : Ancho de los datos de entrada
+//   DATA_OUT_WIDTH          : Ancho de los datos de salida
+//   N_AVGD_SAMPLES_WIDTH    : Ancho de los registros que definen N y log2_divisor
+//
+// Puertos principales:
+//   clk, reset_n          : Reloj y reset del sistema
+//   data, data_valid       : Datos de entrada y su validez
+//   data_out, data_out_valid: Promedio calculado y su validez
+//   log2_divisor           : Potencia de 2 para dividir la suma de muestras
+//   N_averaged_samples     : Número de muestras para promediar
+//////////////////////////////////////////////////////////////////////////////////
 
 module promedio_lineal
 #(

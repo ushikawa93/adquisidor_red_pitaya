@@ -5,7 +5,7 @@
     "cell_name": "drive_leds_0",
     "component_reference": "xilinx.com:module_ref:drive_leds:1.0",
     "ip_revision": "1",
-    "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_drive_leds_0_0",
+    "gen_directory": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_drive_leds_0_0_1",
     "parameters": {
       "component_parameters": {
         "Component_Name": [ { "value": "system_drive_leds_0_0", "resolve_type": "user", "usage": "all" } ]
@@ -29,7 +29,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
         "IPREVISION": [ { "value": "1" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_drive_leds_0_0" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../adquisidor.gen/sources_1/bd/system/ip/system_drive_leds_0_0_1" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2022.2" } ],

@@ -1,3 +1,26 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Módulo: data_stream
+//
+// Descripción:
+//   Este módulo genera un flujo de datos secuencial de 0 a M-1.
+//   - Produce un valor por ciclo de reloj mientras 'enable' está activo.
+//   - Reinicia la cuenta al alcanzar M.
+//   - Señala mediante 'data_out_valid' cuándo los datos de salida son válidos.
+//
+// Parámetros principales:
+//   DATA_WIDTH : Ancho de los datos de salida
+//   M_WIDTH    : Ancho del registro que define el máximo valor M
+//   M          : Valor máximo del conteo
+//
+// Puertos principales:
+//   clk, reset_n : Reloj y reset del sistema
+//   enable       : Activa la generación de datos
+//   M_in         : Entrada que define el valor máximo de conteo
+//   user_reset   : Reinicio manual
+//   data_out     : Valor de salida generado
+//   data_out_valid: Señal que indica que 'data_out' es válido
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module data_stream
 #(

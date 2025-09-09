@@ -1,23 +1,16 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 14.08.2023 15:19:53
-// Design Name: 
-// Module Name: drive_leds
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Módulo: drive_leds
+//
+// Descripción:
+//   Este módulo agrupa 8 señales de entrada individuales en un bus de 8 bits
+//   para controlar LEDs de forma sencilla.
+//
+// Puertos principales:
+//   signal_0..7 : Señales de entrada individuales
+//   signal_out  : Bus de 8 bits que representa el estado de los LEDs
 //////////////////////////////////////////////////////////////////////////////////
+
 
 
 module drive_leds(

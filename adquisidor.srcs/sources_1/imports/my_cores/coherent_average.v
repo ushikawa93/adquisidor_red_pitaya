@@ -1,3 +1,34 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Módulo: coherent_average
+//
+// Descripción:
+//   Este módulo realiza un promedio coherente de señales de entrada utilizando BRAM.
+//   - Recibe datos de entrada válidos y calcula un promedio sumando con valores previos.
+//   - Controla el flujo mediante un trigger y distintos estados internos.
+//   - Guarda los índices finales de cada ciclo de promediación en una BRAM adicional.
+//   - Indica mediante 'finished' cuando se completan todos los ciclos de promediación.
+//
+// Parámetros principales:
+//   DATA_WIDTH      : Ancho de los datos de entrada/salida
+//   ADDR_WIDTH      : Ancho de la dirección de las BRAM
+//   N_CA_WIDTH      : Cantidad de ciclos de promediación coherente
+//   RAM_SIZE        : Tamaño de la BRAM principal
+//   M_WIDTH         : Ancho auxiliar para operaciones internas
+//   INDICES_ADDR    : Ancho de la dirección de la BRAM de índices
+//
+// Puertos principales:
+//   clk, reset_n    : Reloj y reset del sistema
+//   user_reset      : Reinicio manual del módulo
+//   trigger         : Señal para iniciar el promedio coherente
+//   data, data_valid: Datos de entrada a promediar
+//   finished        : Señal que indica que se completó el promedio coherente
+//   N_ca_in         : Número de ciclos de promedio coherente
+//   N_prom_lineal_in: Número de muestras para promedio lineal
+//   bram_porta_*    : Interfaz BRAM para escribir datos
+//   bram_portb_*    : Interfaz BRAM para leer datos
+//   bram_index_*    : BRAM para guardar índices finales de cada ciclo
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module coherent_average
 #(
@@ -79,7 +110,7 @@ reg [N_CA_WIDTH-1:0] N_ca_reg;
 reg [N_CA_WIDTH-1:0] N_prom_lineal_reg;
     always @ (posedge clk) N_prom_lineal_reg <= N_prom_lineal_in;
     
-// Deteccion de flanco en la se�al de trigger
+// Deteccion de flanco en la se�al de trigger
 wire flanco_trigger;
 reg trigger_reg,data_valid_reg;
 
@@ -240,7 +271,7 @@ begin
                 wr_enable_3 <= wr_enable_2;
                 index_4 <= index_3;  
                 
-                // Me llega el flanco y dejo de escribir.. deber�a en realidad escribir un par de muestras mas (terminar el pipeline...)
+                // Me llega el flanco y dejo de escribir.. deber�a en realidad escribir un par de muestras mas (terminar el pipeline...)
                 //state <=  (flanco_trigger )? (( averaged_cycles == N_ca_reg )? finish : wait_for_trigger) : calculate ;        
                 state <=  (flanco_trigger )? save_last_index : calculate ;   
           end

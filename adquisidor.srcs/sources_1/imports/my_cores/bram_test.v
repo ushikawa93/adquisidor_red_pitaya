@@ -1,5 +1,31 @@
-`timescale 1 ns / 1 ps
+//////////////////////////////////////////////////////////////////////////////////
+// Módulo: bram_test_core
+//
+// Descripción:
+//   Este módulo prueba la escritura y lectura de una memoria BRAM.
+//   - Permite limpiar la BRAM, esperar un trigger y luego escribir valores de prueba.
+//   - Genera una señal 'finished' cuando se completan todas las operaciones.
+//   - Se puede reiniciar manualmente mediante 'user_reset'.
+//
+// Parámetros principales:
+//   AXIS_TDATA_WIDTH : Ancho de datos de entrada/salida (AXIS)
+//   BRAM_DATA_WIDTH  : Ancho de datos de la BRAM
+//   BRAM_ADDR_WIDTH  : Ancho de la dirección de la BRAM
+//   nsamples         : Número de muestras a escribir en cada operación
+//   step             : Incremento aplicado a los datos de prueba
+//
+// Puertos principales:
+//   aclk        : Reloj del sistema
+//   aresetn     : Reset activo bajo
+//   trig        : Señal para iniciar la escritura de prueba
+//   user_reset  : Reinicia manualmente el módulo
+//   finished    : Indica que la operación de prueba terminó
+//   test_value  : Valor de prueba que se escribe en la BRAM
+//   bram_porta_*: Señales de interfaz con la BRAM (dirección, datos, reloj, enable)
+//////////////////////////////////////////////////////////////////////////////////
 
+
+`timescale 1 ns / 1 ps
 
 // Solo falta arreglar que en el primer address no escribe bien...
 
