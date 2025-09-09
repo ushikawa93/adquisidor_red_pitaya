@@ -1,48 +1,26 @@
-# Archivos temporales de Vivado
-*.jou
+# =========================================
+# Archivos de cache, logs y temporales
+# =========================================
+*.cache
+*.runs
+*.hw
+*.backup
 *.log
+*.jou
 *.str
 *.pb
-*.xml
-*.wdb
 *.webtalk
-*.lck
-*.backup
-*.bak
 
-# Carpetas de build y temporales
-*_hw
-*_sim
-*.cache
-*.hw
-*.runs
-*.ip_user_files
-*.sdk
-*.checkpoint
-*.backup
-
-# Archivos de proyecto de Vivado que se regeneran
-*.xpr.lock
-*.xpr.backup
-
-# Archivos de reportes que se regeneran
-*.rpt
-*.summary
-*.html
-
-# Archivos de síntesis y bitstream
+# Bitstreams y archivos de implementación
+*.bit
 *.ngc
 *.ngd
 *.ncd
-*.bit
 *.drc
 *.ltx
-
-# Archivos generados por IP
-*.vhdl~
-*.v~
-*.log
-*.syr
+*.summary
+*.rpt
+*.html
 
 # Archivos de simulación
 sim_*.dir/
@@ -54,3 +32,26 @@ sim_*.wdb/
 *.swp
 *.swo
 *~
+
+# =========================================
+# Fuentes, constraints y scripts
+# Nunca ignorar:
+# - Sources propios (.v, .vhdl)
+# - Constraints (.xdc)
+# - Scripts .tcl
+# - IP generados que Vivado necesita
+# =========================================
+!src/**/*.v
+!src/**/*.vhdl
+!src/**/*.xdc
+!*.tcl
+
+# =========================================
+# IP personalizado / Generated Sources
+# No ignorar carpetas necesarias para que Vivado reconozca los IP
+# =========================================
+!adquisidor.gen/sources_1/ip/**
+!adquisidor.gen/sources_1/bd/**
+!adquisidor.gen/sources_1/ip/*/hw/**
+!adquisidor.gen/sources_1/ip/*/cache/**
+!user_ip/**
