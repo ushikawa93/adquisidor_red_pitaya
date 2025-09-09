@@ -33,6 +33,9 @@ sim_*.wdb/
 *.swo
 *~
 
+# Archivos temporales generales
+.tmp/
+
 # =========================================
 # Fuentes, constraints y scripts
 # Nunca ignorar:
