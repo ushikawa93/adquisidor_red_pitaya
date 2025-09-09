@@ -34,7 +34,7 @@ sim_*.wdb/
 *~
 
 # Archivos temporales generales
-.adquisidor.tmp/
+*.tmp/
 
 # =========================================
 # Fuentes, constraints y scripts
