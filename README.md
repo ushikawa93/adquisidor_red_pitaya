@@ -46,6 +46,8 @@ Este wrapper se genera automáticamente al exportar el Block Design (`.bd`) y no
 
 Se proporcionan **herramientas en C++ y Python** para controlar la adquisición desde un computador host conectado por SSH a la Red Pitaya.
 
+Para que se puedan utilizar correctamente los scripts la FPGA debe estar cargada con el bitream "adquisidor_ca.bit", disponible en la carpeta "bitstreams" de software. También puede compilarse todo el Hardware con Vivado y utilizar el bitsream generado.
+
 ### C++ / .NET
 
 - Funciones para interactuar con la base de datos local de vehículos, equipos y baterías.
