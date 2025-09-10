@@ -4,7 +4,7 @@ En esta carpeta hay IPs (algunos propios y otros prestados) que implementan los 
 
 ## Estructura de la carpeta:
 
-- utils_1: Carpeta auxiliar con datos que necesita Vivado para geenrar el Block Design.
+- utils_1: Carpeta auxiliar con datos que necesita Vivado para generar el Block Design.
 
 - user_ip:
   - my_cores: IP propia escrita en Verilog para cumplir distintas funcionalidades

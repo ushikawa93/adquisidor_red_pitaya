@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Mon Sep  9 02:34:39 2024
+//Date        : Wed Sep 10 01:53:08 2025
 //Host        : DESKTOP-4F847D8 running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -2360,7 +2360,7 @@ module s00_couplers_imp_X5C1SS
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=63,numReposBlks=43,numNonXlnxBlks=6,numHierBlks=20,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_board_cnt=4,da_clkrst_cnt=5,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
+(* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=63,numReposBlks=43,numNonXlnxBlks=6,numHierBlks=20,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,synth_mode=Global}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (DDR_addr,
     DDR_ba,
@@ -2857,7 +2857,7 @@ module system
         .input_3(1'b0),
         .output_0(drive_gpios_0_output_0),
         .signal_export(exp_n_tri_io[7:0]));
-  system_drive_gpios_0_1 drive_gpios_1
+  system_drive_gpios_1_0 drive_gpios_1
        (.input_0(level_detector_0_level_detected_0),
         .input_1(level_detector_0_level_detected_1),
         .input_2(1'b0),
@@ -4852,7 +4852,7 @@ module trigger_indexes_mem_imp_1DP13CI
         .s00_axi_wready(uP_M08_AXI_WREADY),
         .s00_axi_wstrb(uP_M08_AXI_WSTRB),
         .s00_axi_wvalid(uP_M08_AXI_WVALID));
-  system_blk_mem_gen_0_1 finish_indexes
+  system_finish_indexes_0 finish_indexes
        (.addra({1'b0,1'b0,1'b0,Procesamiento_bram_index_addr}),
         .addrb(axi_bram_reader_0_BRAM_PORTA_ADDR),
         .clka(Procesamiento_bram_index_clk),
@@ -5334,7 +5334,7 @@ module uP_control_imp_12V0CNG
   assign ps7_0_axi_periph_M03_AXI_WSTRB = S_AXI1_wstrb[3:0];
   assign ps7_0_axi_periph_M03_AXI_WVALID = S_AXI1_wvalid[0];
   assign rst_ps7_0_125M_peripheral_aresetn = s_axi_aresetn;
-  system_axi_gpio_0_0 Control_and_Nca
+  system_Control_and_Nca_1 Control_and_Nca
        (.gpio2_io_i(Net2),
         .gpio2_io_o(Net2),
         .gpio_io_i(Net),
@@ -5358,7 +5358,7 @@ module uP_control_imp_12V0CNG
         .s_axi_wready(ps7_0_axi_periph_M01_AXI_WREADY),
         .s_axi_wstrb(ps7_0_axi_periph_M01_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M01_AXI_WVALID));
-  system_axi_gpio_0_1 DAC_and_M
+  system_DAC_and_M_0 DAC_and_M
        (.gpio2_io_i(Net3),
         .gpio2_io_o(Net3),
         .gpio_io_i(Net1),
@@ -5382,7 +5382,7 @@ module uP_control_imp_12V0CNG
         .s_axi_wready(ps7_0_axi_periph_M03_AXI_WREADY),
         .s_axi_wstrb(ps7_0_axi_periph_M03_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M03_AXI_WVALID));
-  system_axi_gpio_0_2 K_and_log2div
+  system_K_and_log2div_0 K_and_log2div
        (.gpio2_io_i(Net6),
         .gpio2_io_o(Net6),
         .gpio_io_i(Net4),
@@ -5429,13 +5429,13 @@ module uP_control_imp_12V0CNG
         .s_axi_wready(S_AXI5_1_WREADY),
         .s_axi_wstrb(S_AXI5_1_WSTRB),
         .s_axi_wvalid(S_AXI5_1_WVALID));
-  system_xlslice_0_3 M
+  system_M_0 M
        (.Din(Net3),
         .Dout(M_Dout));
-  system_xlslice_0_2 N_promC
+  system_N_promC_0 N_promC
        (.Din(Net2),
         .Dout(xlslice_0_Dout));
-  system_xlslice_0_1 N_prom_lineal
+  system_N_prom_lineal_1 N_prom_lineal
        (.Din(Net4),
         .Dout(N_prom_lineal_Dout));
   system_Control_and_Nca_0 Trigger
@@ -5462,10 +5462,10 @@ module uP_control_imp_12V0CNG
         .s_axi_wready(S_AXI4_1_WREADY),
         .s_axi_wstrb(S_AXI4_1_WSTRB),
         .s_axi_wvalid(S_AXI4_1_WVALID));
-  system_xlslice_0_0 enable
+  system_enable_0 enable
        (.Din(Net),
         .Dout(trig_Dout));
-  system_axi_gpio_1_0 finish
+  system_finish_0 finish
        (.gpio_io_i(coherent_average_0_finished),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M02_AXI_ARADDR[8:0]),
@@ -5489,13 +5489,13 @@ module uP_control_imp_12V0CNG
   system_N_prom_lineal_0 log2_divisor
        (.Din(Net6),
         .Dout(log2_divisor_Dout));
-  system_xlslice_1_0 rst
+  system_rst_0 rst
        (.Din(Net),
         .Dout(rst_Dout));
-  system_xlslice_0_5 trigger_level
+  system_trigger_level_0 trigger_level
        (.Din(Net5),
         .Dout(trigger_level_Dout));
-  system_xlslice_0_4 trigger_mode
+  system_trigger_mode_0 trigger_mode
        (.Din(Trigger_gpio_io_o),
         .Dout(trigger_mode_Dout));
 endmodule
